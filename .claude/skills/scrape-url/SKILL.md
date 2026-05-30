@@ -22,6 +22,7 @@ Scrape a URL into a clean Markdown file, discover same-domain links, and let you
 - `--cookies <cookie-string>` — inject session cookies for paywalled/login-protected sites (optional)
   - Format: `name1=value1;name2=value2` (semicolon-separated)
   - Typically: a WordPress `wordpress_logged_in_*` cookie + any Cloudflare `cf_clearance` cookie
+- `--force` — overwrite even if URL exists in registry (use to refresh stale content)
 
 ---
 
@@ -43,6 +44,44 @@ Paywall markers to detect in scraped content:
 - `"Access the full article"`
 - `"Login"` appearing as a heading mid-article
 - Content that abruptly ends after 1-2 sections followed by a cookie banner
+- **Silent truncation**: page metadata says "X min read" but scraped content is far too short (e.g. "10 min read" → fewer than 400 words = truncated)
+- **Key Takeaways trap**: content ends with a "Key Takeaways" section immediately after a short summary with no detailed body sections in between — this is the SAFe-style free preview pattern
+
+---
+
+### Phase 0b — Duplicate check (registry)
+
+Before scraping any URL, check `_meta/scrape-registry.json`:
+
+1. Read `_meta/scrape-registry.json`. If the file doesn't exist yet, create it as `{}`.
+2. If the URL is already in the registry AND `--force` was NOT passed:
+   - Report: `⏭ Already scraped: <url> (slug: <slug>, date: <scraped>, words: ~<words>)`
+   - Ask the user: **skip** (default), **re-scrape** (refresh), or **show existing entry**?
+   - If skip → do not scrape; move on.
+   - If re-scrape → proceed but overwrite both the file and registry entry.
+3. If the URL is NOT in the registry → proceed to Phase 1.
+
+**Registry format** (`_meta/scrape-registry.json`):
+```json
+{
+  "https://example.com/article": {
+    "slug": "example_com_article.md",
+    "scraped": "YYYY-MM-DD",
+    "words": 1200,
+    "authenticated": false,
+    "ingested": false
+  }
+}
+```
+
+**After every successful save**, update the registry:
+- Add or update the entry for the URL
+- Set `scraped` to today's date
+- Set `words` to actual word count
+- Set `authenticated: true` if cookies were used
+- `ingested` stays `false` until the wiki ingestion pipeline updates it
+
+**Note:** `registry.json` must NEVER be deleted when clearing `_raw/` — it is the permanent duplicate-prevention record.
 
 ---
 
@@ -59,7 +98,9 @@ Paywall markers to detect in scraped content:
    - Examples:
      - `https://docs.anthropic.com/en/overview` → `docs_anthropic_com_en_overview.md`
      - `https://framework.scaledagile.com/#big-picture` → `framework_scaledagile_com_big-picture.md`
-3. Check if the output file already exists. If yes, tell the user and ask: overwrite, skip, or rename?
+3. Check for duplicates (two-step):
+   a. **Registry check** (Phase 0b) — already done above.
+   b. **File check** — if the output file already exists on disk AND `--force` was not passed, ask: overwrite, skip, or rename?
 4. Call `firecrawl_scrape` with:
    - `url`: the target URL
    - `formats`: `["markdown"]`
@@ -77,6 +118,44 @@ Paywall markers to detect in scraped content:
    ```
 8. Write the file to `<output>/<slug>.md`.
 9. Confirm: `Saved: <output>/<slug>.md (~<word count> words)`
+
+---
+
+### Phase 1a — Validate scraped content (mandatory)
+
+After every scrape — unauthenticated or authenticated — run all validation checks before saving. **Never save a file that fails validation without flagging it.**
+
+**Check 1 — Hard paywall markers** (fail immediately):
+- Content contains `"Log in to continue reading"` or `"Access the full article"` or `"Login"` as a heading → FAIL
+
+**Check 2 — Silent truncation (Key Takeaways trap)**:
+- Content contains `"Key Takeaways"` AND the total word count is fewer than 300 words → FAIL
+- Rationale: legitimate articles with Key Takeaways sections have substantial body content before them; a preview-only article jumps straight from a short summary to Key Takeaways
+
+**Check 3 — Reading time mismatch**:
+- If the page metadata includes `twitter:data1` or similar "Est. reading time" field showing "X minutes":
+  - "3 min" → expect at least 450 words
+  - "5 min" → expect at least 750 words
+  - "10 min" → expect at least 1500 words
+  - "15 min" → expect at least 2250 words
+- If actual word count is less than 50% of the expected minimum → FAIL
+
+**Check 4 — Bare minimum length**:
+- Any article shorter than 100 words (excluding frontmatter) is suspicious → WARN and ask user to verify
+
+**On validation FAIL:**
+1. Do NOT save the file (or if overwriting, do not overwrite the existing file)
+2. Report: `⚠️ Truncated: <url> — <reason>`
+3. If `--cookies` was provided → automatically switch to Phase 1b (authenticated scrape) and re-validate
+4. If no cookies provided → add to a "needs-auth" list and report at the end:
+   ```
+   Auth needed (re-run with --cookies):
+     - https://example.com/article-1
+     - https://example.com/article-2
+   ```
+
+**On validation WARN (bare minimum):**
+- Save the file but add `note: content may be incomplete — verify manually` to frontmatter.
 
 ---
 
@@ -202,19 +281,27 @@ process.stdout.write(art);
       Saved:        <N> files to <output>/
       Skipped:      <N> (already existed)
       Failed:       <N>
-      Auth-needed:  <N> (paywalled — re-run with --cookies)
+      Auth-needed:  <N> (truncated — re-run with --cookies)
+      Warnings:     <N> (saved but flagged for manual review)
 
     Files written:
-      - example_com_overview.md
-      - example_com_quickstart.md
+      - example_com_overview.md  (~1200 words) ✅
+      - example_com_quickstart.md  (~800 words) ✅
       ...
+
+    Needs auth (truncated, not saved):
+      - https://example.com/gated-article
     ```
 
 ---
 
 ## Rules
 
+- **Registry is permanent** — always read `_meta/scrape-registry.json` before scraping and always write to it after saving. Never delete `registry.json` when clearing `_raw/` files — it is the long-term duplicate prevention record.
+- **`--force` overrides registry** — use only when intentionally refreshing stale content.
 - **Never summarize** — write the full scraped text. `onlyMainContent: true` handles stripping nav/menus; do not truncate or condense further.
+- **Always validate before saving** — run all Phase 1a checks on every scrape result, unauthenticated or authenticated. A file must pass validation before it is written.
+- **Never save silently truncated content** — if validation fails and no cookies are available, report it rather than saving a partial file.
 - **Never overwrite silently** — always ask the user before overwriting an existing file.
 - **Slug uniqueness** — if two URLs produce the same slug, append `_2`, `_3`, etc.
 - **Collapse underscores** — consecutive underscores in slugs (from `/#anchor`) should be collapsed to one.

@@ -22,7 +22,11 @@
       "mcp__firecrawl__firecrawl_interact",
       "Bash(git -C \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" status)",
       "Bash(git init *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git -C \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" remote set-url origin https://github.com/DrewMV/claude-ai-os.git)",
+      "Bash(git -C \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" remote -v)",
+      "Bash(find \"/mnt/c/Users/manuel.b.vazquez/Documents/Claude AI OS/_raw\" -name \"*.md\" | wc -l)"
     ]
   }
 }
