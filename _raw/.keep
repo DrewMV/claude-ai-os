@@ -1,0 +1,3 @@
+Drop raw sources here for ingestion. Supported formats: markdown, PDF, plain text, URLs (as .txt files), chat exports, meeting transcripts.
+
+Run /wiki-ingest to process files in this folder. Processed files are promoted to wiki pages and removed from _raw/.

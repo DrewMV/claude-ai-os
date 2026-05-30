@@ -1,0 +1,193 @@
+{
+  "version": "1.0",
+  "vault": "C:\\Users\\manuel.b.vazquez\\Documents\\Claude AI OS",
+  "sources": {
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez\\162bf4c6-3c21-4c94-87bb-5f9646406f38.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 1496576,
+      "modified_at": "2026-05-28T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "servicenow",
+      "pages_created": ["Workspaces/Work/Projects/ServiceNow/servicenow-analytics.md"],
+      "pages_updated": []
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez\\46c8f0ef-5390-41bc-828f-5f40b187b0ab.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 1499750,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "python-automation",
+      "pages_created": ["Workspaces/Work/Projects/Python-Automation/python-document-automation.md"],
+      "pages_updated": []
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez\\66fafee5-1111-4894-9e76-e6a90fcd6d18.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 1521843,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "servicenow",
+      "pages_created": [],
+      "pages_updated": ["Workspaces/Work/Projects/ServiceNow/servicenow-analytics.md"]
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez\\87b48f7e-a616-48e5-a429-774cb9cbe775.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 1575194,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "python-automation",
+      "pages_created": [],
+      "pages_updated": ["Workspaces/Work/Projects/Python-Automation/python-document-automation.md"]
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez\\7b9181eb-5042-4829-a4b8-8b0387811a99.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 52531,
+      "modified_at": "2026-05-28T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "general",
+      "pages_created": [],
+      "pages_updated": []
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez\\92be87d8-fa34-438f-b031-3a58a7b7f967.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 54067,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "mcp-config",
+      "pages_created": ["Workspaces/Work/mcp-server-configuration.md"],
+      "pages_updated": []
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez\\a4bdb159-b88d-453f-876d-3e0483b721db.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 184627,
+      "modified_at": "2026-05-28T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "servicenow",
+      "pages_created": ["Workspaces/Work/Projects/ServiceNow/cmdb-governance-roadmap.md"],
+      "pages_updated": []
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez\\d296db29-decd-4b3e-824d-d0ab4b76d807.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 71270,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "mcp-config",
+      "pages_created": [],
+      "pages_updated": ["Workspaces/Work/mcp-server-configuration.md"]
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez-Claude-AI\\0058b292-c8b7-49fb-a7f4-6327e1b650c8.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 7275725,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "mcp-config",
+      "pages_created": [],
+      "pages_updated": ["Workspaces/Work/mcp-server-configuration.md"]
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez-Claude-AI\\0fc8046e-6fc6-45d3-935a-61bafccd0bc4.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 17920,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "mcp-config",
+      "pages_created": [],
+      "pages_updated": ["Workspaces/Work/mcp-server-configuration.md"]
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez-Claude-AI\\2eca5452-a834-41e3-b052-439da563a573.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 184013,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "mcp-config",
+      "pages_created": [],
+      "pages_updated": ["Workspaces/Work/mcp-server-configuration.md"]
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez-Claude-AI\\38db054e-5029-4a13-8347-0e10feb63ec7.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 115098,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "mcp-config",
+      "pages_created": [],
+      "pages_updated": ["Workspaces/Work/mcp-server-configuration.md"]
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez-Claude-AI\\9fe027c2-0015-4836-8dae-b41a2b5727da.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 153010,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "mcp-config",
+      "pages_created": [],
+      "pages_updated": ["Workspaces/Work/mcp-server-configuration.md"]
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez-Documents-Claude-AI-OS\\52ead0de-148f-4375-8f29-f9c3f12df8f9.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 247706,
+      "modified_at": "2026-05-30T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "claude-ai-os",
+      "pages_created": [],
+      "pages_updated": []
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez-Documents-Claude-AI-OS\\85110ff1-8f03-4ce6-99f1-d5479dd2cb0d.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 607923,
+      "modified_at": "2026-05-30T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "claude-ai-os",
+      "pages_created": ["Workspaces/Research/Projects/Claude-AI-OS-Design/claude-ai-os-architecture.md"],
+      "pages_updated": []
+    },
+    "C:\\Users\\manuel.b.vazquez\\.claude\\projects\\C--Users-manuel-b-vazquez-Documents-Claude-OS-Claude-OS\\73491e34-f6d1-43d9-b8d9-0a52bfd5203b.jsonl": {
+      "ingested_at": "2026-05-30T00:00:00Z",
+      "size_bytes": 27443,
+      "modified_at": "2026-05-29T00:00:00Z",
+      "source_type": "claude_conversation",
+      "project": "obsidian-git",
+      "pages_created": ["Workspaces/Research/Projects/Claude-AI-OS-Design/obsidian-git-sync.md"],
+      "pages_updated": []
+    }
+  },
+  "projects": {
+    "servicenow": {
+      "source_path": "~/.claude/projects/C--Users-manuel-b-vazquez",
+      "vault_path": "Workspaces/Work/Projects/ServiceNow",
+      "last_ingested": "2026-05-30T00:00:00Z",
+      "conversations_ingested": 3,
+      "conversations_total": 3
+    },
+    "python-automation": {
+      "source_path": "~/.claude/projects/C--Users-manuel-b-vazquez",
+      "vault_path": "Workspaces/Work/Projects/Python-Automation",
+      "last_ingested": "2026-05-30T00:00:00Z",
+      "conversations_ingested": 2,
+      "conversations_total": 2
+    },
+    "mcp-config": {
+      "source_path": "~/.claude/projects/C--Users-manuel-b-vazquez and C--Users-manuel-b-vazquez-Claude-AI",
+      "vault_path": "Workspaces/Work",
+      "last_ingested": "2026-05-30T00:00:00Z",
+      "conversations_ingested": 7,
+      "conversations_total": 7
+    },
+    "claude-ai-os": {
+      "source_path": "~/.claude/projects/C--Users-manuel-b-vazquez-Documents-Claude-AI-OS",
+      "vault_path": "Workspaces/Research/Projects/Claude-AI-OS-Design",
+      "last_ingested": "2026-05-30T00:00:00Z",
+      "conversations_ingested": 2,
+      "conversations_total": 2
+    },
+    "obsidian-git": {
+      "source_path": "~/.claude/projects/C--Users-manuel-b-vazquez-Documents-Claude-OS-Claude-OS",
+      "vault_path": "Workspaces/Research/Projects/Claude-AI-OS-Design",
+      "last_ingested": "2026-05-30T00:00:00Z",
+      "conversations_ingested": 1,
+      "conversations_total": 1
+    }
+  },
+  "stats": {
+    "total_sources_ingested": 16,
+    "total_pages": 6,
+    "total_projects": 5,
+    "last_full_rebuild": null
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__firecrawl__firecrawl_search",
+      "Bash(python -c ' *)",
+      "mcp__firecrawl__firecrawl_search_feedback",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" -Recurse -Force)",
+      "Bash(Select-Object FullName)",
+      "Bash(Format-Table -AutoSize)",
+      "Bash(find \"/mnt/c/Users/manuel.b.vazquez/Documents/Claude AI OS\" -maxdepth 4 | sort)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" -Recurse -Force | Where-Object { $_.Name -ne \".keep\" } | Select-Object FullName | Sort-Object FullName)",
+      "PowerShell(obsidian-wiki setup --vault \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" --copy 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; obsidian-wiki setup --vault \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" --copy 2>&1)",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" -Recurse -Depth 2)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "PowerShell(if \\(Test-Path \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\.env\"\\) { Get-Content \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\.env\" } else { \"NO .env\" }; if \\(Test-Path \"$env:USERPROFILE\\\\.obsidian-wiki\\\\config\"\\) { Get-Content \"$env:USERPROFILE\\\\.obsidian-wiki\\\\config\" } else { \"NO ~/.obsidian-wiki/config\" })",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\_raw\" | Where-Object { $_.Name -ne \".keep\" } | Select-Object Name, Length, LastWriteTime)",
+      "PowerShell(Get-Content \"C:\\\\Users\\\\manuel.b.vazquez\\\\.claude\\\\projects\\\\C--Users-manuel-b-vazquez\\\\46c8f0ef-5390-41bc-828f-5f40b187b0ab.jsonl\" -First 50)",
+      "mcp__firecrawl__firecrawl_scrape",
+      "mcp__firecrawl__firecrawl_map",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__firecrawl__firecrawl_interact",
+      "Bash(git -C \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" status)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}

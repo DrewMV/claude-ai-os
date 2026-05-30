@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "48fd1b37bc0f40b7",
+    "type": "split",
+    "children": [
+      {
+        "id": "dffe8c7827bd29c0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f5dd258786b83137",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d785d228e287797b",
+    "type": "split",
+    "children": [
+      {
+        "id": "1b17476c5d1c70b3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "402c19ccf8a7f028",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "8bf0c99dff7c292c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "ff4c449151d942cd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a337f751ecc8e021",
+    "type": "split",
+    "children": [
+      {
+        "id": "b4ec5575e7168c10",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d145e27323105e17",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "770a032de3d90782",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "afcb483ad9fab545",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "18b5c9ba7106416e",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "fe54e78d8351329f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "f5dd258786b83137",
+  "lastOpenFiles": [
+    "_raw/framework_scaledagile_com_release-train-engineer.md",
+    "_raw/framework_scaledagile_com_product-management.md",
+    "_raw/framework_scaledagile_com_product-owner.md",
+    "_raw/framework_scaledagile_com_product-owner.md.tmp.36252.c9c328e60df9",
+    "_raw/framework_scaledagile_com_agile-teams.md",
+    "_raw/framework_scaledagile_com_agile-teams.md.tmp.36252.c7f1ae263e19",
+    "_raw/framework_scaledagile_com_agile-release-train.md",
+    "_raw/framework_scaledagile_com_organize-around-value.md",
+    "_raw/framework_scaledagile_com_enterprise-solution-delivery.md",
+    "_raw/framework_scaledagile_com_business-agility.md",
+    "_raw/framework_scaledagile_com_organizational-agility.md",
+    "_raw/framework_scaledagile_com_continuous-learning-culture.md",
+    "_raw/framework_scaledagile_com_continuous-learning-culture.md.tmp.36252.458d2ef69b57",
+    "_raw/framework_scaledagile_com_team-and-technical-agility.md",
+    "_raw/framework_scaledagile_com_lean-agile-leadership.md",
+    "_raw/framework_scaledagile_com_agile-product-delivery.md",
+    "_raw/framework_scaledagile_com_leadership-and-culture-discipline_operating-agile-management-teams-competency.md",
+    "_raw/framework_scaledagile_com_leadership-and-culture-discipline_operating-agile-management-teams-competency.md.tmp.36252.5b5fc69c6895",
+    "_raw/framework_scaledagile_com_leadership-and-culture-discipline_transforming-people-development-competency.md",
+    "_raw/framework_scaledagile_com_leadership-and-culture-discipline_transforming-people-development-competency.md.tmp.36252.68c02dfb45a1",
+    "_raw/framework_scaledagile_com_leadership-and-culture-discipline_leading-change-competency.md",
+    "_raw/framework_scaledagile_com_leadership-and-culture-discipline_building-an-ai-organization-competency.md",
+    "_raw/framework_scaledagile_com_large-solution-integration-and-delivery-discipline_organizing-around-value-for-large-solutions-competency.md",
+    "_raw/framework_scaledagile_com_large-solution-integration-and-delivery-discipline_large-solution-roadmapping-competency.md",
+    "_raw/framework_scaledagile_com_large-solution-integration-and-delivery-discipline_lean-systems-engineering-competency.md",
+    "_raw/framework_scaledagile_com_large-solution-integration-and-delivery-discipline_lean-systems-engineering-competency.md.tmp.36252.5d0cf34f516a",
+    "_raw/framework_scaledagile_com_large-solution-integration-and-delivery-discipline_coordinating-large-solution-delivery-competency.md",
+    "_raw/framework_scaledagile_com_product-development-flow-discipline_scaling-agile-requirements-competency.md",
+    "_raw/framework_scaledagile_com_product-development-flow-discipline_scaling-agile-requirements-competency.md.tmp.36252.43c78234a850",
+    "_raw/framework_scaledagile_com_product-development-flow-discipline_integrating-product-design-competency.md",
+    "_raw/framework_scaledagile_com_product-development-flow-discipline_creating-responsive-roadmaps-competency.md",
+    "_raw/framework_scaledagile_com_product-development-flow-discipline_harnessing-customer-feedback-competency.md",
+    "_raw/framework_scaledagile_com_product-development-flow-discipline_accelerating-product-flow.md",
+    "_raw/framework_scaledagile_com_product-development-flow-discipline_accelerating-product-flow.md.tmp.36252.47ba0fdf1037",
+    "_raw/framework_scaledagile_com_product-development-flow-discipline_measuring-product-performance-competency.md.tmp.36252.708966e99905",
+    "_raw/framework_scaledagile_com_team-and-technical-agility-discipline_implementing-the-architectural-runway-competency.md.tmp.36252.545c84503e37"
+  ]
+}

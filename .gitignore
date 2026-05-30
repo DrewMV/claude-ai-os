@@ -1,0 +1,11 @@
+# Claude Code session data and tool results (large, auto-generated)
+.claude/projects/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp files
+*.tmp
+*.log
