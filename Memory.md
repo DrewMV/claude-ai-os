@@ -17,11 +17,13 @@ Global context shared across all workspaces. Contains concepts, decisions, and k
 
 ## Cross-Workspace Concepts
 
-_Concepts that span multiple workspaces — fill in as they emerge._
+- **SAFe (Scaled Agile Framework)** — Full knowledge base available in Work/knowledge-scraping (17 wiki pages, 165 source articles). Use `/wiki-query` to query it.
+- **Knowledge scraping** — `/scrape-url` skill available globally for scraping any website into MD files. Duplicate prevention via `_meta/scrape-registry.json`.
 
 ## Global Decisions
 
-_Decisions that apply everywhere — fill in as they are made._
+- Karpathy behavioral rules applied globally via `~/.claude/CLAUDE.md` (Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Execution)
+- Vault backed up to GitHub: https://github.com/DrewMV/claude-ai-os
 
 ## Open Questions
 

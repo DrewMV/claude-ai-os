@@ -10,11 +10,12 @@ Professional projects, responsibilities, and career context. Everything related 
 
 ## Active Projects
 
-- knowledge-scraping — Active, just created (2026-05-30)
+- knowledge-scraping — Active (2026-05-30) — SAFe knowledge base complete: 17 wiki pages from 165 sources
 
 ## Key Context
 
-_What should the agent know about your work domain before starting a session?_
+- **SAFe knowledge base** is live in knowledge-scraping project. Use `/wiki-query` to search it.
+- Scraping infrastructure in place: `/scrape-url` skill + `_meta/scrape-registry.json` for dedup.
 
 ## Recurring Themes
 

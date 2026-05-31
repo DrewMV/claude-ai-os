@@ -7,14 +7,16 @@ updated: 2026-05-30
 
 ## Recent Activity
 
-1. **2026-05-30** — Initial ingest: 16 Claude conversations across 5 projects → 6 wiki pages created (ServiceNow analytics, CMDB governance, Python document automation, MCP configuration, Claude AI OS architecture, Obsidian Git sync)
+1. **2026-05-30** — SAFe ingest + cross-link complete: 165 articles → 17 wiki pages, 18 cross-links added across 4 pages. All memory files updated. Committed to GitHub.
+2. **2026-05-30** — SAFe framework ingest: 165 scraped articles → 17 wiki pages in `knowledge-scraping/`. Full SAFe 6.0 coverage: all disciplines, roles, events, DevOps, AI, governance, implementation roadmap.
+3. **2026-05-30** — Initial ingest: 16 Claude conversations across 5 projects → 6 wiki pages created
 
 ## Active Threads
 
+- **SAFe Knowledge Base** — 17 pages ready for querying. Entry point: [[SAFe-overview]]. Reference: [[SAFe-reference-glossary]]
 - **ServiceNow** — Analytics and CMDB governance work ongoing; [[servicenow-analytics]] and [[cmdb-governance-roadmap]] are living pages
 - **Claude AI OS** — Vault design is actively evolving; [[claude-ai-os-architecture]] will need updates as the design matures
 
 ## Pending
 
 - YouTube search agent (conversation 7b9181eb) — planning stage only, no page created; worth revisiting when the project progresses
-- SAFe (Scaled Agile Framework) content (conversation 38db054e) — the scraped URL was about SAFe; consider creating a reference page if this becomes a recurring topic
