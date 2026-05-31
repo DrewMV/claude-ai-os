@@ -19,12 +19,6 @@ Auto-maintained index of all wiki pages. Updated by `/wiki-ingest`, `/wiki-updat
 ### Concepts
 - [mcp-server-configuration](../Workspaces/Work/mcp-server-configuration.md) — MCP server setup for Claude Code/Desktop; session-restart requirement; Firecrawl & NotebookLM
 
-## Research
-
-### Projects/Claude-AI-OS-Design
-- [claude-ai-os-architecture](../Workspaces/Research/Projects/Claude-AI-OS-Design/claude-ai-os-architecture.md) — Claude AI OS design: Memory.md cascade, workspace hierarchy, ar9av/obsidian-wiki
-- [obsidian-git-sync](../Workspaces/Research/Projects/Claude-AI-OS-Design/obsidian-git-sync.md) — Syncing Obsidian vault via GitHub; Obsidian Git plugin; iOS via Working Copy
-
 ### Projects/knowledge-scraping
 - [SAFe-overview](../Workspaces/Work/Projects/knowledge-scraping/SAFe-overview.md) — SAFe Big Picture, 5 disciplines, 4 configurations, SAFe 6.0 changes
 - [SAFe-core-values-and-principles](../Workspaces/Work/Projects/knowledge-scraping/SAFe-core-values-and-principles.md) — 4 core values and all 10 Lean-Agile principles
@@ -43,6 +37,12 @@ Auto-maintained index of all wiki pages. Updated by `/wiki-ingest`, `/wiki-updat
 - [SAFe-governance-and-compliance](../Workspaces/Work/Projects/knowledge-scraping/SAFe-governance-and-compliance.md) — Lean governance, compliance, risk, CapEx/OpEx, Government
 - [SAFe-roles-and-responsibilities-extended](../Workspaces/Work/Projects/knowledge-scraping/SAFe-roles-and-responsibilities-extended.md) — Value streams, customers, CoPs, suppliers, release on demand
 - [SAFe-reference-glossary](../Workspaces/Work/Projects/knowledge-scraping/SAFe-reference-glossary.md) — Quick-reference: terms, metrics, events, acronyms
+
+## Research
+
+### Projects/Claude-AI-OS-Design
+- [claude-ai-os-architecture](../Workspaces/Research/Projects/Claude-AI-OS-Design/claude-ai-os-architecture.md) — Claude AI OS design: Memory.md cascade, workspace hierarchy, ar9av/obsidian-wiki
+- [obsidian-git-sync](../Workspaces/Research/Projects/Claude-AI-OS-Design/obsidian-git-sync.md) — Syncing Obsidian vault via GitHub; Obsidian Git plugin; iOS via Working Copy
 
 ## Personal
 

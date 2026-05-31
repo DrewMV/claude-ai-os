@@ -45,6 +45,14 @@ product
 engineering
 communication
 finance
+agile           # Agile methodology, frameworks, practices
+safe            # Scaled Agile Framework (SAFe) specific content
+framework       # methodology or structured approach
+planning        # planning events, ceremonies, roadmaps
+events          # SAFe or Agile events and ceremonies
+cadence         # rhythm, timebox, iteration cadence
+roles           # people roles and responsibilities
+knowledge       # knowledge management, knowledge base content
 ```
 
 ## Domain Tags (Research)
