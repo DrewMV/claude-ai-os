@@ -64,7 +64,8 @@
       "Read(//c/Program Files/Google/Chrome/Application/**)",
       "Read(//c/Program Files \\(x86\\)/Google/Chrome/Application/**)",
       "Bash(npx --version)",
-      "mcp__notebooklm__list_notebooks"
+      "mcp__notebooklm__list_notebooks",
+      "mcp__notebooklm__add_notebook"
     ]
   }
 }
