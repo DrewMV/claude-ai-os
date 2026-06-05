@@ -53,9 +53,17 @@ Active PI2 work anchored to this roadmap:
 - **NowAssist AI** — Phased activation starting Sprint 2.3; see [[nowassist-for-cmdb]]
 - **Data Certification** — Pilot program underway; see [[data-certification-program]]
 
+## Authoritative Sources
+
+> **NotebookLM — ServiceNow Australia AI Platform Capabilities** — CMDB, CSDM, IRE, NowAssist platform features
+> **NotebookLM — ServiceNow Australia ITOM** — Service Mapping, Discovery, AIOps, mid-server behavior
+> **NotebookLM — ServiceNow Australia ITSM** — Change Management, incident and problem workflows
+> See [[notebooklm-library]] for full notebook registry and topic-to-notebook quick reference.
+
 ## Related Pages
 
 - [[servicenow-analytics]] — analytics and reporting work on the same platform
 - [[nowassist-for-cmdb]] — NowAssist AI activation roadmap for CMDB
 - [[data-certification-program]] — CI data certification pilot structure and governance
 - [[servicenow-upgrade-analysis-cmdb]] — upgrade impact assessment areas for CMDB
+- [[notebooklm-library]] — full registry of connected ServiceNow Australia notebooks

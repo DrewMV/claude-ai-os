@@ -62,7 +62,14 @@ All 13 NowAssist stories are scheduled in a single 2-week sprint. Recommended ap
 - CMDB Health Baseline (Phase 1) provides the measurement anchor for governance advice (Phase 5)
 - Platform admin access required for plugin activation — confirm availability before sprint start
 
+## Authoritative Source
+
+> **NotebookLM — ServiceNow Australia AI Platform Capabilities**
+> Query this notebook for official documentation on NowAssist plugin activation, CI summarization skills, form help, natural language search, guided CI creation, and NASK custom skills.
+> See [[notebooklm-library]] for full notebook registry.
+
 ## Related Pages
 
 - [[cmdb-governance-roadmap]] — overall CMDB governance and operations roadmap
 - [[data-certification-program]] — Data Certification pilot, which NowAssist governance advice can support
+- [[notebooklm-library]] — full registry of connected ServiceNow Australia notebooks

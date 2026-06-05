@@ -61,7 +61,18 @@ Feature 1355890 in PI2 tracks a structured CMDB impact assessment for the upcomi
 - Validated IRE behavior documentation (Spike 1403722, Story 1411237)
 - CMDB Health scorecards validated post-upgrade (Spike 1403726)
 
+## Authoritative Sources
+
+> **NotebookLM — ServiceNow Australia AI Platform Capabilities**
+> Query for CMDB/CSDM architecture changes, IRE behavior, schema updates, class hierarchy changes, and platform capability changes introduced in the Australia release.
+
+> **NotebookLM — ServiceNow Australia IT Operations Management (ITOM)**
+> Query for Discovery touchpoint changes, mid-server impacts, deprecated plugins, AIOps behavior, and Service Mapping changes in the Australia release.
+
+> See [[notebooklm-library]] for full notebook registry.
+
 ## Related Pages
 
 - [[cmdb-governance-roadmap]] — governance model that upgrade must preserve
 - [[nowassist-for-cmdb]] — NowAssist health baseline established in Phase 1 must be re-validated post-upgrade
+- [[notebooklm-library]] — full registry of connected ServiceNow Australia notebooks

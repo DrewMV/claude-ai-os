@@ -55,7 +55,14 @@ CI certification policies directly support:
 - NERC-CIP 15-month asset review cadence (see [[CMDB as NERC CIP Asset Registry]])
 - SOX team notification workflow (Story 1455827, Feature 1371672 — currently unplanned)
 
+## Authoritative Source
+
+> **NotebookLM — ServiceNow Australia Application Portfolio Management (EA/APM)**
+> Query this notebook for official documentation on Data Certification feature behavior, certification policies, CI owner workflows, and APM governance capabilities in the Australia release.
+> See [[notebooklm-library]] for full notebook registry.
+
 ## Related Pages
 
 - [[cmdb-governance-roadmap]] — overall governance roadmap this program supports
 - [[nowassist-for-cmdb]] — NowAssist governance advice features that build on certification data
+- [[notebooklm-library]] — full registry of connected ServiceNow Australia notebooks

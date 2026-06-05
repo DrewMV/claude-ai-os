@@ -37,6 +37,7 @@ Auto-maintained index of all wiki pages. Updated by `/wiki-ingest`, `/wiki-updat
 - [data-certification-program](../Workspaces/Work/Projects/ServiceNow/data-certification-program.md) — CI Data Certification pilot: structure, pilot group, implementation planning, support model
 - [servicenow-upgrade-analysis-cmdb](../Workspaces/Work/Projects/ServiceNow/servicenow-upgrade-analysis-cmdb.md) — Upgrade impact assessment: IRE behavior, schema changes, discovery touchpoints, attribute precedence, remediation planning
 - [pi2-ado-flagged-risks-nolan](../Workspaces/Work/Projects/ServiceNow/pi2-ado-flagged-risks-nolan.md) — ADO-flagged feature-level risks for PI2; shared and tracked by Nolan; validated June 2026
+- [notebooklm-library](../Workspaces/Work/Projects/ServiceNow/notebooklm-library.md) — Registry of connected NotebookLM notebooks with official ServiceNow Australia documentation; topic-to-notebook quick reference
 
 ### Projects/Python-Automation
 - [python-document-automation](../Workspaces/Work/Projects/Python-Automation/python-document-automation.md) — PDF splitting (PyMuPDF + Ghostscript), PowerPoint generation (python-pptx, MGB brand)
