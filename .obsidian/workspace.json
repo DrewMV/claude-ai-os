@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "dffe8c7827bd29c0",
+        "id": "380bd0c403956e8a",
         "type": "tabs",
         "children": [
           {
-            "id": "f5dd258786b83137",
+            "id": "1b8edc63859bdd59",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "scrum master",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -70,7 +70,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -176,8 +177,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "f5dd258786b83137",
+  "active": "1b8edc63859bdd59",
   "lastOpenFiles": [
+    "Workspaces/Work/Projects/ServiceNow/pi2-ado-flagged-risks-nolan.md",
+    "Workspaces/Work/Projects/CMDB-CSDM/PI-2/PO-Sync/2026-05-28.md",
+    "_raw/framework_scaledagile_com_agile-teams.md",
+    "_raw/framework_scaledagile_com_agile-contracts.md",
+    "Workspaces/Work/Projects/knowledge-scraping/safe-iteration-ceremonies.html",
     "log.md.tmp.36252.88c69a340422",
     "_meta/index.md.tmp.36252.3a4ccf945eef",
     "_meta/index.md.tmp.36252.a768520aaf5c",
@@ -187,8 +193,6 @@
     "log.md.tmp.36252.37764b0a0ed1",
     "Workspaces/Work/Projects/knowledge-scraping/SAFe-planning-and-events.md.tmp.36252.7262cdb2b8f2",
     "Workspaces/Work/Projects/knowledge-scraping/SAFe-planning-and-events.md.tmp.36252.9adc413a33b5",
-    "hot.md.tmp.36252.ca216bd8f64a",
-    "log.md.tmp.36252.58fc562853d8",
     "Workspaces/Work/Projects/knowledge-scraping/SAFe-reference-glossary.md",
     "Workspaces/Work/Projects/knowledge-scraping/SAFe-roles-and-responsibilities-extended.md",
     "Workspaces/Work/Projects/knowledge-scraping/SAFe-governance-and-compliance.md",
@@ -210,9 +214,6 @@
     "_raw/framework_scaledagile_com_iteration-goals.md",
     "_raw/framework_scaledagile_com_reaching-the-tipping-point.md",
     "_raw/framework_scaledagile_com_accelerate.md",
-    "_raw/framework_scaledagile_com_create-the-implementation-plan.md",
-    "_raw/framework_scaledagile_com_enhance-the-portfolio.md",
-    "_raw/framework_scaledagile_com_coach-art-execution.md",
-    "_raw/framework_scaledagile_com_train-teams-and-launch-the-art.md"
+    "_raw/framework_scaledagile_com_create-the-implementation-plan.md"
   ]
 }

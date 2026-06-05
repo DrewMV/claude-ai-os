@@ -314,6 +314,31 @@
     "framework_scaledagile_com_supplier.md": { "ingested_at": "2026-05-30T00:00:00Z", "size_bytes": 5604, "modified_at": "2026-05-30T00:00:00Z", "source_type": "document", "project": "knowledge-scraping", "pages_created": ["Workspaces/Work/Projects/knowledge-scraping/SAFe-roles-and-responsibilities-extended.md"], "pages_updated": [] },
     "framework_scaledagile_com_release-on-demand.md": { "ingested_at": "2026-05-30T00:00:00Z", "size_bytes": 5404, "modified_at": "2026-05-30T00:00:00Z", "source_type": "document", "project": "knowledge-scraping", "pages_created": ["Workspaces/Work/Projects/knowledge-scraping/SAFe-roles-and-responsibilities-extended.md"], "pages_updated": [] }
   },
+  "research": [
+    {
+      "type": "research",
+      "topic": "ServiceNow CMDB/CSDM Governance and NERC CIP Compliance",
+      "researched_at": "2026-06-03T00:00:00Z",
+      "rounds_completed": 3,
+      "sources_fetched": 10,
+      "pages_created": [
+        "Workspaces/Work/Projects/nerc-cip/synthesis/Research- ServiceNow CMDB-CSDM Governance and NERC CIP.md",
+        "Workspaces/Work/Projects/nerc-cip/concepts/cip-010-configuration-change-management.md",
+        "Workspaces/Work/Projects/nerc-cip/concepts/cip-002-bes-cyber-system-categorization.md",
+        "Workspaces/Work/Projects/nerc-cip/concepts/cip-011-information-protection.md",
+        "Workspaces/Work/Projects/nerc-cip/concepts/configuration-management-plan-nerc-cip.md",
+        "Workspaces/Work/Projects/nerc-cip/concepts/configuration-control-board-charter.md",
+        "Workspaces/Work/Projects/nerc-cip/concepts/csdm-ot-domain.md",
+        "Workspaces/Work/Projects/nerc-cip/concepts/cmdb-nerc-cip-asset-registry.md",
+        "Workspaces/Work/Projects/nerc-cip/sources/nercipedia-cip-010-4.md",
+        "Workspaces/Work/Projects/nerc-cip/sources/shieldworkz-nerc-cip-evidence-pack.md",
+        "Workspaces/Work/Projects/nerc-cip/sources/servicenow-community-nerc-cip.md",
+        "Workspaces/Work/Projects/nerc-cip/sources/csdm-5-explained.md",
+        "Workspaces/Work/Projects/nerc-cip/entities/servicenow-ot-manager.md"
+      ],
+      "pages_updated": []
+    }
+  ],
   "projects": {
     "servicenow": {
       "source_path": "~/.claude/projects/C--Users-manuel-b-vazquez",
@@ -352,9 +377,9 @@
     }
   },
   "stats": {
-    "total_sources_ingested": 181,
-    "total_pages": 23,
-    "total_projects": 6,
+    "total_sources_ingested": 191,
+    "total_pages": 36,
+    "total_projects": 7,
     "last_full_rebuild": null
   }
 }

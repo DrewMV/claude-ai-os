@@ -1,6 +1,6 @@
 ---
 type: meta
-updated: 2026-05-30
+updated: 2026-06-05
 ---
 
 # Master Index
@@ -9,15 +9,41 @@ Auto-maintained index of all wiki pages. Updated by `/wiki-ingest`, `/wiki-updat
 
 ## Work
 
+### Projects/nerc-cip
+
+#### Synthesis
+- [Research: ServiceNow CMDB/CSDM Governance and NERC CIP](../Workspaces/Work/Projects/nerc-cip/synthesis/Research-%20ServiceNow%20CMDB-CSDM%20Governance%20and%20NERC%20CIP.md) — How CMP and CCB Charter governance artifacts map to CIP-002, CIP-010, CIP-011
+
+#### Concepts
+- [CIP-010 Configuration Change Management](../Workspaces/Work/Projects/nerc-cip/concepts/cip-010-configuration-change-management.md) — Baseline, change authorization, 35-day monitoring, vulnerability assessments
+- [CIP-002 BES Cyber System Categorization](../Workspaces/Work/Projects/nerc-cip/concepts/cip-002-bes-cyber-system-categorization.md) — Asset inventory, High/Medium/Low impact categories, 15-month review
+- [CIP-011 Information Protection](../Workspaces/Work/Projects/nerc-cip/concepts/cip-011-information-protection.md) — BCSI definition, CMDB records as BCSI, information protection program
+- [Configuration Management Plan for NERC CIP](../Workspaces/Work/Projects/nerc-cip/concepts/configuration-management-plan-nerc-cip.md) — CMP sections mapped to CIP requirements
+- [Configuration Control Board Charter](../Workspaces/Work/Projects/nerc-cip/concepts/configuration-control-board-charter.md) — CCB/CAB governance body, charter elements, CIP traceability
+- [CSDM OT Domain](../Workspaces/Work/Projects/nerc-cip/concepts/csdm-ot-domain.md) — CSDM 5.0 OT CI classes, OT System Services, 7-domain structure
+- [CMDB as NERC CIP Asset Registry](../Workspaces/Work/Projects/nerc-cip/concepts/cmdb-nerc-cip-asset-registry.md) — CI structure, change management integration, BCSI handling
+
+#### Entities
+- [ServiceNow OT Manager](../Workspaces/Work/Projects/nerc-cip/entities/servicenow-ot-manager.md) — OT CI classes, OT System Services, dependency mapping for industrial environments
+
+#### Templates
+- [Configuration Management Plan](../Workspaces/Work/Projects/nerc-cip/templates/configuration-management-plan.md) — Full CMP template with NERC CIP callouts; 13 sections mapped to CIP-002/CIP-010/CIP-011
+- [Configuration Control Board Charter](../Workspaces/Work/Projects/nerc-cip/templates/ccb-charter.md) — Full CCB Charter template with NERC CIP callouts; membership, criteria, minutes, emergency process
+
 ### Projects/ServiceNow
 - [servicenow-analytics](../Workspaces/Work/Projects/ServiceNow/servicenow-analytics.md) — ServiceNow ticket analysis, fiscal-week dashboards, operational metrics
-- [cmdb-governance-roadmap](../Workspaces/Work/Projects/ServiceNow/cmdb-governance-roadmap.md) — CMDB governance roadmap: standards, discovery rules, CI lifecycle, archival policies
+- [cmdb-governance-roadmap](../Workspaces/Work/Projects/ServiceNow/cmdb-governance-roadmap.md) — CMDB governance roadmap: standards, discovery rules, CI lifecycle, archival policies; PI2 focus areas
+- [nowassist-for-cmdb](../Workspaces/Work/Projects/ServiceNow/nowassist-for-cmdb.md) — NowAssist AI phased activation: CI summarization, form help, natural language search, guided CI creation, custom skills
+- [data-certification-program](../Workspaces/Work/Projects/ServiceNow/data-certification-program.md) — CI Data Certification pilot: structure, pilot group, implementation planning, support model
+- [servicenow-upgrade-analysis-cmdb](../Workspaces/Work/Projects/ServiceNow/servicenow-upgrade-analysis-cmdb.md) — Upgrade impact assessment: IRE behavior, schema changes, discovery touchpoints, attribute precedence, remediation planning
+- [pi2-ado-flagged-risks-nolan](../Workspaces/Work/Projects/ServiceNow/pi2-ado-flagged-risks-nolan.md) — ADO-flagged feature-level risks for PI2; shared and tracked by Nolan; validated June 2026
 
 ### Projects/Python-Automation
 - [python-document-automation](../Workspaces/Work/Projects/Python-Automation/python-document-automation.md) — PDF splitting (PyMuPDF + Ghostscript), PowerPoint generation (python-pptx, MGB brand)
 
 ### Concepts
 - [mcp-server-configuration](../Workspaces/Work/mcp-server-configuration.md) — MCP server setup for Claude Code/Desktop; session-restart requirement; Firecrawl & NotebookLM
+- [servicenow-ci-type-distinctions](../Workspaces/Work/servicenow-ci-type-distinctions.md) — ServiceNow CI type definitions: Business Application vs Application Service (Service Instance) vs Application CI
 
 ### Projects/knowledge-scraping
 - [SAFe-overview](../Workspaces/Work/Projects/knowledge-scraping/SAFe-overview.md) — SAFe Big Picture, 5 disciplines, 4 configurations, SAFe 6.0 changes

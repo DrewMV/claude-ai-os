@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "infographic",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": ["-command", "python -m http.server 3131 --directory 'C:\\Users\\manuel.b.vazquez\\Documents\\Claude AI OS\\Workspaces\\Work\\Projects\\knowledge-scraping'"],
+      "port": 3131
+    },
+    {
+      "name": "cmdb-mindmap",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": ["-command", "python -m http.server 3132 --directory 'C:\\Users\\manuel.b.vazquez\\Documents\\Claude AI OS\\Workspaces\\Work\\Projects\\CMDB-CSDM'"],
+      "port": 3132
+    }
+  ]
+}

@@ -41,6 +41,21 @@ Key stages in a CI's lifecycle within the CMDB:
 3. **Staleness detection** — rules to flag CIs not seen by discovery in N days
 4. **Archival** — move stale CIs to archived state (not deleted; retained for audit)
 
+## PI2 Focus Areas (June 2026)
+
+Active PI2 work anchored to this roadmap:
+
+- **Discovery Coverage** — Network device reconciliation (Group 1), SCCM Server class attribute precedence, server/computer class data and form improvements
+- **Qualys Integration** — Read-only CMDB-to-Qualys feed; plugin `x_qual5_itam_nwapp` being deployed across dev/test/prod
+- **CI Ownership** — Auto-populating CI Owner, Support Group, and Technical Owner Group for Server and Computer classes; governance for Technical Owner Groups without members
+- **Operational Monitoring** — Inactive CI owner reporting, governance for groups without members
+- **ServiceNow Upgrade** — Full upgrade impact analysis underway (IRE behavior, schema changes, discovery touchpoints, attribute precedence); see [[servicenow-upgrade-analysis-cmdb]]
+- **NowAssist AI** — Phased activation starting Sprint 2.3; see [[nowassist-for-cmdb]]
+- **Data Certification** — Pilot program underway; see [[data-certification-program]]
+
 ## Related Pages
 
 - [[servicenow-analytics]] — analytics and reporting work on the same platform
+- [[nowassist-for-cmdb]] — NowAssist AI activation roadmap for CMDB
+- [[data-certification-program]] — CI data certification pilot structure and governance
+- [[servicenow-upgrade-analysis-cmdb]] — upgrade impact assessment areas for CMDB

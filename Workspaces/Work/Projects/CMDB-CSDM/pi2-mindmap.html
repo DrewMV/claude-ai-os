@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PI-2 Objectives — CMDB-CSDM</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0f1923; color: #e2e8f0; font-family: system-ui, sans-serif; font-size: 13px; padding: 24px; }
+  h1 { font-size: 18px; font-weight: 700; color: #7dd3fc; margin-bottom: 4px; }
+  .subtitle { color: #94a3b8; font-size: 12px; margin-bottom: 20px; }
+
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    background: #1e3a5f;
+    color: #7dd3fc;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 2px solid #2d5a8e;
+    white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid #1e293b; vertical-align: top; }
+  tbody tr:hover { background: #162032; }
+  td { padding: 10px 12px; line-height: 1.5; }
+
+  /* Objective cell */
+  .obj-cell { min-width: 200px; }
+  .obj-name { font-weight: 600; color: #f1f5f9; margin-bottom: 4px; }
+  .obj-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .badge {
+    display: inline-block; padding: 2px 7px; border-radius: 99px;
+    font-size: 10px; font-weight: 600; white-space: nowrap;
+  }
+  .badge-bv   { background: #1e3a5f; color: #7dd3fc; }
+  .badge-p0   { background: #7f1d1d; color: #fca5a5; }
+  .badge-p1   { background: #78350f; color: #fcd34d; }
+  .badge-p2   { background: #14532d; color: #86efac; }
+  .badge-p3   { background: #1e1b4b; color: #a5b4fc; }
+  .badge-p4   { background: #1c1917; color: #a8a29e; }
+  .badge-p5   { background: #1c1917; color: #78716c; }
+  .badge-gap  { background: #450a0a; color: #f87171; }
+  .badge-ado  { background: #1e293b; color: #94a3b8; font-family: monospace; }
+
+  /* Feature cell */
+  .feature-list { list-style: none; }
+  .feature-list li { padding: 2px 0; }
+  .feature-id { color: #94a3b8; font-family: monospace; font-size: 11px; }
+  .feature-name { color: #cbd5e1; }
+
+  /* Story cell */
+  .story-list { list-style: none; }
+  .story-list li { padding: 2px 0; font-size: 12px; }
+  .story-id { font-family: monospace; color: #64748b; font-size: 11px; }
+  .story-name { color: #94a3b8; }
+  .story-owner { color: #7dd3fc; font-size: 10px; font-weight: 600; }
+  .story-type-spike { color: #a78bfa; font-size: 10px; font-weight: 600; }
+  .no-stories { color: #ef4444; font-size: 12px; font-style: italic; }
+
+  /* Stream rows */
+  .stream-label { font-size: 11px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; margin-top: 8px; }
+  .stream-label:first-child { margin-top: 0; }
+  .stream-block { border-left: 2px solid #334155; padding-left: 8px; margin-bottom: 10px; }
+
+  .action { color: #fbbf24; font-size: 11px; }
+  .pi3-note { color: #818cf8; font-size: 11px; font-style: italic; }
+  .blocker { color: #f87171; font-size: 11px; }
+
+  .obj-row-1 { border-left: 4px solid #f59e0b; }
+  .obj-row-2 { border-left: 4px solid #10b981; }
+  .obj-row-3 { border-left: 4px solid #6366f1; }
+  .obj-row-4 { border-left: 4px solid #ec4899; }
+  .obj-row-5 { border-left: 4px solid #8b5cf6; }
+  .obj-row-6 { border-left: 4px solid #ef4444; }
+</style>
+</head>
+<body>
+<h1>PI-2 Objectives — CMDB-CSDM</h1>
+<p class="subtitle">PO: Joe Dames &amp; Manuel Vazquez &nbsp;|&nbsp; SM: Alex Phan &nbsp;|&nbsp; PI-2: May 13 – Aug 4, 2026</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Objective</th>
+      <th>Features</th>
+      <th>Stories / Spikes</th>
+      <th>Notes &amp; Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- OBJ 6 - P0 Most Urgent -->
+    <tr class="obj-row-6">
+      <td class="obj-cell">
+        <div class="obj-name">Azure Migration ⭐</div>
+        <div class="obj-meta">
+          <span class="badge badge-ado">1420079</span>
+          <span class="badge badge-bv">BV 10</span>
+          <span class="badge badge-p0">P0 Most Urgent</span>
+        </div>
+        <div style="margin-top:6px; color:#94a3b8; font-size:12px;">Enable Governed VMware-to-Azure Migration via CMDB-Driven Intelligence</div>
+      </td>
+      <td>
+        <ul class="feature-list">
+          <li><span class="feature-id">1420613</span> <span class="feature-name">CMDB Support for Air Lift</span></li>
+        </ul>
+      </td>
+      <td>
+        <ul class="story-list">
+          <li><span class="story-id">1418610</span> <span class="story-name">Airlift to Azure — Pre-Migration</span></li>
+          <li><span class="story-id">1418618</span> <span class="story-name">Airlift to Azure — During Migration</span></li>
+          <li><span class="story-id">1418621</span> <span class="story-name">Airlift to Azure — Post-Migration</span></li>
+          <li><span class="story-id">1416384</span> <span class="story-name">Auto Populate CI Owner / Support Group / Technical Owner</span></li>
+        </ul>
+      </td>
+      <td>
+        <span class="blocker">⚠ Migration wave dates not yet finalized</span>
+      </td>
+    </tr>
+
+    <!-- OBJ 1 - P1 -->
+    <tr class="obj-row-1">
+      <td class="obj-cell">
+        <div class="obj-name">Network Gear Discovery</div>
+        <div class="obj-meta">
+          <span class="badge badge-ado">1366657</span>
+          <span class="badge badge-bv">BV 10</span>
+          <span class="badge badge-p1">P1</span>
+        </div>
+        <div style="margin-top:6px; color:#94a3b8; font-size:12px;">Automate Discovery Coverage for Network Gear CI Classes (≥90% quality by Aug 4)</div>
+      </td>
+      <td>
+        <ul class="feature-list">
+          <li><span class="feature-id">1383523</span> <span class="feature-name">Unplanned Backlog — CMDB Workstream</span></li>
+          <li><span class="feature-id">1356646</span> <span class="feature-name">Network Device Coverage Reconciliation Grp 1</span></li>
+          <li><span class="feature-id">1356826</span> <span class="feature-name">SCCM Server Class Precedence Updates</span></li>
+          <li><span class="feature-id">1354797</span> <span class="feature-name">Server Class Data &amp; Form Updates</span></li>
+          <li><span class="feature-id">1411480</span> <span class="feature-name">CMDB PI2.26 Enhancements</span></li>
+          <li><span class="feature-id">1354794</span> <span class="feature-name">Computer Class Data &amp; Form Improvements</span></li>
+          <li><span class="feature-id">1355888</span> <span class="feature-name">Operational Monitoring Activities P2</span></li>
+          <li><span class="feature-id">1355890</span> <span class="feature-name">Support ServiceNow Upgrade Analysis</span></li>
+        </ul>
+      </td>
+      <td>
+        <ul class="story-list">
+          <li><span class="story-id">1421790</span> <span class="story-type-spike">SPIKE</span> <span class="story-name">Gap Analysis — Servers Linux &amp; Windows</span> <span class="story-owner">· Tony</span></li>
+          <li><span class="story-id">1409770</span> <span class="story-name">Custom Fields: Asset Criticality, RPO, RTO</span> <span class="story-owner">· Kiran</span></li>
+          <li><span class="story-id">1402790</span> <span class="story-name">Lifecycle Status for Retired Computers</span> <span class="story-owner">· Bhushan</span></li>
+          <li><span class="story-id">1387035</span> <span class="story-type-spike">SPIKE</span> <span class="story-name">CMDB Operating Dashboards</span> <span class="story-owner">· Stan</span></li>
+          <li><span class="story-id">1399547</span> <span class="story-name">Computers Shared Devices — Prevent Auto Location Updates</span> <span class="story-owner">· Tony</span></li>
+          <li><span class="story-id">1355167</span> <span class="story-type-spike">SPIKE</span> <span class="story-name">Business App → Service Instance Migration</span> <span class="story-owner">· Tony</span></li>
+          <li><span class="story-id">1387236</span> <span class="story-name">AIM API on PROD MID Servers</span> <span class="story-owner">· Tony</span></li>
+          <li><span class="story-id">1348715</span> <span class="story-name">SCCM: Computers — Last Time Seen Timestamp</span> <span class="story-owner">· Stan</span></li>
+        </ul>
+      </td>
+      <td>
+        <span class="blocker">⚠ DB &amp; SNMP credentials in progress (Tony)</span><br>
+        <span class="blocker">⚠ Server ownership not yet accurate</span><br>
+        <span class="action">→ HCM for computer location (Sonika)</span><br>
+        <span class="action">→ CI Ownership plan — OCM review pending (Joe)</span>
+      </td>
+    </tr>
+
+    <!-- OBJ 2 - P1 -->
+    <tr class="obj-row-2">
+      <td class="obj-cell">
+        <div class="obj-name">Data Certification</div>
+        <div class="obj-meta">
+          <span class="badge badge-ado">1420082</span>
+          <span class="badge badge-bv">BV 8</span>
+          <span class="badge badge-p1">P1</span>
+        </div>
+        <div style="margin-top:6px; color:#94a3b8; font-size:12px;">Establish CI Data Certification Program — framework + pilot for Business Apps</div>
+      </td>
+      <td>
+        <ul class="feature-list">
+          <li><span class="feature-id">1247179</span> <span class="feature-name">Data Certification Pilot — Functionality</span></li>
+          <li><span class="feature-id">1371672</span> <span class="feature-name">Governance Model — New Business Applications</span></li>
+          <li><span class="feature-id">1382404</span> <span class="feature-name">Data Certification Rollout</span></li>
+          <li><span class="feature-id">1402958</span> <span class="feature-name">Pilot — Implementation Planning</span></li>
+          <li><span class="feature-id">1402979</span> <span class="feature-name">Pilot — Implementation Support</span></li>
+        </ul>
+      </td>
+      <td>
+        <ul class="story-list">
+          <li><span class="story-id">1402727</span> <span class="story-name">Update Data Certification Dashboard</span> <span class="story-owner">· Kiran</span></li>
+          <li style="color:#64748b; font-style:italic; font-size:11px;">Additional stories TBD — verify with Joe</li>
+        </ul>
+      </td>
+      <td></td>
+    </tr>
+
+    <!-- OBJ 3 - P2 -->
+    <tr class="obj-row-3">
+      <td class="obj-cell">
+        <div class="obj-name">Service Mapping</div>
+        <div class="obj-meta">
+          <span class="badge badge-ado">1366660</span>
+          <span class="badge badge-bv">BV 9</span>
+          <span class="badge badge-p2">P2</span>
+        </div>
+        <div style="margin-top:6px; color:#94a3b8; font-size:12px;">Expand Service Mapping Foundation — 10 business-critical platforms/month</div>
+      </td>
+      <td>
+        <ul class="feature-list">
+          <li><span class="feature-id">1355866</span> <span class="feature-name">Service Mapping Waves 17 &amp; 18</span></li>
+          <li><span class="feature-id">1355868</span> <span class="feature-name">Service Mapping Waves 19 &amp; 20</span></li>
+          <li><span class="feature-id">1355871</span> <span class="feature-name">Service Mapping Waves 20 &amp; 21</span></li>
+        </ul>
+      </td>
+      <td>
+        <ul class="story-list">
+          <li><span class="story-id">1380747</span> <span class="story-name">MV90 User Access</span> <span class="story-owner">· Tanzeel</span></li>
+          <li><span class="story-id">1380757</span> <span class="story-name">RIE Electric Wholesale Settlement</span></li>
+          <li><span class="story-id">1400703</span> <span class="story-name">Vault Inspection System</span></li>
+          <li><span class="story-id">1281161</span> <span class="story-name">WATT</span></li>
+          <li><span class="story-id">1420634</span> <span class="story-type-spike">SPIKE</span> <span class="story-name">Apps Being Migrated &amp; Impact to Service Mapping</span></li>
+          <li><span class="story-id">1326754</span> <span class="story-type-spike">SPIKE</span> <span class="story-name">Evaluate Endpoint-Based Discovery</span></li>
+        </ul>
+      </td>
+      <td>
+        <span class="blocker">⚠ Missing server credentials (Sonika support needed)</span><br>
+        <span class="blocker">⚠ DNS issue ongoing</span><br>
+        <span class="action">→ Alex: add Christian's DNS email to thread</span>
+      </td>
+    </tr>
+
+    <!-- OBJ 4 - Multi-stream -->
+    <tr class="obj-row-4">
+      <td class="obj-cell">
+        <div class="obj-name">Regulatory &amp; Security</div>
+        <div class="obj-meta">
+          <span class="badge badge-ado">1366662</span>
+          <span class="badge badge-bv">BV 8</span>
+        </div>
+        <div style="margin-top:6px; color:#94a3b8; font-size:12px;">Prepare CMDB for Regulatory and Security Integrations</div>
+        <div style="margin-top:8px;">
+          <div style="font-size:11px; color:#e2e8f0;">3 activity streams:</div>
+          <div class="obj-meta" style="margin-top:4px;">
+            <span class="badge badge-p2">Governance P2</span>
+            <span class="badge badge-p4">NERC-CIP P4</span>
+            <span class="badge badge-p5">Qualys P5</span>
+          </div>
+        </div>
+      </td>
+      <td>
+        <ul class="feature-list">
+          <li><span class="feature-id">1250905</span> <span class="feature-name">Qualys &amp; ServiceNow Integration (CMDB Read Only)</span></li>
+          <li><span class="feature-id">1370224</span> <span class="feature-name">Define NERC-CIP CI Security Requirements</span></li>
+        </ul>
+      </td>
+      <td>
+        <div class="stream-label">Stream A — Governance</div>
+        <div class="stream-block">
+          <span style="color:#64748b; font-size:11px; font-style:italic;">No stories yet</span>
+        </div>
+
+        <div class="stream-label">Stream B — NERC-CIP</div>
+        <div class="stream-block">
+          <span style="color:#64748b; font-size:11px; font-style:italic;">No stories yet — ESS 02 in scope</span>
+        </div>
+
+        <div class="stream-label">Stream C — Qualys</div>
+        <div class="stream-block">
+          <ul class="story-list">
+            <li><span class="story-id">1428703</span> <span class="story-name">Install Qualys Plugin (Part 1)</span> <span class="story-owner">· Stan</span></li>
+            <li><span class="story-id">1428704</span> <span class="story-name">Configure Qualys Integration (Part 2)</span> <span class="story-owner">· Stan</span></li>
+            <li><span class="story-id">1234585</span> <span class="story-type-spike">SPIKE</span> <span class="story-name">Data Scope &amp; Import Views in Qualys</span> <span class="story-owner">· Stan</span></li>
+          </ul>
+          <div class="pi3-note">Phase 2 (two-way) → PI3</div>
+        </div>
+      </td>
+      <td>
+        <span class="action">→ Formalize CCB ceremony cadence</span><br>
+        <span class="action">→ Engage Jason Dubriel (NERC-CIP / ESS 02)</span><br>
+        <span class="action">→ Engage Sonika / Cyber Compliance</span><br>
+        <span class="action">→ Document CMP</span><br>
+        <span class="action">→ Alex: locate NERC-CIP docs</span>
+      </td>
+    </tr>
+
+    <!-- OBJ 5 - P3 -->
+    <tr class="obj-row-5">
+      <td class="obj-cell">
+        <div class="obj-name">NowAssist AI</div>
+        <div class="obj-meta">
+          <span class="badge badge-ado">1408764</span>
+          <span class="badge badge-bv">BV 7</span>
+          <span class="badge badge-p3">P3</span>
+          <span class="badge badge-gap">No Features</span>
+        </div>
+        <div style="margin-top:6px; color:#94a3b8; font-size:12px;">Embed NowAssist AI Across CMDB and ITSM Workflows</div>
+      </td>
+      <td>
+        <span class="no-stories">⚠ No ADO features yet</span><br>
+        <span class="action" style="font-size:11px;">→ Joe to provide initial features &amp; stories</span>
+      </td>
+      <td>
+        <span class="no-stories">⚠ No stories</span>
+      </td>
+      <td>
+        <span class="action">→ Assess Australia vs Yokohama capabilities (Joe)</span><br>
+        <div style="margin-top:4px; color:#94a3b8; font-size:11px;">PI-2 scope: OOB assessment only</div>
+        <div class="pi3-note">5-Phase NowAssist plan (Duplicate CI, NL Search, Guided CI Creation, Governance Advice) → PI3</div>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div style="margin-top:16px; color:#475569; font-size:11px;">
+  Badge guide: &nbsp;
+  <span class="badge badge-p0">P0 Most Urgent</span> &nbsp;
+  <span class="badge badge-p1">P1 High</span> &nbsp;
+  <span class="badge badge-p2">P2 Medium</span> &nbsp;
+  <span class="badge badge-p3">P3</span> &nbsp;
+  <span class="badge badge-p4">P4</span> &nbsp;
+  <span class="badge badge-p5">P5</span> &nbsp;
+  &nbsp;&nbsp;Operational priority (0 = most urgent) from team discussion 2026-05-26
+</div>
+</body>
+</html>

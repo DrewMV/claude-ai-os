@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAFe Iteration Ceremonies</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0f1724;
+    color: #e8edf4;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .infographic {
+    width: 900px;
+    max-width: 100%;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .header .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #5b9bd5;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  .header p {
+    font-size: 15px;
+    color: #8fa3bb;
+  }
+
+  /* Timeline */
+  .timeline-container {
+    position: relative;
+    margin-bottom: 48px;
+  }
+
+  /* Week labels */
+  .weeks {
+    display: flex;
+    margin-bottom: 12px;
+    padding: 0 20px;
+  }
+  .week {
+    flex: 1;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5b9bd5;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #1e3a5f;
+  }
+
+  /* Day markers */
+  .days {
+    display: flex;
+    padding: 0 20px;
+    margin-bottom: 8px;
+  }
+  .day {
+    flex: 1;
+    text-align: center;
+    font-size: 10px;
+    color: #4a6080;
+  }
+
+  /* Timeline bar */
+  .timeline-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #1a3a6b 0%, #1e5fa8 50%, #1a3a6b 100%);
+    border-radius: 3px;
+    margin: 0 20px 32px;
+    position: relative;
+  }
+  .timeline-bar::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid #1e5fa8;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+  }
+
+  /* Ceremony cards positioned on timeline */
+  .ceremonies-row {
+    display: flex;
+    gap: 12px;
+    padding: 0 20px;
+    align-items: stretch;
+  }
+
+  .ceremony-slot {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .ceremony-slot .connector {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, currentColor);
+    margin-bottom: 8px;
+    opacity: 0.5;
+  }
+
+  .ceremony-card {
+    width: 100%;
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+  }
+
+  .ceremony-card:hover { transform: translateY(-3px); }
+
+  /* Color themes */
+  .c-green  { background: linear-gradient(145deg, #0d3326, #0f4a35); border-color: #1a7a55; color: #4ecf94; }
+  .c-blue   { background: linear-gradient(145deg, #0d1e3d, #0f2d5a); border-color: #2a5ba8; color: #5b9bd5; }
+  .c-purple { background: linear-gradient(145deg, #1d0d3d, #2a0f5a); border-color: #6a2aa8; color: #a57dd5; }
+  .c-amber  { background: linear-gradient(145deg, #3d2a00, #5a3e00); border-color: #a87a00; color: #d5ab3a; }
+  .c-coral  { background: linear-gradient(145deg, #3d0d0d, #5a0f0f); border-color: #a83a3a; color: #d57a7a; }
+
+  .ceremony-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .ceremony-name {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    color: inherit;
+  }
+
+  .ceremony-timing {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 8px;
+    color: inherit;
+  }
+
+  .ceremony-desc {
+    font-size: 11px;
+    color: #8fa3bb;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .ceremony-duration {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    color: inherit;
+    opacity: 0.8;
+  }
+
+  /* PDCA cycle section */
+  .pdca-section {
+    margin-top: 36px;
+    background: #111d2e;
+    border-radius: 16px;
+    border: 1px solid #1e3a5f;
+    padding: 24px 28px;
+  }
+
+  .pdca-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5b9bd5;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .pdca-steps {
+    display: flex;
+    gap: 0;
+    align-items: center;
+  }
+
+  .pdca-step {
+    flex: 1;
+    text-align: center;
+    padding: 12px 8px;
+  }
+
+  .pdca-letter {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 4px;
+  }
+
+  .pdca-word {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .pdca-events {
+    font-size: 10px;
+    color: #5b7a9a;
+    line-height: 1.5;
+  }
+
+  .pdca-arrow {
+    font-size: 20px;
+    color: #2a4a6a;
+    flex-shrink: 0;
+  }
+
+  .plan  { color: #4ecf94; }
+  .do    { color: #5b9bd5; }
+  .check { color: #d5ab3a; }
+  .adj   { color: #d57a7a; }
+
+  /* IP Iteration callout */
+  .ip-callout {
+    margin-top: 20px;
+    background: #0f1e35;
+    border: 1px solid #1e3a5f;
+    border-left: 4px solid #5b9bd5;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ip-icon { font-size: 24px; flex-shrink: 0; }
+  .ip-text { font-size: 12px; color: #8fa3bb; line-height: 1.5; }
+  .ip-text strong { color: #5b9bd5; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 11px;
+    color: #3a5570;
+    letter-spacing: 1px;
+  }
+
+  /* Dot on timeline for each ceremony */
+  .timeline-dots {
+    display: flex;
+    padding: 0 20px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .tdot-slot { flex: 1; display: flex; justify-content: center; }
+  .tdot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: #0f1724;
+    position: relative;
+    top: -9px;
+  }
+</style>
+</head>
+<body>
+<div class="infographic">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="label">Scaled Agile Framework 6.0</div>
+    <h1>Iteration Ceremonies</h1>
+    <p>Five recurring events that structure every 2-week iteration in SAFe</p>
+  </div>
+
+  <!-- Timeline -->
+  <div class="timeline-container">
+    <div class="weeks">
+      <div class="week">Week 1</div>
+      <div class="week">Week 2</div>
+    </div>
+    <div class="days">
+      <div class="day">Mon</div><div class="day">Tue</div><div class="day">Wed</div>
+      <div class="day">Thu</div><div class="day">Fri</div>
+      <div class="day">Mon</div><div class="day">Tue</div><div class="day">Wed</div>
+      <div class="day">Thu</div><div class="day">Fri</div>
+    </div>
+    <div class="timeline-bar"></div>
+
+    <!-- Timeline dots -->
+    <div class="timeline-dots">
+      <div class="tdot-slot" style="flex:0.5"><div class="tdot" style="border-color:#1a7a55"></div></div>
+      <div class="tdot-slot" style="flex:1"><div class="tdot" style="border-color:#2a5ba8; width:8px;height:8px; top:-7px"></div></div>
+      <div class="tdot-slot" style="flex:1.5"><div class="tdot" style="border-color:#6a2aa8"></div></div>
+      <div class="tdot-slot" style="flex:1"><div class="tdot" style="border-color:#a87a00"></div></div>
+      <div class="tdot-slot" style="flex:1"><div class="tdot" style="border-color:#a83a3a"></div></div>
+    </div>
+
+    <!-- Ceremony cards -->
+    <div class="ceremonies-row">
+
+      <!-- 1. Iteration Planning -->
+      <div class="ceremony-slot">
+        <div class="ceremony-card c-green">
+          <div class="ceremony-icon">📋</div>
+          <div class="ceremony-name">Iteration Planning</div>
+          <div class="ceremony-timing">Day 1 · Start</div>
+          <div class="ceremony-desc">Team selects stories from the backlog, sets iteration goals, and commits to what can be completed</div>
+          <span class="ceremony-duration">2–4 hrs</span>
+        </div>
+      </div>
+
+      <!-- 2. Team Sync -->
+      <div class="ceremony-slot">
+        <div class="ceremony-card c-blue">
+          <div class="ceremony-icon">🔄</div>
+          <div class="ceremony-name">Team Sync</div>
+          <div class="ceremony-timing">Daily · Every Day</div>
+          <div class="ceremony-desc">Inspect progress toward iteration goal; surface impediments; adjust upcoming planned work</div>
+          <span class="ceremony-duration">~15 min</span>
+        </div>
+      </div>
+
+      <!-- 3. Backlog Refinement -->
+      <div class="ceremony-slot">
+        <div class="ceremony-card c-purple">
+          <div class="ceremony-icon">🗂️</div>
+          <div class="ceremony-name">Backlog Refinement</div>
+          <div class="ceremony-timing">Mid-Iteration · 1–2×</div>
+          <div class="ceremony-desc">Review, clarify, split, and estimate upcoming stories and enablers to keep the backlog healthy</div>
+          <span class="ceremony-duration">1–2 hrs</span>
+        </div>
+      </div>
+
+      <!-- 4. Iteration Review -->
+      <div class="ceremony-slot">
+        <div class="ceremony-card c-amber">
+          <div class="ceremony-icon">🎯</div>
+          <div class="ceremony-name">Iteration Review</div>
+          <div class="ceremony-timing">Last Day · End</div>
+          <div class="ceremony-desc">Demo completed stories to stakeholders; validate against acceptance criteria; collect feedback</div>
+          <span class="ceremony-duration">1–2 hrs</span>
+        </div>
+      </div>
+
+      <!-- 5. Iteration Retrospective -->
+      <div class="ceremony-slot">
+        <div class="ceremony-card c-coral">
+          <div class="ceremony-icon">🔍</div>
+          <div class="ceremony-name">Iteration Retrospective</div>
+          <div class="ceremony-timing">Last Day · After Review</div>
+          <div class="ceremony-desc">Reflect on team practices and process; identify and commit to concrete improvements</div>
+          <span class="ceremony-duration">1 hr</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PDCA Cycle -->
+  <div class="pdca-section">
+    <div class="pdca-title">Every Iteration is a PDCA Cycle</div>
+    <div class="pdca-steps">
+
+      <div class="pdca-step">
+        <div class="pdca-letter plan">P</div>
+        <div class="pdca-word plan">Plan</div>
+        <div class="pdca-events">Iteration Planning<br>Backlog Refinement</div>
+      </div>
+
+      <div class="pdca-arrow">→</div>
+
+      <div class="pdca-step">
+        <div class="pdca-letter do">D</div>
+        <div class="pdca-word do">Do</div>
+        <div class="pdca-events">Deliver stories<br>Daily Team Sync</div>
+      </div>
+
+      <div class="pdca-arrow">→</div>
+
+      <div class="pdca-step">
+        <div class="pdca-letter check">C</div>
+        <div class="pdca-word check">Check</div>
+        <div class="pdca-events">Iteration Review<br>Demo to stakeholders</div>
+      </div>
+
+      <div class="pdca-arrow">→</div>
+
+      <div class="pdca-step">
+        <div class="pdca-letter adj">A</div>
+        <div class="pdca-word adj">Adjust</div>
+        <div class="pdca-events">Iteration Retrospective<br>Process improvements</div>
+      </div>
+
+    </div>
+
+    <!-- IP Iteration note -->
+    <div class="ip-callout">
+      <div class="ip-icon">💡</div>
+      <div class="ip-text">
+        <strong>Innovation &amp; Planning (IP) Iteration</strong> — The final iteration of each PI has no planned stories.
+        Instead it hosts PI Planning (for the next PI), Inspect &amp; Adapt, hackathons, and continuing education.
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">SAFe® 6.0 · framework.scaledagile.com · knowledge-scraping project</div>
+
+</div>
+</body>
+</html>
