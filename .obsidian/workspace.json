@@ -180,6 +180,8 @@
   },
   "active": "1b8edc63859bdd59",
   "lastOpenFiles": [
+    "_meta/index.md.tmp.36244.a3459ddc4967",
+    "Workspaces/Work/Projects/ServiceNow/cmdb-csdm-team-operating-model.md",
     "Workspaces/Work/Projects/ServiceNow/notebooklm-library.md",
     "Workspaces/Work/Projects/ServiceNow/pi2-ado-flagged-risks-nolan.md",
     "Workspaces/Work/Projects/CMDB-CSDM/PI-2/PO-Sync/2026-05-28.md",
@@ -213,8 +215,6 @@
     "Workspaces/Work/Projects/knowledge-scraping/SAFe-core-values-and-principles.md",
     "Workspaces/Work/Projects/knowledge-scraping/SAFe-overview.md",
     "_meta/scrape-registry.md",
-    "_raw/framework_scaledagile_com_iteration-goals.md",
-    "_raw/framework_scaledagile_com_reaching-the-tipping-point.md",
-    "_raw/framework_scaledagile_com_accelerate.md"
+    "_raw/framework_scaledagile_com_iteration-goals.md"
   ]
 }
