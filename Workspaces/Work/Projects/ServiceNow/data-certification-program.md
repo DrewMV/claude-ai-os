@@ -17,6 +17,25 @@ provenance: "Derived from PI2 ADO backlog reviewed June 2026 (Objective 1420082)
 
 **Priority 1 objective in PI2.** Goal: establish a repeatable process by which CI owners certify their configuration items are accurate, complete, and up to date.
 
+## Architectural Decision — Stay OOTB (June 2026)
+
+> **Decision:** Do NOT customize OOB Data Certification code.
+> **Rationale:** Customization creates tech debt and upgrade risk.
+> **Approved approach:** Stay out-of-the-box; train users to work within standard functionality.
+> **Status:** Agreed via email thread week of June 5, 2026. Needs formal sign-off — owner TBD (Joe Dames / Architecture team).
+
+This is a standing guardrail. Any future request to modify OOB certification behavior should be redirected to training and process design, not code changes.
+
+---
+
+## UAT Status (June 2026)
+
+- Follow-up UAT session scheduled (exact date TBD — confirm from email thread)
+- AC items and review cycles defined
+- Pilot group confirmation still pending — required before UAT can execute
+
+---
+
 ## Program Structure
 
 ### Feature 1: Functionality (Feature 1247179)

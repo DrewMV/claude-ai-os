@@ -10,7 +10,7 @@ summary: "ADO-flagged feature-level risks for PI2 CMDB-CSDM workstream. Shared b
 base_confidence: 0.95
 lifecycle: draft
 lifecycle_changed: 2026-06-05
-provenance: "Risk list shared by Nolan, June 2026. Validated against PI2 ADO backlog snapshot."
+provenance: "Risk list shared by Nolan via email '[External] INFOPS Feature Risks - Please take action', week of June 5, 2026. Validated against PI2 ADO backlog snapshot."
 ---
 
 # PI2 ADO Flagged Risks — Nolan

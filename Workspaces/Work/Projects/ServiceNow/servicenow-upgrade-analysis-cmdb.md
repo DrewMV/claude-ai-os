@@ -17,6 +17,19 @@ provenance: "Derived from PI2 ADO backlog reviewed June 2026 (Feature 1355890, S
 
 Feature 1355890 in PI2 tracks a structured CMDB impact assessment for the upcoming ServiceNow platform upgrade. All 11 spikes and stories are in Sprint 2.3 (June 10–23, 2026).
 
+## Sandbox Upgrade Schedule (June 2026)
+
+> **Status:** Sandbox upgrade confirmed as scheduled — specific version and dates communicated via email week of June 5, 2026.
+> **Action required:** Capture exact version and sandbox dates here once confirmed. This directly gates Sprint 2.3 spike execution — analysis work cannot begin until the sandbox is available.
+
+| Field | Status |
+|-------|--------|
+| Target version | TBD — confirm from upgrade email |
+| Sandbox upgrade date | TBD — confirm from upgrade email |
+| Sprint 2.3 impact | High — 11 spikes/stories depend on sandbox availability |
+
+---
+
 ## Assessment Areas
 
 ### 1. IRE (Identification & Reconciliation Engine)

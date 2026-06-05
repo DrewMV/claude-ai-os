@@ -41,6 +41,19 @@ Key stages in a CI's lifecycle within the CMDB:
 3. **Staleness detection** — rules to flag CIs not seen by discovery in N days
 4. **Archival** — move stale CIs to archived state (not deleted; retained for audit)
 
+## Governance Guardrails
+
+Standing decisions that apply across all PI2 delivery work:
+
+| Guardrail | Decision | Rationale |
+|-----------|---------|-----------|
+| **Stay OOTB — Data Certification** | Do not customize OOB certification code | Customization creates tech debt and upgrade risk; train users instead |
+| **Change type discipline** | Enforce standard vs normal CR distinction in all delivery work | Governance compliance; reinforced in Sprint 2.2 backlog refinement |
+
+> These are architectural and governance decisions, not sprint-by-sprint judgments. Escalate any pressure to deviate from these guardrails to Joe Dames (PO) and the Architecture team.
+
+---
+
 ## PI2 Focus Areas (June 2026)
 
 Active PI2 work anchored to this roadmap:

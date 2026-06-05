@@ -83,6 +83,32 @@ These SAFe ceremonies are not consistently scheduled or visible in the team cale
 
 ---
 
+## Untracked Work — Shadow Activities (No Backlog Coverage)
+
+These activities consumed team or SM capacity in Sprint 2.2 but have no corresponding story, spike, or backlog item. They represent invisible work that reduces delivery capacity without appearing on the board.
+
+| Activity | Type | Risk | Recommended Action |
+|---------|------|------|-------------------|
+| **Access issues — ADO, Dev, SharePoint (Anuradha Rai)** | Onboarding/operational overhead | Blocks story execution if unresolved | Log as impediment; track to resolution |
+| **Dashboard capability request (new demand)** | Unformalized demand | Becomes invisible expectation if not captured | Create story or formally park in backlog |
+| **Change governance reinforcement (standard vs normal CR)** | Process gap / SM practice | Gap recurs if not addressed formally | Consider spike or enabler story to document and enforce the process |
+| **Correctness metric data population** | Data dependency with no owner | Blocked Sprint 2.2 acceptance; no story owns it | Add as task under Story 1435307 or log as impediment |
+
+> **SM principle:** If work is happening and consuming sprint capacity, it belongs on the board. Shadow work is a planning and forecasting risk.
+
+---
+
+## Impediment Tracking
+
+Active impediments should be raised in the DSU and tracked visibly. As of Sprint 2.2 close:
+
+| Impediment | Impact | Owner |
+|-----------|--------|-------|
+| Correctness metric data not populated | Blocks Sprint 2.2 PO acceptance | TBD |
+| Anuradha Rai access issues (ADO/Dev/SharePoint) | Blocks story execution | TBD |
+
+---
+
 ## Sprint Boundary Reference
 
 | Sprint | Start | End | Key Ceremonies Due |

@@ -33,3 +33,12 @@ Professional projects, responsibilities, and career context. Everything related 
 - When is Joe Dames back? (NERC-CIP spike + Data Certification planning blocked)
 - Is NowAssist 2.3 scope realistic, or should Phases 3–5 move to 2.4?
 - Are unplanned backlog items (SOX notification, network device config stories) PI2 committed or PI3?
+- What is the exact ServiceNow upgrade version and sandbox date? (gates Sprint 2.3 upgrade analysis work)
+- Data Certification OOTB decision — who owns formal sign-off? (Joe Dames / Architecture team)
+- SOX notification Story 1455827 — priority decision needed from Joe before it becomes an unspoken expectation
+- Dashboard capability request — create story or formally park it?
+- Is Anuradha Rai's access fully resolved (ADO, Dev, SharePoint)?
+
+## Decisions Made
+
+- **Data Certification: Stay OOTB** — No customization of OOB certification code. Train users instead. Agreed week of June 5, 2026 via email. Formal sign-off pending.
