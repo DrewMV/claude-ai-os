@@ -58,7 +58,13 @@
       "Read(//c/Users/manuel.b.vazquez/.claude/**)",
       "mcp__notebooklm__get_health",
       "mcp__notebooklm__setup_auth",
-      "mcp__notebooklm__cleanup_data"
+      "mcp__notebooklm__cleanup_data",
+      "Bash(where chrome *)",
+      "Bash(where \"chrome.exe\")",
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Read(//c/Program Files \\(x86\\)/Google/Chrome/Application/**)",
+      "Bash(npx --version)",
+      "mcp__notebooklm__list_notebooks"
     ]
   }
 }
