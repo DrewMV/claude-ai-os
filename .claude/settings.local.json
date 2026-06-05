@@ -57,7 +57,8 @@
       "Bash(python -m json.tool)",
       "Read(//c/Users/manuel.b.vazquez/.claude/**)",
       "mcp__notebooklm__get_health",
-      "mcp__notebooklm__setup_auth"
+      "mcp__notebooklm__setup_auth",
+      "mcp__notebooklm__cleanup_data"
     ]
   }
 }
