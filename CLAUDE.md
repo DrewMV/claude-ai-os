@@ -43,7 +43,13 @@ This is the root of your personal knowledge workspace. Read this file at the sta
      ```
    - Strong success criteria allow independent looping. Weak criteria ("make it work") require constant clarification.
 
-**These rules are working if:** fewer unnecessary changes appear in diffs, fewer rewrites occur due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+6. **Adaptive Execution** — Treat the initial plan as a hypothesis, not a contract. When execution reveals new information that changes scope, risk, or approach, surface it explicitly before continuing.
+   - Pause and name unexpected findings — don't silently absorb surprises and push forward.
+   - State the updated plan before acting on it — don't pivot without acknowledgment.
+   - Distinguish discovery from scope creep — not every surprise requires a full stop, but all surprises require surfacing.
+   - If something unexpected happened during execution and the user doesn't know about it, this rule was violated.
+
+**These rules are working if:** fewer unnecessary changes appear in diffs, fewer rewrites occur due to overcomplication, clarifying questions come before implementation rather than after mistakes, and mid-task surprises are surfaced rather than silently absorbed.
 
 ## Vault Structure
 
