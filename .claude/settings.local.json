@@ -65,7 +65,14 @@
       "Read(//c/Program Files \\(x86\\)/Google/Chrome/Application/**)",
       "Bash(npx --version)",
       "mcp__notebooklm__list_notebooks",
-      "mcp__notebooklm__add_notebook"
+      "mcp__notebooklm__add_notebook",
+      "Bash(dir \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\Workspaces\\\\Work\\\\Projects\" /AD /B)",
+      "Bash(python -c \"import pptx; print\\('pptx ok'\\)\")",
+      "Bash(python build_csdm_pptx.py)",
+      "mcp__notebooklm__search_notebooks",
+      "mcp__notebooklm__select_notebook",
+      "mcp__notebooklm__ask_question",
+      "Bash(python build_csdm_domains_pptx.py)"
     ]
   }
 }

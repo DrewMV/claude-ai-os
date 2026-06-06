@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSDM Layers – Whiteboard Sketch</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    background: #f5f0e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Caveat', cursive;
+  }
+  .board {
+    background: #fefdf8;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding: 48px 64px 56px;
+    box-shadow: 4px 4px 16px rgba(0,0,0,0.12);
+    width: 620px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #2c2c2c;
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: #888;
+    margin: 0 0 40px 0;
+  }
+  .stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .layer {
+    width: 100%;
+    border-radius: 6px;
+    padding: 18px 24px;
+    position: relative;
+    box-sizing: border-box;
+  }
+  .layer-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  .layer-desc {
+    font-size: 17px;
+    color: #444;
+    margin-top: 2px;
+  }
+  .layer-tag {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* Layer colors — top (business) to bottom (technical) */
+  .l1 { background: #d4edda; border: 2px solid #5a9e6f; }
+  .l1 .layer-tag { background: #5a9e6f; color: #fff; }
+  .l2 { background: #cce5ff; border: 2px solid #4a86c8; }
+  .l2 .layer-tag { background: #4a86c8; color: #fff; }
+  .l3 { background: #fff3cd; border: 2px solid #c8a135; }
+  .l3 .layer-tag { background: #c8a135; color: #fff; }
+  .l4 { background: #ffe5d0; border: 2px solid #c87040; }
+  .l4 .layer-tag { background: #c87040; color: #fff; }
+  .l5 { background: #f8d7da; border: 2px solid #b84a52; }
+  .l5 .layer-tag { background: #b84a52; color: #fff; }
+
+  .arrow {
+    font-size: 28px;
+    color: #999;
+    line-height: 1;
+    margin: 2px 0;
+    user-select: none;
+  }
+
+  .legend {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+    font-size: 15px;
+    color: #777;
+    border-top: 1px dashed #ccc;
+    padding-top: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="board">
+  <h1>CSDM Service Layers</h1>
+  <p class="subtitle">How business applications connect to business value</p>
+
+  <div class="stack">
+
+    <div class="layer l1">
+      <div class="layer-title">Business Offering</div>
+      <div class="layer-desc">What the business receives — named, business-facing service</div>
+      <span class="layer-tag">BUSINESS</span>
+    </div>
+
+    <div class="arrow">↑</div>
+
+    <div class="layer l2">
+      <div class="layer-title">Technical Offering</div>
+      <div class="layer-desc">What IT provides to fulfill that business need</div>
+      <span class="layer-tag">IT</span>
+    </div>
+
+    <div class="arrow">↑</div>
+
+    <div class="layer l3">
+      <div class="layer-title">Service Instance</div>
+      <div class="layer-desc">The live, running service in a specific environment</div>
+      <span class="layer-tag">OPERATIONAL</span>
+    </div>
+
+    <div class="arrow">↑</div>
+
+    <div class="layer l4">
+      <div class="layer-title">Application Instance</div>
+      <div class="layer-desc">A specific deployment of the app (Prod, Dev, Test…)</div>
+      <span class="layer-tag">DEPLOYED</span>
+    </div>
+
+    <div class="arrow">↑</div>
+
+    <div class="layer l5">
+      <div class="layer-title">Business Application</div>
+      <div class="layer-desc">The software product itself</div>
+      <span class="layer-tag">SOFTWARE</span>
+    </div>
+
+  </div>
+
+  <div class="legend">
+    <span>↑ Technical → Business ↑</span>
+    <span>Read bottom to top</span>
+  </div>
+</div>
+</body>
+</html>

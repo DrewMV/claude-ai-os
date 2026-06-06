@@ -12,7 +12,7 @@ Professional projects, responsibilities, and career context. Everything related 
 
 - knowledge-scraping — Active (2026-05-30) — SAFe knowledge base complete: 17 wiki pages from 165 sources
 - nerc-cip — Active (2026-06-03) — NERC CIP compliance research; Spike 1402602 blocked pending Joe Dames return
-- ServiceNow/CMDB-CSDM — Active (2026-06-05) — PI2 in progress; Sprint 2.2 closes 6/9, Sprint 2.3 starts 6/10
+- PPL CMDB-CSDM — Active (2026-06-05) — PI2 in progress; Sprint 2.2 closes 6/9, Sprint 2.3 starts 6/10. Manny taking over as primary SM effective 6/9 (Alex transitioning to ITSM). Joe Dames returns 6/9.
 
 ## Key Context
 
@@ -30,7 +30,7 @@ Professional projects, responsibilities, and career context. Everything related 
 
 ## Open Questions
 
-- When is Joe Dames back? (NERC-CIP spike + Data Certification planning blocked)
+- ~~When is Joe Dames back?~~ **Joe returns June 9** — follow up on NERC-CIP spike + Data Certification planning immediately
 - Is NowAssist 2.3 scope realistic, or should Phases 3–5 move to 2.4?
 - Are unplanned backlog items (SOX notification, network device config stories) PI2 committed or PI3?
 - What is the exact ServiceNow upgrade version and sandbox date? (gates Sprint 2.3 upgrade analysis work)

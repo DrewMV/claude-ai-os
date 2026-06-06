@@ -1,7 +1,7 @@
 ---
 level: project
 workspace: Work
-project: CMDB-CSDM
+project: PPL CMDB-CSDM
 status: active
 created: 2026-06-01
 updated: 2026-06-03
@@ -120,30 +120,60 @@ _See [[PI-2/Memory]] for PI-level decisions._
 
 ## Open Action Items
 
-| Owner | Item | Due |
-|-------|------|-----|
-| Manuel | Confirm role transition and responsibilities with Sonika | 2026-06-09 |
-| Manuel | Begin CMDB SM role and ceremonies | 2026-06-09 |
-| Alex | Validate metal tier field customization; clarify data classification vs. SOX indicator | 2026-06-04 |
-| Alex | Coordinate credential fix with Tony/Christian; confirm resolution via email | 2026-06-06 |
-| Alex | Provide Laurent and Alex Lim with ServiceNow access | 2026-06-06 |
-| Alex | Follow up with Joe on outstanding issues (Joe returns) | 2026-06-09 |
-| Alex | Provide Manuel with credentials and system access | 2026-06-06 |
-| Tony | Resolve ServiceNow credential issues | 2026-06-06 |
-| Christian | Send credential issue updates to Alex, Todd, and others | 2026-06-06 |
-| Christian | Share detailed focus areas and scope clarifications with Manuel | ASAP |
-| Christian | Coordinate with Aaron Simeon to confirm role segmentations in CR6 | ASAP |
-| Karen | Quantify OPS team unavailability impact on CMDB backlog; analyze PI-2 story assignments | ASAP |
-| Karen | Obtain written confirmation from Narayan on OPS availability and upgrade breakdown | ASAP |
-| Manuel | Follow up with Joe on NERC SIP CI requirements and CMP documentation | ASAP (Joe returns 2026-06-09) |
-| Manuel | Coordinate with Christian on CCB charter and compliance requirements | ASAP |
+### 🔴 Today — June 9 (Joe returns, Alex transitions to ITSM)
+
+| Owner | Item | Context |
+|-------|------|---------|
+| Manuel | Confirm role transition and responsibilities with Sonika | Due today |
+| Manuel | Follow up with Joe — NERC SIP CI requirements + CMP documentation | Spike 1402602 unblocks today |
+| Manuel | Clarify NowAssist priority with Joe — P2 story-level vs P3 framework | Open question |
+| Manuel | Get Joe's decision on SOX Story 1455827 — PI2 committed or PI3? | Active email discussion, no sprint assignment |
+| Manuel | Confirm Data Certification OOTB decision formal sign-off owner (Joe / Architecture team) | Decision made in email, not formally recorded |
+| Manuel | Confirm Anuradha's access fully resolved — ADO, Dev, SharePoint | Active blocker |
+| Alex | Verify overdue credential/access items are closed (Tony, Christian) | Due Jun 4–6, status unknown |
+
+### 🟡 This Sprint — Before June 23
+
+| Owner | Item | Context |
+|-------|------|---------|
+| Manuel | Schedule Sprint 2.3 end ceremonies — Showback, Retro, Sprint 2.4 Planning (~June 23) | Not on calendar |
+| Manuel | Confirm NowAssist 2.3 scope with Joe — all 13 stories or defer Phases 3–5 to 2.4? | Sprint overload risk |
+| Manuel | Assign Story 1402976 (Execute Data Cert Policies) to an iteration | No iteration; Priority 1 objective |
+| Manuel | Confirm Data Certification UAT date and AC items | UAT scheduled, exact date TBD |
+| Manuel | Capture sandbox upgrade version and exact dates from upgrade email | Gates Sprint 2.3 upgrade analysis work |
+| Manuel | Formalize or park dashboard capability request as a story | Floating demand, no backlog item |
+| Manuel | Log correctness metric data blocker as impediment under Story 1435307 | Blocking Sprint 2.2 acceptance |
+| Manuel | Add active impediments to impediments-log.md (correctness data + Anuradha access) | Team tracking |
+
+### 🟠 Backlog Hygiene — ADO Cleanup
+
+| Owner | Item | Context |
+|-------|------|---------|
+| Manuel | Fix NowAssist feature-level dates for Phases 3–5 | Nolan's risk list — quick hygiene fix |
+| Manuel | Resolve duplicate Story 1452028 (assigned to two features) | Backlog data quality |
+| Manuel | Close/remove Story 1281209 (OEM Service Map — marked "removed") | Still on board |
+| Manuel | Remove duplicate row for Objective 1366662 | Appears twice in backlog |
+| Manuel | Assign start/end dates to Data Cert support stories in Sprint 2.3 | Stories in sprint but no dates |
+
+### 🔵 Pending Others — ASAP
+
+| Owner | Item | Context |
+|-------|------|---------|
+| Christian | Share CR6 detailed focus areas and scope clarifications with Manuel | Still outstanding |
+| Manuel | Coordinate with Christian on CCB charter compliance requirements | Open from prior session |
+| Manuel | Confirm CMDB health score targets 85–90% formally with Sonika | Blocked on Data Certification confirmation |
+| Karen | Quantify OPS team unavailability impact on CMDB backlog + PI-2 story assignments | Still outstanding |
+| Karen | Get written confirmation from Narayan on OPS availability and upgrade breakdown | Connects to sandbox dates |
 
 ## Open Questions
 
-- Specific ceremony dates within each iteration (pending confirmation from Manuel / Joe Dames)
+- Sprint 2.3 end ceremony dates — Showback, Retro, Sprint 2.4 Planning not yet scheduled (~June 23)
 - Alex Phan email (Accenture contractor)
 - Ruchita Rohini email — verify lprasad@pplweb.com discrepancy
 - CR6 detailed scope and focus areas (pending from Christian)
-- Now Assist priority: listed as P3 in framework but individual stories approved as "P2 priority" by Manuel — clarify with Anu or Joe whether Now Assist was promoted or if P2 refers to a story-level ADO field
-- CMDB health score targets (85–90% previously agreed with Sonica) — need formal confirmation; compliance measurement blocked pending data certification
-- Manuel's ADO access and PPL stakeholder list — Anu facilitating, currently blocked
+- NowAssist priority — P3 in Sonika's framework but stories tagged P2 in ADO; clarify with Joe today
+- CMDB health score targets 85–90% — agreed with Sonika, needs formal confirmation; blocked on Data Certification
+- Manuel's ADO access — Anuradha facilitating; partially resolved but access issues still surfaced week of June 5
+- Sandbox upgrade version and exact dates — communicated via email, not yet captured
+- Data Certification UAT exact date — session scheduled, date TBD
+- Dashboard capability request — story or parking decision pending
