@@ -23,6 +23,7 @@ A story is ready to be pulled into Sprint Planning when all of the following gat
 - [ ] Story ID shared with Anu for Program Backlog Review tracking
 - [ ] Priority assigned: **P1** (Must Have) / **P2** (Should Have) / **P3** (Could Have) / **P4** (Nice to Have)
 - [ ] If multiple P1 stories exist, PO has provided numeric sub-ranking (1, 2, 3...) for Sprint Planning execution order
+- [ ] **If story involves custom logic, scripts, workflows, or any deviation from OOTB:** "Customization" tag applied + RAID/Decision issue logged and linked in ADO + Sonica Das approval confirmed before sprint entry (see [[requirements-process#Customization Governance]])
 
 ## Gate 3 — Team Backlog Refinement Passed
 

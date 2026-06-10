@@ -50,9 +50,10 @@ _Fill in per iteration from sprint-planning notes._
 | 6 | Reverse DNS not functioning — blocking CMDB discovery, Airlift planning, and ServiceNow visibility | High | Open | Raised at PO Sync 2026-05-28 |
 | 7 | AVD + Windows 11 unplanned work consuming ART capacity | High | Open | Displacing PI commitments across shared services |
 | 8 | Airlift migration wave dates not finalized — limiting Airlift planning confidence | Medium | Open | PI Obj 6 directly at risk; see [[Dependencies/infra-ops-technology]] |
-| 9 | **Sandbox upgrade to Australia version June 6** — team is mid-Iter 2.2 with NowAssist stories entering refinement; any sandbox work must be validated against new version after June 6 | **High** | Open | See [[Dependencies/external]] — CHG70100867 |
+| 9 | **Sandbox upgrade to Australia version June 6** — clone + upgrade completed as of 2026-06-10; all teams must restore update sets/backups in sandbox and validate environment before proceeding with upgrade-dependent work; NowAssist stories and upgrade analysis spikes (Feature 1355890) gate on this validation | **High** | Open — restore in progress | See [[Dependencies/external]] — CHG70100867 |
 | 10 | **Dev code freeze June 27 – July 18** — no deployments to pplwebdev during Iter 2.4 and most of 2.5; stories requiring dev environment changes cannot complete in this window; capacity planning for 2.4–2.5 must account for this | **High** | Open | See [[Dependencies/external]] — CHG70100870 |
 | 11 | **Test code freeze July 18 – Aug 15** — spans end of 2.5, all of IP (2.6), and extends 10 days into PI-3 Iter 3.1; no test deployments during IP iteration; PI-3 planning must account for reduced test environment availability at start | **High** | Open | See [[Dependencies/external]] — CHG70100865 |
+| 12 | **SCCM vs. ServiceNow Discovery authoritative precedence not fully resolved** — June 8 decision locked SCCM as authoritative for 6 hardware attributes, but a complete field-by-field precedence map does not exist. Stories 1403760, 1403762, 1403759, and spike 1421790 are each making isolated precedence decisions without a governing baseline. Risk of conflicting rules across stories, dirty data in CMDB, or rework if a later ruling overrides earlier sprint commitments. Needs a decision owner, full attribute map agreed with Ray (SCCM data owner) and Sonica, before further precedence stories are committed to sprints. | **High** | Open | Surfaced 2026-06-08 SCCM refinement; Spike 1403759 (asset tag / OU name) on hold pending Ray review; see [[PI-2/Iterations/Iteration-2.2/backlog-refinement-2026-06-08-sccm]] |
 
 ## Key Decisions This PI
 
@@ -60,6 +61,13 @@ _Fill in per iteration from sprint-planning notes._
 - **OOTB-first policy**: evaluate out-of-box ServiceNow suitability before any customization; complex UI filters flagged as high-risk customization area; decisions treated as product-level choices, not individual preferences
 - **AI work sequencing**: NowAssist AI stories (PI Obj 5) enter backlog refinement in Iter 2.2 after Azure Airlift review completes in Iter 2.1
 - **Azure Airlift story sequencing**: Pre-Migration → During Migration → Post-Migration; dependency order must be reflected in ADO linkage
+- **2026-06-08 — SCCM authoritative source confirmed:** SCCM is the authoritative source for Manufacturer, Model, BIOS serial, CPU, Disk, and RAM. ServiceNow Discovery updates these fields only if the value is blank. Agreed in backlog refinement session.
+- **2026-06-08 — Physical Computer CI Owner Autopopulation approved:** CI owner, support group, and tech owner group fields automated for new physical computer CIs. Existing records updated via PixScript. Virtual computers explicitly excluded (different stakeholder groups). Story accepted in PO showback.
+- **2026-06-08 — PMDB Application Service Custom Fields approved:** Eight fields added to PMDB CI service ITO table (asset criticality, RPO, RTO, recovery tier meter, tier data classification, stocks indicator, stocks type). Edit permissions for four fields restricted to Cyber Risk and DR teams. Story accepted in PO showback; moving to QA/UAT.
+- **2026-06-08 — CC User Location root cause identified:** LDAP integration writes plain text into the location field instead of referencing the common location table — affects 18,000+ user records. Azure, HCM, and PeopleSoft integrations do not populate this field. Proposed fix: technical safeguards and scripts to correct LDAP handling. Review meeting with Joe pending. Directly gates US 1455858 (Virtual Location Management).
+- **2026-06-08 — Customization governance process established:** Stories involving custom logic, scripts, or workflows must be tagged "Customization" in ADO, have a RAID/Decision issue logged and linked, and receive Sonica Das approval before implementation. Configuration changes (fields, forms, basic updates) are exempt. See [[requirements-process#Customization Governance]].
+- **2026-06-08 — Spike 1403759 (De-prioritize SCCM) on hold:** Pending attribute mapping review with Ray. Approval status unclear. Follow-up call required with Alex, Vinay, Joe, Manuel before sprint commitment.
+- **2026-06-08 — NowAssist stories assigned to Karen:** Stories 1436576, 1436579, 1436593, 1436592 assigned to Karen (1 pt each) due to Vinay's SCCM workload. Created in ADO by Alex Phan per 6/8 email. Feature-level linkage in ADO pending — Anu to confirm feature IDs upon return.
 
 ## ART Delivery Context (from PO Sync 2026-05-28)
 
@@ -85,7 +93,7 @@ _Fill in per iteration from sprint-planning notes._
 
 | Action | Owner | Source | Status |
 |---|---|---|---|
-| Provide initial NowAssist features and stories in ADO | Joe Dames | Team discussion 5/26 | Open |
+| Provide initial NowAssist features and stories in ADO | Joe Dames | Team discussion 5/26 | Partially done — Alex Phan created 4 stories (1436576, 1436579, 1436593, 1436592) on 2026-06-08; feature-level ADO linkage still pending; Anu to confirm feature IDs |
 | Assess NowAssist capabilities: Australia vs Yokohama | Joe Dames | Team discussion 5/20 | Open |
 | Add DNS email update from Christian to thread; attempt email resolution before scheduling meetings | Alex Phan | Team discussion 5/26 | Open |
 | Get Sonika support for missing server credentials (Service Mapping scanning) | Manuel / Joe | Team discussion 5/26 | Open |
@@ -97,3 +105,6 @@ _Fill in per iteration from sprint-planning notes._
 | Review CI Ownership plan for servers with OCM; assess impact to incident/request creators | Joe Dames | Team discussion | Open |
 | Assign developer to CI Ownership server work | Joe Dames | Team discussion | Open |
 | HCM integration for computer location — engage Sonika | Manuel / Joe | Team discussion | Open |
+| Clarify scope of Cherwell laptop import vs US 1452028 (iteam import) — confirm whether new vendor purchase feed is covered by existing ADO story or needs a new one; review with Alex Phan and Anu, but **Uloma (Adelufosi) is primary contact** as meeting organizer and process owner | Manuel / Alex / Anu → Uloma | Cherwell meeting 2026-06-08 | Open |
+| Resolve Spike 1403759 (De-prioritize SCCM asset tag / OU name) approval status — dedicated call needed with Alex, Vinay, Joe, Manuel before sprint commitment | Manuel / Alex / Vinay / Joe | SCCM Backlog Refinement 2026-06-08 | Open |
+| Obtain Sonica approval for 2 new SCCM timestamp attributes (Story 1403762) before moving from dev to production — Stan to send customization details to Alex for approval issue creation | Stan → Alex → Sonica | SCCM Backlog Refinement 2026-06-08 | Open |

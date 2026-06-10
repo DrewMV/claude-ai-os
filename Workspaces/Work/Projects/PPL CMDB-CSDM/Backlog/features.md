@@ -84,7 +84,16 @@ ESS 02 scope. Early engagement phase.
 
 ### PI Obj 5 — Embed NowAssist AI Across CMDB and ITSM Workflows | Op Priority: 3 | ADO Obj: 1408764
 
-**⚠️ ADO features missing — Joe Dames to provide initial features and stories**
+**⚠️ ADO features still missing at feature level — Anu to provide feature IDs upon return**
+
+Stories created in ADO by Alex Phan on 2026-06-08. Feature-level linkage unconfirmed.
+
+| ADO Story ID | Story | Owner | Size | Status |
+|---|---|---|---|---|
+| 1436576 | NowAssist: Confirm Platform Prerequisites for NowAssist Activation (Part 1) | Karen | 1 pt | Sprint 2.3 |
+| 1436579 | NowAssist: Activate Now Assist for CMDB Plugin | Karen | 1 pt | Sprint 2.3 |
+| 1436593 | NowAssist: Activate Contextual CI Form Help Skill | Karen | 1 pt | Sprint 2.3 |
+| 1436592 | NowAssist: Activate CI Summarization Skill | Karen | 1 pt | Sprint 2.3 |
 
 PI-2 scope is an OOB capability assessment, not full deployment:
 - NowAssist for CMDB out-of-box features

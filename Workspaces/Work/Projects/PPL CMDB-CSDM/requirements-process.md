@@ -83,3 +83,27 @@ Organizational Change Management (OCM) is involved for communications and traini
 - New fields or UI changes affect end users
 - A policy or governance decision requires training
 - Communications to stakeholders are needed before or after release
+
+## Customization Governance
+
+Established 2026-06-08 (communicated by Alex Phan to Manuel Vazquez and team).
+
+**Definition:**
+
+| Type | Examples | Requires governance? |
+|------|----------|----------------------|
+| Configuration | Adding fields, forms, basic updates | No |
+| Customization | Custom logic, scripts, workflows, anything deviating from OOTB | **Yes** |
+
+**Process for Customization Stories:**
+
+1. Apply **"Customization" tag** to the story in ADO
+2. Log a **Decision/RAID issue** in ADO (Josh or Alex Phan can log — SM coordinates, does not need to log directly)
+3. **Link the RAID issue** to the story in ADO
+4. Submit for **Sonica Das approval** — story cannot be implemented until approved
+5. RAID issue reviewed at **RAID log meeting**
+6. Story tracked in **monthly ADO customization report** (query maintained by program team)
+
+**SM Role:** Identification and coordination. The cleanest enforcement point is the Definition of Ready — a story with custom logic and no linked RAID issue does not enter the sprint.
+
+ADO report reference: https://dev.azure.com/PPLElectric/A-INFOPS/_queries/query/?tempQueryId=e45abffd-39bc-471e-b435-90cc0d392b92

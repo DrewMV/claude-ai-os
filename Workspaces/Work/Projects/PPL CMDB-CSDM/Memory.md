@@ -4,7 +4,7 @@ workspace: Work
 project: PPL CMDB-CSDM
 status: active
 created: 2026-06-01
-updated: 2026-06-03
+updated: 2026-06-10
 tags: [work, agile, safe, cmdb-csdm, servicenow]
 ---
 
@@ -98,6 +98,14 @@ Data certification is a hot topic and largely developed; feedback incorporation 
 
 ## Key Decisions
 
+**2026-06-10 — Business App enhancements paused:** Team agreed to pause all new Business Application enhancements until Application Services migration is complete. Tony to execute migration off Business Application table and retire legacy records. OCM communications required before changes.
+
+**2026-06-10 — AI tools approved:** Use of AI tools (e.g., Claude) confirmed approved with appropriate approval flow.
+
+**2026-06-10 — HRSD BA change:** Chris Williams is no longer on the project. Lisa Yearick takes over BA responsibilities for HRSD.
+
+**2026-06-10 — Karen rolling off:** Karen Hodges rolling off the project. Impacts NowAssist story assignments (1436576, 1436579, 1436593, 1436592 currently assigned to Karen) and capacity planning for Sprint 2.3+. Reassignment needed.
+
 **2026-06-09 — SM Role Transition:** Alex Phan shifts primary focus to ITSM (working with JP Nair, Karen Hodges, Sonika Das, and ITSM stakeholders). Manuel takes over as CMDB Scrum Master in a "Scrum Master Plus" hybrid role — 100% SM responsibilities plus PO support alongside Joe Dames (translating technical priorities into business value, coordinating work assignments, demand intake support). Manuel will also interface with JP and Karen on ITSM-related matters alongside Alex. Alex continues to support CMDB during transition. Sonika Das is aligned and supports the role changes, including Manuel taking on PO-adjacent tasks. Confirmed in 2026-06-03 meeting with Chris, Christian, Alex, and Manuel.
 
 **2026-06-03 — CMDB Management Plan (CMP) identified as audit compliance need:** Manuel raised the need for a documented CMP defining CI classes, attributes, and health targets to support audit readiness. Follow-up with Joe on NERC SIP CI requirements. Not yet formally tracked as a deliverable — needs scoping with Joe and Sonica.
@@ -120,12 +128,16 @@ _See [[PI-2/Memory]] for PI-level decisions._
 
 ## Open Action Items
 
-### 🔴 Today — June 9 (Joe returns, Alex transitions to ITSM)
+### 🔴 Immediate — Week of June 10
 
 | Owner | Item | Context |
 |-------|------|---------|
-| Manuel | Confirm role transition and responsibilities with Sonika | Due today |
-| Manuel | Follow up with Joe — NERC SIP CI requirements + CMP documentation | Spike 1402602 unblocks today |
+| Manuel | **Approve Spike 1403733** — identify deprecated plugins/features impacting CMDB capabilities | Anuradha waiting on approval; unblock ASAP |
+| Manuel | **Complete Business Value scoring for PI objectives** | Required before ART demo — confirm whether demo has already occurred before actioning |
+| Manuel | **Assign owner to Reverse DNS fix** | Program-level risk, currently unowned; escalate to Nolan or OPS |
+| Manuel | **Surface Service Mapping app owner validation blocker** | Tanzeel's P1 work stalled not only on CyberArk/infra but also missing app owner sign-off; get name/owner |
+| Manuel | Confirm role transition and responsibilities with Sonika | Due June 9 |
+| Manuel | Follow up with Joe — NERC SIP CI requirements + CMP documentation | Spike 1402602 unblocks June 9 |
 | Manuel | Clarify NowAssist priority with Joe — P2 story-level vs P3 framework | Open question |
 | Manuel | Get Joe's decision on SOX Story 1455827 — PI2 committed or PI3? | Active email discussion, no sprint assignment |
 | Manuel | Confirm Data Certification OOTB decision formal sign-off owner (Joe / Architecture team) | Decision made in email, not formally recorded |
@@ -177,3 +189,6 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - Sandbox upgrade version and exact dates — communicated via email, not yet captured
 - Data Certification UAT exact date — session scheduled, date TBD
 - Dashboard capability request — story or parking decision pending
+- ART demo status — has it already occurred? If not, when? Business Value scoring is a hard prerequisite
+- Reverse DNS fix — who owns it? Needs escalation if unassigned
+- Service Mapping app owner validation — which app owners are missing and who is responsible for chasing them?

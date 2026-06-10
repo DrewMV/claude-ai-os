@@ -10,7 +10,7 @@ Learning, study, and knowledge building. Topics you are actively exploring, pape
 
 ## Active Projects
 
-_No projects yet. Use `/project-create Research/<name>` to create one._
+- notebooklm-pdf-load — Active, just created (2026-06-08)
 
 ## Key Context
 
