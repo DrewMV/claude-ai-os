@@ -72,7 +72,24 @@
       "mcp__notebooklm__search_notebooks",
       "mcp__notebooklm__select_notebook",
       "mcp__notebooklm__ask_question",
-      "Bash(python build_csdm_domains_pptx.py)"
+      "Bash(python build_csdm_domains_pptx.py)",
+      "Bash(python -c \"import fitz; import pikepdf; print\\('pymupdf:', fitz.__version__\\); print\\('pikepdf:', pikepdf.__version__\\)\")",
+      "Bash(python -c \"import shutil; print\\('Ghostscript:', shutil.which\\('gswin64c'\\) or shutil.which\\('gswin32c'\\) or shutil.which\\('gs'\\) or 'not found'\\)\")",
+      "Bash(Get-ChildItem -Path \"Workspaces\\\\Work\\\\Projects\" -Directory)",
+      "Bash(Select-Object -ExpandProperty Name)",
+      "Bash(python \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\Workspaces\\\\Work\\\\Projects\\\\PPL CMDB-CSDM\\\\PI-2\\\\gen_pi2_doc.py\")",
+      "PowerShell($py = \\(Get-Command python -ErrorAction SilentlyContinue\\); if \\($py\\) { Write-Output \"python: $\\($py.Source\\)\"; python --version; python -c \"import pptx; print\\('python-pptx', pptx.__version__\\)\" } else { Write-Output \"python not found\" })",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\Workspaces\\\\Work\\\\Projects\\\\PPL CMDB-CSDM\\\\Leadership-Status\")",
+      "PowerShell(Get-Process POWERPNT -ErrorAction SilentlyContinue | Select-Object Id, MainWindowTitle | Format-Table -AutoSize; if \\(-not $?\\) { } ; Write-Output \"---\"; Get-Process | Where-Object { $_.Name -match 'POWERPNT|powerpnt' } | ForEach-Object { Write-Output \"PowerPoint is running \\(PID $\\($_.Id\\)\\)\" })",
+      "Bash(ls -la \"Workspaces/Work/Projects/PPL CMDB-CSDM/Leadership-Status/\")",
+      "Bash(ls -la \"Workspaces/Work/Projects/PPL CMDB-CSDM/csdm5-infographic.html\")",
+      "Bash(python build_status_deck.py)",
+      "PowerShell($dir = \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\Workspaces\\\\Work\\\\Projects\\\\PPL CMDB-CSDM\\\\Leadership-Status\"; try { Move-Item -Path \"$dir\\\\2026-06-11-new.pptx\" -Destination \"$dir\\\\2026-06-11.pptx\" -Force -ErrorAction Stop; \"Promoted: 2026-06-11-new.pptx -> 2026-06-11.pptx\" } catch { \"FAILED \\(target likely still open in PowerPoint\\): $\\($_.Exception.Message\\)\" })",
+      "Bash(python -c \"import pptx; print\\('pptx', pptx.__version__\\)\")",
+      "Bash(python -c \"from pptx import Presentation; p=Presentation\\('2026-06-12.pptx'\\); print\\('slides:', len\\(p.slides\\)\\)\")",
+      "Bash(sed -n '/## Progress: Week over Week/,/Pending/p' 2026-06-12.md)",
+      "PowerShell(git add -A)",
+      "PowerShell(git reset -- \"Workspaces/Work/Projects/PPL CMDB-CSDM/PI-2/~`$2-Objectives-Features.docx\")"
     ]
   }
 }

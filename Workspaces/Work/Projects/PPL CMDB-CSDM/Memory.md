@@ -4,7 +4,7 @@ workspace: Work
 project: PPL CMDB-CSDM
 status: active
 created: 2026-06-01
-updated: 2026-06-10
+updated: 2026-06-12
 tags: [work, agile, safe, cmdb-csdm, servicenow]
 ---
 
@@ -14,7 +14,7 @@ Track and manage the CMDB-CSDM team's delivery from the Scrum Master and PO Supp
 
 ## Current State
 
-Active in PI2, Iteration 2.2 (May 27 – Jun 9, 2026). Joe Dames is out this week; returning Tuesday 2026-06-09.
+Active in PI2, Iteration 2.3 (Jun 10 – Jun 23, 2026). Data Certification UAT signed off by Sonika (6/10); deployment targets PROD 06/23. Service Mapping discovery now active — credentials resolved, single test subnet complete, additional scans in progress. CCB Meeting 06/16; CMDB Audit Sync 06/18.
 
 ## ART Context
 
@@ -78,6 +78,54 @@ Christian will provide Manuel with detailed focus areas for delivery under CR6.
 |------|--------------|-------------|----------|
 | ServiceNow Enhancements | JP Nair | Karen Hodges | Hari Medikondu |
 
+## Business Stakeholders & Governance
+
+Supplemental stakeholder mapping for the CMDB effort (added 2026-06-12). Additive — does not override roles recorded elsewhere in this file.
+
+| Stakeholder | Function / Job | PPL Team | CMDB Related Function / Class |
+|-------------|----------------|----------|-------------------------------|
+| Michele Coan | PPL Audit | — | CMDB Governance |
+| Aaron J Yocum | PPL Audit | — | CMDB Governance |
+| Shane Wisecarver | PPL Audit | — | CMDB Governance |
+| Andy Schwartzberg | PPL IT Leadership | — | CMDB Governance |
+| Michael Basso | PPL IT Leadership | — | CMDB Governance |
+| Sam Hamilton | Enterprise Architecture | — | Business Application record clean-up |
+| Matt Newhouse | Enterprise Architecture | — | Business Application record clean-up |
+
+**Also mapped to CMDB functions (primary roles recorded above — not redefined here):**
+
+- **Tom Westervelt** — ART Coach → SAFe / Agile Support (see ART Context)
+- **Nolan LeBlanc** — RTE (InfoOps) → SAFe / Agile Support (see ART Context)
+- **Todd Dierksheide** — Value Stream IT Lead → CMDB Governance / PPL IT Leadership (see ART Context)
+- **Gregory Belanger** — ART Business Owner → CMDB Governance / PPL IT Leadership (see ART Context Business Owners)
+
+_PPL Team column left blank as provided. Source list framed these as "PPL IT Leadership" for Dierksheide and Belanger; their existing roles (Value Stream IT Lead, Business Owner) take precedence._
+
+## CCB Roster
+
+Change Control Board membership for the CMDB effort (added 2026-06-12). Additive — does not override roles recorded elsewhere in this file. Ray Reuter and JP Nair each appear under more than one class/process by design.
+
+| Member | CCB Role | Area of Focus | Email |
+|--------|----------|---------------|-------|
+| Josh Sterling | Chairperson | Configuration Management Process Owner | jsterling@pplweb.com |
+| Todd Dierksheide | Class Manager | Business Application CI | tddierksheide@pplweb.com |
+| Ray Reuter | Class Manager | Servers and Storage CIs | rbreuter@pplweb.com |
+| Ray Reuter | Class Manager | Database CIs | rbreuter@pplweb.com |
+| Monica Green | Class Manager | Computers CIs – Physical | mmgreen@pplweb.com |
+| Paul Becker | Class Manager | Computers CIs – Virtual | PBecker@pplweb.com |
+| Mark Smith | Class Manager | Azure CIs | MSSmith@pplweb.com |
+| Adam Gross | Class Manager | Network Gear CIs | AGross@pplweb.com |
+| Jason Finn | Class Manager | Communication Devices CIs | jfinn@pplweb.com |
+| Cheryl Guia | Class Manager | Printer CIs | CLGuia@pplweb.com |
+| Jason Dubreuil | Consulting Member | Cybersecurity & Compliance | JRDubreuil@pplweb.com |
+| Gaurav Parmar | Consulting Member | Enterprise Architecture | GDParmar@pplweb.com |
+| Sonika Das | Consulting Member | ServiceNow Platform | SDas2@pplweb.com |
+| JP Nair | Consulting Member | Request and Change Management Process | JNair@pplweb.com |
+| JP Nair | Consulting Member | Incident and Problem Management Process | JNair@pplweb.com |
+| Nora Lizenberg | OCM Support | OCM | nflizenberg@pplweb.com |
+
+**Cross-reference (primary roles recorded above — not redefined here):** Todd Dierksheide (Value Stream IT Lead), Sonika Das (Product Manager, EVT), JP Nair (ServiceNow Enhancements PO), Ray Reuter (server support group assignments contact).
+
 ## Active PIs
 
 | PI | Start | End | Status |
@@ -119,6 +167,8 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - [[Team/working-agreements]] — full team roster, emails, onshore/offshore split
 - [[Team/capacity]] — iteration velocity tracker
 - [[Team/impediments-log]] — active and resolved blockers
+- [[Leadership-Status]] — weekly customer-leadership status deck (PowerPoint + Marp markdown), regenerated from `build_status_deck.py`; shows progress PI/Iteration/Week over week. **Baseline template (DRAFT):** slide 4 (PI-2 Objectives Scorecard) uses the executive-tiles layout (Variation C — 3×2 grid, explicit per-objective RAG); the 2026-06-11 edition is the in-draft baseline pending finalization. _Note: the `.md` mirror still renders the scorecard as a table (tiles don't translate to markdown)._
+- [[PI-2/pi2-objectives-features-stories]] — full PI-2 traceability: objectives → features → stories with status
 - [[Backlog/features]] — features mapped to PI objectives
 - [[Backlog/definition-of-ready]] — story readiness gates
 - [[Backlog/definition-of-done]] — story acceptance criteria
@@ -132,6 +182,8 @@ _See [[PI-2/Memory]] for PI-level decisions._
 
 | Owner | Item | Context |
 |-------|------|---------|
+| Manuel | **Attend CMDB CCB Meeting** | Scheduled 06/16 — ref PPL MS Teams > 18 - CMDB 2026 > CCB Meetings |
+| Manuel | **Attend CMDB Audit Sync** | Scheduled 06/18 |
 | Manuel | **Approve Spike 1403733** — identify deprecated plugins/features impacting CMDB capabilities | Anuradha waiting on approval; unblock ASAP |
 | Manuel | **Complete Business Value scoring for PI objectives** | Required before ART demo — confirm whether demo has already occurred before actioning |
 | Manuel | **Assign owner to Reverse DNS fix** | Program-level risk, currently unowned; escalate to Nolan or OPS |
@@ -151,7 +203,7 @@ _See [[PI-2/Memory]] for PI-level decisions._
 | Manuel | Schedule Sprint 2.3 end ceremonies — Showback, Retro, Sprint 2.4 Planning (~June 23) | Not on calendar |
 | Manuel | Confirm NowAssist 2.3 scope with Joe — all 13 stories or defer Phases 3–5 to 2.4? | Sprint overload risk |
 | Manuel | Assign Story 1402976 (Execute Data Cert Policies) to an iteration | No iteration; Priority 1 objective |
-| Manuel | Confirm Data Certification UAT date and AC items | UAT scheduled, exact date TBD |
+| Manuel | **Data Certification PROD deployment** — CR 06/19, PROD 06/23, Todd validates 06/24–25 | Sonika signed off UAT 6/10; UAT target 06/15 |
 | Manuel | Capture sandbox upgrade version and exact dates from upgrade email | Gates Sprint 2.3 upgrade analysis work |
 | Manuel | Formalize or park dashboard capability request as a story | Floating demand, no backlog item |
 | Manuel | Log correctness metric data blocker as impediment under Story 1435307 | Blocking Sprint 2.2 acceptance |
@@ -187,7 +239,7 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - CMDB health score targets 85–90% — agreed with Sonika, needs formal confirmation; blocked on Data Certification
 - Manuel's ADO access — Anuradha facilitating; partially resolved but access issues still surfaced week of June 5
 - Sandbox upgrade version and exact dates — communicated via email, not yet captured
-- Data Certification UAT exact date — session scheduled, date TBD
+- Data Certification: UAT by 06/15 → CR 06/19 → PROD 06/23 → Todd validates 06/24–25 ✅ timeline confirmed
 - Dashboard capability request — story or parking decision pending
 - ART demo status — has it already occurred? If not, when? Business Value scoring is a hard prerequisite
 - Reverse DNS fix — who owns it? Needs escalation if unassigned

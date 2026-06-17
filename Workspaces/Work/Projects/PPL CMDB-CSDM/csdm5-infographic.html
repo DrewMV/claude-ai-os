@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSDM 5: Connecting Business Strategy to IT Infrastructure</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 32px;
+    min-width: 960px;
+  }
+
+  .infographic {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1a1a2e;
+    letter-spacing: -0.5px;
+  }
+  .header p {
+    font-size: 13px;
+    color: #666;
+    margin-top: 6px;
+  }
+
+  /* Domain blocks */
+  .domain {
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 0;
+  }
+
+  .domain-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* Design & Planning Domain */
+  .domain-design {
+    background: #e8f4fd;
+    border: 2px solid #5aade4;
+  }
+  .domain-design .domain-label {
+    background: #5aade4;
+    color: white;
+  }
+
+  /* Service Delivery Domain */
+  .domain-service {
+    background: #ede7f6;
+    border: 2px solid #7c5cbf;
+    margin-top: 0;
+  }
+  .domain-service .domain-label {
+    background: #7c5cbf;
+    color: white;
+  }
+
+  /* Row layout inside a domain */
+  .domain-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .domain-intro {
+    min-width: 180px;
+    max-width: 200px;
+  }
+  .domain-intro h2 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .domain-intro p {
+    font-size: 11.5px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .cards-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    flex: 1;
+  }
+
+  /* Cards */
+  .card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    min-width: 140px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .card-icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.2;
+  }
+
+  .card-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
+
+  .card-sub {
+    font-size: 10.5px;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  /* BA cards */
+  .card-ba {
+    background: white;
+    border: 1.5px solid #b0d4ef;
+  }
+  .card-ba .card-badge {
+    background: #dceefb;
+    color: #2a7ab5;
+  }
+
+  /* SI cards */
+  .card-si {
+    background: white;
+    border: 1.5px solid #b39ddb;
+  }
+  .card-si .card-badge {
+    background: #f3e5f5;
+    color: #6a1b9a;
+  }
+
+  /* SDS cards */
+  .card-sds {
+    background: white;
+    border: 1.5px solid #a5d6a7;
+  }
+  .card-sds .card-badge {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+
+  /* Divider inside Service Delivery Domain */
+  .sds-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1.5px dashed #b39ddb;
+  }
+
+  /* Arrows between domains */
+  .arrow-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    gap: 10px;
+  }
+
+  .arrow-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #888;
+    background: #f0f2f5;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+  }
+
+  .arrow-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #aaa;
+    font-size: 18px;
+  }
+
+  /* Arrow inside Service Delivery Domain */
+  .inner-arrow-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0 4px;
+  }
+
+  .inner-arrow-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #7c5cbf;
+    background: #ede7f6;
+    padding: 2px 10px;
+    border-radius: 20px;
+    border: 1px solid #b39ddb;
+  }
+
+  /* Legend */
+  .legend {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  .legend-item h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 2px;
+  }
+  .legend-item p {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+    max-width: 240px;
+  }
+
+  .highlight-box {
+    background: #f3f0ff;
+    border: 1.5px solid #7c5cbf;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-top: 14px;
+    font-size: 11.5px;
+    color: #4a3880;
+    line-height: 1.6;
+  }
+  .highlight-box strong {
+    font-weight: 700;
+  }
+
+  /* Prod badge */
+  .prod-badge {
+    display: inline-block;
+    background: #e53935;
+    color: white;
+    font-size: 8px;
+    font-weight: 800;
+    padding: 1px 5px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    margin-left: 3px;
+  }
+</style>
+</head>
+<body>
+<div class="infographic">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>CSDM 5: Connecting Business Strategy to IT Infrastructure</h1>
+    <p>Hierarchical flow from Business Strategy to IT Infrastructure using ServiceNow as an example</p>
+  </div>
+
+  <!-- DOMAIN 1: Design & Planning -->
+  <div class="domain domain-design">
+    <span class="domain-label">Design &amp; Planning Domain</span>
+    <div class="domain-row">
+      <div class="domain-intro">
+        <h2>Business<br>Applications</h2>
+        <p>Conceptual software records used for strategy, cost management, and lifecycle tracking. Owned by the business — not tied to any specific environment.</p>
+      </div>
+      <div class="cards-group">
+        <div class="card card-ba">
+          <div class="card-icon">⬡</div>
+          <div class="card-title">ServiceNow</div>
+          <span class="card-badge">Platform Host</span>
+          <div class="card-sub">Core platform investment</div>
+        </div>
+        <div class="card card-ba">
+          <div class="card-icon">🖥</div>
+          <div class="card-title">ITSM</div>
+          <span class="card-badge">Strategic Record</span>
+          <div class="card-sub">IT Service Management module</div>
+        </div>
+        <div class="card card-ba">
+          <div class="card-icon">👤</div>
+          <div class="card-title">HRSD</div>
+          <span class="card-badge">Strategic Record</span>
+          <div class="card-sub">HR Service Delivery module</div>
+        </div>
+        <div class="card card-ba">
+          <div class="card-icon">📡</div>
+          <div class="card-title">ITOM</div>
+          <span class="card-badge">Strategic Record</span>
+          <div class="card-sub">IT Operations Management module</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arrow: CONSUMES -->
+  <div class="arrow-row">
+    <div class="arrow-line">↓</div>
+    <span class="arrow-label">Consumes</span>
+    <div class="arrow-line">↓</div>
+  </div>
+
+  <!-- DOMAIN 2: Service Delivery -->
+  <div class="domain domain-service">
+    <span class="domain-label">Service Delivery Domain</span>
+
+    <!-- Service Instances -->
+    <div class="domain-row">
+      <div class="domain-intro">
+        <h2>Service<br>Instances</h2>
+        <p>Logical representation of a uniquely deployed application stack. Each Business Application can have multiple instances — Production, UAT, Dev, etc.</p>
+      </div>
+      <div class="cards-group">
+        <div class="card card-si">
+          <div class="card-icon">🖧</div>
+          <div class="card-title">ServiceNow Platform <span class="prod-badge">PROD</span></div>
+          <span class="card-badge">User Interaction Point</span>
+          <div class="card-sub">Live operational environment — all modules depend on this instance</div>
+        </div>
+        <div class="card card-si">
+          <div class="card-icon">🖥</div>
+          <div class="card-title">ITSM <span class="prod-badge">PROD</span></div>
+          <span class="card-badge">Live User Portal</span>
+          <div class="card-sub">Runs on ServiceNow Platform PROD</div>
+        </div>
+        <div class="card card-si">
+          <div class="card-icon">👤</div>
+          <div class="card-title">HRSD <span class="prod-badge">PROD</span></div>
+          <span class="card-badge">Live User Portal</span>
+          <div class="card-sub">Runs on ServiceNow Platform PROD</div>
+        </div>
+        <div class="card card-si">
+          <div class="card-icon">📡</div>
+          <div class="card-title">ITOM <span class="prod-badge">PROD</span></div>
+          <span class="card-badge">Operational Module</span>
+          <div class="card-sub">Runs on ServiceNow Platform PROD</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inner arrow: RUNS ON -->
+    <div class="inner-arrow-row">
+      <span style="color:#7c5cbf; font-size:18px;">↓</span>
+      <span class="inner-arrow-label">Runs On</span>
+      <span style="color:#7c5cbf; font-size:18px;">↓</span>
+    </div>
+
+    <!-- Service Delivery System -->
+    <div class="sds-section">
+      <div class="domain-row">
+        <div class="domain-intro">
+          <h2>Service Delivery<br>System</h2>
+          <p>Underlying physical or logical CIs that support and run the Service Instances. Managed by infrastructure and platform teams.</p>
+        </div>
+        <div class="cards-group">
+          <div class="card card-sds">
+            <div class="card-icon">🛡</div>
+            <div class="card-title">MID Server</div>
+            <span class="card-badge">Communication Proxy</span>
+            <div class="card-sub">Secure bridge between ServiceNow and on-prem / cloud resources</div>
+          </div>
+          <div class="card card-sds">
+            <div class="card-icon">🔑</div>
+            <div class="card-title">SSO Servers</div>
+            <span class="card-badge">Auth &amp; Access</span>
+            <div class="card-sub">Active Directory — authentication and access control for all users</div>
+          </div>
+          <div class="card card-sds">
+            <div class="card-icon">🗄</div>
+            <div class="card-title">Web / App Servers</div>
+            <span class="card-badge">Application Hosting</span>
+            <div class="card-sub">Hosting infrastructure for the ServiceNow platform stack</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div class="highlight-box">
+      <strong>Note:</strong> The Service Delivery System is part of the <strong>Service Delivery Domain</strong> — alongside Service Instances. It is not a separate domain. Both describe operational reality: Service Instances are what runs; the Service Delivery System is what they run on.
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#5aade4;"></div>
+      <div>
+        <h4>Business Application</h4>
+        <p>Strategic concept — maps to budget lines, vendor contracts, and roadmap decisions in your portfolio.</p>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#7c5cbf;"></div>
+      <div>
+        <h4>Service Instance</h4>
+        <p>Operational reality — the specific running deployment your teams release to and operate.</p>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#4caf50;"></div>
+      <div>
+        <h4>Service Delivery System</h4>
+        <p>Infrastructure foundation — the CIs your platform and infra teams own that keep Service Instances alive.</p>
+      </div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#ccc;"></div>
+      <div>
+        <h4>Why it matters for SAFe PMs</h4>
+        <p>Traceability from an infra incident (SDS) → affected environment (SI) → business investment at risk (BA) — surfaced at PI planning.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

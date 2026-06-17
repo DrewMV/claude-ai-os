@@ -22,14 +22,17 @@ tags: [work, safe, pi-planning, cmdb-csdm]
 | 6 | **Enable Governed VMware-to-Azure Migration via CMDB-Driven Intelligence** | 10 | Highest |
 
 See full objective text in [[PI-2/pi-planning]].
+See iteration-by-iteration activity in [[PI-2/pi2-iteration-activity]].
+See [[PI-2/pi2-story-validation-worksheet]] — work-item list with blank State/Points/Assigned To for ADO validation (also `.csv`).
+See objectives → features → stories traceability in [[PI-2/pi2-objectives-features-stories]].
 
 ## Iterations
 
 | Iteration | Start | End | Status |
 |-----------|-------|-----|--------|
 | 2.1 | 2026-05-13 | 2026-05-26 | Completed |
-| 2.2 | 2026-05-27 | 2026-06-09 | Active |
-| 2.3 | 2026-06-10 | 2026-06-23 | Upcoming |
+| 2.2 | 2026-05-27 | 2026-06-09 | Completed |
+| 2.3 | 2026-06-10 | 2026-06-23 | Active |
 | 2.4 | 2026-06-24 | 2026-07-07 | Upcoming |
 | 2.5 | 2026-07-08 | 2026-07-21 | Upcoming |
 | 2.6 (IP) | 2026-07-22 | 2026-08-04 | IP Iteration |
@@ -46,7 +49,7 @@ _Fill in per iteration from sprint-planning notes._
 | 2 | Post-clone data integrity — missing configs identified (Major Incident templates) | High | Open | Full validation not confirmed |
 | 3 | Discovery strategy (DEV/QA vs PROD) not documented or approved | High | Open | Debate ongoing, no resolution |
 | 4 | External dependency bottlenecks — Network, Ops team responsiveness | Medium | Open | Recurring pattern in Iter 2.1 |
-| 5 | Service Mapping blocked — credential and access gaps | High | Open | Impacts PI Obj 3 directly |
+| 5 | Service Mapping blocked — credential and access gaps | High | Partially Resolved | Credentials now working (6/9); single subnet discovery active; DNS issue still open; remaining subnets in progress |
 | 6 | Reverse DNS not functioning — blocking CMDB discovery, Airlift planning, and ServiceNow visibility | High | Open | Raised at PO Sync 2026-05-28 |
 | 7 | AVD + Windows 11 unplanned work consuming ART capacity | High | Open | Displacing PI commitments across shared services |
 | 8 | Airlift migration wave dates not finalized — limiting Airlift planning confidence | Medium | Open | PI Obj 6 directly at risk; see [[Dependencies/infra-ops-technology]] |
@@ -56,6 +59,11 @@ _Fill in per iteration from sprint-planning notes._
 | 12 | **SCCM vs. ServiceNow Discovery authoritative precedence not fully resolved** — June 8 decision locked SCCM as authoritative for 6 hardware attributes, but a complete field-by-field precedence map does not exist. Stories 1403760, 1403762, 1403759, and spike 1421790 are each making isolated precedence decisions without a governing baseline. Risk of conflicting rules across stories, dirty data in CMDB, or rework if a later ruling overrides earlier sprint commitments. Needs a decision owner, full attribute map agreed with Ray (SCCM data owner) and Sonica, before further precedence stories are committed to sprints. | **High** | Open | Surfaced 2026-06-08 SCCM refinement; Spike 1403759 (asset tag / OU name) on hold pending Ray review; see [[PI-2/Iterations/Iteration-2.2/backlog-refinement-2026-06-08-sccm]] |
 
 ## Key Decisions This PI
+
+- **2026-06-10 — Data Certification deployment timeline confirmed:** Sonika signed off on UAT (6/10). Deployment sequence: UAT by 06/15 → PROD Change Request 06/19 (Friday) → PROD deployment 06/23 (Tuesday) → Todd validates in PROD 06/24–06/25.
+- **2026-06-10 — Service Mapping credentials resolved (partial):** Credential updates now working. Discovery is successfully connecting to devices and surfacing Linux servers, Oracle databases, listeners, and related services previously not visible. Single test subnet completed; additional subnet scans in progress.
+- **2026-06-09 — Airlift dev admin access resolved:** Carry-over finding on dev admin access has been resolved. Stories 1418610, 1418618, 1418621, 1416384 active.
+- **2026-06-08 — CCB and Audit Sync dates confirmed:** CMDB CCB Meeting scheduled 06/16; CMDB Audit Sync scheduled 06/18. Reference: PPL MS Teams > General > Accenture & PPL - Working Documents > 18 - CMDB 2026 > CCB Meetings.
 
 - ADO discipline enforced as delivery standard: daily status updates, decision documentation, progress validation before DSU required of all team members
 - **OOTB-first policy**: evaluate out-of-box ServiceNow suitability before any customization; complex UI filters flagged as high-risk customization area; decisions treated as product-level choices, not individual preferences
