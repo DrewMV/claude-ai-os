@@ -23,28 +23,30 @@ from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 # ---------------------------------------------------------------------------
 # CONTENT  (edit this block each week)
 # ---------------------------------------------------------------------------
-EDITION      = "2026-06-12"
-WEEK_LABEL   = "Week of June 11, 2026  (updated June 12, 12:00pm EST)"
+EDITION      = "2026-06-16"
+WEEK_LABEL   = "Week of June 15, 2026  (updated June 16)"
 PI           = "PI-2"
 PI_WINDOW    = "May 13 - Aug 4, 2026"
 ITERATION    = "Iteration 2.3  (Jun 10 - 23)"
 AUTHOR       = "Manuel Vazquez  -  Scrum Master, CMDB-CSDM"
-EDITION_NOTE = "Updated 6/12 12:00pm EST - first week-over-week deltas vs the 6/11 baseline."
+EDITION_NOTE = "Updated 6/16 - reflects full ADO grid reconciliation (objectives / features / stories / spikes / tasks / dependencies). P0 Airlift counts pending SM validation."
 
 OVERALL_STATUS = ("ON TRACK - WITH WATCH ITEMS",
-                  "Delivery is progressing across all 6 objectives. Two items resolved since the 6/11 "
-                  "baseline (NowAssist resourcing, SCCM approval gate). New watch item: Qualys integration "
-                  "blocked pending a vendor plugin approval. DNS dependency and code-freeze windows remain.")
+                  "Delivery is progressing across all 6 objectives. NowAssist advanced this week (prerequisites "
+                  "story closed, plugin activation resolved, CI summarization active). Reconciliation against ADO "
+                  "surfaced carryover watch items: credential tasks still active in the prior sprint (2.2), and a "
+                  "large Service Mapping backlog stranded across 2.1/2.2. Qualys remains blocked on vendor approval; "
+                  "DNS dependency and code-freeze windows persist.")
 
 # Operational priority (0 = most urgent), Objective, ADO Obj, Business Value, RAG, one-line status,
 # then DERIVED story counts (provisional, not ADO-validated): scope, moving, stuck
 OBJECTIVES = [
-    ("P0", "Governed VMware-to-Azure Migration (Airlift)",        "1420079", 10, "GREEN", "On track - 3 airlift stories in validation; CI auto-populate active", 4, 4, 0),
-    ("P1", "Automate Discovery Coverage for Network Gear",        "1366657", 10, "AMBER", "Improving - SCCM gate cleared; precedence stories in validation; ~6 not yet ID'd", 6, 6, 0),
+    ("P0", "Governed VMware-to-Azure Migration (Airlift)",        "1420079", 10, "GREEN", "On track - airlift stories in validation; CI auto-populate active (counts pending SM validation)", 4, 4, 0),
+    ("P1", "Automate Discovery Coverage for Network Gear",        "1366657", 10, "AMBER", "Watch - SCCM precedence stories in validation; new SNMP/MID test story added; credential tasks still active-stuck in Sprint 2.2", 7, 6, 1),
     ("P1", "Establish CI Data Certification Program",             "1420082",  8, "GREEN", "On track - dashboard signed off (PROD Jun 23); pilot changes in validation", 2, 2, 0),
-    ("P2", "Expand Service Mapping Foundation",                   "1366660",  9, "AMBER", "On track - discovery scaling; DNS dependency still open",  6, 6, 0),
+    ("P2", "Expand Service Mapping Foundation",                   "1366660",  9, "AMBER", "Watch - discovery scaling, but a large per-app service-map backlog is stranded New in Sprints 2.1/2.2; DNS dependency still open",  6, 4, 2),
     ("P2", "Regulatory & Security Integrations (Qualys/NERC/CCB)", "1366662",  8, "AMBER", "Watch - Qualys plugin BLOCKED on vendor approval; CCB Jun 16 / Audit Jun 18", 3, 1, 2),
-    ("P3", "Embed NowAssist AI Across CMDB & ITSM",               "1408764",  7, "GREEN", "Unblocked - 4 stories reassigned to Kiran; 1 active, 3 ready + baseline spike", 5, 5, 0),
+    ("P3", "Embed NowAssist AI Across CMDB & ITSM",               "1408764",  7, "GREEN", "Advancing - prerequisites story closed, plugin activation resolved, CI summarization active; form-help ready + baseline spike", 5, 5, 0),
 ]
 # Provisional portfolio totals (derived from team notes; replace once ADO-validated)
 OBJ_SCOPE  = sum(o[6] for o in OBJECTIVES)
@@ -157,28 +159,27 @@ VELOCITY_NOTE = ("Quantitative velocity (committed vs. accepted points) is not y
 
 # Week over week
 THIS_WEEK = [
-    "NowAssist resourcing resolved - 4 OOB stories reassigned to Kiran Dhobale; prerequisites story now active, others ready.",
-    "SCCM approval gate cleared - timestamp-alignment story unblocked; all SCCM precedence stories now in validation.",
-    "Airlift migration stories advanced to validation.",
+    "NowAssist advanced - prerequisites story Closed, plugin activation Resolved, CI summarization now Active.",
+    "SCCM precedence stories in validation - unit-testing tasks closing out across the set.",
     "Data Certification pilot changes in validation; dashboard PROD deploy on track for Jun 23.",
+    "Full ADO board reconciliation completed - features, stories, spikes, tasks and dependencies realigned; carryover and orphaned items surfaced for cleanup.",
 ]
 WEEK_NOTE = "First edition = baseline. From next week this slide shows what moved vs. the prior report."
 
 # Deep dives: header, [(item, status, detail)]
 DEEP_DIVE_1 = ("Highest-Priority Objectives (P0 - P1)", [
-    ("Airlift (P0)",            "GREEN", "Pre/During/Post-Migration stories in validation; CI auto-populate active. Dev access resolved 6/9."),
+    ("Airlift (P0)",            "GREEN", "Pre/During/Post-Migration stories in validation; CI auto-populate active. Story counts pending SM validation (airlift stories absent from latest 2.3 grid - confirming re-sprint vs filter)."),
     ("Data Certification (P1)", "GREEN", "Dashboard signed off 6/10; PROD Jun 23, Todd validates Jun 24-25. Pilot changes in validation."),
-    ("Discovery / SCCM (P1)",   "AMBER", "SCCM approval gate cleared - timestamp story unblocked; precedence stories in validation. ~6 stories still need ADO IDs."),
+    ("Discovery / SCCM (P1)",   "AMBER", "SCCM precedence stories in validation (unit tests closing). Watch: 6 credential tasks under 1444864 still Active in the prior sprint (2.2) while parent shows Validation - this work gates discovery."),
 ])
 DEEP_DIVE_2 = ("Supporting Objectives (P2 - P3)", [
-    ("Service Mapping (P2)",  "AMBER", "Discovery scaling - infrastructure previously invisible now found. DNS dependency still open."),
+    ("Service Mapping (P2)",  "AMBER", "Discovery scaling - infrastructure previously invisible now found. Watch: large per-app service-map backlog (WATT, Opower, Vault, Einstein, Oracle, Foglight, OEM, Oceana, SolarWinds) sits New across Sprints 2.1/2.2. DNS dependency still open."),
     ("Regulatory / Qualys (P2)", "AMBER", "Qualys read-only stories BLOCKED - vendor plugin replacement pending approval. CCB Jun 16, Audit Sync Jun 18. NERC-CIP early engagement."),
-    ("NowAssist AI (P3)",     "GREEN", "Resourcing resolved - 4 OOB stories reassigned to Kiran Dhobale; 1 active, 3 ready + health-baseline spike. Feature 1436574 confirmed."),
+    ("NowAssist AI (P3)",     "GREEN", "Advancing - prerequisites story Closed, plugin activation Resolved, CI summarization Active; contextual form-help ready + health-baseline spike. Feature 1436574 confirmed."),
 ])
 
 # Milestones
 MILESTONES = [
-    ("Jun 15", "Data Certification UAT gate"),
     ("Jun 16", "CMDB CCB Meeting"),
     ("Jun 17", "Backlog Refinement 2.3"),
     ("Jun 18", "CMDB Audit Sync"),
@@ -190,6 +191,7 @@ MILESTONES = [
 # Risks & asks: risk, severity, detail, ask
 RISKS = [
     ("Qualys vendor approval", "HIGH", "Qualys replaced its plugin version; previous uninstalled, new one requested. Stories 1428703/1428704 blocked.", "Support / expedite vendor approval to unblock the read-only integration."),
+    ("Past-iteration carryover", "MEDIUM", "Credential tasks (1444864) still Active in Sprint 2.2 and a large Service Mapping backlog sits New across 2.1/2.2 - work not yet re-sprinted into 2.3.", "Endorse a re-sprint vs. close decision at iteration review; confirm owners on stranded items."),
     ("Service Mapping DNS",  "HIGH", "Reverse-DNS issue limits full discovery coverage.", "Leadership support on the DNS / infra dependency."),
     ("Code-freeze windows",  "HIGH", "Dev freeze Jun 27 - Jul 18; Test freeze Jul 18 - Aug 15 compresses PI-2 completion.", "Awareness; sequence deployments around freezes."),
 ]

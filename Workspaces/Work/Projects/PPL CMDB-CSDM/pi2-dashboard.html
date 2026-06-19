@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PI-2 Objectives · Features · Work Items — CMDB-CSDM</title>
+<style>
+  :root{
+    --bg:#0f1419; --panel:#1a2129; --panel2:#222b35; --line:#2e3a47;
+    --txt:#e6edf3; --muted:#8b9aa8; --accent:#4da3ff;
+    --green:#2ea043; --purple:#a371f7; --red:#f85149; --amber:#d29922;
+    --teal:#39c5cf; --slate:#6e7d8c; --blue:#388bfd;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:14px;line-height:1.45}
+  header{padding:20px 26px 14px;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#141b22,#0f1419)}
+  h1{margin:0 0 4px;font-size:20px;font-weight:600}
+  .sub{color:var(--muted);font-size:12.5px}
+  .wrap{padding:18px 26px 60px;max-width:1320px;margin:0 auto}
+
+  /* stat cards */
+  .stats{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 18px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:10px 14px;min-width:96px}
+  .stat .n{font-size:22px;font-weight:700}
+  .stat .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+
+  /* filters */
+  .filters{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;margin-bottom:18px}
+  .frow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .frow:last-child{margin-bottom:0}
+  .flabel{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;
+    min-width:96px;font-weight:600}
+  .chip{background:var(--panel2);border:1px solid var(--line);color:var(--txt);
+    padding:5px 11px;border-radius:20px;font-size:12.5px;cursor:pointer;
+    transition:all .12s;user-select:none}
+  .chip:hover{border-color:var(--accent)}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#071018;font-weight:600}
+  .chip .c{opacity:.7;font-size:11px;margin-left:3px}
+  #search{background:var(--panel2);border:1px solid var(--line);color:var(--txt);
+    padding:7px 11px;border-radius:8px;font-size:13px;width:260px}
+  #search:focus{outline:none;border-color:var(--accent)}
+  .reset{margin-left:auto;background:transparent;border:1px solid var(--line);
+    color:var(--muted);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px}
+  .reset:hover{border-color:var(--red);color:var(--red)}
+
+  /* objective sections */
+  .obj{margin-bottom:22px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .obj-head{display:flex;align-items:center;gap:12px;padding:13px 16px;
+    background:var(--panel);cursor:pointer}
+  .obj-head:hover{background:var(--panel2)}
+  .pri{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;
+    background:var(--panel2);border:1px solid var(--line);white-space:nowrap}
+  .obj-title{font-size:15px;font-weight:600;flex:1}
+  .obj-meta{font-size:11.5px;color:var(--muted);white-space:nowrap}
+  .bv{color:var(--amber);font-weight:600}
+  .caret{color:var(--muted);transition:transform .15s;font-size:12px}
+  .obj.collapsed .caret{transform:rotate(-90deg)}
+  .obj.collapsed .obj-body{display:none}
+
+  /* features */
+  .feat{border-top:1px solid var(--line)}
+  .feat-head{display:flex;align-items:center;gap:10px;padding:9px 16px 9px 22px;
+    background:var(--bg)}
+  .feat-id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;
+    color:var(--teal)}
+  .feat-name{font-size:13px;font-weight:500}
+  .feat-state{font-size:10.5px;color:var(--muted);border:1px solid var(--line);
+    padding:1px 7px;border-radius:10px}
+
+  /* work item table */
+  table{width:100%;border-collapse:collapse}
+  td,th{padding:7px 10px;text-align:left;vertical-align:top}
+  th{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;
+    border-bottom:1px solid var(--line);font-weight:600}
+  tbody tr{border-bottom:1px solid #232c36}
+  tbody tr:hover{background:var(--panel2)}
+  td.id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--accent);white-space:nowrap}
+  td.title{width:42%}
+  .note{color:var(--amber);cursor:help;margin-left:5px}
+  .empty-row td{color:var(--muted);font-style:italic;padding:9px 16px 9px 22px}
+
+  .badge{font-size:11px;padding:2px 8px;border-radius:6px;white-space:nowrap;
+    border:1px solid transparent;display:inline-block}
+  .t-Story{background:#10351c;color:#5fd97e;border-color:#1c5a31}
+  .t-Spike{background:#2a1d40;color:#c4a0ff;border-color:#43306b}
+  .t-Dependency{background:#33240a;color:#e8b54a;border-color:#5c4111}
+  .t-Issue{background:#3a161480;color:#ff8a82;border-color:#5c211d}
+  .iter{font-size:11px;color:var(--muted);font-family:ui-monospace,monospace}
+
+  .s-active{color:var(--green)} .s-validation{color:var(--purple)}
+  .s-blocked{color:var(--red);font-weight:600} .s-ready{color:var(--teal)}
+  .s-done{color:#7ee2a8} .s-new{color:var(--slate)} .s-watch{color:var(--amber)}
+  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .d-active{background:var(--green)} .d-validation{background:var(--purple)}
+  .d-blocked{background:var(--red)} .d-ready{background:var(--teal)}
+  .d-done{background:#7ee2a8} .d-new{background:var(--slate)} .d-watch{background:var(--amber)}
+
+  .nores{text-align:center;color:var(--muted);padding:40px;font-style:italic}
+  footer{color:var(--muted);font-size:11.5px;padding:0 26px 30px;max-width:1320px;margin:0 auto}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <h1>PI-2 — Objectives · Features · Work Items</h1>
+  <div class="sub">PPL CMDB-CSDM &nbsp;·&nbsp; Source: <code>pi2-objectives-features-stories.md</code> &nbsp;·&nbsp; ADO snapshot 6/17 (Iteration 2.3 grid) &nbsp;·&nbsp; Active iteration: <b>2.3</b> (Jun 10–23)</div>
+</header>
+
+<div class="wrap">
+  <div class="stats" id="stats"></div>
+
+  <div class="filters">
+    <div class="frow">
+      <span class="flabel">Work Item Type</span>
+      <span id="typeChips"></span>
+    </div>
+    <div class="frow">
+      <span class="flabel">Iteration</span>
+      <span id="iterChips"></span>
+    </div>
+    <div class="frow">
+      <span class="flabel">Objective</span>
+      <span id="objChips"></span>
+    </div>
+    <div class="frow">
+      <span class="flabel">Search</span>
+      <input id="search" type="text" placeholder="Filter by title, ID, owner…">
+      <button class="reset" id="reset">Reset all filters</button>
+    </div>
+  </div>
+
+  <div id="view"></div>
+</div>
+
+<footer>
+  Legend — Type: <span class="badge t-Story">Story</span> <span class="badge t-Spike">Spike</span>
+  <span class="badge t-Dependency">Dependency</span> <span class="badge t-Issue">Issue</span>.
+  Status colors: <span class="s-active">Active</span> · <span class="s-validation">Validation</span> ·
+  <span class="s-ready">Ready/Refinement</span> · <span class="s-done">Closed/Resolved/UAT</span> ·
+  <span class="s-blocked">Blocked</span> · <span class="s-new">New</span> · <span class="s-watch">Watch/Pending</span>.
+  ⚠️ = caveat from source (hover). Task-layer carryover (~44 tasks) is in the source doc, not shown here.
+</footer>
+
+<script>
+const OBJ = {
+  P0:{name:"Enable Governed VMware-to-Azure Migration (Airlift)", id:"1420079", bv:10, pri:"P0"},
+  P1:{name:"Automate Discovery Coverage for Network Gear CI Classes", id:"1366657", bv:10, pri:"P1"},
+  P2:{name:"Establish CI Data Certification Program", id:"1420082", bv:8, pri:"P2"},
+  P3:{name:"Expand Service Mapping Foundation", id:"1366660", bv:9, pri:"P3"},
+  P4:{name:"Prepare CMDB for Regulatory & Security Integrations", id:"1366662", bv:8, pri:"P4"},
+  P5:{name:"Embed NowAssist AI Across CMDB & ITSM Workflows", id:"1408764", bv:7, pri:"P5"},
+  OCM:{name:"OCM (Organizational Change Management) — unmapped", id:"—", bv:"—", pri:"OCM"},
+  XC:{name:"Cross-Cutting Dependencies", id:"—", bv:"—", pri:"X-CUT"},
+  ORPH:{name:"Unmapped / Orphan Work Items", id:"—", bv:"—", pri:"ORPHAN"}
+};
+const objOrder = ["P0","P1","P2","P3","P4","P5","OCM","XC","ORPH"];
+
+// feature key -> {obj, id, name, state}
+const FEAT = {
+  "1420613":{obj:"P0", id:"1420613", name:"CMDB Support for Air Lift", state:"Feature: Defining (2.1)"},
+  "1383523":{obj:"P1", id:"1383523", name:"Unplanned Backlog - CMDB Workstream", state:""},
+  "1356646":{obj:"P1", id:"1356646", name:"Network Device Coverage Reconciliation - Group 1", state:""},
+  "1356826":{obj:"P1", id:"1356826", name:"SCCM Server Class Precedence Updates", state:""},
+  "1354797":{obj:"P1", id:"1354797", name:"Server Class Data & Form Updates", state:"Feature: Ready (2.3)"},
+  "1354794":{obj:"P1", id:"1354794", name:"Computer Class Data & Form Improvements", state:""},
+  "1411480":{obj:"P1", id:"1411480", name:"CMDB PI2.26 Enhancements", state:"Feature: Story Mapping (2.5)"},
+  "1355888":{obj:"P1", id:"1355888", name:"Update Operational Monitoring Activities P2", state:""},
+  "1355890":{obj:"P1", id:"1355890", name:"Support ServiceNow Upgrade Analysis", state:"Feature: Ready (2.4)"},
+  "1247179":{obj:"P2", id:"1247179", name:"Data Certification Pilot - Functionality", state:""},
+  "1371672":{obj:"P2", id:"1371672", name:"Governance Model for Requesting New Business Apps", state:""},
+  "1382404":{obj:"P2", id:"1382404", name:"Data Certification Rollout", state:""},
+  "1402958":{obj:"P2", id:"1402958", name:"Data Certification Pilot - Implementation Planning", state:""},
+  "1402979":{obj:"P2", id:"1402979", name:"Data Certification Pilot - Implementation Support", state:"Feature: Defining (2.1)"},
+  "1355866":{obj:"P3", id:"1355866", name:"Service Mapping PI2 Wave 17 & 18", state:""},
+  "1355868":{obj:"P3", id:"1355868", name:"Service Mapping PI2 Wave 19 & 20", state:""},
+  "1355871":{obj:"P3", id:"1355871", name:"Service Mapping PI2 Wave 20 & 21", state:""},
+  "p4a":{obj:"P4", id:"1250905/1370224", name:"Stream A — Governance / CCB", state:""},
+  "p4b":{obj:"P4", id:"1250905/1370224", name:"Stream B — NERC-CIP Security Requirements", state:""},
+  "p4c":{obj:"P4", id:"—", name:"Stream C — Qualys Integration (read-only, PI-2)", state:""},
+  "1436574":{obj:"P5", id:"1436574", name:"Foundation & Readiness: Activate NowAssist + Baseline", state:"Feature: Ready"},
+  "1428659":{obj:"OCM", id:"1428659", name:"OCM 2026.PI2", state:"Feature: Active (2.6)"},
+  "xcut":{obj:"XC", id:"—", name:"Dependencies spanning multiple objectives", state:""},
+  "orph":{obj:"ORPH", id:"—", name:"Stories with no confirmed parent feature in ADO", state:""}
+};
+
+// work items: f=feature key, id, t=type, ti=title, ow=owner, p=points, it=iteration, s=status, n=note
+const ITEMS = [
+  // P0
+  {f:"1420613",id:"1418610",t:"Story",ti:"Airlift to Azure Pre-Migration",ow:"Laurent / Alex Lim",p:"—",it:"2.3",s:"Validation",n:"Absent from 6/17 2.3 story grid — confirm filter vs. re-sprint"},
+  {f:"1420613",id:"1418618",t:"Story",ti:"Airlift to Azure During Migration",ow:"Laurent / Alex Lim",p:"—",it:"2.3",s:"Validation",n:"Absent from 6/17 2.3 story grid"},
+  {f:"1420613",id:"1418621",t:"Story",ti:"Airlift to Azure Post-Migration",ow:"Laurent / Alex Lim",p:"—",it:"2.3",s:"Validation",n:"Absent from 6/17 2.3 story grid"},
+  {f:"1420613",id:"1416384",t:"Story",ti:"Auto Populate CI Owner / Support Group / Tech Owner for Server Class",ow:"—",p:"—",it:"2.3",s:"Active",n:"Not on ADO pulls; virtual variant 1407572 = Validation, not Done"},
+  // P1 - 1356646
+  {f:"1356646",id:"1402555",t:"Spike",ti:"Identify CI Classes for Group 1",ow:"Stan + Joe",p:"3",it:"2.3",s:"Active"},
+  {f:"1356646",id:"1402559",t:"Spike",ti:"Compare CI Class Sources",ow:"—",p:"3",it:"",s:"New"},
+  {f:"1356646",id:"1444864",t:"Story",ti:"Fix Credentials for Servers, Databases and Network",ow:"Tony De Araujo",p:"5",it:"2.3",s:"Validation",n:"6 Active child tasks still in 2.2 — gates discovery (P1/P3)"},
+  {f:"1356646",id:"1459721",t:"Story",ti:"Testing new SNMP credentials / MID server params (dns)",ow:"Stan",p:"—",it:"2.3",s:"Validation",n:"6/17 new story; parent feature unconfirmed"},
+  {f:"1356646",id:"1383487",t:"Dependency",ti:"Stakeholders requirements on network gear to Initially Assess",ow:"Dan Carabelas",p:"—",it:"2.2",s:"New"},
+  // P1 - 1356826
+  {f:"1356826",id:"1403763",t:"Story",ti:"SCCM Server Hardware & Software Attribute Data Precedence",ow:"Vinay",p:"1",it:"2.3",s:"Validation"},
+  {f:"1356826",id:"1403760",t:"Story",ti:"SCCM: Servers — Domain and Network Attribute Data Precedence",ow:"Vinay",p:"1",it:"2.3",s:"Validation"},
+  {f:"1356826",id:"1403762",t:"Story",ti:"SCCM: Servers — Last Seen Timestamp Alignment",ow:"Vinay",p:"1",it:"2.3",s:"Validation",n:"Approval gate cleared (was blocked on Sonika Das)"},
+  {f:"1356826",id:"1403759",t:"Story",ti:"SCCM: Servers — Remove SCCM Attributes",ow:"Vinay",p:"1",it:"2.3",s:"Validation",n:"Reclassified Spike→Story per 6/17 grid"},
+  // P1 - 1354797
+  {f:"1354797",id:"—",t:"Story",ti:"CI Auto-Population: CI Owner",ow:"—",p:"—",it:"2.1",s:"New",n:"ADO ID pending (Anu to confirm)"},
+  {f:"1354797",id:"—",t:"Story",ti:"CI Auto-Population: Support Group",ow:"—",p:"—",it:"2.1",s:"New",n:"ADO ID pending"},
+  {f:"1354797",id:"—",t:"Story",ti:"CI Auto-Population: Technical Owner",ow:"—",p:"—",it:"2.1",s:"New",n:"ADO ID pending"},
+  {f:"1354797",id:"—",t:"Story",ti:"Custom Fields: Asset Criticality, RPO, RTO, Recovery Tier, Tier Data Classification, Stocks Indicator/Type",ow:"—",p:"—",it:"2.1",s:"New",n:"ADO ID pending — in QA/UAT per 06/08 decision"},
+  {f:"1354797",id:"1355167",t:"Spike",ti:"Define a Solution for Migrating Business App to Service Instance",ow:"Tony De Araujo",p:"3",it:"2.3",s:"Active"},
+  {f:"1354797",id:"1454371",t:"Story",ti:"Extract Servers Without Support Groups and Validate Routing",ow:"Bhushan Salsekar",p:"2",it:"2.3",s:"Active"},
+  {f:"1354797",id:"1421790",t:"Spike",ti:"Gap Analysis for Servers — Linux & Windows",ow:"Tony De Araujo",p:"0",it:"2.3",s:"Validation",n:"Re-filed from 1383523 on 6/17"},
+  // P1 - 1354794
+  {f:"1354794",id:"1455858",t:"Story",ti:"Virtual Location Management",ow:"Kiran Dhobale",p:"2",it:"2.3",s:"Active",n:"ADO parent is 'Computer Class Data Reconciliation', not 1354794"},
+  {f:"1354794",id:"1452028",t:"Story",ti:"iteam import (laptop / vendor purchase feed)",ow:"Uloma",p:"—",it:"",s:"Pending",n:"Scope clarification pending — confirm vs. Cherwell import"},
+  {f:"1354794",id:"1413033",t:"Spike",ti:"Import User Location Values in sys_user",ow:"Vinay",p:"2",it:"2.3",s:"Done",n:"UNCONFIRMED — absent from 6/12 12pm pull"},
+  {f:"1354794",id:"1407572",t:"Story",ti:"Auto Populate CI Owner/Support/Tech Owner Group (Virtual Computers)",ow:"Bhushan Salsekar",p:"2",it:"2.3",s:"Validation",n:"6/11 board wrongly showed Done"},
+  {f:"1354794",id:"1420565",t:"Dependency",ti:"End User Location Mapping for Physical Computer CIs",ow:"Sonika Das",p:"—",it:"2.1",s:"Active"},
+  // P1 - 1411480
+  {f:"1411480",id:"1387236",t:"Story",ti:"Discovery: Install AIM API on PROD MID Servers",ow:"Tony De Araujo",p:"1",it:"2.3",s:"Validation"},
+  // P1 - 1355888
+  {f:"1355888",id:"1339116",t:"Spike",ti:"Define Process to Monitor / Update CI Owners Who Have Left PPL",ow:"Anuradha Rai",p:"0",it:"2.3",s:"Refinement Ready"},
+  // P1 - 1355890
+  {f:"1355890",id:"1403733",t:"Spike",ti:"Identify deprecated plugins/features impacting CMDB capabilities",ow:"Stan",p:"2",it:"2.3",s:"Ready (DoR)",n:"Unblocked pending sandbox restore"},
+  {f:"1355890",id:"1403725",t:"Spike",ti:"Impact Assessment of Discovery & Integration Touchpoints",ow:"Stan",p:"1",it:"2.4",s:"Refinement Ready"},
+  {f:"1355890",id:"1411237",t:"Spike",ti:"Review & Validate CMDB Dynamic IRE Behaviour Post-Australia Upgrade",ow:"Stan Tomberg",p:"1",it:"2.4",s:"Refinement Ready",n:"Reclassified Story→Spike per ADO 6/17"},
+  // P2
+  {f:"1247179",id:"1435307",t:"Story",ti:"Data Certification Pilot Changes",ow:"Bhushan Salsekar",p:"3",it:"PI Planning",s:"Validation",n:"Re-filed from P1 (was mislabeled correctness metric)"},
+  {f:"1402979",id:"1402727",t:"Story",ti:"Update Data Certification Dashboard",ow:"Kiran",p:"—",it:"",s:"UAT signed off",n:"Sonika 6/10; PROD deploy 06/23"},
+  // P3
+  {f:"1355866",id:"1380747",t:"Story",ti:"MV90 User Access",ow:"Tanzeel",p:"—",it:"",s:"Active"},
+  {f:"1355866",id:"1380757",t:"Story",ti:"RIE Electric Wholesale Settlement",ow:"—",p:"—",it:"",s:"Active"},
+  {f:"1355866",id:"1400703",t:"Story",ti:"Vault Inspection System",ow:"—",p:"—",it:"",s:"Active"},
+  {f:"1355866",id:"1281161",t:"Story",ti:"WATT",ow:"—",p:"—",it:"",s:"Active"},
+  {f:"1355868",id:"1420634",t:"Spike",ti:"Review Apps Being Migrated & Impact to Service Mapping",ow:"—",p:"—",it:"",s:"Active"},
+  {f:"1355868",id:"1326754",t:"Spike",ti:"Evaluate Automated Service Mapping via Endpoint-Based Discovery",ow:"—",p:"—",it:"",s:"Active"},
+  {f:"1355868",id:"1383493",t:"Dependency",ti:"Date Mapping from App PoC — EndPoint (Credentials Support)",ow:"John Benedict Ortega",p:"—",it:"2.3",s:"New"},
+  // P4
+  {f:"p4a",id:"1420244",t:"Spike",ti:"ESS-02 Policy and CMDB Alignment",ow:"Joe Dames",p:"0",it:"",s:"Active"},
+  {f:"p4b",id:"1383515",t:"Dependency",ti:"Cyber Security Team Coordination — NERC CIP",ow:"Sonika Das",p:"—",it:"2.3",s:"New"},
+  {f:"p4c",id:"1428703",t:"Story",ti:"Install x_qual5_itam_nwapp Plugin on Dev, Test, Prod (Part 1)",ow:"Stan",p:"1",it:"PI-2",s:"Active — BLOCKED",n:"Blocked on Qualys vendor approval (Issue 1465952)"},
+  {f:"p4c",id:"1428704",t:"Story",ti:"Configure Qualys Integration for CMDB to Qualys (Part 2)",ow:"Stan",p:"1",it:"PI-2",s:"Active — BLOCKED",n:"Blocked on Qualys vendor approval (Issue 1465952)"},
+  {f:"p4c",id:"1234585",t:"Spike",ti:"Define and Configure Data Scope and Import Views in Qualys",ow:"Stan",p:"1",it:"PI-2",s:"Ready (DoR)",n:"ADO shows NO parent — needs parent link"},
+  {f:"p4c",id:"1465952",t:"Issue",ti:"Qualys Plugin Replacement Awaiting Vendor Approval",ow:"Rich Santillo",p:"—",it:"",s:"Active — BLOCKED",n:"Gating blocker for 1428703/1428704"},
+  {f:"p4c",id:"1383519",t:"Dependency",ti:"Qualys Development / Support Team",ow:"Rich Santillo",p:"—",it:"2.2",s:"Active"},
+  // P5
+  {f:"1436574",id:"1436576",t:"Story",ti:"Confirm Platform Prerequisites for NowAssist Activation (Part 1)",ow:"Kiran Dhobale",p:"1",it:"2.3",s:"Closed"},
+  {f:"1436574",id:"1436579",t:"Story",ti:"Activate NowAssist for CMDB Plugin",ow:"Kiran Dhobale",p:"1",it:"2.3",s:"Resolved"},
+  {f:"1436574",id:"1436592",t:"Story",ti:"Activate CI Summarization Skill",ow:"Kiran Dhobale",p:"1",it:"2.3",s:"Active"},
+  {f:"1436574",id:"1436593",t:"Story",ti:"Activate Contextual CI Form Help Skill",ow:"Kiran Dhobale",p:"1",it:"2.3",s:"Ready (DoR)"},
+  {f:"1436574",id:"1436581",t:"Spike",ti:"NowAssist: Establish CMDB Health Baseline Score (Last Part)",ow:"—",p:"2",it:"2.3",s:"Ready (DoR)"},
+  {f:"1436574",id:"1470837",t:"Spike",ti:"Analyze CMDB health indicators for 35 principal CI classes",ow:"—",p:"—",it:"",s:"Active",n:"No ADO parent set; feeds health baseline"},
+  // Cross-cutting
+  {f:"xcut",id:"1416953",t:"Dependency",ti:"Cloud Migration Impact to CMDB Data Accuracy & Change Coordination",ow:"Alex Phan",p:"—",it:"",s:"Active",n:"P0 Airlift; change-coordination angle is cross-cutting"},
+  {f:"xcut",id:"1420575",t:"Dependency",ti:"Azure Airlift Migration Impact Assessment for Discovery & Service Mapping",ow:"Andrew Ajayi",p:"—",it:"2.1",s:"New",n:"Spans P0 Airlift + P3 Service Mapping"},
+  {f:"xcut",id:"1416576",t:"Dependency",ti:"Enterprise Architect team review and update",ow:"Matthew Newhouse",p:"—",it:"2.2",s:"New",n:"No clear objective home — needs triage"},
+  // Orphans
+  {f:"orph",id:"1399787",t:"Story",ti:"Business Application: Add All CI-Owners to CMDB Full Access Group",ow:"Vinay",p:"—",it:"2.3",s:"Validation",n:"No feature home — access/permissions governance; needs mapping"},
+  {f:"orph",id:"1472365",t:"Story",ti:"Update server values post validation of data",ow:"Harsh Deshmane",p:"—",it:"",s:"Ready (DoR)",n:"No parent feature; needs triage"}
+];
+
+// ---- status categorization ----
+function sCat(s){
+  const x=s.toLowerCase();
+  if(x.includes("blocked")) return "blocked";
+  if(x.includes("closed")||x.includes("resolved")||x.includes("done")||x.includes("uat")) return "done";
+  if(x.includes("validation")) return "validation";
+  if(x.includes("active")) return "active";
+  if(x.includes("ready")||x.includes("refinement")) return "ready";
+  if(x.includes("pending")||x.includes("clarification")||x.includes("watch")) return "watch";
+  return "new";
+}
+const TYPES=["Story","Spike","Dependency","Issue"];
+
+// ---- filter state ----
+const state={type:"all",iter:"all",obj:"all",q:""};
+
+// distinct iterations present (ordered)
+const iterOrder=["2.1","2.2","2.3","2.4","2.5","2.6","PI Planning","PI-2"];
+const itersPresent=iterOrder.filter(i=>ITEMS.some(it=>it.it===i));
+const hasNone=ITEMS.some(it=>it.it==="");
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+function matches(it){
+  if(state.type!=="all" && it.t!==state.type) return false;
+  if(state.iter!=="all"){ if(state.iter==="__none"){ if(it.it!=="") return false;} else if(it.it!==state.iter) return false; }
+  if(state.obj!=="all" && FEAT[it.f].obj!==state.obj) return false;
+  if(state.q){
+    const q=state.q.toLowerCase();
+    if(!(it.ti.toLowerCase().includes(q)||it.id.toLowerCase().includes(q)||it.ow.toLowerCase().includes(q))) return false;
+  }
+  return true;
+}
+
+function render(){
+  const itemFilterActive = state.type!=="all"||state.iter!=="all"||state.q!=="";
+  const view=document.getElementById("view");
+  view.innerHTML="";
+  let shownItems=0; const typeCount={Story:0,Spike:0,Dependency:0,Issue:0}; let shownFeats=0, shownObjs=0;
+
+  objOrder.forEach(oc=>{
+    if(state.obj!=="all" && state.obj!==oc) return;
+    const featKeys=Object.keys(FEAT).filter(k=>FEAT[k].obj===oc);
+    let objHtml=""; let objHasContent=false;
+
+    featKeys.forEach(fk=>{
+      const its=ITEMS.filter(i=>i.f===fk && matches(i));
+      if(its.length===0 && itemFilterActive) return; // hide empty feature when filtering
+      shownFeats++; objHasContent=true;
+      const fm=FEAT[fk];
+      let rows="";
+      if(its.length===0){
+        rows=`<tr class="empty-row"><td colspan="6">— feature-level only · no work items in ADO —</td></tr>`;
+      } else {
+        its.forEach(i=>{
+          shownItems++; typeCount[i.t]++;
+          const cat=sCat(i.s);
+          const note=i.n?`<span class="note" title="${esc(i.n)}">⚠️</span>`:"";
+          rows+=`<tr>
+            <td class="id">${esc(i.id)}</td>
+            <td><span class="badge t-${i.t}">${i.t}</span></td>
+            <td class="title">${esc(i.ti)}${note}</td>
+            <td>${esc(i.ow)}</td>
+            <td><span class="iter">${i.it?esc(i.it):"—"}</span></td>
+            <td class="s-${cat}"><span class="dot d-${cat}"></span>${esc(i.s)}</td>
+          </tr>`;
+        });
+      }
+      objHtml+=`<div class="feat">
+        <div class="feat-head">
+          <span class="feat-id">${esc(fm.id)}</span>
+          <span class="feat-name">${esc(fm.name)}</span>
+          ${fm.state?`<span class="feat-state">${esc(fm.state)}</span>`:""}
+        </div>
+        <table><thead><tr><th>ID</th><th>Type</th><th>Title</th><th>Owner</th><th>Iter</th><th>Status</th></tr></thead>
+        <tbody>${rows}</tbody></table>
+      </div>`;
+    });
+
+    if(!objHasContent) return;
+    shownObjs++;
+    const o=OBJ[oc];
+    view.insertAdjacentHTML("beforeend",`
+      <div class="obj" data-oc="${oc}">
+        <div class="obj-head">
+          <span class="pri">${esc(o.pri)}</span>
+          <span class="obj-title">${esc(o.name)}</span>
+          <span class="obj-meta">Obj ${esc(o.id)} · BV <span class="bv">${o.bv}</span></span>
+          <span class="caret">▼</span>
+        </div>
+        <div class="obj-body">${objHtml}</div>
+      </div>`);
+  });
+
+  if(shownItems===0 && shownObjs===0){
+    view.innerHTML=`<div class="nores">No work items match the current filters.</div>`;
+  }
+
+  // collapse toggles
+  view.querySelectorAll(".obj-head").forEach(h=>{
+    h.onclick=()=>h.parentElement.classList.toggle("collapsed");
+  });
+
+  // stats
+  document.getElementById("stats").innerHTML=`
+    <div class="stat"><div class="n">${shownObjs}</div><div class="l">Objectives</div></div>
+    <div class="stat"><div class="n">${shownFeats}</div><div class="l">Features</div></div>
+    <div class="stat"><div class="n">${shownItems}</div><div class="l">Work Items</div></div>
+    <div class="stat"><div class="n" style="color:var(--green)">${typeCount.Story}</div><div class="l">Stories</div></div>
+    <div class="stat"><div class="n" style="color:var(--purple)">${typeCount.Spike}</div><div class="l">Spikes</div></div>
+    <div class="stat"><div class="n" style="color:var(--amber)">${typeCount.Dependency}</div><div class="l">Dependencies</div></div>
+    <div class="stat"><div class="n" style="color:var(--red)">${typeCount.Issue}</div><div class="l">Issues</div></div>`;
+}
+
+// ---- build filter chips ----
+function chip(label,val,active,count){
+  return `<span class="chip ${active?'on':''}" data-v="${val}">${label}${count!=null?`<span class="c">${count}</span>`:""}</span>`;
+}
+function typeCountAll(t){return ITEMS.filter(i=>i.t===t).length;}
+function iterCountAll(v){return v==="__none"?ITEMS.filter(i=>i.it==="").length:ITEMS.filter(i=>i.it===v).length;}
+function objCountAll(o){return ITEMS.filter(i=>FEAT[i.f].obj===o).length;}
+
+function buildChips(){
+  let th=chip("All",`all`,state.type==="all",ITEMS.length);
+  TYPES.forEach(t=>th+=chip(t,t,state.type===t,typeCountAll(t)));
+  document.getElementById("typeChips").innerHTML=th;
+
+  let ih=chip("All","all",state.iter==="all");
+  itersPresent.forEach(i=>ih+=chip(i,i,state.iter===i,iterCountAll(i)));
+  if(hasNone) ih+=chip("Unscheduled","__none",state.iter==="__none",iterCountAll("__none"));
+  document.getElementById("iterChips").innerHTML=ih;
+
+  let oh=chip("All","all",state.obj==="all");
+  objOrder.forEach(o=>oh+=chip(OBJ[o].pri,o,state.obj===o,objCountAll(o)));
+  document.getElementById("objChips").innerHTML=oh;
+
+  bind("#typeChips","type");
+  bind("#iterChips","iter");
+  bind("#objChips","obj");
+}
+function bind(sel,key){
+  document.querySelectorAll(sel+" .chip").forEach(c=>{
+    c.onclick=()=>{ state[key]=c.dataset.v; buildChips(); render(); };
+  });
+}
+
+document.getElementById("search").addEventListener("input",e=>{state.q=e.target.value.trim();render();});
+document.getElementById("reset").onclick=()=>{
+  state.type="all";state.iter="all";state.obj="all";state.q="";
+  document.getElementById("search").value="";buildChips();render();
+};
+
+buildChips();
+render();
+</script>
+</body>
+</html>

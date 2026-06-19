@@ -89,7 +89,16 @@
       "Bash(python -c \"from pptx import Presentation; p=Presentation\\('2026-06-12.pptx'\\); print\\('slides:', len\\(p.slides\\)\\)\")",
       "Bash(sed -n '/## Progress: Week over Week/,/Pending/p' 2026-06-12.md)",
       "PowerShell(git add -A)",
-      "PowerShell(git reset -- \"Workspaces/Work/Projects/PPL CMDB-CSDM/PI-2/~`$2-Objectives-Features.docx\")"
+      "PowerShell(git reset -- \"Workspaces/Work/Projects/PPL CMDB-CSDM/PI-2/~`$2-Objectives-Features.docx\")",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "Bash(python -c \"import pptx; print\\('python-pptx', pptx.__version__\\)\")",
+      "Bash(python build_scope_deck.py)",
+      "Bash(python -c \"from pptx import Presentation; p=Presentation\\('2026-06-18-scope-focus.pptx'\\); print\\('slides:', len\\(p.slides.__iter__.__self__._sldIdLst\\)\\); [print\\(i+1, ':', s.shapes[2].text_frame.text if len\\(s.shapes\\)>2 else '\\(title\\)'\\) for i,s in enumerate\\(p.slides\\)]\")",
+      "Bash(python -c \"import importlib; [print\\(m, 'OK'\\) for m in ['fitz','pdfplumber','pypdf','PyPDF2'] if importlib.util.find_spec\\(m\\)]\")",
+      "Bash(python -c \"import fitz; d=fitz.open\\(r'C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Accenture-ServiceNow Release 2 and 3 Deployment-CO5-PO# 1000002225 - signed.pdf'\\); print\\('pages:', d.page_count\\)\")",
+      "Bash(python -c \"print\\(open\\(r'C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\Workspaces\\\\Work\\\\Projects\\\\PPL CMDB-CSDM\\\\PI-2\\\\Scope-Alignment\\\\_sow_text.txt', encoding='utf-8'\\).read\\(\\)[:200]\\)\")",
+      "Bash(git reset *)"
     ]
   }
 }

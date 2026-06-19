@@ -104,5 +104,58 @@
         "stuck": 0
       }
     }
+  },
+  "2026-06-16": {
+    "week_label": "Week of June 15, 2026  (updated June 16)",
+    "iteration": "Iteration 2.3  (Jun 10 - 23)",
+    "portfolio": {
+      "scope": 27,
+      "moving": 22,
+      "stuck": 5
+    },
+    "objectives": {
+      "Governed VMware-to-Azure Migration (Airlift)": {
+        "pri": "P0",
+        "rag": "GREEN",
+        "scope": 4,
+        "moving": 4,
+        "stuck": 0
+      },
+      "Automate Discovery Coverage for Network Gear": {
+        "pri": "P1",
+        "rag": "AMBER",
+        "scope": 7,
+        "moving": 6,
+        "stuck": 1
+      },
+      "Establish CI Data Certification Program": {
+        "pri": "P1",
+        "rag": "GREEN",
+        "scope": 2,
+        "moving": 2,
+        "stuck": 0
+      },
+      "Expand Service Mapping Foundation": {
+        "pri": "P2",
+        "rag": "AMBER",
+        "scope": 6,
+        "moving": 4,
+        "stuck": 2
+      },
+      "Regulatory & Security Integrations (Qualys/NERC/CCB)": {
+        "pri": "P2",
+        "rag": "AMBER",
+        "scope": 3,
+        "moving": 1,
+        "stuck": 2
+      },
+      "Embed NowAssist AI Across CMDB & ITSM": {
+        "pri": "P3",
+        "rag": "GREEN",
+        "scope": 5,
+        "moving": 5,
+        "stuck": 0
+      }
+    }
   }
 }
