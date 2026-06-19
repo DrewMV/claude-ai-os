@@ -10,10 +10,12 @@ tags: [work, cmdb-csdm, pi-planning, backlog, features]
 # PI-2 Objectives → Features → Stories
 
 Full traceability view: PI objectives → ADO features → stories/spikes with status.
-Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.3 story grid; supersedes 6/12 12:00pm pull on conflicts)** | Active iteration: **2.3** (Jun 10 – Jun 23)
+Updated as of 2026-06-19 | ADO snapshot: story status as of **6/19 (official full User Story grid — authoritative; supersedes 6/17 / 6/12 pulls on conflicts)** | Active iteration: **2.3** (Jun 10 – Jun 23)
 
 > **6/17 feature-grid reconciliation** — Reconciled against the ADO feature list (feature-level State column). Added new feature **OCM 2026.PI2 (1428659)** and the four NowAssist PI-3 phase IDs (1451935/1451936/1451937/1451938). Annotated feature-level State mismatches inline (⬇️ **Feature State:** lines) where the ADO *feature* state lags its *story* states.
 > **6/17 dependency reconciliation** — Reconciled against the ADO dependency grid. Added 6 new dependencies: 1383519 (Qualys, Stream C), 1420565 (Computer Class 1354794), 1383487 (Network gear, 1356646), plus 3 cross-cutting (1416953, 1420575, 1416576) in the new **Cross-Cutting Dependencies** section. Added Iter 2.3 to the two previously-tracked deps (1383493, 1383515).
+> **6/19 story-grid reconciliation — batch 2 (ADO authoritative)** — Reconciled a second, larger slice of the official 6/19 story grid (52 unique stories; 22 already tracked). **30 new to our list; captured the 18 live ones, listed the 12 Closed compactly** in the new "Closed — Historical" section. Live additions: Service Mapping per-app stories (Oceana 1281189, OEM 1281209 Removed, Opower 1400692 Removed, SolarWinds parent 1431652, Call Recording 1137732); SCCM Computer Class 1348715; Computer Class 1313400 + 1399547; 1402776 (→1355888); 1403731 (→1355890); 1459741 (→1436574); 1455827 (→1371672, first story); and a 5-story **Business Application data-population cluster** (no feature home — **1475584/1475585 assigned to Manuel**). NowAssist state moves: 1436592→Validation, 1436593→Active.
+> **6/19 story-grid reconciliation (ADO authoritative)** — Reconciled against the official 6/19 User Story grid. **28 previously-untracked stories captured.** P1: 3 network-gear stories under 1356646 (1402572/574/575) + 3 Resolved SCCM **Computer** Class precedence stories (1348712/716/717) whose parent "SCCM Computer Class Precedence" is **not in our 26 features** (flagged). P2: 5 Data Cert Pilot Implementation stories (1402962/976/980/984/985) — features were feature-level only. P4 Stream A: **3 CCB stories (1406672/683/687) are live under feature 1406668 even though the feature shows Removed** — reconciles the 6/19 Stream A flag. P3: Einstein 1400696 + App-Mapping stories (1400695, 1400699) under untracked parent "Service Mapping - App Mapping" + Call Recording pilot 1137719 + 1380771 Removed. P5 PI-3: 7 NowAssist phase stories. 1355888: 1118670 (Closed). Unmapped: 1378017 "Populate Missing Business Owners." State fix: 1400703 Active→New; 1452028 →Refinement Ready.
 > **6/19 issue-grid review** — Reconciled against the ADO Issue grid (7 issues). Already-tracked: 1465952 (Qualys), 1425785 & 1425697 (both in [[Team/impediments-log]]). **State change:** **1465952 (Qualys Plugin Replacement) is now Closed** in ADO (we had it Active/blocker) — ⚠️ may unblock stories 1428703/1428704; **not auto-flipped — confirm with Rich Santillo/Stan**. Added 4 untracked **Closed** issues inline: **1438967** (PMDB SOX/DR custom-fields governance → 1354797), **1464224** (SCCM two timestamp fields decision → 1356826/1403762; closes Sonica-approval action), **1416676** (EA Bus App data / Data Cert impact → P2), **1402520** (key-person dep on CI attribute-mapping spikes, Ray Reuter → 1354797).
 > **6/19 feature-grid review** — Re-validated all 26 tracked features against the ADO feature grid. All present. Findings: (1) **1451930** (NowAssist Dup CI Elim, Phase 2) advanced **New → Active** (Anuradha Rai); (2) **1406668 "CMDB Governance & Monthly CCB Meetings" is Removed** in ADO — it is the actual parent of Stream A spike 1420244, leaving that spike orphaned to a dead feature (flag inline below); (3) three **Removed** Service Mapping features (1355872/1355873/1355875, PI2 Iter 4/5/6) exist in the grid — superseded by the Wave 17–21 features, not tracked here; (4) grid **parent anomalies** noted inline for 1383523 (parent = Airlift Pre-Migration epic) and 1411480 (parent = "Create scripted REST API for SailPoint").
 > **6/17 spike/task reconciliation (ADO authoritative)** — Corrected against the ADO spike & task grids. Spikes: 1421790 re-filed 1383523→1354797 (state→Validation); 1355167→Active; 1402555→Active; 1470837→Active; 1339116→Refinement Ready; 1403725→Refinement Ready (2.4); 1411237 reclassified Story→Spike (Refinement Ready, 2.4); 1234585 flagged orphan (no ADO parent). Tasks: 1470808 parent corrected 1416384→1407572 (relocated to Feature 1354794); 1444864 flagged (Validation story w/ 6 Active child tasks in 2.2). Closed-task history intentionally NOT imported (6/17 — dismissed as not actionable).
@@ -53,6 +55,9 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 |--------|------|-------|-------|--------|--------|--------|
 | 1402555 | Spike | Identify CI Classes for Group 1 | Stan + Joe | 3 pts | 2.3 | 🟢 Active — updated to ADO 6/17 (was Ready DoR) |
 | 1402559 | Spike | Compare CI Class Sources | — | 3 pts | — | ⚪ New |
+| 1402572 | Story | CMDB: Adjust discovery configurations | — | — | — | ⚪ New — 🆕 6/19 story grid |
+| 1402574 | Story | CMDB: Adjust network device configurations | — | — | — | ⚪ New — 🆕 6/19 story grid |
+| 1402575 | Story | CMDB: Rerun comparison to validate changes | — | — | — | ⚪ New — 🆕 6/19 story grid |
 | 1444864 | Story | Fix Credentials for Servers, Databases and Network | Tony De Araujo | 5 pts | 2.3 | 🟣 Validation |
 | 1459721 | Story | Testing new SNMP credentials, new MID server parameters related to dns | Stan | — | 2.3 | 🟣 Validation — 🆕 6/17 story pull; credential/MID family (parent feature unconfirmed) |
 | 1383487 | Dependency | Stakeholders requirements on network gear to Initially Assess | Dan Carabelas | — | 2.2 | ⚪ New — 🆕 6/17 |
@@ -90,14 +95,24 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 > **Decisions:** CI Owner Autopopulation approved 06/08 (physical CIs only; virtual excluded). PMDB Application Service custom fields approved 06/08; edit rights for 4 fields restricted to Cyber Risk and DR teams. Both moving to QA/UAT.
 
 ### Feature 1354794 — Computer Class Data & Form Improvements
+> ⚠️ **6/19 — missing feature:** Three Resolved SCCM **Computer** Class precedence stories (Vinay, Iter 2.1) sit under a parent **"SCCM Computer Class Precedence Updates"** that is **not in our 26-feature list** (we track only 1356826 "SCCM *Server* Class Precedence"). Captured below pending the feature ID. These are the computer-class analogue of the 1403759/60/62/63 server-class stories.
+>
+> | ADO ID | Type | Title | Owner | State | Iter |
+> |--------|------|-------|-------|-------|------|
+> | 1348712 | Story | SCCM: Computers — Domain and Network Attribute Data Precedence | Vinay | 🟢 Resolved | 2.1 |
+> | 1348716 | Story | SCCM: Computer Hardware and Software Attribute Data Precedence | Vinay | 🟢 Resolved | 2.1 |
+> | 1348717 | Story | SCCM: Computers De-Prioritize SCCM Attributes | Vinay | 🟢 Resolved | 2.1 |
+> | 1348715 | Story | SCCM: Computers — Last Time Seen by SCCM Timestamp Alignment | Stan | 🟣 Validation | 2.2 |
 
 | ADO ID | Type | Title | Owner | Points | Sprint | Status |
 |--------|------|-------|-------|--------|--------|--------|
 | 1455858 | Story | Virtual Location Management | Kiran Dhobale | 2 pts | 2.3 | 🟢 Active — ⚠️ ADO parent is "Computer Class Data Reconciliation", not 1354794 |
-| 1452028 | Story | iteam import (laptop / vendor purchase feed) | Uloma | — | — | ⚠️ Scope clarification pending — confirm vs. Cherwell import |
+| 1452028 | Story | iteam import (laptop / vendor purchase feed) | Uloma | — | — | 🟢 Refinement Ready (per 6/19 story grid; title "Import records from iteam to cmdb") — ⚠️ Scope clarification pending — confirm vs. Cherwell import |
 | 1413033 | Spike | Import User Location Values in sys_user | Vinay | 2 pts | 2.3 | ⚪ Done/Closed per 6/11 board — ⚠️ UNCONFIRMED: absent from 6/12 12pm pull; sibling "Done" item 1407572 turned out Validation |
 | 1407572 | Story | Auto Populate CI Owner/Support/Tech Owner Group (Virtual Computers) | Bhushan Salsekar | 2 pts | 2.3 | 🟣 Validation — ⚠️ 6/11 board wrongly showed Done |
 | 1420565 | Dependency | End User Location Mapping for Physical Computer CIs | Sonika Das | — | 2.1 | 🟢 Active — 🆕 6/17; corroborates open blocker "HCM needed for computer location (Sonika)" |
+| 1313400 | Story | Computer: Add Asset Tags to Computer Class CIs | Bhushan Salsekar | — | 2.2 | 🟢 Resolved — 🆕 6/19 |
+| 1399547 | Story | Computers: Identify Shared Devices to Prevent Automated Location & Assignment | Tony De Araujo | — | 2.1 | 🟣 Validation — 🆕 6/19; ⚠️ ADO parent "Computer Class Data Reconciliation" (untracked feature) |
 
 > **6/12** — Task 1460378 (CMDB:AVD Team coordination required for data, Kiran Dhobale) **Closed**. ✅ Supports 1455858 (Virtual Location Mgmt).
 > **6/11** — Task 1470808 (Unit Testing, Venkateswarlu Manikanta) **Closed** — child of **1407572** (Virtual Computers Auto-Populate). ✅ ⚠️ Corrected 6/17 per authoritative ADO: previously mis-attributed to 1416384 under P0.
@@ -116,6 +131,8 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 | ADO ID | Type | Title | Owner | Points | Sprint | Status |
 |--------|------|-------|-------|--------|--------|--------|
 | 1339116 | Spike | Define Process to Monitor / Update CI Owners Who Have Left PPL | Anuradha Rai | 0 pts | 2.3 | 🟢 Refinement Ready — updated to ADO 6/17 (was Ready DoR) |
+| 1118670 | Story | Implement Governance for Technical Owner Groups Without Members | Uloma | — | 2.2 | ⚪ Closed — 🆕 6/19 story grid |
+| 1402776 | Story | Inactive CI Owners Reporting | Tanzeel | — | 2.2 | 🟣 Validation — 🆕 6/19 |
 
 ### Feature 1355890 — Support ServiceNow Upgrade Analysis
 ⬇️ **Feature State (ADO 6/17):** **Ready** (Iter 2.4) — feature targets iteration 2.4, not current 2.3.
@@ -125,6 +142,7 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 | 1403733 | Spike | Identify deprecated plugins/features impacting CMDB capabilities | Stan | 2 pts | 2.3 | 🟢 Ready (DoR) — unblocked pending sandbox restore |
 | 1403725 | Spike | Impact Assessment of Discovery & Integration Touchpoints (mid-stream) | Stan | 1 pt | 2.4 | 🟢 Refinement Ready — updated to ADO 6/17 (was Ready) |
 | 1411237 | Spike | Review & Validate CMDB Dynamic IRE Behaviour Post-Australia Upgrade | Stan Tomberg | 1 pt | 2.4 | 🟢 Refinement Ready — ⚠️ reclassified Story→Spike per ADO 6/17; was Defining/2.3 |
+| 1403731 | Story | Analyze impact on governance controls, KPIs & CMDB operating model during upgrade | Stan Tomberg | — | 2.4 | ⚪ New — 🆕 6/19 |
 
 > **Blockers:** DB and SNMP credentials in progress (Tony). Server ownership not accurate. CI Ownership for servers — Joe has plan, OCM review required. HCM needed for computer location (Sonika). SCCM full attribute precedence map not yet complete — risk of conflicting rules across stories.
 
@@ -145,7 +163,7 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 
 | ADO ID | Type | Title | Owner | Points | Sprint | Status |
 |--------|------|-------|-------|--------|--------|--------|
-| — | — | No confirmed stories in ADO | — | — | — | ⚠️ Feature-level only |
+| 1455827 | Story | Notification for SOX Team on Ownership Changes to CI | — | — | 2.5 | 🟢 Refinement Ready — 🆕 6/19 (first confirmed story for this feature) |
 
 ### Feature 1382404 — Data Certification Rollout
 
@@ -154,10 +172,15 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 | — | — | No confirmed stories in ADO | — | — | — | ⚠️ Feature-level only |
 
 ### Feature 1402958 — Data Certification Pilot - Implementation Planning
+> 🆕 **6/19:** Five pilot-implementation stories now appear under a parent that truncates to **"Data Certification Pilot - Imple…"** — could be **this feature (1402958)** or **1402979 (Implementation Support)**; both titles truncate identically. Captured here pending confirmation of which.
 
 | ADO ID | Type | Title | Owner | Points | Sprint | Status |
 |--------|------|-------|-------|--------|--------|--------|
-| — | — | No confirmed stories in ADO | — | — | — | ⚠️ Feature-level only |
+| 1402962 | Story | Facilitate Kick-Off / Training Meeting with pilot group of CI Owners | — | — | — | 🔵 Defining — 🆕 6/19 |
+| 1402976 | Story | Execute Initial Data Certification Policies | — | — | — | 🔵 Defining — 🆕 6/19 |
+| 1402980 | Story | Monitor Data Certification Completeness Progress | — | — | — | 🔵 Defining — 🆕 6/19 |
+| 1402984 | Story | Hold Office Hours to Support Questions / Address Issues | — | — | — | 🔵 Defining — 🆕 6/19 |
+| 1402985 | Story | Process Feedback | — | — | — | ⚪ New — 🆕 6/19 |
 
 ### Feature 1402979 — Data Certification Pilot - Implementation Support
 ⬇️ **Feature State (ADO 6/17):** **Defining** (Iter 2.1) — ⚠️ lags badly: its story (1402727) is UAT-signed-off with PROD deploy 06/23. Feature should advance.
@@ -182,8 +205,18 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 |--------|------|-------|-------|--------|--------|--------|
 | 1380747 | Story | MV90 User Access | Tanzeel | — | — | 🟢 Active |
 | 1380757 | Story | RIE Electric Wholesale Settlement | — | — | — | 🟢 Active |
-| 1400703 | Story | Vault Inspection System | — | — | — | 🟢 Active |
+| 1400703 | Story | Vault Inspection System | Tanzeel | — | 2.1 | ⚪ **New** per 6/19 authoritative grid (was 🟢 Active in our doc) — child tasks 1428921–925 all New, consistent |
 | 1281161 | Story | WATT | — | — | — | 🟢 Active |
+| 1400696 | Story | Gather/Build/Validate/Publish E2E Service Maps for **Einstein** | Tanzeel | — | 2.1 | ⚪ New — 🆕 6/19; parent Wave 17&18 (1355866) |
+| 1380771 | Story | Gather/Build/Validate/Publish E2E Service Maps for **Azure DevOps** | — | — | 2.1 | ⚪ Removed — 🆕 6/19 (parent 1355866) |
+| 1281189 | Story | Gather/Build/Validate/Publish E2E Service Maps for **Oceana System** | Tanzeel | — | 2.2 | 🟢 Active — 🆕 6/19; parent Wave 17&18 (1355866) |
+| 1281209 | Story | Gather/Build/Validate/Publish E2E Service Maps for **OEM** | Tanzeel | — | 2.2 | ⚪ Removed — 🆕 6/19 (parent 1355866) |
+| 1400692 | Story | Gather/Build/Validate/Publish E2E Service Maps for **Oracle Opower** | Tanzeel | — | 2.1 | ⚪ Removed — 🆕 6/19 (parent 1355866) |
+| 1431652 | Story | **Evaluate** Service Mapping (SolarWinds PoC) — Gather/Build/Validate/Publish | Tanzeel | — | 2.2 | 🟣 Validation — 🆕 6/19; parent story for SolarWinds PoC tasks 1462416–424 (ties to spike 1326754) |
+
+> 🆕 **6/19 — untracked Service Mapping parents:** Two more parent features hold Service Mapping stories not in our 26-feature list — confirm and map:
+> - **"Service Mapping - App Mapping"** → **1400695** (Resource Instruments, New) and **1400699** (Energy Hub, New), both Tanzeel.
+> - **"Service Mapping Pilot: Service S…"** → **1137719** (Call Recording System, 🟢 Refinement Ready, Iter 2.1) and **1137732** (Call Recording — Gather/Build/Validate/Publish, ⚪ New, Tanzeel, Iter 2.2).
 
 ### Feature 1355868 — Service Mapping PI2 Wave 19 & 20
 
@@ -211,7 +244,7 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 > - OEM (Iter 2.2)
 > - Oceana System (Iter 2.2)
 >
-> **SolarWinds** — service-map **evaluation/PoC pilot** under an "*Evaluate* Service Mapping…" parent (distinct from the per-app "Gather/Build/Validate/Publish" stories; ties to spike 1326754 endpoint-based discovery). Tasks 1462418 / 1462424 New as of 6/17.
+> **SolarWinds** — service-map **evaluation/PoC pilot** under an "*Evaluate* Service Mapping…" parent (distinct from the per-app "Gather/Build/Validate/Publish" stories; ties to spike 1326754 endpoint-based discovery). Tasks 1462418 / 1462424 New as of 6/17. **🟢 6/19 task grid: PoC has progressed** — steps 1 & 2 **Closed** (1462416 Data Gathering, 1462417 Build Mapping, Tanzeel); remaining 1462418 (Validate & Sign-off) / 1462424 (Publish) still open.
 >
 > Standalone task **1426578** "Add drop down box in ITEAM" (Uloma, **no parent**) — likely ITEAM/iteam-related (cf. 1452028 iteam import under Computer Class 1354794); needs triage.
 
@@ -224,11 +257,14 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 
 ### Stream A — Governance / CCB | Op Priority: 2
 **Features:** 1250905, 1370224
-> 🔴 **6/19 flag:** Spike 1420244's actual ADO parent feature — **1406668 "CMDB Governance & Monthly CCB Meetings" (Joe Dames) — is Removed** in the ADO feature grid. That leaves the Stream A governance/CCB spike orphaned to a dead feature, and Stream A has no live feature home (1250905 = Qualys/Stream C, 1370224 = NERC-CIP/Stream B). **Action:** confirm where CCB/governance work lives now, or restore/replace 1406668.
+> 🔴 **6/19 flag (updated):** Feature **1406668 "CMDB Governance & Monthly CCB Meetings" (Joe Dames) shows Removed** at the feature level — **but the 6/19 story grid shows it has 3 live New child stories** (May/June/July CCB Meetings, below). So governance/CCB work *is* active at the story level under a feature ADO marks Removed — a feature-vs-story state contradiction. **Action:** confirm whether 1406668 should be un-Removed, or the CCB stories re-parented. (1250905 = Qualys/Stream C, 1370224 = NERC-CIP/Stream B remain the only "live" Stream A/B features in our list.)
 
 | ADO ID | Type | Title | Owner | Points | Sprint | Status |
 |--------|------|-------|-------|--------|--------|--------|
 | 1420244 | Spike | ESS-02 Policy and CMDB Alignment | Joe Dames | 0 pts | — | 🟢 Active — ADO parent "CMDB Governance & Monthly…" (**1406668, Removed** — see flag above) |
+| 1406672 | Story | May CCB Meeting | Joe Dames | — | — | ⚪ New — 🆕 6/19; parent 1406668 (feature Removed) |
+| 1406683 | Story | June CCB Meeting | Joe Dames | — | — | ⚪ New — 🆕 6/19; parent 1406668 (feature Removed) |
+| 1406687 | Story | July CCB Meeting | Joe Dames | — | — | ⚪ New — 🆕 6/19; parent 1406668 (feature Removed) |
 
 > **6/8** — CCB Meeting scheduled **06/16**; CMDB Audit Sync scheduled **06/18**.
 > Reference: PPL MS Teams > General > Accenture & PPL - Working Documents > 18 - CMDB 2026 > CCB Meetings
@@ -271,9 +307,10 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 |--------|------|-------|-------|--------|--------|--------|
 | 1436576 | Story | Confirm Platform Prerequisites for NowAssist Activation (Part 1) | Kiran Dhobale | 1 pt | 2.3 | ⚪ Closed — ✅ per 6/17 story pull (was Active) |
 | 1436579 | Story | Activate NowAssist for CMDB Plugin | Kiran Dhobale | 1 pt | 2.3 | 🟢 Resolved — per 6/17 story pull (was Ready DoR) |
-| 1436592 | Story | Activate CI Summarization Skill | Kiran Dhobale | 1 pt | 2.3 | 🟢 Active — per 6/17 story pull (was Ready DoR) |
-| 1436593 | Story | Activate Contextual CI Form Help Skill | Kiran Dhobale | 1 pt | 2.3 | 🟢 Ready (DoR) |
+| 1436592 | Story | Activate CI Summarization Skill | Kiran Dhobale | 1 pt | 2.3 | 🟣 Validation — per 6/19 grid (was Active 6/17) |
+| 1436593 | Story | Activate Contextual CI Form Help Skill | Kiran Dhobale | 1 pt | 2.3 | 🟢 Active — per 6/19 grid (was Ready DoR) |
 | 1436581 | Spike | NowAssist: Establish CMDB Health Baseline Score (Last Part) | — | 2 pts | 2.3 | 🟢 Ready (DoR) |
+| 1459741 | Story | NowAssist: Onboard Pilot Group | — | — | 2.4 | ⚪ New — 🆕 6/19 |
 
 > **Related (no ADO parent set):** Spike 1470837 — Analyze CMDB health indicators currently configured for 35 principal CI classes (🟢 Active per ADO 6/17; was Ready DoR on 6/11 board). Feeds the health baseline score.
 > **PI-3 — Feature 1451930:** Now Assist Duplicate CI Elimination (Phase 2), 🟢 Active (Anuradha Rai) per 6/19 grid (was New). ⚠️ **Two phase-numbering schemes in play:** ADO labels this feature set as Foundation/Readiness = *Phase 1* (1436574) and Duplicate CI Elimination = *Phase 2* (1451930); but [[nowassist-implementation-plan]] sequences Duplicate CI Elimination as *Phase 1* of its 5-phase PI-3 rollout. Confirm which scheme leadership reporting uses.
@@ -286,10 +323,55 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 > | Phase 4 | 1451936 | NowAssist Guided CI Creation | New |
 > | Phase 5 | 1451937 | NowAssist Governance Advice Agentic Workflow | New |
 > | Phase 5 | 1451938 | NowAssist Custom Skills / NASK | New |
+>
+> **🆕 6/19 — PI-3 phase child stories now in ADO (all ⚪ New):**
+> | Phase / Feature | Story ID | Title |
+> |-----------------|----------|-------|
+> | Phase 2 / 1451930 | 1451931 | NowAssist: Activate Manage Duplicate CIs Skill |
+> | Phase 3 / 1451935 | 1455812 | NowAssist: Roll Out Natural Language CMDB Search to Secondary User Groups |
+> | Phase 4 / 1451936 | 1451947 | NowAssist: Activate and Validate Guided CI Creation Workflow |
+> | Phase 4 / 1451936 | 1451948 | NowAssist: Integrate Guided CI Creation into PPL CMDB Onboarding Process |
+> | Phase 5 / 1451937 | 1451949 | NowAssist: Activate Provide Advice on CMDB Governance Agentic Workflow |
+> | Phase 5 / 1451937 | 1451950 | NowAssist: Establish Quarterly Governance Review Cycle Using AI-Generated Health Notifications |
+> | Phase 5 / 1451938 | 1451955 | NowAssist: Identify and Prioritize Custom NASK Skill Candidates |
 > See [[nowassist-implementation-plan]]. (Note: ADO labels Foundation/Readiness as Phase 1; phase numbering caveat above still applies.)
 > **Open (5/20):** Assess NowAssist capabilities available in Australia vs Yokohama (Joe D).
 > **6/12** — All 4 stories reassigned from Karen to Kiran Dhobale. Although Kiran has moved teams, the NowAssist stories supporting this objective are being delivered in iteration 2.3. ✅
 > ✅ **6/12 confirmed:** 1436576 is **Active**; 1436579 / 1436592 / 1436593 remain Ready DoR. (Resolves the earlier board-vs-view variance.)
+
+---
+
+## Unmapped Stories — Business Application Data Population (6/19)
+> 🆕 **Added 6/19** from the official story grid — a cluster of Business-Application data-completeness stories with **no feature parent shown**. Likely belong to a Business App governance / data-certification feature (cf. untracked parent "CMDB Correctness & Data Integrity"). **Two are assigned to Manuel Vazquez** (1475584, 1475585). Confirm feature home + objective.
+
+| ADO ID | Title | Owner | State | Iter |
+|--------|-------|-------|-------|------|
+| 1474892 | Analyze Value Stream population for Business App | Joe Dames | ⚪ New | — |
+| 1475584 | Identify & Populate Missing **Technical Owner Group** in Business Application CIs | **Manuel Vazquez** | ⚪ New | — |
+| 1475585 | Identify & Populate Missing **Approval Groups** in Business Application CI | **Manuel Vazquez** | ⚪ New | — |
+| 1475582 | Identify & Populate Missing **Support Groups** in Business Application CIs | — | 🟢 Refinement Ready | 2.4 |
+| 1478286 | Business App: Populate **Classification** field values | — | 🟢 Refinement Ready | 2.4 |
+| 1424633 | CMDB Deck — Data Certification Pilot | Amira Borquez | 🟣 Validation | 2.1 |
+
+> **6/19 unmapped story (carried):** also see **1399787** & **1378017** flagged in the ADO Snapshot Notes below.
+
+## Closed — Historical (6/19 story grid)
+> 🆕 **6/19** — 12 stories in the official grid are already **Closed** and were not previously tracked. Captured compactly for completeness; not actionable. ⚠️ Three (1407490, 1409770, 1435988) are ADO IDs now attached to work we'd already recorded *without* an ID (physical-computer auto-populate; the 6/08 custom-fields decisions).
+
+| ADO ID | Title | Parent | Iter |
+|--------|-------|--------|------|
+| 1402790 | Update Lifecycle Status for Retired Computers (RITM0054475) | Computer Class 1354794 | 2.1 |
+| 1407490 | Computers: Auto Populate CI Owner/Support/Tech Owner — **Physical** | Computer Class 1354794 | 2.2 |
+| 1409770 | Business App: Create 3 New Custom Fields (Asset Criticality, RPO, RTO) | 1411480 | 2.1 |
+| 1435988 | Application Service: Create 8 New Custom Fields (RITM0042981) | — | 2.2 |
+| 1402959 | Identify Pilot group of Business applications | Data Cert Pilot Impl | 2.1 |
+| 1426724 | Create scripted REST API for SailPoint integration | — | 2.2 |
+| 1426573 | AMF Network assets — Data Upload ITEAM→ServiceNow (RITM0053538) | — | 2.2 |
+| 1459730 | Working with Moveworks team to establish ServiceNow connection | — | 2.2 |
+| 1411413 | SCCM issue investigation on prod | CMDB PI1.26 (prior PI) | 2.1 |
+| 1431721 | Release Note 2.2 | — | 2.2 |
+| 1465266 | Release Note 2.2.2 | — | 2.6 |
+| 1477934 | Release Note 2.3 | — | 2.6 |
 
 ---
 
@@ -346,6 +428,10 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 | 1445339 | Test PA Oracle DB discovery | 🔵 Active | Anthony |
 | 1445184 | Submit request — MID-server comms | ⚪ New | Anthony |
 | 1445244 | Test Service Mapping after MID reconfig | ⚪ New | Tanzeel |
+| 1445179 | Add new SNMPv3 credentials to SERVNW CyberArk safe | ⚪ Closed — 🆕 6/19 | Anthony |
+| 1445181 | Create SRS exception request to access CLDSCPE & GWIZ CyberArk safes | ⚪ Closed — 🆕 6/19 | Anthony |
+
+> **🟢 6/19 credential progress:** Two 1444864 child tasks now **Closed** — **1445179** (SNMPv3 creds added to SERVNW safe) and **1445181** (SRS exception for CLDSCPE/GWIZ safe access). CyberArk safe access is being unblocked — relevant to impediments **#2** (SNMP/CyberArk) and **#4** (Service Mapping creds) in [[Team/impediments-log]]. The 6 Active tasks above remain in progress.
 
 **Service Mapping** (⚪ New · Tanzeel) — 4-step pattern per app:
 
@@ -356,7 +442,7 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 | Foglight for Data… | 1428265, 1428268, 1428271, 1428275 |
 | OEM | 1428929, 1428931, 1428934, 1428936 |
 | Oceana System | 1428939, 1428942, 1428944, 1428947 |
-| SolarWinds (Evaluate/PoC) | 1462418 (V&S), 1462424 (Pub) |
+| SolarWinds (Evaluate/PoC) | ✅ 1462416 (DG, Closed 6/19), ✅ 1462417 (BM, Closed 6/19), 1462418 (V&S), 1462424 (Pub) |
 
 ### Iteration-review read
 - **36 of ~44 are Service Mapping** (all New, Tanzeel) — a large body of service-map work planned into 2.1/2.2 that hasn't started or been re-sprinted into 2.3. Decision needed: re-sprint, de-scope, or accept as backlog.
@@ -388,6 +474,7 @@ Updated as of 2026-06-17 | ADO snapshot: story status as of **6/17 (Iteration 2.
 - **NowAssist progress (Feature 1436574):** 1436576 → **Closed** (was Active); 1436579 → **Resolved** (was Ready DoR); 1436592 → **Active** (was Ready DoR); 1436593 unchanged (Ready DoR).
 - **Type fix:** 1403759 reclassified **Spike → User Story**, title aligned to "SCCM:Servers Remove SCCM Attributes" (was tracked as spike "De-Prioritize SCCM Attributes").
 - **New stories:** **1459721** (Testing new SNMP creds / MID dns params, Stan, Validation) — filed under 1356646 credential family, parent unconfirmed. **1399787** (Business Application: Add All CI-Owners to CMDB Full Access Group, Vinay, Validation) — ⚠️ **no feature home in our doc; needs mapping** (access/permissions governance).
+- **6/19 unmapped story:** **1378017** "CMDB: Populate Missing Business Owners for Business Applications" (Defining, no parent shown in grid) — ⚠️ **no feature home; needs mapping** (likely P2 Data Cert or Business App governance).
 - **Orphan update:** 1472365 now assigned **Harsh Deshmane** (was unassigned); still no parent.
 - **Confirmed matches:** SCCM 1403760/62/63 Validation; 1444864 Validation; 1454371 Active; 1455858 Active; 1407572 Validation; 1387236 Validation; 1435307 Validation; Qualys 1428703/1428704 Active (still BLOCKED per Stream C flag).
 - ⚠️ **Absent from this 2.3 story grid:** Airlift stories **1418610 / 1418618 / 1418621** and **1416384** — our doc lists them in 2.3. Confirm whether filtered, re-sprinted, or our iteration tag is stale.
