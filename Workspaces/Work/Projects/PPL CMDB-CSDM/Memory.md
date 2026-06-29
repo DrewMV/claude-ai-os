@@ -67,10 +67,13 @@ Active in PI2, Iteration 2.3 (Jun 10 – Jun 23, 2026). Data Certification UAT s
 
 | Contract | Status | Notes |
 |----------|--------|-------|
-| CR5 | Current | Active contract; scope discrepancies being addressed |
-| CR6 | Upcoming | New contract; role segmentations being confirmed with Aaron Simeon |
+| CR5 / CO5 | Current | Active contract (signed **Change Order #5**, executed 2026-05-26). Term Mar 31 → **Jun 30, 2026**. Deliverable acceptance tracked in [[co5-deliverable-tracking]]; signed PDF at [[Contract/CO5-signed-2026-05-26.pdf]]. **$533,775 June holdback** gated on final acceptance. Scope discrepancies being addressed. |
+| CR6 / CO6 | Upcoming — **DRAFT/unsigned** | **Change Order #6**, proposed term Jul 1 → **Oct 30, 2026**. Re-baselines the at-risk CO5 deliverables (Databases, 90% coverage, Qualys) to Jul 31 → Oct 30 and adds **ITSM PO + Platform Support (BAU) + ATF** workstreams. Tracked in [[co6-deliverable-tracking]]; draft at [[Contract/CO6-DRAFT-3.27-unsigned.docx]]. Role segmentations being confirmed with Aaron Simeon. |
 
-Christian will provide Manuel with detailed focus areas for delivery under CR6.
+Christian will provide Manuel with detailed focus areas for delivery under CR6/CO6.
+
+> ⚠️ **CO5 timeline risk:** all 3 deliverables due **Jun 30, 2026**, but PI-2 runs to **Aug 4** — stories in Iter 2.4/2.5/2.6 land after the contractual deadline. See [[co5-deliverable-tracking]].
+> 🟠 **CO6 is the re-baselining vehicle but is UNSIGNED.** If not executed before **July 1**, the CO5 6/30 deadline + **$533,775 holdback stand with no relief**. CO6 closes 5 of 6 CO5 gaps (not the monthly-CCB item). See [[co6-deliverable-tracking]] for the gap-closure map.
 
 ## ServiceNow Product Line Peers
 
@@ -172,6 +175,13 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - [[Backlog/features]] — features mapped to PI objectives
 - [[Backlog/definition-of-ready]] — story readiness gates
 - [[Backlog/definition-of-done]] — story acceptance criteria
+- [[Backlog/co5-governance-validation-stories]] — DRAFT parent feature *"CO5 Governance Validation & Acceptance"* + 8 SAFe validation stories (1 per CO5 Governance sub-item, 1.1 split per CI class), each grounded in real ADO evidence IDs, with an `ADO ID (fill on creation)` reconciliation column; reference only until created in ADO (then reconcile back to [[co5-deliverable-tracking]] Acceptance Tracking)
+- [[Backlog/cmdb-health-lifecycle-validation-stories]] — DRAFT **NON-SOW** quality-governance validation stories (Health & Lifecycle, 1 per CI class); separate lane, does not gate CO5 holdback
+- [[Backlog/audit-dashboard-accuracy-spike]] — DRAFT **NON-SOW** Spike (target Iter 2.4, **due 6/30**): validate BA audit-dashboard scope + each of 11 quality audits, build compliance-prioritized remediation plan (owner/target date/solution type), apply safe quick fixes (BA-pause-limited). **Simplified, team-shareable format** Manuel finalized 6/23.
+- [[Backlog/audit-dashboard-spike-template]] — reusable TEMPLATE of the audit-dashboard spike, to apply the same approach to the next audit areas (Servers, Database, Computer, Groups)
+- [[Backlog/audit-dashboard-servers-spike]] — DRAFT **NON-SOW** Servers-tab audit spike (Iter 2.4, due 6/30; scope = Active Servers Count 15,218; 11 audits). Watch: Missing Value Stream = 100%, two 0-count audits.
+- [[Backlog/audit-dashboard-database-spike]] — DRAFT **NON-SOW** Database-tab audit spike (Iter 2.4, due 6/30; scope = Active Database CI Count 3,113; 6 audits). Watch: Missing Value Stream = 100%, Missing Approval Group ~99.9%.
+- [[Backlog/audit-dashboard-computer-spike]] — DRAFT **NON-SOW** Computer-tab audit spike (Iter 2.4, due 6/30; scope = Active Computer CIs 28,203 + virtual subset 6,530; 11 audits). Watch: Missing Approval Group = 100%, two 0-count audits, phys/virtual split.
 - [[requirements-process]] — end-to-end requirements flow
 - [[Dependencies/servicenow-enhancements]] — cross-team dependency tracker
 - [[nowassist-implementation-plan]] — 5-phase NowAssist AI roadmap (Duplicate CI Elimination → NL Search → Guided CI Creation → Governance Advice → NASK); primary driver for PI-2 Obj 5 and PI-3 objectives

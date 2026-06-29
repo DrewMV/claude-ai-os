@@ -3,7 +3,7 @@ type: team-artifact
 workspace: Work
 project: CMDB-CSDM
 pi: PI-2
-updated: 2026-06-17
+updated: 2026-06-23
 tags: [work, cmdb-csdm, pi-planning, iteration-review]
 ---
 
@@ -52,6 +52,8 @@ tags: [work, cmdb-csdm, pi-planning, iteration-review]
 
 ### Stories — confirmed clear ✅
 Reviewed the ADO Iteration 2.3 story grid on 6/17: all 19 stories are in **2.3** (current), so **no Active story is stranded in 2.1/2.2**. Re-check when a fresh story grid is pulled.
+
+> **6/23 re-check:** A full grid pull (Iter 2.3→2.6) on the last day of 2.3 did **not** surface any 2.1/2.2 items in the visible rows — so the 13 prior-iteration items above were **not re-confirmed against this pull** (the pull was forward-looking, sorted 2.3↑). Their status stands from 6/17 until a 2.1/2.2-inclusive grid is pulled. No *story* appeared stranded in 2.1/2.2 in the 6/23 view. Note: parent story **1444864** still shows **Validation** in 2.3 while its 6 Active credential tasks remain in 2.2 (the core flag above is unchanged).
 
 **Totals:** 6 tasks · 3 features · 1 spike · 3 dependencies = **13 confirmed** (objectives excluded — they carry no iteration).
 

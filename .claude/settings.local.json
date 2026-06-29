@@ -98,7 +98,31 @@
       "Bash(python -c \"import importlib; [print\\(m, 'OK'\\) for m in ['fitz','pdfplumber','pypdf','PyPDF2'] if importlib.util.find_spec\\(m\\)]\")",
       "Bash(python -c \"import fitz; d=fitz.open\\(r'C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Accenture-ServiceNow Release 2 and 3 Deployment-CO5-PO# 1000002225 - signed.pdf'\\); print\\('pages:', d.page_count\\)\")",
       "Bash(python -c \"print\\(open\\(r'C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\Workspaces\\\\Work\\\\Projects\\\\PPL CMDB-CSDM\\\\PI-2\\\\Scope-Alignment\\\\_sow_text.txt', encoding='utf-8'\\).read\\(\\)[:200]\\)\")",
-      "Bash(git reset *)"
+      "Bash(git reset *)",
+      "Bash(mkdir -p Contract)",
+      "Bash(cp \"/c/Users/manuel.b.vazquez/Desktop/Accenture-ServiceNow Release 2 and 3 Deployment-CO5-PO# 1000002225 - signed.pdf\" \"Contract/CO5-signed-2026-05-26.pdf\")",
+      "Bash(cd \"C:/Users/manuel.b.vazquez/Documents/Claude AI OS/Workspaces/Work/Projects/PPL CMDB-CSDM\" && cp \"/c/Users/manuel.b.vazquez/Desktop/AP00105-5 - CO6 to ServiceNow Release 2 and 3 Deployment_3.27.docx\" \"Contract/CO6-DRAFT-3.27-unsigned.docx\" && ls -la Contract/)",
+      "Bash(python build_co5_deliverable_deck.py)",
+      "Bash(python3 build_co5_deliverable_deck.py)",
+      "Bash(rm -f \"CO5-Deliverables-2026-06-20-new.pptx\")",
+      "Bash(ls Contract*)",
+      "Bash(pdftotext -layout \"CO5-signed-2026-05-26.pdf\" -)",
+      "Bash(pdfinfo \"CO5-signed-2026-05-26.pdf\")",
+      "Bash(python -c \"import PyPDF2; print\\(len\\(PyPDF2.PdfReader\\('CO5-signed-2026-05-26.pdf'\\).pages\\)\\)\")",
+      "Bash(python -c \"import pypdf; print\\('pypdf ok'\\)\")",
+      "Bash(python -c \"import PyPDF2; print\\('PyPDF2 ok'\\)\")",
+      "Bash(python -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
+      "Bash(python -c \"import fitz; print\\('pymupdf ok'\\)\")",
+      "Bash(where pdftotext *)",
+      "Bash(python -c \"import docx; print\\('python-docx', docx.__version__\\)\")",
+      "Bash(python build_co5_brief_doc.py)",
+      "Bash(py --version)",
+      "Bash(mkdir -p \"C:/Users/manuel.b.vazquez/Documents/Claude AI OS/Workspaces/Work/Projects/PPL CMDB-CSDM/Config-Mgmt-Plan\")",
+      "Bash(python build_cmp_stage1.py)",
+      "PowerShell($p = \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\CO5 Delivery Review.xlsx\"; Test-Path $p; $x=New-Object -ComObject Excel.Application -ErrorAction SilentlyContinue; if\\($x\\){\"COM-OK\"}else{\"NO-COM\"})",
+      "PowerShell(& \"C:\\\\Users\\\\MANUEL~1.VAZ\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-manuel-b-vazquez-Documents-Claude-AI-OS\\\\b51e5a62-b3be-46fd-9ecc-0f22c7b4cd51\\\\scratchpad\\\\build_markup.ps1\")",
+      "PowerShell(& \"C:\\\\Users\\\\MANUEL~1.VAZ\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-manuel-b-vazquez-Documents-Claude-AI-OS\\\\b51e5a62-b3be-46fd-9ecc-0f22c7b4cd51\\\\scratchpad\\\\build_corrected.ps1\")",
+      "Bash(cd \"/c/Users/manuel.b.vazquez/Documents/Claude AI OS/Workspaces/Work/Projects/PPL CMDB-CSDM/Config-Mgmt-Plan\" && find . -type f -printf '%p  \\(%s bytes\\)\\\\n' 2>/dev/null | sort || echo \"EMPTY_OR_MISSING\")"
     ]
   }
 }
