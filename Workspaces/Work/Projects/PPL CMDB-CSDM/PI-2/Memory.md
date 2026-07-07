@@ -6,7 +6,7 @@ pi: PI-2
 status: active
 start: 2026-05-13
 end: 2026-08-04
-updated: 2026-06-01
+updated: 2026-06-30
 tags: [work, safe, pi-planning, cmdb-csdm]
 ---
 
@@ -32,8 +32,8 @@ See objectives → features → stories traceability in [[PI-2/pi2-objectives-fe
 |-----------|-------|-----|--------|
 | 2.1 | 2026-05-13 | 2026-05-26 | Completed |
 | 2.2 | 2026-05-27 | 2026-06-09 | Completed |
-| 2.3 | 2026-06-10 | 2026-06-23 | Active |
-| 2.4 | 2026-06-24 | 2026-07-07 | Upcoming |
+| 2.3 | 2026-06-10 | 2026-06-23 | Completed |
+| 2.4 | 2026-06-24 | 2026-07-07 | Active |
 | 2.5 | 2026-07-08 | 2026-07-21 | Upcoming |
 | 2.6 (IP) | 2026-07-22 | 2026-08-04 | IP Iteration |
 
@@ -58,6 +58,14 @@ _Fill in per iteration from sprint-planning notes._
 | 11 | **Test code freeze July 18 – Aug 15** — spans end of 2.5, all of IP (2.6), and extends 10 days into PI-3 Iter 3.1; no test deployments during IP iteration; PI-3 planning must account for reduced test environment availability at start | **High** | Open | See [[Dependencies/external]] — CHG70100865 |
 | 13 | **Ray's 450-server application-instance request (Azure migration blocker)** — Ray requested the application instances running on ~450 virtual servers he manages, flagged urgent and a blocker for the VMware-to-Azure migration (PI Obj 6). Request carries no context on purpose, required fidelity, or deadline. **Core finding — directional mismatch:** the request is *server-first* ("what apps run on these servers?") but Service Mapping is *application-first* (starts from a known app, traces to infra) — so it cannot be deliberately targeted at a server. The 21 servers mapped via Service Mapping were *incidental* overlaps. The true gap is the missing **application↔server relationship layer**: we have ~2,100 known application instances but no reliable app→server linkage, and those apps are **not confined to these 450 servers**, so the 2,100 cannot be filtered to Ray's list. Coverage to date: **82 of ~450** — 21 incidental Service Mapping, 61 via **iTeam** (PPL homegrown CMDB); app-owner outreach limited. **Most promising paths:** (1) iTeam validation (active — only source that may already hold server→app relationships); (2) ServiceNow Discovery, which IS server-first and likely already scans the subnets containing most of Ray's 450 — so raw installed-software data likely already exists; remaining work = correlating that footprint to named application instances (needs technical validation). Assessment email to leadership reframed around this and drafted 2026-06-18. Next step: working session with the right technical owners + Ray to confirm iTeam payoff, validate Discovery correlation path, and capture requirements (deadline, fidelity, priority). | **High** | Open — assessment email to leadership in progress | Surfaced 2026-06-18; ties to PI Obj 6; Ray also SCCM data owner (Risk #12); technical validation likely Joe, possibly Tony (Anthony) |
 | 12 | **SCCM vs. ServiceNow Discovery authoritative precedence not fully resolved** — June 8 decision locked SCCM as authoritative for 6 hardware attributes, but a complete field-by-field precedence map does not exist. Stories 1403760, 1403762, 1403759, and spike 1421790 are each making isolated precedence decisions without a governing baseline. Risk of conflicting rules across stories, dirty data in CMDB, or rework if a later ruling overrides earlier sprint commitments. Needs a decision owner, full attribute map agreed with Ray (SCCM data owner) and Sonica, before further precedence stories are committed to sprints. | **High** | Open | Surfaced 2026-06-08 SCCM refinement; Spike 1403759 (asset tag / OU name) on hold pending Ray review; see [[PI-2/Iterations/Iteration-2.2/backlog-refinement-2026-06-08-sccm]] |
+
+## Contacts — Time-Bounded
+
+| Role | Person | Period | Notes |
+|------|--------|--------|-------|
+| CMDB Module POC — Ops Team | Aishwarya Thorve | July 2026 | Primary Ops contact for all CMDB module questions during this month |
+
+---
 
 ## Key Decisions This PI
 
