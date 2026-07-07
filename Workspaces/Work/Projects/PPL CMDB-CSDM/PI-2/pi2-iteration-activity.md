@@ -3,7 +3,7 @@ type: team-artifact
 workspace: Work
 project: CMDB-CSDM
 pi: PI-2
-updated: 2026-06-11
+updated: 2026-07-06
 tags: [work, cmdb-csdm, pi-planning, iterations]
 ---
 
@@ -156,7 +156,7 @@ Sprint planning committed-story tables were not filled in — story assignments 
 
 ---
 
-## Iteration 2.3 — Jun 10–23, 2026 | 🟢 Active
+## Iteration 2.3 — Jun 10–23, 2026 | ✅ Completed
 
 ### Stories Committed / In Progress
 
@@ -249,6 +249,243 @@ Sprint planning committed-story tables were not filled in — story assignments 
 | Sprint Review 2.3 / Showback | ~06/23 |
 | Retrospective 2.3 | ~06/23 |
 | Sprint Planning 2.4 | ~06/23 |
+
+---
+
+## Iteration 2.4 — Jun 24 – Jul 7, 2026 | 🟡 Closing
+
+> 🔄 **Transition in progress (7/7).** Final ADO updates for 2.4 closeout and 2.5 story moves expected today / tomorrow. This section will be reconciled against the end-of-sprint grid once received. States below reflect the 7/6 ADO pull — treat as near-final, not closed.
+
+> 🎯 **CO5-focused iteration.** Per Manuel's **"CO5 Deliverable Alignment"** email (6/29 → Joe Dames, Stan, Tony; cc Chad Hayden, Chris Mizrany, Christian Aguilar, Ruchita, Anu, Jordan Yung, Alex), the team **temporarily deprioritized Service Mapping, Airlift, NowAssist, and Network Discovery** to direct resources at CO5 deliverables. The 6/30 ADO 2.4 grid reflects this — it is essentially the CO5 work slice. Deliverable detail + acceptance state: [[../co5-deliverable-tracking]]; full story states: [[pi2-objectives-features-stories]].
+
+### Committed Load (6/30 ADO grid)
+**38 work items · 61 story points.**
+
+| Bucket | Items | Points | % |
+|--------|-------|--------|---|
+| **CO5-aligned** | 30 | **45** | 74% |
+| Non-CO5 — ServiceNow upgrade readiness (enabling) | 6 | 11 | 18% |
+| Non-CO5 — Network discovery (deprioritized) | 1 | 3 | 5% |
+| Non-CO5 — NowAssist (deprioritized; already Closed) | 1 | 2 | 3% |
+| **Total** | **38** | **61** | 100% |
+
+> ⚠️ The 6/30 grid is a **filtered slice** — the deprioritized **Service Mapping (12 stories)**, NowAssist spikes (1451941/1451943), and upgrade spike 1403738 are **not** in it. They remain in backlog, postponed per the email — so **61 pts is the effective CO5-focused commitment**, not every 2.4-tagged item.
+
+### CO5 Deliverable → 2.4 Story / Spike Mapping (individual deliverables)
+One row per individual line item in the 6/29 alignment email. **"— reported complete (email)"** = the email reports the work done/operational with no open 2.4 story; **"— no 2.4 story"** = gap or validation not yet storied.
+
+**Deliverable 1 — Governance** *(2.4 work hangs off Feature 1480087)*
+
+| # | Individual deliverable | Lead | 2.4 ADO item (assignee · state · pts) | Pts |
+|---|---|---|---|---|
+| 1.1a | Data Dictionary — **Servers** | Manuel | 1480088 (Vinay · 🟣 Validation · 2) | 2 |
+| 1.1b | Data Dictionary — **Computers** | Manuel | 1480090 (Bhushan · 🟣 Validation · 2) | 2 |
+| 1.1c | Data Dictionary — **Business Apps** | Manuel | 1480097 (Kiran · 🟣 Validation · 2); + data-population: 1475582 Support Groups 496 (Kiran · 🔵 Active · 3), 1478286 Classification 938 (Anthony · 🟢 Ready DoR · 3), 1480111 BA audit spike (Joe · 🟢 Ready DoR · 2) | 10 |
+| 1.1d | Data Dictionary — **Databases** **[closes G1]** | Manuel | 1480098 (Kiran · 🟣 Validation · 2) | 2 |
+| 1.2 | Data Certification (pilot) | Joe | 1480099 (Joe · 🟢 Ready DoR · 2) | 2 |
+| 1.3 | ESS-02 Alignment | Joe | 1480102 (Manuel · 🟢 Ready DoR · 1) | 1 |
+| 1.4 | SOX BA review *(SOX only)* | Manuel | 1480105 (Uloma · 🟢 Closed · 1) ✅ | 1 |
+| 1.5 | Monthly CCB **[closes G5]** | Manuel | 1480107 (Manuel · 🟢 Ready DoR · 1) | 1 |
+| | | | **Subtotal** | **22** |
+
+**Deliverable 2 — Automated Data Ingestion**
+
+| # | Individual deliverable | Lead | 2.4 ADO item (assignee · state · pts) | Pts |
+|---|---|---|---|---|
+| 2.1a | Computers — SCCM/Discovery | Stan | — reported complete (email); prior-iter 1348712/715/716/717 | 0 |
+| 2.1b | Computers — 90% Coverage | Stan | 1480114 Computer audit spike (Stan · 🔵 Active · 2) ⚠️ reassigned from Anthony | 2 |
+| 2.1c | Computers — Build Lifecycle | Stan | — no 2.4 story (PM/stakeholder validation TBD; prior 1402790 Closed) | 0 |
+| 2.2a | Server — SCCM/Discovery | Tony | — reported complete (email); prior-iter 1403759/760/762/763 (Validation) | 0 |
+| 2.2b | Server — 90% Coverage / cleanup | Tony | 1480112 Server audit spike (Anthony · 🔵 Active · 2); 1454371 Extract servers w/o support groups (Bhushan · 🔵 Active · 2); 1455832 env-field rec (Vinay · 🟣 Validation · 2); inventory + bulk-retirement cluster 1487863–1490398 (14 incl. new 1490398) ⚠️ | 19 |
+| 2.2c | Server — SOX Indicators | Tony | — reported complete (email) | 0 |
+| 2.x | Credentials enabling Discovery | — | — reported complete (email); ⚠️ prior 1444864 child cred tasks were Active in 2.2 | 0 |
+| 2.3a | Database — SQL/Oracle Discovery | Stan | — reported complete (email) | 0 |
+| 2.3b | Database — SOX Indicators | Stan | — reported complete (email) | 0 |
+| 2.3c | Database — 90% Coverage | Stan | 1480113 Database audit spike (Stan · 🔵 Active · 2) | 2 |
+| | | | **Subtotal** | **22** |
+
+> ⚠️ **Inventory + bulk-retirement cluster (1487863–1487897, 13 pts)** is booked under **Server 90% (2.2b)**, but the data is **VMware (virtual) + Physical, split PA/KY** — it may also serve **Computer 90% Coverage (2.1b)**. Confirm the server-vs-computer split; the 13 pts may need to divide across 2.1b / 2.2b.
+
+**Deliverable 3 — Other Enhancement**
+
+| # | Individual deliverable | Lead | 2.4 ADO item | Pts |
+|---|---|---|---|---|
+| 3 | Evaluate Qualys Integration | Stan | 1428703 Install plugin Part 1 (Stan · 🔵 Active · 1) | 1 |
+
+**CO5-aligned total: 22 + 22 + 1 = 45 pts** (30 items).
+
+> **Deliverables with no 2.4 story** (reported complete in the email, or pending validation): Computers / Server / Database SCCM-Discovery · Server / Database SOX Indicators · Credentials enabling Discovery · Computers Build Lifecycle. These are either done per the email or need a **validation/acceptance** story — confirm whether each requires a 2.4 acceptance item for CCB sign-off (cf. the acceptance-story pattern in [[../co5-deliverable-tracking]]).
+
+**Not mapped to a CO5 deliverable (16 pts):**
+
+| Stream | Disposition (per 6/29 email) | 2.4 items | Pts |
+|--------|------------------------------|-----------|-----|
+| ServiceNow Australia upgrade readiness | Enabling — not a named CO5 deliverable | 1403721 (3), 1403722 (2), 1403723 (2), 1403725 (1), 1403731 (1), 1411237 (2) | 11 |
+| Network CI-class discovery | **Deprioritized** | 1402559 Compare CI Class Sources (3) | 3 |
+| NowAssist Duplicate CI | **Deprioritized** (1451940 already Closed) | 1451940 (2) | 2 |
+
+### 2.4 By Deliverable — Staffing & Coverage
+Each formal CO5 deliverable → who is staffed on it (pts) → coverage flag. **Unstaffed / thin / unmapped flagged.**
+
+| CO5 Deliverable | Staffed by (pts) | Stories | Pts | State | Flag |
+|---|---|--:|--:|---|---|
+| 1.1a DD — Servers | Vinay (2) | 1 | 2 | 🟣 Validation | |
+| 1.1b DD — Computers | Bhushan (2) | 1 | 2 | 🟣 Validation | |
+| 1.1c DD — Business Apps | Kiran (5), Anthony (3), Joe (2) | 4 | 10 | 🟣/🔵/🟢 mixed | best-staffed governance item |
+| 1.1d DD — Databases | Kiran (2) | 1 | 2 | 🟣 Validation | ✅ closes **G1** |
+| 1.2 Data Certification | Joe (1) | 1 | 1 | 🟢 Ready DoR | |
+| 1.3 ESS-02 Alignment | Manuel (1) | 1 | 1 | 🟢 Ready DoR | |
+| 1.4 SOX BA review | Uloma (1) | 1 | 1 | 🟢 Closed ✅ | ✅ **DONE** |
+| 1.5 Monthly CCB | Manuel (1) | 1 | 1 | 🟢 Ready DoR | ✅ closes **G5** |
+| 2.1a Computers — SCCM/Discovery | — | 0 | 0 | done (email) | |
+| 2.1b Computers — 90% Coverage | Stan (2) | 1 | 2 | 🔵 Active | 🟡 **G2 — thin** (1 spike only; ⚠️ reassigned to Stan) |
+| 2.1c Computers — Build Lifecycle | — | 0 | 0 | — | 🔴 **no 2.4 story** (validation TBD) |
+| 2.2a Server — SCCM/Discovery | — | 0 | 0 | done (email) | |
+| 2.2b Server — 90% / cleanup | Bhushan (7), Vinay (4), Anthony (3), Kiran (3), Anu (1) | 17 | 19 | mixed 🔵/🟣/✅ advancing | 🟡 **G3**; ⚠️ 14 pts = unparented inventory cluster (incl. new 1490398) |
+| 2.2c Server — SOX Indicators | — | 0 | 0 | done (email) | |
+| 2.x Credentials enabling Discovery | — | 0 | 0 | done (email) | ⚠️ prior 1444864 tasks were Active in 2.2 |
+| 2.3a Database — SQL/Oracle Discovery | — | 0 | 0 | done (email) | |
+| 2.3b Database — SOX Indicators | — | 0 | 0 | done (email) | |
+| 2.3c Database — 90% Coverage | Stan (2) | 1 | 2 | 🔵 Active | 🟡 **thin** (1 spike only) |
+| 3 Evaluate Qualys Integration | Stan (1) | 1 | 1 | 🔵 Active | 🟡 **G4** — Part 2 (1428704) unconfirmed |
+| **CO5 total** | | **30** | **45** | | |
+
+> **Reading it — coverage observations:**
+> - **90%-coverage deliverables are lopsided:** Server (2.2b) carries **18 pts / 5 people**, but **Computers (2.1b) and Databases (2.3c) are 2 pts each — a single validation spike**. If 90% coverage is a CO5 acceptance target, Computer + DB cleanup look **under-resourced** vs Servers.
+> - **Most governance deliverables are single-owner / single-story** (1.1a, 1.1b, 1.1d, 1.2, 1.3, 1.4, 1.5) — normal for documentation, but a bus-factor of 1 each.
+> - **2.2b's 13-pt bulk is the unparented inventory/retirement cluster** — well-staffed but not formally tied to a deliverable in ADO (see flag below).
+> - **Gaps:** 2.1c Computers Build Lifecycle has **no 2.4 story**; the "done per email" rows (SCCM/Discovery ×3, SOX Indicators ×2, Credentials) have **no validation/acceptance story** for CCB sign-off.
+
+**🔴 NOT mapped to a CO5 deliverable (16 pts):**
+
+| Stream | Staffed by (pts) | Stories | Pts | Disposition |
+|--------|------------------|--------:|----:|-------------|
+| ServiceNow upgrade readiness | Stan (9), Vinay (2) | 6 | 11 | Enabling — not a named CO5 deliverable; keep in 2.4 or move to 2.5/IP? |
+| Network CI-class discovery | Stan (3) | 1 | 3 | **Deprioritized** per 6/29 email — pause? |
+| NowAssist Duplicate CI | Kiran (2) | 1 | 2 | **Deprioritized**; already Closed — no action |
+
+### 2.4 By Owner — Effort Alignment to CO5
+Who is working on what, mapped to the formal CO5 deliverable. **Non-CO5 / unmapped work flagged 🔴.**
+
+**Alignment summary (per owner):**
+
+| Owner | CO5 pts | Non-CO5 pts | Total | % on CO5 |
+|-------|--------:|------------:|------:|---------:|
+| Stan Tomberg | 3 | 🔴 12 | 15 | **20%** |
+| Kiran Dhobale | 10 | 🔴 2* | 12 | 83% |
+| Bhushan Salsekar | 9 | 0 | 9 | 100% |
+| Anthony de Araujo | 8 | 0 | 8 | 100% |
+| Vinay Geddannavar | 6 | 🔴 2 | 8 | 75% |
+| Joe Dames | 4 | 0 | 4 | 100% |
+| Manuel Vazquez | 2 | 0 | 2 | 100% |
+| Uloma Adelufosi | 2 | 0 | 2 | 100% |
+| Anuradha Rai | 1 | 0 | 1 | 100% |
+| **Total** | **45** | **16** | **61** | **74%** |
+
+> \* Kiran's 2 non-CO5 pts = 1451940 NowAssist, already **Closed** — no active drain.
+> 🔴 **Alignment flag — Stan Tomberg:** 12 of 15 pts (80%) on **non-CO5** work — the upgrade-readiness spike block (1403721/722/723/725/731, 9 pts) + the **deprioritized** network spike 1402559 (3 pts). Only 3 pts (Qualys 1428703 + DB audit spike 1480113) serve CO5. Given the 6/29 email's CO5 focus + Network Discovery deprioritization, Stan is the **least-aligned resource** — confirm the upgrade spikes belong in 2.4 (vs 2.5/IP) and whether 1402559 should pause.
+
+**Owner → Story → CO5 Deliverable (aligned, 45 pts):**
+
+| Owner | Story | CO5 Deliverable | State | Pts |
+|-------|-------|-----------------|-------|----:|
+| Bhushan Salsekar | 1480090 Data Dictionary: Computers | 1.1b DD-Computers | 🟣 Validation | 2 |
+| Bhushan Salsekar | 1454371 Extract servers w/o support groups | 2.2b Server 90% | 🔵 Active | 2 |
+| Bhushan Salsekar | 1487864/865/866 Export PA VMware / KY VMware / PA Physical | 2.2b Server 90% (inventory) | 🟢 Closed ✅ | 3 |
+| Bhushan Salsekar | 1487871 Review Staged Retirement | 2.2b Server 90% (inventory) | 🟢 Closed ✅ | 1 |
+| Bhushan Salsekar | 1487878 Execute Bulk CI Retirement | 2.2b Server 90% (inventory) | 🔵 Active | 1 |
+| Bhushan Salsekar | 1490398 Retired Servers from the Server Table *(new)* | 2.2b Server 90% (inventory) | 🟣 Validation | 1 |
+| Kiran Dhobale | 1480097 Data Dictionary: Business Apps | 1.1c DD-BizApps | 🟣 Validation | 2 |
+| Kiran Dhobale | 1480098 Data Dictionary: Databases | 1.1d DD-Databases **[G1]** | 🟣 Validation | 2 |
+| Kiran Dhobale | 1475582 BA Support Groups (496) | 1.1c DD-BizApps (data-pop) | 🔵 Active | 3 |
+| Kiran Dhobale | 1487863 Create Custom Tables | 2.2b Server 90% (inventory) | 🟣 Resolved | 1 |
+| Kiran Dhobale | 1487870 Stage Retirement Candidates | 2.2b Server 90% (inventory) | 🟣 Validation | 1 |
+| Kiran Dhobale | 1487897 Drop Custom / Staging Tables | 2.2b Server 90% (inventory) | 🟣 Validation | 1 |
+| Anthony de Araujo | 1478286 BA Classification (938) | 1.1c DD-BizApps (data-pop) | 🟢 Ready DoR | 2 |
+| Anthony de Araujo | 1480112 Server audit-dashboard spike | 2.2b Server 90% | 🔵 Active | 2 |
+| Anthony de Araujo | 1487872 Validate Staged Retirement | 2.2b Server 90% (inventory) | 🔵 Active | 1 |
+| Vinay Geddannavar | 1480088 Data Dictionary: Servers | 1.1a DD-Servers | 🟣 Validation | 2 |
+| Vinay Geddannavar | 1455832 Server env-field recommendation | 2.2b Server 90% | 🟣 Validation | 2 |
+| Vinay Geddannavar | 1487867/868/869 Import PA VMware / KY VMware / PA Physical | 2.2b Server 90% (inventory) | 🟣 Validation | 3 |
+| Joe Dames | 1480099 Data Certification pilot | 1.2 Data Cert | 🟢 Ready DoR | 1 |
+| Joe Dames | 1480111 BA audit-dashboard spike | 1.1c DD-BizApps | 🟣 Validation | 2 |
+| Stan Tomberg | 1480113 Database audit-dashboard spike | 2.3c Database 90% | 🔵 Active | 2 |
+| Stan Tomberg | 1480114 Computer audit-dashboard spike *(reassigned from Anthony)* | 2.1b Computer 90% | 🔵 Active | 2 |
+| Stan Tomberg | 1428703 Qualys plugin Part 1 | 3 Qualys | 🔵 Active | 1 |
+| Stan Tomberg | 1504314 Populate CI Owner *(new)* | — unparented | 🟢 Refinement Ready | — |
+| Manuel Vazquez | 1480102 ESS-02 alignment confirmed | 1.3 ESS-02 | 🟢 Ready DoR | 1 |
+| Manuel Vazquez | 1480107 Monthly CCB cadence | 1.5 Monthly CCB **[G5]** | 🟢 Ready DoR | 2 |
+| Uloma Adelufosi | 1480105 SOX BA identified + access controls | 1.4 SOX BA | 🟢 Closed ✅ | 1 |
+| Anuradha Rai | 1487883 Verify Retirement Results | 2.2b Server 90% (inventory) | 🟢 Refinement Ready | 1 |
+
+**🔴 UNMAPPED / NON-CO5 — needs a disposition decision (16 pts):**
+
+| Owner | Story | Why flagged | State | Pts |
+|-------|-------|-------------|-------|----:|
+| Stan Tomberg | 1403721 Analyze impact: CI class hierarchy / customizations | Upgrade readiness — not a CO5 deliverable | 🟢 Refinement Ready | 3 |
+| Stan Tomberg | 1403722 Assess upgrade impact on IRE | Upgrade readiness — not CO5 | 🟢 Refinement Ready | 2 |
+| Stan Tomberg | 1403723 Validate authoritative sources / precedence / flapping | Upgrade readiness — not CO5 | 🟢 Refinement Ready | 2 |
+| Stan Tomberg | 1403725 Impact: Discovery / integration touchpoints | Upgrade readiness — not CO5 | 🟢 Refinement Ready | 1 |
+| Stan Tomberg | 1403731 Impact: governance controls / KPIs / operating model | Upgrade readiness — not CO5 | ⚪ New | 1 |
+| Vinay Geddannavar | 1411237 Validate Dynamic IRE Post-Australia | Upgrade readiness — not CO5 | 🔵 Active | 2 |
+| Stan Tomberg | 1402559 Compare CI Class Sources | **Network Discovery — deprioritized** per 6/29 email | 🟢 Refinement Ready | 3 |
+| Bhushan Salsekar | 1490398 Retired Servers from the Server Table *(new)* | Retirement cleanup — likely CO5 2.2b Server 90%; unparented | 🟣 Validation | 1 |
+| — | 1504372 Filter Retired CIs from CI field selection across Incidents *(new)* | Retirement hygiene — no assignee yet | ⚪ New | — |
+| Kiran Dhobale | 1451940 NowAssist: Activate Manage Duplicate CIs (Part 1) | **NowAssist — deprioritized**; already Closed | ⚪ Closed | 2 |
+
+> 🔶 **Mapped by inference, but no formal ADO parent:** the **inventory + bulk-retirement cluster (1487863–1487897, 13 pts)** is mapped to Server 90% (2.2b) above, yet has **no feature/objective parent in ADO** and may split with Computer 90%. *Operationally* CO5-aligned, *formally* unmapped — confirm its feature home so it can count toward a deliverable at acceptance.
+
+### CO5 Acceptance Timeline (from the alignment email)
+
+| Milestone | Date | Deliverable |
+|-----------|------|-------------|
+| Data Certification pilot start | 6/29 | Data Cert |
+| Qualys — formalize/document requirement | 6/29 → PM Validation 6/30 | Qualys |
+| Data Dictionary — finalize docs | 6/30 | Governance |
+| SOX BA + Monthly CCB — PM Validation (Sonika) | 6/30 | SOX, CCB |
+| Data Dictionary — Customer Validation (Sonika) | 7/1 | Governance |
+| ESS-02 — validate scope (Jason Dubreuil) → finalize 7/3 → Sonika 7/6 → Jason 7/7 | 7/1–7/7 | ESS-02 |
+| Data/audit cleanup — meet audit targets (Computers/Servers/DB) | 7/7 (aggressive) – 7/20 | Data Ingestion |
+| Data Dictionary — **CCB Review/Feedback** | 7/7 – 7/20 | Governance |
+| Data Dictionary — **CCB Approval (next CMDB CCB)** | **7/21** | Governance |
+
+> 🔗 The 7/21 Data Dictionary CCB approval is the same monthly CCB that the [[../Config-Mgmt-Plan/configuration-management-plan-stage1]] Stage 1 `[CCB confirm]` ratification agenda targets.
+
+### Watch / Risks
+- **Most CO5 acceptance dates land *after* the 6/30 contractual deadline** (CCB approval 7/21). The $533,775 holdback risk in [[../co5-deliverable-tracking]] stands unless CO6 is signed before 7/1.
+- **Dev code freeze Jul 4–18** spans the tail of 2.4 — dev-dependent CO5 work must land before 7/4 (PI-2 Risk #10).
+- **16 pts (26%) sit outside CO5** — confirm the 11-pt upgrade-readiness spike block is intended for 2.4 given the CO5 focus, or can shift to 2.5/IP.
+- **Inventory + retirement cluster (14 pts incl. new 1490398) has no feature/objective parent** — confirm home + planned scope (flagged in [[pi2-objectives-features-stories]]).
+- ⚠️ **1403721 / 1403722 / 1403723 (Stan's upgrade spikes, 7 pts) not visible in 7/6 ADO grid** — confirm whether moved to another iteration or removed from 2.4.
+- 🆕 **Two new unparented items added:** 1504314 Populate CI Owner (Stan) and 1504372 Filter Retired CIs (unassigned) — confirm feature parent, owner for 1504372, and points.
+- ✅ **CO5 Deliverable 1.4 (SOX BA) closed** — 1480105 Closed. Confirm with Sonika for CO5 acceptance sign-off.
+
+### Ceremonies
+- Sprint Planning 2.4 — ~06/24 · Backlog Refinement — TBD · Review/Showback + Retro — ~07/07
+
+---
+
+---
+
+## Iteration 2.5 — Jul 8 – Jul 21, 2026 | ⏳ Planning
+
+> ADO sprint planning and story-move updates expected 7/7. Section will be populated once the 2.5 board grid is received.
+
+### Known carry-ins from 2.4 (pending confirmation)
+
+Items likely to roll into 2.5 based on state as of 7/6:
+- Upgrade-readiness spike block (1403721/722/723/725/731 — Stan, ~9 pts) — confirm carry-in vs. defer to 2.6/IP
+- 1411237 Validate Dynamic IRE Post-Australia (Vinay, Active) — likely continues
+- 1480099 Data Certification pilot (Joe, Ready DoR) — confirm if starting in 2.5
+- 1480102 ESS-02 alignment (Manuel, Ready DoR) — per CO5 timeline, closes by 7/7
+- 1480107 Monthly CCB cadence (Manuel, Ready DoR) — 7/21 CCB is the target gate
+- 1487872 Validate Staged Retirement (Anthony, Active) — likely completes or carries
+- 1487878 Execute Bulk CI Retirement (Bhushan, Active) — likely completes or carries
+- 1487883 Verify Retirement Results (Anu, Refinement Ready) — follows 1487878
+- 1504314 Populate CI Owner (Stan, Refinement Ready) — unpointed; needs refinement
+- 1504372 Filter Retired CIs (Unassigned, New) — needs owner + points before carry-in
+
+> ⚠️ **1402559 Compare CI Class Sources** (Stan, deprioritized) — confirm whether it moves to 2.5 or stays parked.
 
 ---
 

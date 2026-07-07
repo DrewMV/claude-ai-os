@@ -3,7 +3,7 @@ type: team-artifact
 workspace: Work
 project: CMDB-CSDM
 pi: PI-2
-updated: 2026-06-23
+updated: 2026-07-07
 tags: [work, cmdb-csdm, pi-planning, iteration-review]
 ---
 
@@ -11,7 +11,9 @@ tags: [work, cmdb-csdm, pi-planning, iteration-review]
 
 > **Also known as: the "clean-up list."**
 
-**Purpose:** iteration-review hygiene — work items still in **Active** state that are parked in a *previous* iteration (2.1 or 2.2) rather than the current **2.3** (Jun 10–23). Each owner should confirm: close it, re-sprint to 2.3, or it's genuinely still in progress.
+**Purpose:** iteration-review hygiene — work items still in **Active** (or non-closed) state that are parked in a *previous* iteration rather than the current active sprint.
+
+> 🔄 **Transition: 2.4 → 2.5 (7/7).** Iteration 2.4 closes today (Jul 7). Iteration 2.5 opens Jul 8. Final ADO closeout grid expected today/tomorrow — this file will be updated with any 2.4 items that did not close and are not yet re-sprinted into 2.5. Prior-iteration frame now spans **2.1 / 2.2 / 2.3 / 2.4**. Each owner should confirm: close it, re-sprint to 2.3, or it's genuinely still in progress.
 
 > **Living document.** Kept in sync with [[pi2-objectives-features-stories]] — update whenever work items are reconciled against ADO. Source: ADO grids reviewed as of the `updated` date; may not reflect query pages not yet seen.
 
@@ -53,6 +55,8 @@ tags: [work, cmdb-csdm, pi-planning, iteration-review]
 ### Stories — confirmed clear ✅
 Reviewed the ADO Iteration 2.3 story grid on 6/17: all 19 stories are in **2.3** (current), so **no Active story is stranded in 2.1/2.2**. Re-check when a fresh story grid is pulled.
 
+> **6/30 sync:** Iteration **2.3 closed (6/23); 2.4 is now active** (Jun 24 – Jul 7). The 6/30 ADO pull was a **2.4-only board grid** — it surfaced **no new 2.1/2.2 stranded items**, so the inventory below stands. Note the "prior iteration" frame now spans **2.1/2.2/2.3**; a 2.1–2.3-inclusive grid is still needed to re-confirm carryover. 2.4 story/spike states reconciled into [[pi2-objectives-features-stories]].
+>
 > **6/23 re-check:** A full grid pull (Iter 2.3→2.6) on the last day of 2.3 did **not** surface any 2.1/2.2 items in the visible rows — so the 13 prior-iteration items above were **not re-confirmed against this pull** (the pull was forward-looking, sorted 2.3↑). Their status stands from 6/17 until a 2.1/2.2-inclusive grid is pulled. No *story* appeared stranded in 2.1/2.2 in the 6/23 view. Note: parent story **1444864** still shows **Validation** in 2.3 while its 6 Active credential tasks remain in 2.2 (the core flag above is unchanged).
 
 **Totals:** 6 tasks · 3 features · 1 spike · 3 dependencies = **13 confirmed** (objectives excluded — they carry no iteration).
