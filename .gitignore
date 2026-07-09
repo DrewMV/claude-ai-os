@@ -1,6 +1,9 @@
 # Claude Code session data and tool results (large, auto-generated)
 .claude/projects/
 
+# Local, machine-specific Claude Code settings (not shared)
+.claude/settings.local.json
+
 # OS files
 .DS_Store
 Thumbs.db
