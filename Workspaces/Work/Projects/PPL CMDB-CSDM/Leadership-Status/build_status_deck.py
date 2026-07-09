@@ -12,6 +12,11 @@ Weekly update workflow:
   2. Move resolved items out of RISKS; refresh THIS_WEEK with the new deltas
      (this is what powers the "week over week" view).
   3. Re-run the script.
+
+2026-07-01 edition: scorecard reframed from the 6 PI objectives to the 3 CO5
+contractual deliverables (per the 6/29 CO5 Deliverable Alignment). Sprint 2.3
+velocity + delivery metrics are now derived from the 6/30 ADO board, replacing
+the prior "pending" placeholders (#3 iteration velocity, #5 delivery).
 """
 import os
 import json
@@ -23,37 +28,57 @@ from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 # ---------------------------------------------------------------------------
 # CONTENT  (edit this block each week)
 # ---------------------------------------------------------------------------
-EDITION      = "2026-06-16"
-WEEK_LABEL   = "Week of June 15, 2026  (updated June 16)"
+EDITION      = "2026-07-08"
+WEEK_LABEL   = "Week of July 8, 2026"
 PI           = "PI-2"
 PI_WINDOW    = "May 13 - Aug 4, 2026"
-ITERATION    = "Iteration 2.3  (Jun 10 - 23)"
+ITERATION    = "Iteration 2.5  (Jul 8 - Jul 21)"
 AUTHOR       = "Manuel Vazquez  -  Scrum Master, CMDB-CSDM"
-EDITION_NOTE = "Updated 6/16 - reflects full ADO grid reconciliation (objectives / features / stories / spikes / tasks / dependencies). P0 Airlift counts pending SM validation."
+EDITION_NOTE = ("Sprint 2.4 close-out (Jul 7). Board state: Jul 8 ADO snapshot. "
+                "Sprint 2.5 scope TBD — work items to be added once planning is confirmed. "
+                "CO6 pending execution as of Jul 8.")
 
-OVERALL_STATUS = ("ON TRACK - WITH WATCH ITEMS",
-                  "Delivery is progressing across all 6 objectives. NowAssist advanced this week (prerequisites "
-                  "story closed, plugin activation resolved, CI summarization active). Reconciliation against ADO "
-                  "surfaced carryover watch items: credential tasks still active in the prior sprint (2.2), and a "
-                  "large Service Mapping backlog stranded across 2.1/2.2. Qualys remains blocked on vendor approval; "
-                  "DNS dependency and code-freeze windows persist.")
+OVERALL_STATUS = ("CO5 FOCUS - CO6 PENDING; DEV FREEZE ACTIVE",
+                  "Sprint 2.4 closed Jul 7 with 9 items / 10 pts accepted. Delivery momentum is real - "
+                  "SOX BA review done, Airlift exports complete, CI retirement executed - but the CO5 "
+                  "acceptance gate (Data Dictionary CCB approval Jul 21) is 13 days out and CO6 is still unsigned. "
+                  "Dev code freeze (Jul 4-18) is now active, constraining Sprint 2.5 delivery capacity. "
+                  "The $533,775 holdback stands until CO6 is executed or CO5 is formally accepted.")
 
-# Operational priority (0 = most urgent), Objective, ADO Obj, Business Value, RAG, one-line status,
-# then DERIVED story counts (provisional, not ADO-validated): scope, moving, stuck
+# Operational label (D1/D2/D3), CO5 deliverable, ADO feature, "Accept by", RAG, one-line status,
+# then sub-item counts: scope (sub-items / acceptance stories), moving, stuck.
 OBJECTIVES = [
-    ("P0", "Governed VMware-to-Azure Migration (Airlift)",        "1420079", 10, "GREEN", "On track - airlift stories in validation; CI auto-populate active (counts pending SM validation)", 4, 4, 0),
-    ("P1", "Automate Discovery Coverage for Network Gear",        "1366657", 10, "AMBER", "Watch - SCCM precedence stories in validation; new SNMP/MID test story added; credential tasks still active-stuck in Sprint 2.2", 7, 6, 1),
-    ("P1", "Establish CI Data Certification Program",             "1420082",  8, "GREEN", "On track - dashboard signed off (PROD Jun 23); pilot changes in validation", 2, 2, 0),
-    ("P2", "Expand Service Mapping Foundation",                   "1366660",  9, "AMBER", "Watch - discovery scaling, but a large per-app service-map backlog is stranded New in Sprints 2.1/2.2; DNS dependency still open",  6, 4, 2),
-    ("P2", "Regulatory & Security Integrations (Qualys/NERC/CCB)", "1366662",  8, "AMBER", "Watch - Qualys plugin BLOCKED on vendor approval; CCB Jun 16 / Audit Jun 18", 3, 1, 2),
-    ("P3", "Embed NowAssist AI Across CMDB & ITSM",               "1408764",  7, "GREEN", "Advancing - prerequisites story closed, plugin activation resolved, CI summarization active; form-help ready + baseline spike", 5, 5, 0),
+    ("D1", "Governance - Data Dictionary, Data Cert, ESS-02, SOX, CCB", "1480087", "CCB 7/21", "AMBER",
+     "SOX BA review (1480105) Closed - D1 acceptance evidence confirmed; 4 Data Dictionaries in Validation "
+     "(CCB review Jul 7-20, approval Jul 21); ESS-02 (1480102) and Monthly CCB (1480107) Ready DoR; "
+     "Data Cert pilot (1480099) Ready DoR; code freeze gates ESS-02/CCB until Jul 18", 8, 8, 0),
+    ("D2", "Automated Data Ingestion - Computers / Servers / Databases", "-", "7/21", "AMBER",
+     "Airlift exports (PA/KY VMware + PA Physical) Closed; imports in Validation; 3 audit-dashboard spikes "
+     "(Servers/DB/Computer) carried from 2.4 Active - did not close; no formal 90%-measurement acceptance story", 3, 3, 0),
+    ("D3", "Other Enhancement - Evaluate Qualys Integration", "1428703", "CO6 Sep 30", "AMBER",
+     "Part 1 (1428703) still Active - did not close in 2.4; dev freeze further delays; "
+     "Part 2 (1428704) status unconfirmed (G4); CO5 bar = evaluate + document; "
+     "CO6 (Sep 30) delivers full one-way PROD integration (ServiceNow → Qualys)", 2, 1, 1),
 ]
-# Provisional portfolio totals (derived from team notes; replace once ADO-validated)
+# Portfolio totals (sub-item counts across the 3 CO5 deliverables)
 OBJ_SCOPE  = sum(o[6] for o in OBJECTIVES)
 OBJ_MOVING = sum(o[7] for o in OBJECTIVES)
 OBJ_STUCK  = sum(o[8] for o in OBJECTIVES)
-STORY_CAVEAT = ("Story counts derived from team notes - PROVISIONAL, not ADO-validated. "
-                "'Completed' tracking begins at first PROD deploy (Jun 23).")
+STORY_CAVEAT = ("Sprint 2.4 final board snapshot (Jul 8). Accepted/Done: 9 items / 10 pts. "
+                "12 items / 18 pts in validation carrying into Sprint 2.5. "
+                "CO6 unsigned as of Jul 8 — $533,775 holdback risk persists.")
+
+# Sprint 2.4 velocity - DERIVED from the Jul 8 ADO board (sprint close-out snapshot).
+# Done = Closed + Resolved. Board grew mid-sprint with retirement cluster + Airlift imports.
+VELOCITY_2_4 = [
+    ("On board",                 "~38 items / ~48 pts", "ACCENT"),
+    ("Accepted / Done",          "9 items - 10 pts",    "GREEN"),
+    ("Delivered, in validation", "12 items - 18 pts",   "AMBER"),
+    ("Active / not started",     "~17 items",           "MUTED"),
+]
+VELOCITY_NOTE = ("Derived from the Jul 8 ADO board (Sprint 2.4 close-out). Board grew during sprint "
+                 "with retirement cluster and Airlift imports added mid-sprint. "
+                 "18 pts in validation carry into Sprint 2.5 pending acceptance.")
 
 # ---------------------------------------------------------------------------
 # WEEK-OVER-WEEK HISTORY  (#1: persist a snapshot each run, diff vs prior)
@@ -85,6 +110,9 @@ CURR = current_snapshot()
 _prior_keys = sorted(k for k in HISTORY if k < EDITION)
 PRIOR_EDITION = _prior_keys[-1] if _prior_keys else None
 PRIOR = HISTORY.get(PRIOR_EDITION)
+# This edition reframes the scorecard (6 PI objectives -> 3 CO5 deliverables), so the
+# prior snapshot's objective names will not match; week-over-week resets to a CO5 baseline.
+STRUCTURE_REFRAMED = False
 
 
 def wow_rows():
@@ -131,78 +159,79 @@ def wow_transitions():
 
 # PI over PI
 PI_PROGRESS = [
-    ("PI-2", "May 13 - Aug 4, 2026", "ACTIVE", "Iteration 2.3 of 6", "6 objectives in flight; foundation laid + first PROD deployment"),
-    ("PI-3", "Aug 5 - Oct 27, 2026", "PLANNING", "Planning Jul 22 - Aug 4", "NowAssist 5-phase rollout, Qualys Phase 2, CI Cert extended scope"),
+    ("PI-2", "May 13 - Aug 4, 2026", "ACTIVE", "Iteration 2.5 of 6", "Sprint 2.4 closed Jul 7 (9 items / 10 pts); CO5 acceptance gate = Data Dictionary CCB approval Jul 21"),
+    ("PI-3", "Aug 5 - Oct 27, 2026", "PLANNING", "Planning Jul 22 - Aug 4", "CO6 gap closure (if signed), NowAssist rollout, Qualys full integration, CI Cert extended scope"),
 ]
-PI_NOTE = "Only PI-2 has live data today. PI-over-PI comparison populates once PI-3 begins (planning during the PI-2 IP iteration)."
+PI_NOTE = "Only PI-2 has live data today. PI-over-PI comparison populates once PI-3 begins (planning during the PI-2 IP iteration, Jul 22 - Aug 4)."
 
 # Iteration over Iteration: id, window, status, theme, outcomes[]
 ITERATIONS = [
-    ("2.1", "May 13 - 26",   "COMPLETED", "Foundation & refinement",
-        ["Airlift + CI auto-population stories shaped",
-         "OOTB-first & customization governance established",
-         "Retro theme: credential blockers dominated the sprint"]),
-    ("2.2", "May 27 - Jun 9", "COMPLETED", "SCCM precedence & unblocking",
-        ["SCCM locked as authoritative for 6 hardware attributes",
-         "Service Mapping credentials resolved (6/9)",
-         "Airlift dev admin access resolved (6/9)",
-         "NowAssist activation stories created & assigned"]),
-    ("2.3", "Jun 10 - 23",   "ACTIVE", "Deploy & scale",
-        ["Data Certification -> PROD (Jun 23)",
-         "SCCM precedence stories advanced to validation; approval gate cleared",
-         "Service Mapping subnet scans expanding",
-         "Qualys read-only integration blocked on vendor plugin approval",
-         "NowAssist activation reassigned to Kiran Dhobale - in progress"]),
+    ("2.3", "Jun 10 - 23",    "COMPLETED", "Deploy & scale",
+        ["Data Certification dashboard -> PROD (6/23)",
+         "NowAssist accepted: prerequisites, plugin activation, CI summarization",
+         "11 pts accepted; 23 pts delivered into validation"]),
+    ("2.4", "Jun 24 - Jul 7", "COMPLETED", "CO5 acceptance push",
+        ["9 items / 10 pts accepted: SOX BA review, Airlift exports, CI retirement, NowAssist Duplicate CIs",
+         "Data Dictionaries (Servers/Computers/Biz Apps/DB) delivered to Validation",
+         "12 items / 18 pts in validation - largest carry-over pipeline of PI-2",
+         "3 audit dashboard spikes carried to 2.5 Active (Servers/DB/Computer)"]),
+    ("2.5", "Jul 8 - Jul 21",  "ACTIVE",    "CO5 acceptance gate + code freeze navigation",
+        ["Scope TBD - 2.5 work items to be confirmed; planning in progress",
+         "Dev code freeze Jul 4-18 constrains first 10 days of sprint",
+         "Data Dictionary CCB approval target Jul 21 (sprint end)",
+         "3 audit spikes (Servers/DB/Computer) carried from 2.4"]),
 ]
-VELOCITY_NOTE = ("Quantitative velocity (committed vs. accepted points) is not yet captured in sprint "
-                 "ceremonies. Establishing this metric is an active process-improvement item.")
 
 # Week over week
 THIS_WEEK = [
-    "NowAssist advanced - prerequisites story Closed, plugin activation Resolved, CI summarization now Active.",
-    "SCCM precedence stories in validation - unit-testing tasks closing out across the set.",
-    "Data Certification pilot changes in validation; dashboard PROD deploy on track for Jun 23.",
-    "Full ADO board reconciliation completed - features, stories, spikes, tasks and dependencies realigned; carryover and orphaned items surfaced for cleanup.",
+    "Sprint 2.4 closed (Jul 7) - 9 items / 10 pts accepted: SOX BA review, Airlift exports (PA/KY VMware + PA Physical), bulk CI retirement, NowAssist Duplicate CIs skill, IRE behaviour review spike.",
+    "SOX Business Apps (1480105) Closed - CO5 D1 acceptance evidence confirmed; Airlift inventory export cluster complete.",
+    "Data Dictionaries (Servers/Computers/Biz Apps/DB) delivered to Validation - CCB review Jul 7-20, approval target Jul 21.",
+    "12 items / 18 pts in validation entering Sprint 2.5 - largest carry-over pipeline of PI-2.",
 ]
-WEEK_NOTE = "First edition = baseline. From next week this slide shows what moved vs. the prior report."
+WEEK_NOTE = "Week-over-week deltas resume vs. the 7/1 CO5 baseline (same 3-deliverable frame)."
 
 # Deep dives: header, [(item, status, detail)]
-DEEP_DIVE_1 = ("Highest-Priority Objectives (P0 - P1)", [
-    ("Airlift (P0)",            "GREEN", "Pre/During/Post-Migration stories in validation; CI auto-populate active. Story counts pending SM validation (airlift stories absent from latest 2.3 grid - confirming re-sprint vs filter)."),
-    ("Data Certification (P1)", "GREEN", "Dashboard signed off 6/10; PROD Jun 23, Todd validates Jun 24-25. Pilot changes in validation."),
-    ("Discovery / SCCM (P1)",   "AMBER", "SCCM precedence stories in validation (unit tests closing). Watch: 6 credential tasks under 1444864 still Active in the prior sprint (2.2) while parent shows Validation - this work gates discovery."),
+DEEP_DIVE_1 = ("CO5 Deliverable 1 - Governance", [
+    ("Data Dictionaries (Servers/Computers/Biz Apps/DB)", "AMBER", "All 4 dictionaries in Validation (1480088/090/097/098) - CCB customer review Jul 7-20, approval target Jul 21 (monthly CCB). Databases closes G1 at artifact level."),
+    ("SOX + Data Certification", "GREEN", "SOX BA review (1480105) Closed - CO5 D1 acceptance evidence confirmed. Data Cert pilot (1480099) Ready DoR; dashboard in PROD since 6/23."),
+    ("ESS-02 / Monthly CCB", "AMBER", "ESS-02 alignment (1480102) and Monthly CCB (1480107) remain Ready DoR - not started; dev-dependent work gated by code freeze (lifts Jul 18). CCB story closes G5."),
 ])
-DEEP_DIVE_2 = ("Supporting Objectives (P2 - P3)", [
-    ("Service Mapping (P2)",  "AMBER", "Discovery scaling - infrastructure previously invisible now found. Watch: large per-app service-map backlog (WATT, Opower, Vault, Einstein, Oracle, Foglight, OEM, Oceana, SolarWinds) sits New across Sprints 2.1/2.2. DNS dependency still open."),
-    ("Regulatory / Qualys (P2)", "AMBER", "Qualys read-only stories BLOCKED - vendor plugin replacement pending approval. CCB Jun 16, Audit Sync Jun 18. NERC-CIP early engagement."),
-    ("NowAssist AI (P3)",     "GREEN", "Advancing - prerequisites story Closed, plugin activation Resolved, CI summarization Active; contextual form-help ready + health-baseline spike. Feature 1436574 confirmed."),
+DEEP_DIVE_2 = ("CO5 Deliverables 2 & 3 - Data Ingestion + Qualys", [
+    ("Data Ingestion - Airlift inventory + SCCM/Discovery precedence", "AMBER", "Airlift exports (PA/KY VMware + PA Physical) Closed; imports (1487867/868/869) in Validation. Retirement: execute Closed (1487878), validate Active (1487872). SCCM/Discovery precedence reported complete."),
+    ("90% Coverage (Computers G2 / Servers G3 / DB)", "AMBER", "3 audit-dashboard spikes (1480112 Servers, 1480113 DB, 1480114 Computer) carried from 2.4 Active - did not close in sprint. BA spike (1480111) in Validation. No formal 90%-measurement acceptance story yet."),
+    ("Qualys Integration (Other Enhancement)", "AMBER", "Part 1 (1428703) still Active - did not close in 2.4; dev freeze (Jul 4-18) further delays. Part 2 (1428704) status unconfirmed (G4). CO5 bar = evaluate + document. CO6 (pending signature) delivers full one-way PROD integration (ServiceNow → Qualys) by Sep 30."),
 ])
 
 # Milestones
 MILESTONES = [
-    ("Jun 16", "CMDB CCB Meeting"),
-    ("Jun 17", "Backlog Refinement 2.3"),
-    ("Jun 18", "CMDB Audit Sync"),
-    ("Jun 19", "PROD Change Request - Data Certification"),
-    ("Jun 23", "Sprint 2.3 end + Data Certification PROD deployment"),
-    ("Jun 24-25", "Todd validates Data Certification in PROD"),
+    ("Jul 4-18",      "Dev code freeze — ACTIVE NOW; constrains Sprint 2.5 delivery through Jul 18"),
+    ("Jul 7",         "Sprint 2.4 end ✓ — 9 items / 10 pts accepted; 12 items / 18 pts to validation"),
+    ("Jul 8",         "Sprint 2.5 start — CO5 acceptance gate; Data Dictionary CCB push"),
+    ("Jul 18",        "Dev code freeze lifts — ESS-02 / CCB / Qualys work can resume"),
+    ("Jul 18-Aug 15", "Test code freeze — overlaps Sprint 2.5 tail and IP iteration"),
+    ("Jul 21",        "Data Dictionary CCB approval (monthly CCB) — critical CO5 D1 gate; Sprint 2.5 end"),
+    ("Jul 22-Aug 4",  "IP Iteration — PI-3 planning begins"),
+    ("Aug 5",         "PI-3 begins"),
 ]
 
 # Risks & asks: risk, severity, detail, ask
 RISKS = [
-    ("Qualys vendor approval", "HIGH", "Qualys replaced its plugin version; previous uninstalled, new one requested. Stories 1428703/1428704 blocked.", "Support / expedite vendor approval to unblock the read-only integration."),
-    ("Past-iteration carryover", "MEDIUM", "Credential tasks (1444864) still Active in Sprint 2.2 and a large Service Mapping backlog sits New across 2.1/2.2 - work not yet re-sprinted into 2.3.", "Endorse a re-sprint vs. close decision at iteration review; confirm owners on stranded items."),
-    ("Service Mapping DNS",  "HIGH", "Reverse-DNS issue limits full discovery coverage.", "Leadership support on the DNS / infra dependency."),
-    ("Code-freeze windows",  "HIGH", "Dev freeze Jun 27 - Jul 18; Test freeze Jul 18 - Aug 15 compresses PI-2 completion.", "Awareness; sequence deployments around freezes."),
+    ("CO6 pending execution", "HIGH", "CO6 unsigned as of Jul 8; signature expected this week. Effective Jun 30 retroactively when signed. $2.7M, 9 workstreams through Oct 30: Network Discovery, Service Mapping, Qualys PROD (Sep 30), CMDB Governance (Data Cert expanded), Legacy Rationalization, ITSM PO, ATF Strategy, Platform Support, NERC-CIP Strategy. $533,775 June holdback stands until signed.", "Execute CO6 this week. Confirm with Christian / Aaron Simeon — effective date is already Jun 30; delay only extends holdback exposure."),
+    ("Dev code freeze Jul 4-18", "HIGH", "Freeze is currently active - spans first 10 days of Sprint 2.5. Dev-dependent CO5 items (ESS-02, CCB story, Qualys Part 1) cannot land until Jul 18.", "Awareness; prioritize validation and documentation work in 2.5 through Jul 18."),
+    ("3 audit dashboard spikes incomplete", "MEDIUM", "Servers (1480112), Database (1480113), Computer (1480114) audit spikes carried into 2.5 Active - did not close in 2.4. G2/G3 coverage measurement evidence incomplete.", "Prioritize spike completion in 2.5; required before 90%-coverage acceptance stories can be created."),
+    ("90% coverage acceptance gap", "MEDIUM", "No formal 90%-measurement acceptance story for Computers (G2) or Servers (G3). Audit spikes must complete first; stories must then be created and accepted.", "Endorse creating coverage-measurement acceptance stories once spikes close."),
+    ("Deprioritized streams stranded", "LOW", "Service Mapping, Network Discovery, and NowAssist phases 2-5 remain paused. Test freeze (Jul 18-Aug 15) further limits resumption window.", "Confirm resumption plan after CO5 acceptance; sequence around test freeze."),
 ]
 
 # What's next
 NEXT = [
-    "PI-3 Planning during the IP iteration (Jul 22 - Aug 4).",
-    "NowAssist Phase 1+: Duplicate CI Elimination, NL CMDB Search.",
-    "Qualys Phase 2: two-way integration for data completeness.",
-    "CI Certification: extend program beyond Business Apps.",
-    "Plan delivery around code freezes (Dev Jun 27-Jul 18, Test Jul 18-Aug 15).",
+    "Execute CO6 this week (effective Jun 30 retroactively) — $2.7M, 9 workstreams through Oct 30; releases $533,775 holdback.",
+    "Secure Data Dictionary CCB approval Jul 21 — critical CO5 D1 gate; validation window Jul 7-20.",
+    "Complete 3 audit dashboard spikes (Servers/DB/Computer) in 2.5 — prerequisite for G2/G3 acceptance stories.",
+    "Progress ESS-02 (1480102) and Monthly CCB (1480107) off Ready DoR — code freeze lifts Jul 18.",
+    "Confirm Qualys Part 1 (1428703) path to completion; CO6 delivers full PROD integration by Sep 30.",
+    "Begin CO6 workstream onboarding: Network Discovery, Service Mapping, ITSM PO, Platform Support, Legacy Rationalization.",
 ]
 
 # ---------------------------------------------------------------------------
@@ -219,6 +248,8 @@ AMBER  = RGBColor(0xE0, 0x8A, 0x00)
 RED    = RGBColor(0xC0, 0x39, 0x2B)
 RAG = {"GREEN": GREEN, "AMBER": AMBER, "RED": RED,
        "HIGH": RED, "MEDIUM": AMBER, "LOW": GREEN}
+# named colors for metric strips
+COLORMAP = {"ACCENT": ACCENT, "GREEN": GREEN, "AMBER": AMBER, "MUTED": MUTED, "DARK": DARK}
 # week-over-week trend styling: (cell color, label)
 TREND = {"UP": (GREEN, "▲ Improved"), "DOWN": (RED, "▼ Slipped"),
          "SAME": (MUTED, "→ No change"), "NEW": (ACCENT, "＋ New")}
@@ -305,6 +336,20 @@ def pending_box(slide, x, y, w, h, title, body):
             [(body, 10.5, MUTED, False, True)])
 
 
+def metric_strip(slide, x, y, cards, cwid=Inches(2.95), gap=Inches(0.12)):
+    """Row of metric cards: cards = [(label, value, COLORKEY), ...]."""
+    cx = x
+    for label, value, ckey in cards:
+        col = COLORMAP.get(ckey, ACCENT)
+        rect(slide, cx, y, cwid, Inches(1.0), LIGHT)
+        rect(slide, cx, y, cwid, Inches(0.08), col)
+        textbox(slide, cx + Inches(0.15), y + Inches(0.16), cwid - Inches(0.3), Inches(0.35),
+                [(label, 11, MUTED, True, False)])
+        textbox(slide, cx + Inches(0.15), y + Inches(0.5), cwid - Inches(0.3), Inches(0.45),
+                [(value, 15, DARK, True, False)])
+        cx += cwid + gap
+
+
 # ---- Slide 1: Title -------------------------------------------------------
 s = prs.slides.add_slide(BLANK)
 rect(s, 0, 0, EMU_W, EMU_H, DARK)
@@ -346,45 +391,43 @@ textbox(s, Inches(1.8), Inches(5.95), Inches(6), Inches(0.3), [("Blocked / needs
 # ---- Slide 3: Executive Summary ------------------------------------------
 s = prs.slides.add_slide(BLANK)
 header(s, "Executive Summary", ITERATION)
-chip(s, Inches(0.55), Inches(1.35), OVERALL_STATUS[0], GREEN, Inches(4.4))
-textbox(s, Inches(0.55), Inches(1.85), Inches(12.2), Inches(0.8),
-        [(OVERALL_STATUS[1], 13, TEXT, False, False)])
-textbox(s, Inches(0.55), Inches(2.75), Inches(6), Inches(0.35),
+chip(s, Inches(0.55), Inches(1.35), OVERALL_STATUS[0], AMBER, Inches(5.2))
+textbox(s, Inches(0.55), Inches(1.85), Inches(12.2), Inches(0.9),
+        [(OVERALL_STATUS[1], 12.5, TEXT, False, False)])
+textbox(s, Inches(0.55), Inches(2.9), Inches(6), Inches(0.35),
         [("Wins this period", 15, GREEN, True, False)])
-yy = Inches(3.15)
+yy = Inches(3.3)
 for w in THIS_WEEK:
-    textbox(s, Inches(0.7), yy, Inches(6.0), Inches(0.7), [("+  " + w, 11.5, TEXT, False, False)])
-    yy += Inches(0.78)
-textbox(s, Inches(6.9), Inches(2.75), Inches(6), Inches(0.35),
+    textbox(s, Inches(0.7), yy, Inches(6.0), Inches(0.7), [("+  " + w, 11, TEXT, False, False)])
+    yy += Inches(0.82)
+textbox(s, Inches(6.9), Inches(2.9), Inches(6), Inches(0.35),
         [("Needs leadership attention", 15, RED, True, False)])
-yy = Inches(3.15)
+yy = Inches(3.3)
 for r in RISKS[:3]:
     textbox(s, Inches(7.05), yy, Inches(5.8), Inches(0.7),
-            [("!  " + r[0] + " - " + r[3], 11.5, TEXT, False, False)])
-    yy += Inches(0.78)
+            [("!  " + r[0] + " - " + r[3], 11, TEXT, False, False)])
+    yy += Inches(0.82)
 
-# ---- Slide 4: Objectives Scorecard ---------------------------------------
+# ---- Slide 4: CO5 Deliverables Scorecard ---------------------------------
 s = prs.slides.add_slide(BLANK)
-header(s, "PI-2 Objectives Scorecard", "Status explains itself  ·  Stories = moving / in-scope (provisional)")
-# Executive tiles: one card per objective in a 3 x 2 grid (Variation C).
-# RAG comes from the explicit per-objective value (not derived from counts),
-# so Service Mapping / Regulatory stay amber despite zero "stuck" stories.
+header(s, "CO5 Deliverables Scorecard", "The 3 contractual deliverables  ·  sub-items = moving / in-scope")
+# Executive tiles: one card per CO5 deliverable.
 tw, th = Inches(4.0), Inches(2.55)
 gx, gy = Inches(0.55), Inches(1.30)
-for i, (pri, name, obj, bv, rag, note, scope, moving, stuck) in enumerate(OBJECTIVES):
+for i, (pri, name, obj, acc, rag, note, scope, moving, stuck) in enumerate(OBJECTIVES):
     cx = gx + (i % 3) * (tw + Inches(0.3))
     cy = gy + (i // 3) * (th + Inches(0.25))
     rect(s, cx, cy, tw, th, LIGHT)
     rect(s, cx, cy, tw, Inches(0.72), RAG[rag])
     textbox(s, cx + Inches(0.2), cy + Inches(0.04), tw - Inches(0.4), Inches(0.64),
-            [(f"{pri}   {name}", 11.5, WHITE, True, False)], MSO_ANCHOR.MIDDLE)
+            [(f"{pri}   {name}", 10.5, WHITE, True, False)], MSO_ANCHOR.MIDDLE)
     textbox(s, cx + Inches(0.2), cy + Inches(0.82), tw - Inches(0.4), Inches(0.8),
             [(str(scope), 44, DARK, True, False)])
     textbox(s, cx + Inches(1.4), cy + Inches(1.12), tw - Inches(1.5), Inches(0.6),
-            [("stories in scope", 11, MUTED, False, False),
+            [("sub-items in scope", 11, MUTED, False, False),
              (f"{moving} moving  ·  {stuck} stuck", 11, TEXT, True, False)])
     textbox(s, cx + Inches(0.2), cy + Inches(1.85), tw - Inches(0.4), Inches(0.62),
-            [(note, 10, TEXT, False, False)])
+            [(note, 8.5, TEXT, False, False)])
 textbox(s, Inches(0.55), Inches(6.72), Inches(12.25), Inches(0.35),
         [(STORY_CAVEAT, 8.5, MUTED, False, True)])
 
@@ -413,7 +456,7 @@ pending_box(s, Inches(0.55), Inches(5.05), Inches(12.2), Inches(0.95),
 textbox(s, Inches(0.55), Inches(6.15), Inches(12.2), Inches(0.7),
         [("Note: " + PI_NOTE, 11, MUTED, False, True)])
 
-# ---- Slide 6: Iteration over Iteration ------------------------------------
+# ---- Slide 6: Iteration over Iteration (velocity now DERIVED) -------------
 s = prs.slides.add_slide(BLANK)
 header(s, "Progress: Iteration over Iteration", "Is each 2-week sprint building on the last?")
 x = Inches(0.55)
@@ -424,94 +467,54 @@ for it, window, status, theme, outcomes in ITERATIONS:
     textbox(s, x + Inches(0.2), Inches(1.5), cw - Inches(0.3), Inches(0.7),
             [("Sprint " + it, 16, WHITE, True, False),
              (window + "  ·  " + status, 10, RGBColor(0xE8, 0xEE, 0xF6), False, False)], MSO_ANCHOR.MIDDLE)
-    rect(s, x, Inches(2.23), cw, Inches(3.45), LIGHT)
+    rect(s, x, Inches(2.23), cw, Inches(3.0), LIGHT)
     textbox(s, x + Inches(0.2), Inches(2.33), cw - Inches(0.3), Inches(0.4),
             [(theme, 12, ACCENT, True, True)])
     yy = Inches(2.85)
     for o in outcomes:
         textbox(s, x + Inches(0.2), yy, cw - Inches(0.35), Inches(0.8),
-                [("- " + o, 10.5, TEXT, False, False)])
-        yy += Inches(0.62)
+                [("- " + o, 10, TEXT, False, False)])
+        yy += Inches(0.58)
     x += cw + Inches(0.3)
-# #3 placeholder: quantitative iteration velocity (pending consistent ceremony capture)
-pending_box(s, Inches(0.55), Inches(5.8), Inches(12.2), Inches(1.0),
-            "Iteration velocity - committed vs. accepted stories",
-            "Per-sprint committed -> accepted counts will quantify whether each iteration builds on the last. "
-            + VELOCITY_NOTE + " Not yet ready for relevant data.")
+# Sprint 2.4 velocity (close-out snapshot from Jul 8 board)
+textbox(s, Inches(0.55), Inches(5.4), Inches(12.2), Inches(0.32),
+        [("Sprint 2.4 delivery - derived from the Jul 8 ADO board (sprint close-out)", 12.5, DARK, True, False)])
+metric_strip(s, Inches(0.55), Inches(5.75), VELOCITY_2_4)
+textbox(s, Inches(0.55), Inches(6.85), Inches(12.2), Inches(0.5),
+        [(VELOCITY_NOTE, 9, MUTED, False, True)])
 
-# ---- Slide 7: Week over Week (#2 data-driven delta; #5 delivery placeholder)
+# ---- Slide 7: Week over Week (structure reframed; delivery now populated) -
 s = prs.slides.add_slide(BLANK)
 header(s, "Progress: Week over Week", "What changed in status since the last report?")
-_rows = wow_rows()
-if _rows:
-    # ---- delta mode: status transitions vs the prior snapshot ----
-    n = len(_rows) + 1
-    tbl_h = Inches(0.45) * n
-    tshape = s.shapes.add_table(n, 5, Inches(0.55), Inches(1.4), Inches(12.2), tbl_h)
-    t = tshape.table
-    for j, wdt in enumerate([Inches(4.6), Inches(1.6), Inches(1.6), Inches(2.2), Inches(2.2)]):
-        t.columns[j].width = wdt
-    for j, htxt in enumerate(["Objective", "Last week", "This week", "Δ stories", "Trend"]):
-        c = t.cell(0, j); c.fill.solid(); c.fill.fore_color.rgb = DARK
-        p = c.text_frame.paragraphs[0]; r = p.add_run(); r.text = htxt
-        _set(r, 11, WHITE, True)
-        if j >= 1:
-            p.alignment = PP_ALIGN.CENTER
-    for i, row in enumerate(_rows, start=1):
-        tcol, tlabel = TREND[row["trend"]]
-        dtext = "new" if row["d_moving"] is None else f"{row['d_moving']:+d} mv / {row['d_stuck']:+d} stk"
-        vals = [row["name"], RAGWORD.get(row["last"], "—"), RAGWORD[row["this"]], dtext, tlabel]
-        for j, v in enumerate(vals):
-            c = t.cell(i, j); c.fill.solid()
-            c.fill.fore_color.rgb = LIGHT if i % 2 else WHITE
-            p = c.text_frame.paragraphs[0]; r = p.add_run(); r.text = v
-            if j == 1:
-                _set(r, 10.5, RAG.get(row["last"], MUTED), True); p.alignment = PP_ALIGN.CENTER
-            elif j == 2:
-                _set(r, 10.5, RAG[row["this"]], True); p.alignment = PP_ALIGN.CENTER
-            elif j == 3:
-                _set(r, 10, TEXT, False); p.alignment = PP_ALIGN.CENTER
-            elif j == 4:
-                c.fill.fore_color.rgb = tcol; _set(r, 10.5, WHITE, True); p.alignment = PP_ALIGN.CENTER
-            else:
-                _set(r, 10.5, TEXT, False)
-    blocked, unblocked = wow_transitions()
-    yb = Inches(1.4) + tbl_h + Inches(0.2)
-    textbox(s, Inches(0.55), yb, Inches(12.2), Inches(0.8), [
-        ("Newly unblocked:  " + (", ".join(unblocked) if unblocked else "none"), 11, GREEN, True, False),
-        ("Newly blocked:  " + (", ".join(blocked) if blocked else "none"), 11, RED, True, False),
-    ])
-    pending_box(s, Inches(0.55), yb + Inches(0.95), Inches(12.2), Inches(0.9),
-                "Completed / delivered this period",
-                "Delivery tracking (completed & accepted stories) begins at first PROD deploy (Jun 23). "
-                "Current 'moving' counts reflect activity in flight, not completion. Not yet ready for relevant data.")
-else:
-    # ---- baseline mode: no prior snapshot to diff against yet ----
-    textbox(s, Inches(0.55), Inches(1.4), Inches(12.2), Inches(0.45),
-            [("Baseline snapshot captured - this edition is the reference point.", 16, ACCENT, True, False)])
-    textbox(s, Inches(0.55), Inches(1.95), Inches(12.2), Inches(0.65),
-            [(WEEK_NOTE + " Status changes (▲ improved / ▼ slipped), story movement, and newly "
-              "blocked/unblocked objectives will be computed automatically from next edition.",
-              12, MUTED, False, True)])
-    textbox(s, Inches(0.55), Inches(2.8), Inches(12.2), Inches(0.35),
-            [("This week's baseline status", 13, DARK, True, False)])
-    yy = Inches(3.2)
-    for o in OBJECTIVES:
-        chip(s, Inches(0.55), yy, RAGWORD[o[4]], RAG[o[4]], Inches(1.15))
-        textbox(s, Inches(1.85), yy - Inches(0.02), Inches(8.4), Inches(0.4),
-                [(f"{o[0]}  {o[1]}", 12, TEXT, False, False)], MSO_ANCHOR.MIDDLE)
-        textbox(s, Inches(10.35), yy - Inches(0.02), Inches(2.45), Inches(0.4),
-                [(f"{o[7]}/{o[6]} moving", 11, MUTED, False, False)], MSO_ANCHOR.MIDDLE)
-        yy += Inches(0.46)
-    pending_box(s, Inches(0.55), Inches(5.95), Inches(12.2), Inches(0.85),
-                "Completed / delivered this period",
-                "Delivery tracking (completed & accepted stories) begins at first PROD deploy (Jun 23). "
-                "Current 'moving' counts reflect activity in flight, not completion. Not yet ready for relevant data.")
+textbox(s, Inches(0.55), Inches(1.35), Inches(12.2), Inches(0.6),
+        [("Sprint 2.4 closed Jul 7. Reporting continues on the CO5 contractual deliverable frame. "
+          "Week-over-week deltas reflect movement since the Jun 29 report.",
+          11.5, MUTED, False, True)])
+# Delivered this period - Sprint 2.4 close-out
+textbox(s, Inches(0.55), Inches(2.05), Inches(12.2), Inches(0.32),
+        [("Delivered this period (Sprint 2.4 close-out)", 14, DARK, True, False)])
+metric_strip(s, Inches(0.55), Inches(2.45), VELOCITY_2_4)
+# Key moves this week
+textbox(s, Inches(0.55), Inches(3.7), Inches(12.2), Inches(0.32),
+        [("Key moves", 14, DARK, True, False)])
+moves = [
+    "Sprint 2.4 closed (Jul 7) - 9 items / 10 pts accepted: SOX BA review, Airlift exports (PA/KY VMware + PA Physical), bulk CI retirement, NowAssist Duplicate CIs, IRE review spike.",
+    "SOX Business Apps (1480105) Closed - CO5 D1 acceptance evidence confirmed.",
+    "Data Dictionaries (Servers/Computers/Biz Apps/DB) delivered to Validation - CCB review Jul 7-20, approval target Jul 21.",
+    "12 items / 18 pts in validation entering Sprint 2.5 - largest carry-over pipeline of PI-2.",
+]
+yy = Inches(4.1)
+for m in moves:
+    textbox(s, Inches(0.7), yy, Inches(12.0), Inches(0.5), [("+  " + m, 11.5, TEXT, False, False)])
+    yy += Inches(0.5)
+textbox(s, Inches(0.55), yy + Inches(0.1), Inches(12.2), Inches(0.5),
+        [("Newly closed:  SOX BA review · Airlift exports · CI retirement execution   ·   Newly carried to 2.5:  3 audit spikes (Servers/DB/Computer)",
+          11, AMBER, True, False)])
 
 # ---- Slides 8-9: Deep dives ----------------------------------------------
 for title, items in (DEEP_DIVE_1, DEEP_DIVE_2):
     s = prs.slides.add_slide(BLANK)
-    header(s, title, "Status and detail by objective")
+    header(s, title, "Status and detail by deliverable")
     yy = Inches(1.6)
     for name, rag, detail in items:
         rect(s, Inches(0.55), yy, Inches(12.2), Inches(1.45), LIGHT)
@@ -524,15 +527,15 @@ for title, items in (DEEP_DIVE_1, DEEP_DIVE_2):
 
 # ---- Slide 10: Milestones -------------------------------------------------
 s = prs.slides.add_slide(BLANK)
-header(s, "Key Milestones & Upcoming Dates", "Iteration 2.3 critical path")
-yy = Inches(1.5)
+header(s, "Key Milestones & Upcoming Dates", "CO5 acceptance critical path")
+yy = Inches(1.35)
 for date, ev in MILESTONES:
     rect(s, Inches(0.55), yy, Inches(1.9), Inches(0.55), ACCENT)
     textbox(s, Inches(0.6), yy, Inches(1.8), Inches(0.55),
             [(date, 13, WHITE, True, False)], MSO_ANCHOR.MIDDLE, PP_ALIGN.CENTER)
     rect(s, Inches(2.55), yy, Inches(10.2), Inches(0.55), LIGHT)
     textbox(s, Inches(2.75), yy, Inches(9.9), Inches(0.55),
-            [(ev, 13, TEXT, False, False)], MSO_ANCHOR.MIDDLE)
+            [(ev, 12.5, TEXT, False, False)], MSO_ANCHOR.MIDDLE)
     yy += Inches(0.68)
 
 # ---- Slide 11: Risks & Asks ----------------------------------------------
@@ -566,7 +569,7 @@ for i, (risk, sev, detail, ask) in enumerate(RISKS, start=1):
 
 # ---- Slide 12: What's Next ------------------------------------------------
 s = prs.slides.add_slide(BLANK)
-header(s, "What's Next", "Looking ahead to PI-3 and the IP iteration")
+header(s, "What's Next", "CO5 acceptance, CO6 gap closure, and resuming paused streams")
 yy = Inches(1.7)
 for n in NEXT:
     rect(s, Inches(0.55), yy + Inches(0.05), Inches(0.12), Inches(0.5), ACCENT)
@@ -579,8 +582,9 @@ header(s, "Appendix", "Story-level detail")
 textbox(s, Inches(0.55), Inches(1.8), Inches(12), Inches(3), [
     ("Full traceability is maintained in the team's working notes:", 14, TEXT, True, False),
     ("", 8, TEXT, False, False),
+    ("- CO5 deliverable traceability:  co5-deliverable-tracking.md", 12, ACCENT, False, False),
     ("- Objectives -> Features -> Stories:  PI-2/pi2-objectives-features-stories.md", 12, ACCENT, False, False),
-    ("- Activity by Iteration (2.1 / 2.2 / 2.3):  PI-2/pi2-iteration-activity.md", 12, ACCENT, False, False),
+    ("- Activity by Iteration (2.1 - 2.4):  PI-2/pi2-iteration-activity.md", 12, ACCENT, False, False),
     ("- Program Backlog Review notes:  PI-2/Program-Backlog-Review/", 12, ACCENT, False, False),
     ("", 8, TEXT, False, False),
     ("This deck is regenerated weekly from build_status_deck.py.", 11, MUTED, False, True),
@@ -638,7 +642,7 @@ def md_lines():
     L.append("---")
     # exec summary
     L.append("## Executive Summary")
-    L.append(f"### 🟢 {OVERALL_STATUS[0]}")
+    L.append(f"### 🟡 {OVERALL_STATUS[0]}")
     L.append(OVERALL_STATUS[1])
     L.append("")
     L.append("**Wins this period**")
@@ -651,15 +655,15 @@ def md_lines():
     L.append("")
     L.append("---")
     # scorecard
-    L.append("## PI-2 Objectives Scorecard")
+    L.append("## CO5 Deliverables Scorecard")
     L.append("")
-    L.append(f"**Story coverage (provisional):** {OBJ_SCOPE} in scope · {OBJ_MOVING} moving · {OBJ_STUCK} need attention")
+    L.append(f"**Sub-item coverage:** {OBJ_SCOPE} in scope · {OBJ_MOVING} moving · {OBJ_STUCK} need attention")
     L.append("")
-    L.append("| Pri | Objective | BV | Stories | Status | Summary |")
-    L.append("|-----|-----------|----|---------|--------|---------|")
+    L.append("| # | CO5 Deliverable | Accept by | Sub-items | Status | Summary |")
+    L.append("|---|-----------------|-----------|-----------|--------|---------|")
     dot = {"GREEN": "🟢 On track", "AMBER": "🟡 Watch", "RED": "🔴 Blocked"}
-    for pri, name, obj, bv, rag, note, scope, moving, stuck in OBJECTIVES:
-        L.append(f"| {pri} | {name} | {bv} | {moving}/{scope} | {dot[rag]} | {note} |")
+    for pri, name, obj, acc, rag, note, scope, moving, stuck in OBJECTIVES:
+        L.append(f"| {pri} | {name} | {acc} | {moving}/{scope} | {dot[rag]} | {note} |")
     L.append("")
     L.append(f"> _{STORY_CAVEAT}_")
     L.append("")
@@ -686,36 +690,34 @@ def md_lines():
         for o in outcomes:
             L.append(f"  - {o}")
     L.append("")
-    L.append(f"> ⏳ _**Pending (#3):** iteration velocity (committed vs. accepted stories per sprint) will "
-             f"quantify whether each iteration builds on the last. {VELOCITY_NOTE} Not yet ready for relevant data._")
+    L.append("**Sprint 2.4 delivery — derived from the Jul 8 ADO board (sprint close-out)**")
+    L.append("")
+    L.append("| On board | Accepted / Done | Delivered, in validation | Active / not started |")
+    L.append("|----------|-----------------|--------------------------|-----------------------|")
+    L.append(f"| {VELOCITY_2_4[0][1]} | {VELOCITY_2_4[1][1]} | {VELOCITY_2_4[2][1]} | {VELOCITY_2_4[3][1]} |")
+    L.append("")
+    L.append(f"> _{VELOCITY_NOTE}_")
     L.append("")
     L.append("---")
-    # week over week (#2 data-driven delta; #5 delivery placeholder)
+    # week over week
     L.append("## Progress: Week over Week")
-    _wr = wow_rows()
-    if _wr:
-        L.append("")
-        L.append("| Objective | Last week | This week | Δ stories | Trend |")
-        L.append("|-----------|-----------|-----------|-----------|-------|")
-        _ar = {"UP": "▲ Improved", "DOWN": "▼ Slipped", "SAME": "→ No change", "NEW": "＋ New"}
-        for row in _wr:
-            d = "new" if row["d_moving"] is None else f"{row['d_moving']:+d} mv / {row['d_stuck']:+d} stk"
-            L.append(f"| {row['name']} | {RAGWORD.get(row['last'], '—')} | {RAGWORD[row['this']]} | {d} | {_ar[row['trend']]} |")
-        _bl, _ub = wow_transitions()
-        L.append("")
-        L.append(f"**Newly unblocked:** {', '.join(_ub) if _ub else 'none'}  ·  **Newly blocked:** {', '.join(_bl) if _bl else 'none'}")
-    else:
-        L.append("")
-        L.append(f"**Baseline snapshot captured.** {WEEK_NOTE} Status changes, story movement, and newly "
-                 "blocked/unblocked objectives will be computed automatically from next edition.")
-        L.append("")
-        L.append("Baseline status this week:")
-        L.append("")
-        for o in OBJECTIVES:
-            L.append(f"- {dot[o[4]]} **{o[1]}** — {o[7]}/{o[6]} moving")
     L.append("")
-    L.append("> ⏳ _**Pending (#5 delivery):** completed/accepted tracking begins at first PROD deploy "
-             "(Jun 23); current counts reflect activity, not completion._")
+    L.append("_Sprint 2.4 closed Jul 7. Reporting continues on the CO5 contractual deliverable frame. "
+             "Week-over-week deltas reflect movement since the Jun 29 report._")
+    L.append("")
+    L.append("**Delivered this period (Sprint 2.4 close-out)**")
+    L.append("")
+    L.append("| On board | Accepted / Done | Delivered, in validation | Active / not started |")
+    L.append("|----------|-----------------|--------------------------|-----------------------|")
+    L.append(f"| {VELOCITY_2_4[0][1]} | {VELOCITY_2_4[1][1]} | {VELOCITY_2_4[2][1]} | {VELOCITY_2_4[3][1]} |")
+    L.append("")
+    L.append("**Key moves**")
+    L.append("- Sprint 2.4 closed (Jul 7) - 9 items / 10 pts accepted: SOX BA review, Airlift exports (PA/KY VMware + PA Physical), bulk CI retirement, NowAssist Duplicate CIs, IRE review spike.")
+    L.append("- SOX Business Apps (1480105) Closed - CO5 D1 acceptance evidence confirmed.")
+    L.append("- Data Dictionaries (Servers/Computers/Biz Apps/DB) delivered to Validation - CCB review Jul 7-20, approval target Jul 21.")
+    L.append("- 12 items / 18 pts in validation entering Sprint 2.5 - largest carry-over pipeline of PI-2.")
+    L.append("")
+    L.append("**Newly closed:** SOX BA review · Airlift exports · CI retirement execution  ·  **Newly carried to 2.5:** 3 audit spikes (Servers/DB/Computer)")
     L.append("")
     L.append("---")
     # deep dives
@@ -755,8 +757,9 @@ def md_lines():
     # appendix
     L.append("## Appendix — Story-Level Detail")
     L.append("")
+    L.append("- CO5 deliverable traceability: `co5-deliverable-tracking.md`")
     L.append("- Objectives → Features → Stories: `PI-2/pi2-objectives-features-stories.md`")
-    L.append("- Activity by Iteration (2.1 / 2.2 / 2.3): `PI-2/pi2-iteration-activity.md`")
+    L.append("- Activity by Iteration (2.1 - 2.4): `PI-2/pi2-iteration-activity.md`")
     L.append("- Program Backlog Review notes: `PI-2/Program-Backlog-Review/`")
     L.append("")
     L.append("_This deck is regenerated weekly from `build_status_deck.py`._")

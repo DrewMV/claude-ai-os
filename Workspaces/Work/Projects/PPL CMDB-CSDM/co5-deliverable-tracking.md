@@ -3,7 +3,7 @@ type: contract-tracker
 workspace: Work
 project: PPL CMDB-CSDM
 contract: CO5 (Change Order #5)
-updated: 2026-06-29
+updated: 2026-06-30
 tags: [work, cmdb-csdm, contract, deliverables, traceability]
 ---
 
@@ -12,7 +12,7 @@ tags: [work, cmdb-csdm, contract, deliverables, traceability]
 Validates every **Change Order #5** contractual deliverable against PI-2 ADO features/stories.
 
 - **Source contract:** [[Contract/CO5-signed-2026-05-26.pdf]] — signed 2026-05-26 (Caitriona Sharkey / Accenture; Jacquelyn English / PPL). PO# 1000002225.
-- **Story source:** [[PI-2/pi2-objectives-features-stories]] — ADO snapshot 6/19 (authoritative).
+- **Story source:** [[PI-2/pi2-objectives-features-stories]] — ADO snapshot **6/30 (Iter 2.4 grid)** for 2.4 items (see [§ 2.4 Acceptance Mapping](#24-acceptance-mapping-630-ado-grid--authoritative-for-24-item-states) below); 6/19 grid for everything else.
 - **Alias note:** logged as **"CR5"** in [[Memory]] Contract table; the signed document is **Change Order #5 (CO5)**. Same instrument.
 - **Successor:** [[co6-deliverable-tracking]] (CO6, **DRAFT/unsigned**) re-baselines 5 of 6 gaps below to Jul 31 → Oct 30 — **if executed before July 1**. See the gap-closure map there.
 
@@ -23,7 +23,7 @@ Validates every **Change Order #5** contractual deliverable against PI-2 ADO fea
 > ⇒ A story existing in ADO is **not** sufficient. It must be **delivered & accepted by 6/30**.
 > Stories in **Iter 2.4 (Jun 24–Jul 7), 2.5 (Jul 8–21), 2.6/IP (Jul 22–Aug 4)** are **post-deadline** ⛔.
 > Code freezes compress this further: **Dev freeze Jul 4–18**, **Test freeze Jul 18–Aug 15**.
-> Today: **2026-06-20 → 10 days to deadline.**
+> Today: **2026-06-30 → deadline today.** Per the 6/29 CO5 Alignment email, most acceptance dates now fall *after* 6/30 (Data Dictionary CCB approval **7/21**) — the holdback risk stands unless CO6 signs before **7/1**.
 
 **Verdict legend:** ✅ Covered & on track · 🟡 Partial / gaps · 🔴 Gap, blocked, or post-deadline risk · ⚪ Needs confirmation
 
@@ -34,7 +34,7 @@ Validates every **Change Order #5** contractual deliverable against PI-2 ADO fea
 | CO5 Deliverable | Sub-items | Covered | Partial | Gap/Risk | Headline risk |
 |-----------------|-----------|---------|---------|----------|---------------|
 | **1. Governance** | 5 | 2 | 3 | 0 | 🔄 6/29: G1 (Databases) & G5 (CCB) now have acceptance stories — gaps closed at artifact level; 1406668-Removed still to resolve |
-| **2. Automated Data Ingestion** | 3 | 1 | 2 | 0 | 90% coverage goals carry contractual risk; DB credential distribution unsolved |
+| **2. Automated Data Ingestion** | 3 | 1 | 2 | 0 | 🔄 6/30: Computer/Server/DB **audit-dashboard spikes** + inventory/retirement cluster now in 2.4 (G2/G3 progressing); no formal 90%-measurement acceptance story yet |
 | **3. Other Enhancement** | 1 | 0 | 1 | 0 | 🔄 6/29: Qualys 1428703 (Part 1) now Active in 2.4 (was Blocked); confirm Part 2 |
 
 > **No CO5-relevant story is confirmed Done as of the 6/19 grid.** Closest to acceptance: Data Cert dashboard (1402727, UAT signed off, PROD deploy 6/23).
@@ -47,11 +47,11 @@ Validates every **Change Order #5** contractual deliverable against PI-2 ADO fea
 
 | ID | CO5 item | Gap | Owner | CO6 disposition (draft) | Status |
 |----|----------|-----|-------|--------------------------|--------|
-| **G1** | D1.1 Database data dictionary | ~~No Database CI-class data-dictionary story exists~~ → **Story 1480098 created** (Data Dictionary: Databases, Validation, Iter 2.4) + CMP Stage 1 DB dictionary drafted | Manuel → Joe/Sonika | ✅ CO6 "CMDB Governance" includes **Databases** → **Jul 31** *(if signed)* | 🟢 **CLOSED at artifact level (6/29)** — story + CMP draft exist; acceptance pending |
-| **G2** | D2.1 Computers 90% coverage | No coverage-measurement/validation story | Manuel → Joe | ✅ CO6 "CI Coverage – Computers" → **Sep 30** | 🔴 OPEN |
-| **G3** | D2.2 Servers 90% non-NERC-CIP coverage | No coverage-measurement/validation story | Manuel → Joe | ✅ CO6 "CI Coverage – Servers" → **Oct 30** | 🔴 OPEN |
-| **G4** | D3 Qualys integration | **1428703 (Part 1) now Active in Iter 2.4, no longer flagged Blocked** (6/29); 1465952 Closed. **1428704 (Part 2) status unconfirmed** | Manuel → Rich/Stan | ✅ CO6 "Qualys Integration" full PROD → **Oct 27** | 🟡 **IN PROGRESS (6/29)** — Part 1 unblocked; confirm Part 2 + vendor plugin landed |
-| **G5** | D1.5 Monthly CCB | Validation **story 1480107 created** under clean parent feature 1480087 (Ready DoR, 2.4). **Underlying 1406668-Removed contradiction** for the CCB meeting stories (1406672/683/687) still open | Manuel → Joe | ❌ **Not carried in CO6** — CO5-only obligation | 🟡 **PARTIAL (6/29)** — acceptance story exists; 1406668 Removed still to resolve |
+| **G1** | D1.1 Database data dictionary | ~~No Database CI-class data-dictionary story exists~~ → **Story 1480098** (Data Dictionary: Databases) **🟣 Validation** per 6/30 grid (Kiran) + CMP Stage 1 DB dictionary drafted | Manuel → Joe/Sonika | ✅ CO6 "CMDB Governance" includes **Databases** → **Jul 31** *(if signed)* | 🟢 **CLOSED at artifact level (6/30)** — story in Validation + CMP draft exist; acceptance pending CCB |
+| **G2** | D2.1 Computers 90% coverage | ~~No coverage-measurement/validation story~~ → 2.4 has **1480114** Computer audit-dashboard spike (Ready DoR) + inventory/retirement cluster; still **no formal 90%-measurement acceptance story** | Manuel → Joe | ✅ CO6 "CI Coverage – Computers" → **Sep 30** | 🟡 **PROGRESSING (6/30)** — validation spike in 2.4; acceptance story still gap |
+| **G3** | D2.2 Servers 90% non-NERC-CIP coverage | ~~No coverage-measurement/validation story~~ → 2.4 has **1480112** Server audit-dashboard spike (Ready DoR) + **1454371** Extract servers w/o support groups (Active) + inventory cluster; still **no formal 90%-measurement acceptance story** | Manuel → Joe | ✅ CO6 "CI Coverage – Servers" → **Oct 30** | 🟡 **PROGRESSING (6/30)** — validation/cleanup in 2.4; acceptance story still gap |
+| **G4** | D3 Qualys integration | **1428703 (Part 1) Active in Iter 2.4**, no longer Blocked (confirmed 6/30); 1465952 Closed. **1428704 (Part 2) status unconfirmed** | Manuel → Rich/Stan | ✅ CO6 "Qualys Integration" full PROD → **Oct 27** | 🟡 **IN PROGRESS (6/30)** — Part 1 unblocked; confirm Part 2 + vendor plugin landed |
+| **G5** | D1.5 Monthly CCB | Acceptance **story 1480107** under clean parent feature 1480087 — **🟢 Ready DoR (2.4)** per 6/30 (Manuel). **Underlying 1406668-Removed contradiction** for the CCB meeting stories (1406672/683/687) still open | Manuel → Joe | ❌ **Not carried in CO6** — CO5-only obligation | 🟡 **PARTIAL (6/30)** — acceptance story exists; 1406668 Removed still to resolve |
 
 > **Soft gaps (story exists but thin / unowned):** D1.2 KB Articles owner; D1.3 ESS-02 (single spike, parent Removed); D2.3 DB enhanced Discovery (cred tasks only, no demonstrable story). Track in the action list, not here.
 
@@ -59,9 +59,54 @@ Validates every **Change Order #5** contractual deliverable against PI-2 ADO fea
 
 ---
 
+## 2.4 Acceptance Mapping (6/30 ADO grid) — authoritative for 2.4 item states
+
+> 🔄 **6/30 reconciliation.** Per the **CO5 Deliverable Alignment** email (Manuel → Joe/Stan/Tony, 6/29) the team **deprioritized Service Mapping / Airlift / NowAssist / Network Discovery** to focus on CO5. The Iter-2.4 board is the CO5 work slice — **38 items · 61 pts (45 pts CO5-aligned across 30 items)**. Per-deliverable acceptance/validation stories now hang off **Feature 1480087 — Governance Validation & Acceptance** (Manuel). **These 2.4 states supersede the 6/19-grid states in the Master/Acceptance tables below.** Full mapping + non-CO5 buckets + CO5 acceptance timeline: [[PI-2/pi2-iteration-activity]] (Iteration 2.4).
+
+**Deliverable 1 — Governance** *(acceptance stories = Feature 1480087)*
+
+| # | Deliverable | Acceptance story (6/30 state) | Pts | Gap |
+|---|---|---|---|---|
+| 1.1a | Data Dictionary — Servers | 1480088 (Vinay · 🟣 Validation) | 2 | |
+| 1.1b | Data Dictionary — Computers | 1480090 (Bhushan · 🟣 Validation) | 2 | |
+| 1.1c | Data Dictionary — Business Apps | 1480097 (Kiran · 🟣 Validation) + data-pop 1475582 (🔵 Active), 1478286 (🟢 Ready DoR), 1480111 BA audit spike (Joe · 🟢 Ready DoR) | 10 | |
+| 1.1d | Data Dictionary — Databases | 1480098 (Kiran · 🟣 Validation) | 2 | ✅ closes **G1** |
+| 1.2 | Data Certification | 1480099 (Joe · 🟢 Ready DoR) + 1402727 (PROD-deployed) | 2 | |
+| 1.3 | ESS-02 Alignment | 1480102 (Manuel · 🟢 Ready DoR) | 1 | |
+| 1.4 | SOX BA review | 1480105 (Uloma · 🟢 Ready DoR) | 2 | |
+| 1.5 | Monthly CCB | 1480107 (Manuel · 🟢 Ready DoR) | 1 | ✅ closes **G5** |
+
+**Deliverable 2 — Automated Data Ingestion**
+
+| # | Deliverable | 2.4 story (6/30 state) | Pts | Gap |
+|---|---|---|---|---|
+| 2.1a | Computers — SCCM/Discovery | — reported complete (email) | 0 | |
+| 2.1b | Computers — 90% Coverage | 1480114 Computer audit spike (Anthony · 🟢 Ready DoR) | 2 | 🟡 **G2** progressing |
+| 2.1c | Computers — Build Lifecycle | — no 2.4 story (validation TBD) | 0 | |
+| 2.2a | Server — SCCM/Discovery | — reported complete (email) | 0 | |
+| 2.2b | Server — 90% Coverage / cleanup | 1480112 Server audit spike (Anthony · 🟢 Ready DoR); 1454371 (Bhushan · 🔵 Active); 1455832 (Vinay · 🟢 Ready DoR); inventory+retirement 1487863–1487897 (13) ⚠️ | 18 | 🟡 **G3** progressing |
+| 2.2c | Server — SOX Indicators | — reported complete (email) | 0 | |
+| 2.x | Credentials enabling Discovery | — reported complete (email); ⚠️ prior 1444864 child tasks were Active in 2.2 | 0 | |
+| 2.3a | Database — SQL/Oracle Discovery | — reported complete (email) | 0 | |
+| 2.3b | Database — SOX Indicators | — reported complete (email) | 0 | |
+| 2.3c | Database — 90% Coverage | 1480113 Database audit spike (Stan · 🔵 Active) | 2 | |
+
+**Deliverable 3 — Other Enhancement**
+
+| # | Deliverable | 2.4 story (6/30 state) | Pts | Gap |
+|---|---|---|---|---|
+| 3 | Evaluate Qualys Integration | 1428703 Install plugin Part 1 (Stan · 🔵 Active) | 1 | 🟡 **G4** Part 1 unblocked; Part 2 (1428704) unconfirmed |
+
+**CO5-aligned 2.4 total: 45 pts (30 items).** Non-CO5 in 2.4: upgrade-readiness 11 pts, network 3 pts (deprioritized), NowAssist 2 pts (Closed).
+
+> ⚠️ **Inventory + bulk-retirement cluster (1487863–1487897, 13 pts)** booked under Server 90% (2.2b) but is VMware/Physical PA/KY — may split with Computer 90% (2.1b). No feature parent in ADO; confirm home.
+> ⚠️ **8 deliverables have no 2.4 acceptance story** (SCCM-Discovery ×3, SOX Indicators ×2, Credentials, Computers Build Lifecycle) — reported complete per email but lack a validation/acceptance artifact for CCB sign-off.
+
+---
+
 ## Master Deliverable Table
 
-> Every CO5 deliverable → associated ADO feature/story → status (6/19 grid). Hard gaps flagged **[G#]**.
+> Every CO5 deliverable → associated ADO feature/story → status (**6/19 grid** — for 2.4 items, the **§ 2.4 Acceptance Mapping** above is authoritative). Hard gaps flagged **[G#]**.
 
 | CO5 Deliverable | Sub-item | ADO Feature / Story (ID — title) | Status |
 |---|---|---|---|

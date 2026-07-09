@@ -122,7 +122,26 @@
       "PowerShell($p = \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\CO5 Delivery Review.xlsx\"; Test-Path $p; $x=New-Object -ComObject Excel.Application -ErrorAction SilentlyContinue; if\\($x\\){\"COM-OK\"}else{\"NO-COM\"})",
       "PowerShell(& \"C:\\\\Users\\\\MANUEL~1.VAZ\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-manuel-b-vazquez-Documents-Claude-AI-OS\\\\b51e5a62-b3be-46fd-9ecc-0f22c7b4cd51\\\\scratchpad\\\\build_markup.ps1\")",
       "PowerShell(& \"C:\\\\Users\\\\MANUEL~1.VAZ\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-manuel-b-vazquez-Documents-Claude-AI-OS\\\\b51e5a62-b3be-46fd-9ecc-0f22c7b4cd51\\\\scratchpad\\\\build_corrected.ps1\")",
-      "Bash(cd \"/c/Users/manuel.b.vazquez/Documents/Claude AI OS/Workspaces/Work/Projects/PPL CMDB-CSDM/Config-Mgmt-Plan\" && find . -type f -printf '%p  \\(%s bytes\\)\\\\n' 2>/dev/null | sort || echo \"EMPTY_OR_MISSING\")"
+      "Bash(cd \"/c/Users/manuel.b.vazquez/Documents/Claude AI OS/Workspaces/Work/Projects/PPL CMDB-CSDM/Config-Mgmt-Plan\" && find . -type f -printf '%p  \\(%s bytes\\)\\\\n' 2>/dev/null | sort || echo \"EMPTY_OR_MISSING\")",
+      "PowerShell(Get-Process chrome,chromium,node -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Process chrome,chromium -ErrorAction SilentlyContinue)",
+      "mcp__notebooklm__re_auth",
+      "PowerShell(python \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\Workspaces\\\\Work\\\\Projects\\\\PPL CMDB-CSDM\\\\Config-Mgmt-Plan\\\\build_cmp_template.py\")",
+      "PowerShell(python \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\Workspaces\\\\Work\\\\Projects\\\\PPL CMDB-CSDM\\\\Leadership-Status\\\\build_status_deck.py\")",
+      "WebFetch(domain:docs.servicenow.com)",
+      "WebFetch(domain:downloads.docs.servicenow.com)",
+      "WebFetch(domain:store.servicenow.com)",
+      "Bash(git -C \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" diff --stat HEAD)",
+      "Bash(git -C \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" log --oneline -3)",
+      "Bash(git -C \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" add \"Workspaces/Work/Projects/PPL CMDB-CSDM/PI-2/pi2-iteration-activity.md\" \"Workspaces/Work/Projects/PPL CMDB-CSDM/PI-2/pi2-objectives-features-stories.md\" \"Workspaces/Work/Projects/PPL CMDB-CSDM/PI-2/pi2-active-prior-iteration-items.md\")",
+      "Bash(git -C 'C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS' commit -m ' *)",
+      "Bash(git -C \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" push)",
+      "Bash(git -C \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\" add \"Workspaces/Work/Projects/PPL CMDB-CSDM/PI-2/Memory.md\")",
+      "PowerShell(New-Item -ItemType Directory -Path \"C:\\\\Users\\\\manuel.b.vazquez\\\\Documents\\\\Claude AI OS\\\\Workspaces\\\\Work\\\\Projects\\\\PPL CMDB-CSDM\\\\PI-3\" -Force)",
+      "Bash(python -c \"import pptx; print\\('pptx-ok', pptx.__version__\\)\")",
+      "Bash(python extract_gogreen.py)",
+      "Bash(PYTHONIOENCODING=utf-8 python -X utf8 extract_gogreen.py)",
+      "Bash(git commit *)"
     ]
   }
 }

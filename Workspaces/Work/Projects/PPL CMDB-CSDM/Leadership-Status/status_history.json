@@ -157,5 +157,69 @@
         "stuck": 0
       }
     }
+  },
+  "2026-07-01": {
+    "week_label": "Week of June 29, 2026",
+    "iteration": "Iteration 2.4  (Jun 24 - Jul 7)",
+    "portfolio": {
+      "scope": 13,
+      "moving": 12,
+      "stuck": 1
+    },
+    "objectives": {
+      "Governance - Data Dictionary, Data Cert, ESS-02, SOX, CCB": {
+        "pri": "D1",
+        "rag": "AMBER",
+        "scope": 8,
+        "moving": 8,
+        "stuck": 0
+      },
+      "Automated Data Ingestion - Computers / Servers / Databases": {
+        "pri": "D2",
+        "rag": "AMBER",
+        "scope": 3,
+        "moving": 3,
+        "stuck": 0
+      },
+      "Other Enhancement - Evaluate Qualys Integration": {
+        "pri": "D3",
+        "rag": "AMBER",
+        "scope": 2,
+        "moving": 1,
+        "stuck": 1
+      }
+    }
+  },
+  "2026-07-08": {
+    "week_label": "Week of July 8, 2026",
+    "iteration": "Iteration 2.5  (Jul 8 - Jul 21)",
+    "portfolio": {
+      "scope": 13,
+      "moving": 12,
+      "stuck": 1
+    },
+    "objectives": {
+      "Governance - Data Dictionary, Data Cert, ESS-02, SOX, CCB": {
+        "pri": "D1",
+        "rag": "AMBER",
+        "scope": 8,
+        "moving": 8,
+        "stuck": 0
+      },
+      "Automated Data Ingestion - Computers / Servers / Databases": {
+        "pri": "D2",
+        "rag": "AMBER",
+        "scope": 3,
+        "moving": 3,
+        "stuck": 0
+      },
+      "Other Enhancement - Evaluate Qualys Integration": {
+        "pri": "D3",
+        "rag": "AMBER",
+        "scope": 2,
+        "moving": 1,
+        "stuck": 1
+      }
+    }
   }
 }

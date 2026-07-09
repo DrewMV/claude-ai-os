@@ -100,7 +100,7 @@ updated: 2026-06-29
 
 - **Class Display Name:** Computer
 - **ServiceNow Table Name:** `cmdb_ci_computer`
-- **CSDM Domain:** Manage Technical Services
+- **CSDM Domain:** Service Delivery
 - **In Scope:** End-user computing devices such as laptops, desktops, and workstations.
 - **Out of Scope:** Servers, Network Gear, Mobile Devices, or IoT devices.
 
@@ -132,7 +132,7 @@ updated: 2026-06-29
 
 - **Class Display Name:** Server
 - **ServiceNow Table Name:** `cmdb_ci_server`
-- **CSDM Domain:** Manage Technical Services
+- **CSDM Domain:** Service Delivery
 - **In Scope:** Any active physical or virtual instance providing compute resources (regardless of OS).
 - **Out of Scope:** Network appliances, storage arrays, decommissioned hardware, and end-user workstations (laptops/desktops).
 
@@ -170,7 +170,7 @@ updated: 2026-06-29
 
 - **Class Display Name:** Windows Server
 - **ServiceNow Table Name:** `cmdb_ci_win_server`
-- **CSDM Domain:** Manage Technical Services (inherited from Server)
+- **CSDM Domain:** Service Delivery (inherited from Server)
 - **In Scope:** Compute instances running Microsoft Windows Server OS (e.g., 2016, 2019, 2022).
 - **Out of Scope:** Non-Windows compute instances.
 
@@ -208,7 +208,7 @@ updated: 2026-06-29
 
 - **Class Display Name:** Linux Server
 - **ServiceNow Table Name:** `cmdb_ci_linux_server`
-- **CSDM Domain:** Manage Technical Services (inherited from Server)
+- **CSDM Domain:** Service Delivery (inherited from Server)
 - **In Scope:** Compute instances running a Linux kernel (e.g., RHEL, Ubuntu, CentOS, SUSE).
 - **Out of Scope:** Non-Linux compute instances.
 
@@ -244,7 +244,7 @@ updated: 2026-06-29
 
 - **Class Display Name:** Database Instance
 - **ServiceNow Table Name:** `cmdb_ci_database`
-- **CSDM Domain:** Manage Technical Services
+- **CSDM Domain:** Service Delivery
 - **In Scope:** Logical database instances providing data storage and retrieval capabilities.
 - **Out of Scope:** The underlying host server OS, or the underlying physical storage / disks.
 
@@ -279,7 +279,7 @@ updated: 2026-06-29
 
 - **Class Display Name:** Oracle Instance
 - **ServiceNow Table Name:** `cmdb_ci_db_ora_instance`
-- **CSDM Domain:** Manage Technical Services (inherited from Database)
+- **CSDM Domain:** Service Delivery (inherited from Database)
 - **In Scope:** Logical instances running the Oracle RDBMS engine.
 - **Out of Scope:** Other database engines.
 
@@ -316,7 +316,7 @@ updated: 2026-06-29
 
 - **Class Display Name:** MSFT SQL Instance
 - **ServiceNow Table Name:** `cmdb_ci_db_mssql_instance`
-- **CSDM Domain:** Manage Technical Services (inherited from Database)
+- **CSDM Domain:** Service Delivery (inherited from Database)
 - **In Scope:** Logical instances running Microsoft SQL Server.
 - **Out of Scope:** Other database engines.
 

@@ -9,3 +9,9 @@ desktop.ini
 # Temp files
 *.tmp
 *.log
+
+# Office lock/owner files
+~$*
+
+# Python bytecode cache
+__pycache__/

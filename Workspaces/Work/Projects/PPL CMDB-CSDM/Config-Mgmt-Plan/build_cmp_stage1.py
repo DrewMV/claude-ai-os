@@ -90,7 +90,7 @@ CLASSES = [
     {
         "name": "Computer", "kind": "CLASS",
         "display": "Computer", "table": "cmdb_ci_computer",
-        "domain": "Manage Technical Services",
+        "domain": "Service Delivery",
         "in_scope": "End-user computing devices such as laptops, desktops, and workstations.",
         "out_scope": "Servers, Network Gear, Mobile Devices, or IoT devices.",
         "attrs": [
@@ -119,7 +119,7 @@ CLASSES = [
     {
         "name": "Server", "kind": "PARENT CLASS",
         "display": "Server", "table": "cmdb_ci_server",
-        "domain": "Manage Technical Services",
+        "domain": "Service Delivery",
         "in_scope": "Any active physical or virtual instance providing compute resources (regardless of OS).",
         "out_scope": ("Network appliances, storage arrays, decommissioned hardware, and end-user workstations "
                       "(laptops/desktops)."),
@@ -151,7 +151,7 @@ CLASSES = [
     {
         "name": "Windows Server", "kind": "CHILD CLASS", "parent": "Server",
         "display": "Windows Server", "table": "cmdb_ci_win_server",
-        "domain": "Manage Technical Services (inherited from Server)",
+        "domain": "Service Delivery (inherited from Server)",
         "in_scope": "Compute instances running Microsoft Windows Server OS (e.g., 2016, 2019, 2022).",
         "out_scope": "Non-Windows compute instances.",
         "inherit_note": "Inherits all attributes, IRE, and relationships from parent class Server (cmdb_ci_server). Only attributes unique to or overridden by this child class are listed below.",
@@ -178,7 +178,7 @@ CLASSES = [
     {
         "name": "Linux Server", "kind": "CHILD CLASS", "parent": "Server",
         "display": "Linux Server", "table": "cmdb_ci_linux_server",
-        "domain": "Manage Technical Services (inherited from Server)",
+        "domain": "Service Delivery (inherited from Server)",
         "in_scope": "Compute instances running a Linux kernel (e.g., RHEL, Ubuntu, CentOS, SUSE).",
         "out_scope": "Non-Linux compute instances.",
         "inherit_note": "Inherits all attributes, IRE, and relationships from parent class Server (cmdb_ci_server). Only attributes unique to or overridden by this child class are listed below.",
@@ -202,7 +202,7 @@ CLASSES = [
     {
         "name": "Database", "kind": "PARENT CLASS",
         "display": "Database Instance", "table": "cmdb_ci_database",
-        "domain": "Manage Technical Services",
+        "domain": "Service Delivery",
         "in_scope": "Logical database instances providing data storage and retrieval capabilities.",
         "out_scope": "The underlying host server OS, or the underlying physical storage / disks.",
         "attrs": [
@@ -224,7 +224,7 @@ CLASSES = [
     {
         "name": "Oracle Database", "kind": "CHILD CLASS", "parent": "Database",
         "display": "Oracle Instance", "table": "cmdb_ci_db_ora_instance",
-        "domain": "Manage Technical Services (inherited from Database)",
+        "domain": "Service Delivery (inherited from Database)",
         "in_scope": "Logical instances running the Oracle RDBMS engine.",
         "out_scope": "Other database engines.",
         "inherit_note": "Inherits all attributes, IRE, and relationships from parent class Database (cmdb_ci_database). Only attributes unique to this child class are listed below.",
@@ -247,7 +247,7 @@ CLASSES = [
     {
         "name": "MSFT SQL Database", "kind": "CHILD CLASS", "parent": "Database",
         "display": "MSFT SQL Instance", "table": "cmdb_ci_db_mssql_instance",
-        "domain": "Manage Technical Services (inherited from Database)",
+        "domain": "Service Delivery (inherited from Database)",
         "in_scope": "Logical instances running Microsoft SQL Server.",
         "out_scope": "Other database engines.",
         "inherit_note": "Inherits all attributes, IRE, and relationships from parent class Database (cmdb_ci_database). Only attributes unique to this child class are listed below.",
