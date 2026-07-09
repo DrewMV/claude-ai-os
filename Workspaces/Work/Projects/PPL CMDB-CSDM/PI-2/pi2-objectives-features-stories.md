@@ -3,7 +3,7 @@ type: team-artifact
 workspace: Work
 project: CMDB-CSDM
 pi: PI-2
-updated: 2026-07-07
+updated: 2026-07-08
 tags: [work, cmdb-csdm, pi-planning, backlog, features]
 ---
 
@@ -40,11 +40,13 @@ Updated as of 2026-06-30 | ADO snapshot: status as of **6/30 (Iter 2.4 board gri
 ### Feature 1420613 — CMDB Support for Air Lift
 ⬇️ **Feature State (ADO 6/17):** **Defining** (Iter 2.1) — ⚠️ lags its stories, which are all in Validation. Confirm why the feature hasn't advanced past Defining.
 
+> 🔄 **7/8 — Airlift decomposition directive (P0, BV 10 — urgent).** Points now assigned: **1418610 Pre = 10 · 1418618 During = 8 · 1418621 Post = 12** (30 total). These three phase-sliced stories are stranded in **2.3** (closed 6/23) with no visible progress — a leadership-reporting risk on the top objective. **Plan:** break each into smaller vertical stories that document the actual CMDB migration work of the last 4 weeks; place each child in the sprint where the work happened (**2.3 / 2.4 / 2.5**) at its true state (Done/Closed vs Active); child points must sum to the parent totals (**10 / 8 / 12**); then close the three originals (or convert to features) so points aren't double-counted. Owners **Laurent / Alex Lim**, with **Joe** (PO) + **Stan** (Discovery); refinement to be scheduled this week. Feature 1420613 to advance out of **Defining** once its children carry the state. Live child-story tracking: [[airlift-decomposition]].
+
 | ADO ID | Type | Title | Owner | Points | Sprint | Status |
 |--------|------|-------|-------|--------|--------|--------|
-| 1418610 | Story | Airlift to Azure Pre-Migration | Laurent / Alex Lim | — | 2.3 | 🟣 Validation |
-| 1418618 | Story | Airlift to Azure During Migration | Laurent / Alex Lim | — | 2.3 | 🟣 Validation |
-| 1418621 | Story | Airlift to Azure Post-Migration | Laurent / Alex Lim | — | 2.3 | 🟣 Validation |
+| 1418610 | Story | Airlift to Azure Pre-Migration | Laurent / Alex Lim | 10 | 2.3 | 🟣 Validation — ⚠️ to be decomposed (see 7/8 note) |
+| 1418618 | Story | Airlift to Azure During Migration | Laurent / Alex Lim | 8 | 2.3 | 🟣 Validation — ⚠️ to be decomposed (see 7/8 note) |
+| 1418621 | Story | Airlift to Azure Post-Migration | Laurent / Alex Lim | 12 | 2.3 | 🟣 Validation — ⚠️ to be decomposed (see 7/8 note) |
 | 1416384 | Story | Auto Populate CI Owner / Support Group / Tech Owner for Server Class | — | — | 2.3 | 🟢 Active — ⚠️ not on ADO pulls (virtual variant 1407572 = Validation as of 6/12, NOT Done) |
 
 > **6/9** — Dev admin access carry-over issue resolved. ✅

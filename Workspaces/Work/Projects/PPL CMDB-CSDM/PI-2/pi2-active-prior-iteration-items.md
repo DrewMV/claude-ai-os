@@ -3,7 +3,7 @@ type: team-artifact
 workspace: Work
 project: CMDB-CSDM
 pi: PI-2
-updated: 2026-07-07
+updated: 2026-07-08
 tags: [work, cmdb-csdm, pi-planning, iteration-review]
 ---
 
@@ -58,6 +58,8 @@ Reviewed the ADO Iteration 2.3 story grid on 6/17: all 19 stories are in **2.3**
 > **6/30 sync:** Iteration **2.3 closed (6/23); 2.4 is now active** (Jun 24 – Jul 7). The 6/30 ADO pull was a **2.4-only board grid** — it surfaced **no new 2.1/2.2 stranded items**, so the inventory below stands. Note the "prior iteration" frame now spans **2.1/2.2/2.3**; a 2.1–2.3-inclusive grid is still needed to re-confirm carryover. 2.4 story/spike states reconciled into [[pi2-objectives-features-stories]].
 >
 > **6/23 re-check:** A full grid pull (Iter 2.3→2.6) on the last day of 2.3 did **not** surface any 2.1/2.2 items in the visible rows — so the 13 prior-iteration items above were **not re-confirmed against this pull** (the pull was forward-looking, sorted 2.3↑). Their status stands from 6/17 until a 2.1/2.2-inclusive grid is pulled. No *story* appeared stranded in 2.1/2.2 in the 6/23 view. Note: parent story **1444864** still shows **Validation** in 2.3 while its 6 Active credential tasks remain in 2.2 (the core flag above is unchanged).
+
+> **7/8 — stranded-story case (Airlift, P0) — supersedes the "confirmed clear ✅" note above.** Three stories are stranded in **2.3** (closed 6/23): **1418610** Airlift Pre-Migration (10 pts), **1418618** During (8 pts), **1418621** Post (12 pts) — all under Feature **1420613 CMDB Support for Air Lift** (P0, BV 10), owners Laurent / Alex Lim. Being **decomposed** into smaller vertical stories that document the last 4 weeks of work, re-placed into the sprint where the work happened (2.3 / 2.4 / 2.5) at true state (Done/Closed vs Active), with child points summing to 10 / 8 / 12; the three originals then closed or converted to features. Full record + plan in [[pi2-objectives-features-stories]] (Feature 1420613, 7/8 note); live child-story tracking in [[airlift-decomposition]].
 
 **Totals:** 6 tasks · 3 features · 1 spike · 3 dependencies = **13 confirmed** (objectives excluded — they carry no iteration).
 

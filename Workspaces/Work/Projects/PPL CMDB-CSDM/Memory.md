@@ -58,6 +58,7 @@ Active in PI2, Iteration 2.3 (Jun 10 – Jun 23, 2026). Data Certification UAT s
 | Chris | Accenture delivery manager overseeing Manuel and Alex; directed the role transition and org changes |
 | Christian Aguilar Rodriguez | Account Manager / Service Delivery; coordinating scope clarifications and CR6 role segmentations |
 | Aaron Simeon | Contract role segmentation contact for CR6 (coordinating with Christian) |
+| Jordan Yung | Program Manager / Delivery Lead — supports Christian as a DL; heavily involved in **CO6** development. Key resource for the scope & purpose of deliverables going forward. Highly active on Service Mapping, Airlift, and cross-team CMDB coordination. |
 | Narayan | OPS team contact; point of contact for upgrade activity scheduling and team availability confirmations |
 | Kostas | Change management coordination; owns any follow-on process changes post-approval |
 | Ray Reuter | Server support group assignments; point of contact for new P1 story on assigning support groups to servers |
@@ -182,6 +183,8 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - [[Backlog/audit-dashboard-servers-spike]] — DRAFT **NON-SOW** Servers-tab audit spike (Iter 2.4, due 6/30; scope = Active Servers Count 15,218; 11 audits). Watch: Missing Value Stream = 100%, two 0-count audits.
 - [[Backlog/audit-dashboard-database-spike]] — DRAFT **NON-SOW** Database-tab audit spike (Iter 2.4, due 6/30; scope = Active Database CI Count 3,113; 6 audits). Watch: Missing Value Stream = 100%, Missing Approval Group ~99.9%.
 - [[Backlog/audit-dashboard-computer-spike]] — DRAFT **NON-SOW** Computer-tab audit spike (Iter 2.4, due 6/30; scope = Active Computer CIs 28,203 + virtual subset 6,530; 11 audits). Watch: Missing Approval Group = 100%, two 0-count audits, phys/virtual split.
+- [[PI-2/weekly-activity-reference-2026-07-08]] — Week of ~Jul 6–8 comms/activity reference (Go Green, Airlift exec focus, Service Mapping, PI-3 kickoff, audit request); source pointer for the Airlift decomposition
+- **Go Green** — weekly **CMDB & Service Mapping status deck to Sonika from the broader team** (deck title *"CMDB and Service Mapping Status Update"*); **distinct from [[Leadership-Status]]** (Manuel's customer-leadership deck). 7/7 edition: **At-Risk**; Airlift flagged **possible postponement**. Content captured in [[PI-2/weekly-activity-reference-2026-07-08]] §1.
 - [[requirements-process]] — end-to-end requirements flow
 - [[Dependencies/servicenow-enhancements]] — cross-team dependency tracker
 - [[nowassist-implementation-plan]] — 5-phase NowAssist AI roadmap (Duplicate CI Elimination → NL Search → Guided CI Creation → Governance Advice → NASK); primary driver for PI-2 Obj 5 and PI-3 objectives
