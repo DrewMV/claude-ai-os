@@ -1,13 +1,13 @@
 """
-CO6 Deliverables - TEAM OVERVIEW deck (short, FYI).
+CO6 Deliverables - TEAM FOCUS deck (short, work-oriented).
 
-Audience: the full CMDB / CSDM delivery team (onshore + offshore).
-Purpose: heads-up on what's coming in Change Order #6 and how it maps to the
-work we're already doing. Informational only.
+Audience: the CMDB / CSDM Development + supporting roles.
+Purpose: what we deliver and by when - and what each thread needs to focus on.
+Ordered by due date (soonest first) so it reads as a priority list.
 
-Deliberately EXCLUDES contract-commercial details (fees, holdback, signature
-exposure) - those are leadership material, not for a mixed delivery audience.
-Keeps the DRAFT / UNSIGNED caveat because that is delivery-relevant status.
+NO contract-commercial or contract-status framing: no fees, no holdback, no
+CO5-vs-CO6 comparison, no re-baseline/escalation language, no draft-numbering.
+One neutral 'planning view - dates firm up at PI-3 planning' line only.
 
 Theme mirrors build_co5_deliverable_deck.py so the decks look like a set.
 Single source of truth for this deck. Edit CONTENT, then run:
@@ -27,83 +27,71 @@ from pptx.enum.shapes import MSO_SHAPE
 # CONTENT
 # ---------------------------------------------------------------------------
 EDITION   = "2026-07-10"
-TITLE     = "CO6 Deliverables - Team Overview"
-SUBTITLE  = "Change Order #6  ·  what's coming for CMDB / CSDM"
+TITLE     = "CO6 Deliverables - Team Focus"
+SUBTITLE  = "Deliverables, dates & where to focus  ·  for Development + supporting roles"
 AUTHOR    = "Manuel Vazquez  -  Scrum Master, CMDB-CSDM"
-FOOTLABEL = "PPL CMDB-CSDM  |  CO6 Deliverables (DRAFT)  |  Team FYI  -  Jul 10, 2026"
+FOOTLABEL = "PPL CMDB-CSDM  |  CO6 Deliverables  |  Team Focus  -  Jul 10, 2026"
+PLANNING_NOTE = "Planning view - dates & scope firm up at PI-3 planning."
 
-DRAFT_BANNER = ("DRAFT / UNSIGNED (3/27 working draft).  Scope, numbering and dates are "
-                "TENTATIVE until the contract is executed - nothing here changes our current commitments yet.")
-
-# Overview: (#, deliverable, type, due, PI)   type: "NEW" | "CONT"
-OVERVIEW = [
-    ("1",  "Network Gear Discovery",           "NEW",  "Aug 31 -> Oct 30",       "PI-3"),
-    ("2",  "Service Mapping",                   "NEW",  "Aug 31 -> Oct 30",       "PI-3"),
-    ("3a", "Qualys Integration",                "CONT", "Oct 27",                 "PI-3"),
-    ("3b", "CMDB Governance",                   "CONT", "Jul 31",                 "PI-2"),
-    ("4",  "CI Coverage - Computers",           "CONT", "Jul 31 -> Sep 30",       "PI-2/3"),
-    ("5",  "CI Coverage - Servers",             "CONT", "Jul 31 -> Oct 30",       "PI-2/3"),
-    ("6",  "Legacy Platform Rationalization",   "NEW",  "Aug 31 -> Oct 30",       "PI-3"),
-    ("7",  "ITSM Product Management",           "NEW",  "Monthly Jul 31-Oct 30",  "PI-2/3"),
-    ("8",  "ATF Strategy",                      "NEW",  "Oct 31",                 "PI-3"),
-    ("9",  "Platform Support",                  "NEW",  "Monthly Aug 31-Oct 30",  "PI-3"),
-]
-OVERVIEW_FOOT = ("6 net-new  ·  3 continue current CO5 work (Governance, CI Coverage, Qualys).  "
-                 "Draft numbers two items '3' (Qualys + CMDB Governance) - shown here as 3a / 3b.")
-
-# Net-new: (deliverable, what it adds, due, where it stands today)
-NEW_ROWS = [
-    ("Network Gear Discovery",
-     "Discover & populate network devices in CMDB (excl. OT); 90% coverage, business-owner validated",
-     "Aug 31 -> Oct 30",
-     "Scaffolding from PI-2 Obj 1 (feat 1356646; stories 1402572/574/575) - no acceptance met yet"),
-    ("Service Mapping",
-     "End-to-end maps for 10 priority business apps down to infra CIs; consumable in ServiceNow",
-     "Aug 31 -> Oct 30",
-     "Wave features 1355866/68/71 + per-app stories (WATT, Oceana, SolarWinds PoC 1431652); 10-app target is new"),
-    ("Legacy Platform Rationalization",
-     "Analysis + migration plan: iTeam -> DISCO / Cherwell -> AIM (Cherwell/AIM 'if applicable')",
-     "Aug 31 -> Oct 30",
-     "Only iTeam import 1452028 today - no analysis/plan stories yet"),
-    ("ITSM Product Management",
-     "New ITSM Product Owner role + ITSM workstream (outside CMDB)",
-     "Monthly Jul 31 -> Oct 30",
-     "No stories; owner TBD"),
-    ("ATF Strategy",
-     "Plan for Automated Test Framework rollout across in-prod ServiceNow capabilities",
-     "Oct 31",
-     "Greenfield - no stories"),
-    ("Platform Support",
-     "Dedicated BAU / DevOps team; ~40 hrs of stories per week per member",
-     "Monthly Aug 31 -> Oct 30",
-     "No stories; team size TBD"),
-]
-NEW_FOOT = ("Net-new is not free:  ITSM PM and Platform Support are ongoing-capacity commitments "
-            "(~40 hrs/wk per person), not finite deliverables - they need people, not just backlog.  "
-            "#1 and #2 have story scaffolding from PI-2 objectives but no contractual acceptance met yet.")
-
-# Continuing: (workstream, what changes in CO6, new date, current stories)
-CONT_ROWS = [
-    ("CMDB Governance\n(was CO5 D1)",
-     "Data dictionary now includes Databases; Data Cert pilot expands from Business-App-only to ALL CI classes + KB; ESS-02; SOX BA review",
-     "Jul 31\n(+1 mo)",
-     "Data Cert 1247179 / 1402727 / 1402958 ; ESS-02 spike 1420244 ; SOX 1438967 / 1455827"),
-    ("CI Coverage - Computers\n(was CO5 D2.1)",
+# Deliverables (date-ordered). (name, due, pi, focus, is_support)
+DELIVERABLES = [
+    ("CMDB Governance", "Jul 31", "PI-2",
+     "Data dictionary incl. Databases; Data Certification for ALL CI classes + KB articles; ESS-02; SOX BA review",
+     False),
+    ("CI Coverage - Computers", "Jul 31 -> Sep 30", "PI-2/3",
      "SCCM/Discovery precedence + bulk life-cycle; 90% of devices managed",
-     "Jul 31 ->\nSep 30",
-     "SCCM Computer 1348712/16/17/15 ; Computer Class 1354794"),
-    ("CI Coverage - Servers\n(was CO5 D2.2/2.3)",
-     "SCCM/Discovery precedence; enhanced DB Discovery (MS-SQL / Oracle); 90% of non-NERC-CIP servers",
-     "Jul 31 ->\nOct 30",
-     "SCCM Server 1356826 (1403759/60/62/63) ; creds 1444864"),
-    ("Qualys Integration\n(was CO5 D3)",
-     "Escalates from 'evaluate one integration' to a full one-way Qualys -> ServiceNow feed, deployed to PROD",
-     "Oct 27",
-     "Stream C 1428703 / 1428704 (currently blocked) ; spike 1234585"),
+     False),
+    ("CI Coverage - Servers", "Jul 31 -> Oct 30", "PI-2/3",
+     "SCCM/Discovery precedence; enhanced DB Discovery (MS-SQL/Oracle); 90% of non-NERC-CIP servers",
+     False),
+    ("Network Gear Discovery", "Aug 31 -> Oct 30", "PI-3",
+     "Credentials / SNMP (excl. OT); discovery schedules; mandatory attributes; 90% coverage, owner-validated",
+     False),
+    ("Service Mapping", "Aug 31 -> Oct 30", "PI-3",
+     "End-to-end maps for 10 priority apps down to infra CIs; owner-validated; consumable in ServiceNow",
+     False),
+    ("Legacy Platform Rationalization", "Aug 31 -> Oct 30", "PI-3",
+     "Analysis + migration plan: iTeam -> DISCO / Cherwell -> AIM",
+     False),
+    ("Qualys Integration", "Oct 27", "PI-3",
+     "One-way Qualys -> ServiceNow feed; configured, tested, deployed to PROD",
+     False),
+    ("ATF Strategy", "Oct 31", "PI-3",
+     "Plan for Automated Test Framework rollout across in-prod ServiceNow capabilities",
+     False),
+    ("ITSM Product Management", "Monthly", "PI-2/3",
+     "Separate ITSM lane (Product Owner role) - outside core CMDB delivery",
+     True),
+    ("Platform Support", "Monthly", "PI-3",
+     "Standing BAU / DevOps support - ongoing capacity, not a finite deliverable",
+     True),
 ]
-CONT_FOOT = ("The hard 90% coverage targets get real PI-3 runway (Sep 30 / Oct 30) instead of a single 6/30 cliff.  "
-             "Foundation work (Governance, precedence) is dated Jul 31 - it lands in PI-2 Iter 2.5/2.6, so it needs "
-             "to be substantially done by early PI-2 end, not 'sometime in July.'")
+DELIVERABLES_FOOT = ("Ordered by due date.  Bottom two are standing PO / BAU lanes - separate from core CMDB delivery.  "
+                     + PLANNING_NOTE)
+
+# In-flight now: (focus area, what to do next, current stories)
+INFLIGHT = [
+    ("CMDB Governance",
+     "Roll Data Certification out to all CI classes + KB; close data dictionary incl. Databases; ESS-02; SOX BA review",
+     "Data Cert 1247179 / 1402727 / 1402958  ·  ESS-02 spike 1420244  ·  SOX 1438967 / 1455827"),
+    ("CI Coverage - Computers",
+     "Land SCCM/Discovery precedence + bulk life-cycle; stand up the 90% coverage measurement",
+     "SCCM Computer 1348712 / 16 / 17 / 15  ·  Computer Class 1354794"),
+    ("CI Coverage - Servers",
+     "Land server precedence; enhanced DB Discovery (MS-SQL / Oracle); stand up 90% measurement",
+     "SCCM Server 1356826 (1403759 / 60 / 62 / 63)  ·  creds 1444864"),
+    ("Service Mapping",
+     "Build maps for the 10 priority apps; get app-owner validation; make consumable in SNOW",
+     "Wave 1355866 / 68 / 71  ·  per-app: WATT, Oceana, SolarWinds PoC 1431652"),
+    ("Network Gear Discovery",
+     "Fix creds / SNMP (excl. OT); activate discovery schedules; populate mandatory attributes",
+     "1356646  ·  1402572 / 574 / 575  ·  creds 1444864 / 1459721  ·  dep 1383487"),
+    ("Qualys Integration",
+     "Clear the plugin blocker; configure + test the one-way feed; deploy to PROD",
+     "1428703 / 1428704 (blocked)  ·  data-scope spike 1234585"),
+]
+INFLIGHT_FOOT = ("These are the threads already in motion - the same work you're on now.  "
+                 "Legacy Platform Rationalization and ATF Strategy are greenfield (no stories yet) - scoped at PI-3 planning.")
 
 # Timeline milestones: (when, what's due, lands in)
 MILESTONES = [
@@ -126,24 +114,24 @@ MILESTONES = [
      "ATF Strategy (rollout plan)",
      "PI-3"),
     ("Ongoing",
-     "ITSM Product Management & Platform Support - monthly acceptance",
+     "ITSM Product Management & Platform Support - monthly",
      "PI-2 tail -> PI-3"),
 ]
 
-# What this means for us (FYI close)
+# Where to focus (close)
 TAKEAWAYS = [
-    ("Draft only - nothing committed yet.",
-     "CO6 is unsigned (3/27 draft). Treat scope and dates as tentative; our current commitments don't change until it's executed."),
-    ("Most of it is work we're already doing.",
-     "Governance, CI Coverage (Computers/Servers), Service Mapping and Network Gear are the same threads you're on now - CO6 just formalizes them with dates."),
-    ("Four things are brand new for PI-3 planning.",
-     "Legacy Platform Rationalization, ITSM Product Management, ATF Strategy and Platform Support - we'll story-out and staff these at PI-3 planning."),
-    ("Two are standing commitments, not projects.",
-     "ITSM PM and Platform Support (BAU) are ongoing capacity (~40 hrs/wk per person) - they need people assigned, not just a backlog."),
-    ("The hard coverage targets get real runway.",
-     "90% coverage moves to Sep 30 / Oct 30 in PI-3 - no single 6/30 cliff."),
+    ("Focus first: the Jul 31 items.",
+     "CMDB Governance and CI Coverage foundation (Computers & Servers precedence) are due first and land in PI-2 - keep these moving now."),
+    ("Biggest PI-3 build: Discovery + Mapping.",
+     "Network Gear, Service Mapping and the 90% coverage targets (Sep 30 / Oct 30) are the bulk of the work - discovery, credentials, and app-owner validation."),
+    ("Unblock Qualys early.",
+     "One-way feed to PROD by Oct 27 - the plugin blocker needs clearing before the build can finish."),
+    ("New to plan at PI-3 planning.",
+     "Legacy Platform Rationalization and ATF Strategy are greenfield - no stories yet; we scope and staff these at planning."),
+    ("Supporting lanes stand up separately.",
+     "ITSM Product Management and Platform Support are PO / BAU capacity, not core CMDB dev - flagged so they're on the radar."),
     ("Questions?",
-     "Source is the 3/27 draft. Jordan Yung is the CO6 SME; Joe Dames owns governance scope. Flag anything unclear to Manny."),
+     "Jordan Yung is the CO6 SME; Joe Dames owns governance scope. Flag anything unclear to Manny."),
 ]
 
 # ---------------------------------------------------------------------------
@@ -159,7 +147,7 @@ GREEN  = RGBColor(0x2E, 0x8B, 0x57)
 AMBER  = RGBColor(0xE0, 0x8A, 0x00)
 RED    = RGBColor(0xC0, 0x39, 0x2B)
 GREY   = RGBColor(0x8A, 0x92, 0x9E)
-SLATE  = RGBColor(0x5B, 0x6B, 0x7B)   # "Continues" type marker
+PALE   = RGBColor(0xEC, 0xEE, 0xF1)   # supporting-lane rows
 PI2C   = RGBColor(0x6E, 0x88, 0xAE)   # PI-2 timeline bar
 PI3C   = GREEN                        # PI-3 timeline bar
 
@@ -239,96 +227,62 @@ def cell(t, i, j, lines, size, color, bold=False, align=PP_ALIGN.LEFT, fill=None
 s = prs.slides.add_slide(BLANK)
 rect(s, 0, 0, EMU_W, EMU_H, DARK)
 rect(s, 0, Inches(4.55), EMU_W, Inches(0.08), ACCENT)
-textbox(s, Inches(0.8), Inches(1.7), Inches(11.7), Inches(1.1),
+textbox(s, Inches(0.8), Inches(1.8), Inches(11.7), Inches(1.1),
         [(TITLE, 42, WHITE, True, False)])
-textbox(s, Inches(0.82), Inches(2.8), Inches(11.7), Inches(0.6),
+textbox(s, Inches(0.82), Inches(2.9), Inches(11.7), Inches(0.6),
         [(SUBTITLE, 20, RGBColor(0xC9, 0xD6, 0xE6), False, False)])
-# tentative flag on the title
-rect(s, Inches(0.82), Inches(3.6), Inches(5.6), Inches(0.5), RGBColor(0x7A, 0x4F, 0x10), line=AMBER)
-textbox(s, Inches(0.95), Inches(3.62), Inches(5.4), Inches(0.46),
-        [("DRAFT / UNSIGNED  -  tentative until executed", 12, RGBColor(0xFF, 0xE6, 0xC2), True, False)],
-        MSO_ANCHOR.MIDDLE)
 textbox(s, Inches(0.82), Inches(4.75), Inches(11.7), Inches(1.5), [
-    ("9 deliverables  ·  6 net-new  ·  3 continue current CO5 work", 16, WHITE, True, False),
-    ("Proposed term: Jul 1 - Oct 30, 2026  (spans the tail of PI-2 + all of PI-3)", 14, RGBColor(0xC9, 0xD6, 0xE6), False, False),
+    ("What we deliver, by when, and where to focus", 16, WHITE, True, False),
+    ("Delivery window: Jul 1 - Oct 30, 2026  (tail of PI-2 + all of PI-3)", 14, RGBColor(0xC9, 0xD6, 0xE6), False, False),
     (AUTHOR, 12, RGBColor(0x9F, 0xB2, 0xCC), False, False),
 ])
+textbox(s, Inches(0.82), Inches(6.55), Inches(11.7), Inches(0.32),
+        [(PLANNING_NOTE, 11, RGBColor(0x7F, 0x8C, 0xA6), False, True)])
 
-# ---- Slide 2: Overview - all 9 -------------------------------------------
+# ---- Slide 2: Deliverables & dates ---------------------------------------
 s = prs.slides.add_slide(BLANK)
-header(s, "CO6 Deliverables - All 9 at a Glance",
-       "6 net-new  ·  3 continue current CO5 work  ·  staged monthly acceptance")
-# draft banner
-rect(s, Inches(0.55), Inches(1.22), Inches(12.2), Inches(0.5), RGBColor(0xFB, 0xEE, 0xDB), line=AMBER)
-textbox(s, Inches(0.72), Inches(1.24), Inches(11.9), Inches(0.46),
-        [(DRAFT_BANNER, 10.5, RGBColor(0x7A, 0x4F, 0x10), True, False)], MSO_ANCHOR.MIDDLE)
-rows = len(OVERVIEW) + 1
-tshape = s.shapes.add_table(rows, 5, Inches(0.55), Inches(1.9), Inches(12.2), Inches(4.5))
+header(s, "Deliverables & Dates", "Ordered by due date - soonest first")
+rows = len(DELIVERABLES) + 1
+tshape = s.shapes.add_table(rows, 4, Inches(0.55), Inches(1.4), Inches(12.2), Inches(4.7))
 t = tshape.table
-for j, wdt in enumerate([Inches(0.7), Inches(4.3), Inches(1.9), Inches(3.4), Inches(1.9)]):
+for j, wdt in enumerate([Inches(3.0), Inches(2.0), Inches(0.9), Inches(6.3)]):
     t.columns[j].width = wdt
-for j, h in enumerate(["#", "Deliverable", "Type", "Due (draft)", "PI"]):
-    cell(t, 0, j, h, 11.5, WHITE, True, PP_ALIGN.LEFT if j == 1 else PP_ALIGN.CENTER, DARK)
-for i, (num, name, typ, due, pi) in enumerate(OVERVIEW, start=1):
-    fill = LIGHT if i % 2 else WHITE
-    tfill = ACCENT if typ == "NEW" else SLATE
-    tword = "New" if typ == "NEW" else "Continues"
-    cell(t, i, 0, num, 11, MUTED, True, PP_ALIGN.CENTER, fill)
-    cell(t, i, 1, name, 11.5, DARK, True, PP_ALIGN.LEFT, fill)
-    cell(t, i, 2, tword, 10.5, WHITE, True, PP_ALIGN.CENTER, tfill)
-    cell(t, i, 3, due, 11, TEXT, False, PP_ALIGN.CENTER, fill)
-    cell(t, i, 4, pi, 11, TEXT, True, PP_ALIGN.CENTER, fill)
-textbox(s, Inches(0.55), Inches(6.5), Inches(12.2), Inches(0.55),
-        [(OVERVIEW_FOOT, 10.5, TEXT, False, False)])
+for j, h in enumerate(["Deliverable", "Due", "PI", "What we focus on"]):
+    cell(t, 0, j, h, 11.5, WHITE, True, PP_ALIGN.LEFT if j in (0, 3) else PP_ALIGN.CENTER, DARK)
+for i, (name, due, pi, focus, sup) in enumerate(DELIVERABLES, start=1):
+    fill = PALE if sup else (LIGHT if i % 2 else WHITE)
+    cell(t, i, 0, name, 10.5, MUTED if sup else DARK, True, PP_ALIGN.LEFT, fill)
+    cell(t, i, 1, due, 10, ACCENT if not sup else MUTED, True, PP_ALIGN.CENTER, fill)
+    cell(t, i, 2, pi, 10, TEXT, True, PP_ALIGN.CENTER, fill)
+    cell(t, i, 3, focus, 9.5, TEXT if not sup else MUTED, False, PP_ALIGN.LEFT, fill)
+textbox(s, Inches(0.55), Inches(6.25), Inches(12.2), Inches(0.6),
+        [(DELIVERABLES_FOOT, 10, TEXT, False, False)])
 
-# ---- Slide 3: The 6 net-new ----------------------------------------------
+# ---- Slide 3: In-flight now ----------------------------------------------
 s = prs.slides.add_slide(BLANK)
-header(s, "The 6 Net-New Deliverables",
-       "Brand-new scope with no CO5 antecedent - mostly planned & staffed at PI-3")
-rows = len(NEW_ROWS) + 1
-tshape = s.shapes.add_table(rows, 4, Inches(0.55), Inches(1.3), Inches(12.2), Inches(4.5))
+header(s, "In-Flight Now - Current Work & Stories",
+       "The threads already in motion - what to do next, and the ADO items")
+rows = len(INFLIGHT) + 1
+tshape = s.shapes.add_table(rows, 3, Inches(0.55), Inches(1.4), Inches(12.2), Inches(4.3))
 t = tshape.table
-for j, wdt in enumerate([Inches(2.7), Inches(4.9), Inches(1.9), Inches(2.7)]):
+for j, wdt in enumerate([Inches(3.0), Inches(5.5), Inches(3.7)]):
     t.columns[j].width = wdt
-for j, h in enumerate(["Deliverable", "What it adds", "Due (draft)", "Where it stands today"]):
-    cell(t, 0, j, h, 11, WHITE, True, PP_ALIGN.LEFT if j != 2 else PP_ALIGN.CENTER, DARK)
-for i, (name, adds, due, stands) in enumerate(NEW_ROWS, start=1):
+for j, h in enumerate(["Focus area", "What to do next", "Current stories"]):
+    cell(t, 0, j, h, 11.5, WHITE, True, PP_ALIGN.LEFT, DARK)
+for i, (area, todo, stories) in enumerate(INFLIGHT, start=1):
     fill = LIGHT if i % 2 else WHITE
-    cell(t, i, 0, name, 10.5, DARK, True, PP_ALIGN.LEFT, fill)
-    cell(t, i, 1, adds, 9.5, TEXT, False, PP_ALIGN.LEFT, fill)
-    cell(t, i, 2, due, 9.5, ACCENT, True, PP_ALIGN.CENTER, fill)
-    cell(t, i, 3, stands, 9, TEXT, False, PP_ALIGN.LEFT, fill)
-rect(s, Inches(0.55), Inches(5.95), Inches(12.2), Inches(0.9), RGBColor(0xFB, 0xEE, 0xDB), line=AMBER)
-textbox(s, Inches(0.72), Inches(6.0), Inches(11.9), Inches(0.82),
-        [(NEW_FOOT, 10, RGBColor(0x5A, 0x4A, 0x2A), False, False)], MSO_ANCHOR.MIDDLE)
+    cell(t, i, 0, area, 10.5, DARK, True, PP_ALIGN.LEFT, fill)
+    cell(t, i, 1, todo, 9.5, TEXT, False, PP_ALIGN.LEFT, fill)
+    cell(t, i, 2, stories, 9, TEXT, False, PP_ALIGN.LEFT, fill)
+rect(s, Inches(0.55), Inches(5.9), Inches(12.2), Inches(0.85), RGBColor(0xE9, 0xF0, 0xF8), line=ACCENT)
+textbox(s, Inches(0.72), Inches(5.96), Inches(11.9), Inches(0.76),
+        [(INFLIGHT_FOOT, 10, DARK, False, False)], MSO_ANCHOR.MIDDLE)
 
-# ---- Slide 4: The 3 continuing workstreams -------------------------------
+# ---- Slide 4: Timeline ---------------------------------------------------
 s = prs.slides.add_slide(BLANK)
-header(s, "Continuing From CO5 - Re-Baselined & Escalated",
-       "These continue work we're already doing, with new (later) dates")
-rows = len(CONT_ROWS) + 1
-tshape = s.shapes.add_table(rows, 4, Inches(0.55), Inches(1.3), Inches(12.2), Inches(4.2))
-t = tshape.table
-for j, wdt in enumerate([Inches(2.4), Inches(4.9), Inches(1.6), Inches(3.3)]):
-    t.columns[j].width = wdt
-for j, h in enumerate(["Workstream", "What changes in CO6", "New date", "Current stories"]):
-    cell(t, 0, j, h, 11, WHITE, True, PP_ALIGN.LEFT if j != 2 else PP_ALIGN.CENTER, DARK)
-for i, (name, chg, date, stories) in enumerate(CONT_ROWS, start=1):
-    fill = LIGHT if i % 2 else WHITE
-    cell(t, i, 0, name.split("\n"), 10, DARK, True, PP_ALIGN.LEFT, fill)
-    cell(t, i, 1, chg, 9.5, TEXT, False, PP_ALIGN.LEFT, fill)
-    cell(t, i, 2, date.split("\n"), 9.5, GREEN, True, PP_ALIGN.CENTER, fill)
-    cell(t, i, 3, stories, 9, TEXT, False, PP_ALIGN.LEFT, fill)
-rect(s, Inches(0.55), Inches(5.7), Inches(12.2), Inches(1.1), RGBColor(0xE6, 0xF3, 0xEC), line=GREEN)
-textbox(s, Inches(0.72), Inches(5.78), Inches(11.9), Inches(0.98),
-        [(CONT_FOOT, 10, RGBColor(0x1E, 0x5A, 0x38), False, False)], MSO_ANCHOR.MIDDLE)
+header(s, "Timeline - Where It Lands",
+       "Tail of PI-2 + all of PI-3  ·  staged monthly acceptance")
 
-# ---- Slide 5: Timeline ---------------------------------------------------
-s = prs.slides.add_slide(BLANK)
-header(s, "CO6 Timeline - Where It Lands",
-       "Spans the tail of PI-2 + all of PI-3  ·  staged monthly acceptance")
-
-# --- compact Gantt ---
 AXL, AXR = 2.0, 12.6
 M0, M1 = 6, 11   # Jun .. Nov
 
@@ -337,21 +291,19 @@ def px(m):
     return Inches(AXL + (m - M0) / (M1 - M0) * (AXR - AXL))
 
 
-GRID_TOP, GRID_H = 1.3, 1.55
+GRID_TOP, GRID_H = 1.3, 1.35
 for m, lbl in [(6, "Jun"), (7, "Jul"), (8, "Aug"), (9, "Sep"), (10, "Oct"), (11, "Nov")]:
     rect(s, px(m), Inches(GRID_TOP), Pt(1), Inches(GRID_H), RGBColor(0xDD, 0xE3, 0xEA))
     textbox(s, px(m) - Inches(0.3), Inches(GRID_TOP + GRID_H + 0.02), Inches(0.6), Inches(0.25),
             [(lbl, 9, MUTED, False, False)], align=PP_ALIGN.CENTER)
-# row labels
 textbox(s, Inches(0.55), Inches(GRID_TOP), Inches(1.4), Inches(GRID_H),
-        [("Contract /", 9, MUTED, True, False), ("PI window", 9, MUTED, True, False)], MSO_ANCHOR.MIDDLE)
+        [("Windows", 9, MUTED, True, False)], MSO_ANCHOR.MIDDLE)
 BARS = [
-    ("CO5 (ends Jun 30)",     6.0,   6.967,  GREY,   WHITE),
-    ("CO6   Jul 1 - Oct 30",  7.0,   10.935, ACCENT, WHITE),
-    ("PI-2  (-> Aug 4)",      6.0,   8.097,  PI2C,   WHITE),
-    ("PI-3  Aug 5 - Oct 27",  8.129, 10.839, PI3C,   WHITE),
+    ("Delivery window   Jul 1 - Oct 30", 7.0,   10.935, ACCENT, WHITE),
+    ("PI-2  (-> Aug 4)",                 6.0,   8.097,  PI2C,   WHITE),
+    ("PI-3  Aug 5 - Oct 27",             8.129, 10.839, PI3C,   WHITE),
 ]
-bh, gap = 0.30, 0.075
+bh, gap = 0.32, 0.085
 yy = GRID_TOP + 0.06
 for lbl, ms, me, col, tc in BARS:
     x1, x2 = px(ms), px(me)
@@ -360,9 +312,8 @@ for lbl, ms, me, col, tc in BARS:
             [(lbl, 9.5, tc, True, False)], MSO_ANCHOR.MIDDLE)
     yy += bh + gap
 
-# --- milestone table ---
 rows = len(MILESTONES) + 1
-tshape = s.shapes.add_table(rows, 3, Inches(0.55), Inches(3.45), Inches(12.2), Inches(3.0))
+tshape = s.shapes.add_table(rows, 3, Inches(0.55), Inches(3.35), Inches(12.2), Inches(3.1))
 t = tshape.table
 for j, wdt in enumerate([Inches(1.5), Inches(7.9), Inches(2.8)]):
     t.columns[j].width = wdt
@@ -374,10 +325,9 @@ for i, (when, what, lands) in enumerate(MILESTONES, start=1):
     cell(t, i, 1, what, 9, TEXT, False, PP_ALIGN.LEFT, fill)
     cell(t, i, 2, lands, 9.5, ACCENT, True, PP_ALIGN.CENTER, fill)
 
-# ---- Slide 6: What this means for us -------------------------------------
+# ---- Slide 5: Where to focus ---------------------------------------------
 s = prs.slides.add_slide(BLANK)
-header(s, "What This Means for Us",
-       "FYI - nothing here is committed until CO6 is signed")
+header(s, "Where to Focus", "Priorities for Development + supporting roles")
 yy = 1.4
 for head, body in TAKEAWAYS:
     rect(s, Inches(0.55), Inches(yy + 0.04), Inches(0.12), Inches(0.62), ACCENT)
