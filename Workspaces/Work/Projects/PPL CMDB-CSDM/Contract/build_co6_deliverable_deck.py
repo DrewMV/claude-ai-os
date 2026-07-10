@@ -1,16 +1,24 @@
 """
-CO6 Deliverables - TEAM FOCUS deck (short, work-oriented).
+CO6 Deliverables - TEAM FOCUS deck (work-oriented, with per-deliverable detail).
 
 Audience: the CMDB / CSDM Development + supporting roles.
-Purpose: what we deliver and by when - and what each thread needs to focus on.
-Ordered by due date (soonest first) so it reads as a priority list.
+Purpose: what we deliver and by when - plus a detail slide per deliverable
+(what "done" looks like, scope in/out, current stories, watch-outs).
 
 NO contract-commercial or contract-status framing: no fees, no holdback, no
 CO5-vs-CO6 comparison, no re-baseline/escalation language, no draft-numbering.
 One neutral 'planning view - dates firm up at PI-3 planning' line only.
 
+Structure:
+    1  Title
+    2  Deliverables & Dates (at-a-glance index)
+    3-10  Deliverable detail (8 core, one each)
+    11  Supporting lanes (ITSM PM + Platform Support)
+    12  Timeline
+    13  Where to focus
+
 Theme mirrors build_co5_deliverable_deck.py so the decks look like a set.
-Single source of truth for this deck. Edit CONTENT, then run:
+Single source of truth. Edit CONTENT, then run:
     python build_co6_deliverable_deck.py
 Output:  CO6-Deliverables-<EDITION>.pptx
 
@@ -33,7 +41,7 @@ AUTHOR    = "Manuel Vazquez  -  Scrum Master, CMDB-CSDM"
 FOOTLABEL = "PPL CMDB-CSDM  |  CO6 Deliverables  |  Team Focus  -  Jul 10, 2026"
 PLANNING_NOTE = "Planning view - dates & scope firm up at PI-3 planning."
 
-# Deliverables (date-ordered). (name, due, pi, focus, is_support)
+# Deliverables index (date-ordered). (name, due, pi, focus, is_support)
 DELIVERABLES = [
     ("CMDB Governance", "Jul 31", "PI-2",
      "Data dictionary incl. Databases; Data Certification for ALL CI classes + KB articles; ESS-02; SOX BA review",
@@ -69,29 +77,193 @@ DELIVERABLES = [
 DELIVERABLES_FOOT = ("Ordered by due date.  Bottom two are standing PO / BAU lanes - separate from core CMDB delivery.  "
                      + PLANNING_NOTE)
 
-# In-flight now: (focus area, what to do next, current stories)
-INFLIGHT = [
-    ("CMDB Governance",
-     "Roll Data Certification out to all CI classes + KB; close data dictionary incl. Databases; ESS-02; SOX BA review",
-     "Data Cert 1247179 / 1402727 / 1402958  ·  ESS-02 spike 1420244  ·  SOX 1438967 / 1455827"),
-    ("CI Coverage - Computers",
-     "Land SCCM/Discovery precedence + bulk life-cycle; stand up the 90% coverage measurement",
-     "SCCM Computer 1348712 / 16 / 17 / 15  ·  Computer Class 1354794"),
-    ("CI Coverage - Servers",
-     "Land server precedence; enhanced DB Discovery (MS-SQL / Oracle); stand up 90% measurement",
-     "SCCM Server 1356826 (1403759 / 60 / 62 / 63)  ·  creds 1444864"),
-    ("Service Mapping",
-     "Build maps for the 10 priority apps; get app-owner validation; make consumable in SNOW",
-     "Wave 1355866 / 68 / 71  ·  per-app: WATT, Oceana, SolarWinds PoC 1431652"),
-    ("Network Gear Discovery",
-     "Fix creds / SNMP (excl. OT); activate discovery schedules; populate mandatory attributes",
-     "1356646  ·  1402572 / 574 / 575  ·  creds 1444864 / 1459721  ·  dep 1383487"),
-    ("Qualys Integration",
-     "Clear the plugin blocker; configure + test the one-way feed; deploy to PROD",
-     "1428703 / 1428704 (blocked)  ·  data-scope spike 1234585"),
+# Per-deliverable detail (8 core). Each: name, due, pi, summary, done[], in_scope[], out_scope[], stories[], watch[]
+DETAILS = [
+    dict(
+        name="CMDB Governance", due="Jul 31", pi="PI-2",
+        summary="Governance foundation: data dictionary, data certification, ESS-02, and SOX Business App review.",
+        done=[
+            "Class attributes / data dictionary defined for all in-scope CI classes, incl. Databases",
+            "Data Certification live for ALL CI classes (not just Business Apps), with KB articles",
+            "ESS-02 alignment with Cyber Security & Compliance addressed",
+            "SOX Business Apps correctly identified with update-rights controls",
+        ],
+        in_scope=[
+            "Servers, Computers, Business Apps, Databases data dictionary",
+            "Data Cert: process, intake, pilot, KB articles",
+            "ESS-02 policy / CMDB alignment; SOX BA identification + access governance",
+        ],
+        out_scope=["NERC / CIP compliance indicators (separate stream)"],
+        stories=[
+            "Data Cert: 1247179 pilot  ·  1402727 dashboard (PROD)  ·  1402958 planning  ·  1435307 pilot changes",
+            "ESS-02: spike 1420244 (analysis)",
+            "SOX: 1438967 (closed)  ·  1455827 ownership-change notify",
+            "Databases data dictionary - no story yet",
+        ],
+        watch=[
+            "Databases class has no data-dictionary story yet - needs creating",
+            "KB / user-doc articles have no owner - confirm before sign-off",
+            "SOX only - NERC / CIP explicitly excluded",
+        ],
+    ),
+    dict(
+        name="CI Coverage - Computers", due="Jul 31 -> Sep 30", pi="PI-2 / PI-3",
+        summary="SCCM/Discovery precedence, bulk life-cycle, and 90% of computers managed.",
+        done=[
+            "SCCM/Discovery data precedence reconciled and applied",
+            "Bulk Life Cycle Stage & Status updates applied",
+            "90% of computer devices managed (coverage validated)",
+        ],
+        in_scope=[
+            "Physical + virtual computers",
+            "Precedence reconciliation; bulk life-cycle; coverage measurement",
+        ],
+        out_scope=["Life-cycle process definition (owned by Asset Management)"],
+        stories=[
+            "SCCM Computer: 1348712 / 16 / 17 (resolved)  ·  1348715 last-seen (validation)",
+            "Computer Class 1354794  ·  1402790 retired lifecycle (closed)",
+            "90% coverage measurement - no story yet",
+        ],
+        watch=[
+            "90% coverage has no measurement story - stand it up",
+            "Life-cycle process depends on the Asset Management team",
+            "Only on-network devices discovered - hard to prove the physical-device total",
+        ],
+    ),
+    dict(
+        name="CI Coverage - Servers", due="Jul 31 -> Oct 30", pi="PI-2 / PI-3",
+        summary="Server precedence, enhanced MS-SQL / Oracle discovery, and 90% of non-NERC-CIP servers.",
+        done=[
+            "SCCM/Discovery precedence reconciled and applied for servers",
+            "Enhanced Discovery working for MS-SQL & Oracle databases",
+            "90% of non-NERC-CIP servers discovered",
+        ],
+        in_scope=["Server precedence; MS-SQL / Oracle discovery; coverage measurement"],
+        out_scope=[
+            "SOX indicators (manually maintained - excluded from automation)",
+            "NERC / CIP servers (excluded from the 90% target)",
+        ],
+        stories=[
+            "SCCM Server 1356826 (1403759 / 60 / 62 / 63 - validation)",
+            "Credentials 1444864 (validation; child tasks active)  ·  1459721 SNMP / MID",
+            "90% coverage measurement - no story yet",
+        ],
+        watch=[
+            "Credential distribution to target CIs - no scalable solution yet (gates servers + DBs)",
+            "SCCM precedence has no full field-by-field map - rework risk",
+            "90% coverage has no measurement story",
+        ],
+    ),
+    dict(
+        name="Network Gear Discovery", due="Aug 31 -> Oct 30", pi="PI-3",
+        summary="Discover and populate network devices in the CMDB, to 90% coverage.",
+        done=[
+            "Credentials configured & validated (excluding OT)",
+            "Discovery schedules active",
+            "Mandatory attributes populated",
+            "90% coverage, business-owner validated",
+        ],
+        in_scope=["Network gear: credentials / SNMP, schedules, attributes, coverage"],
+        out_scope=["OT (operational technology) devices - explicitly excluded"],
+        stories=[
+            "1356646 Network Device Coverage (feature)",
+            "1402572 / 574 / 575 discovery config + rerun  ·  1402555 / 1402559 spikes",
+            "Creds 1444864 / 1459721  ·  stakeholder dependency 1383487",
+        ],
+        watch=[
+            "OT boundary - confirm with stakeholders",
+            "Stakeholder requirements (1383487) still open",
+            "Shares credential work with servers / databases",
+        ],
+    ),
+    dict(
+        name="Service Mapping", due="Aug 31 -> Oct 30", pi="PI-3",
+        summary="End-to-end maps for 10 priority business apps down to infrastructure CIs.",
+        done=[
+            "Service maps built for 10 priority business apps",
+            "Maps validated by application owners",
+            "Maps consumable in ServiceNow",
+        ],
+        in_scope=["The 10 priority apps; app -> infra mapping; owner validation"],
+        out_scope=["Apps beyond the 10 priority set"],
+        stories=[
+            "Wave features 1355866 / 1355868 / 1355871",
+            "Per-app: WATT  ·  Oceana  ·  SolarWinds PoC 1431652",
+        ],
+        watch=[
+            "App-owner validation is the gating dependency - need named owners",
+            "Choose the 10 apps deliberately - it's a fixed acceptance bar",
+            "Infra / credential access can stall mapping",
+        ],
+    ),
+    dict(
+        name="Legacy Platform Rationalization", due="Aug 31 -> Oct 30", pi="PI-3",
+        summary="Analysis and migration plan for legacy data sources into the CMDB.",
+        done=[
+            "Analysis complete for iTeam -> DISCO / Cherwell -> AIM",
+            "Migration plan produced (Cherwell / AIM only if applicable at PI-3 planning)",
+        ],
+        in_scope=["iTeam import / migration; analysis of DISCO / Cherwell / AIM"],
+        out_scope=["Cherwell / AIM execution unless confirmed applicable at PI-3 planning"],
+        stories=[
+            "iTeam import 1452028 (only current story)",
+            "Analysis / migration-plan stories - not created yet",
+        ],
+        watch=[
+            "Greenfield - scope the analysis / plan stories at PI-3 planning",
+            "Ties to the ~450-server application-to-server gap",
+            "Cherwell / AIM applicability decided at PI-3 planning",
+        ],
+    ),
+    dict(
+        name="Qualys Integration", due="Oct 27", pi="PI-3",
+        summary="One-way Qualys -> ServiceNow vulnerability feed, deployed to PROD.",
+        done=[
+            "One-way Qualys -> ServiceNow integration configured & tested",
+            "Deployed to PROD",
+            "Vulnerability data ingests on schedule, no data loss",
+        ],
+        in_scope=["One-way Qualys -> SNOW feed: config, test, PROD deploy"],
+        out_scope=["Two-way sync; other integrations (Tanium was the alternative)"],
+        stories=[
+            "1428703 install plugin  ·  1428704 configure - both blocked",
+            "Data-scope spike 1234585  ·  1465952 plugin replacement (closed)",
+        ],
+        watch=[
+            "Plugin blocker: replacement plugin pending approval (1465952 may have cleared it - confirm)",
+            "Story states were not auto-flipped - verify with Stan",
+            "Build cannot finish until the plugin is unblocked",
+        ],
+    ),
+    dict(
+        name="ATF Strategy", due="Oct 31", pi="PI-3",
+        summary="A plan for rolling out the Automated Test Framework across in-prod ServiceNow capabilities.",
+        done=["Rollout plan delivered: selection criteria, timeline, and approach"],
+        in_scope=["Strategy / plan for ATF rollout (an analysis deliverable)"],
+        out_scope=["Building / implementing ATF (this is the plan, not the rollout)"],
+        stories=["None - greenfield"],
+        watch=[
+            "No stories yet - scope at PI-3 planning",
+            "Deliverable is a plan, not an implementation",
+            "Owner TBD",
+        ],
+    ),
 ]
-INFLIGHT_FOOT = ("These are the threads already in motion - the same work you're on now.  "
-                 "Legacy Platform Rationalization and ATF Strategy are greenfield (no stories yet) - scoped at PI-3 planning.")
+
+# Supporting lanes: (name, sub, items[])
+SUPPORT = [
+    ("ITSM Product Management", "Monthly  ·  PI-2 / PI-3", [
+        "ITSM Product Owner role: stakeholder management, backlog prioritization, agile ceremonies, governance",
+        "Separate ITSM lane - outside core CMDB delivery",
+        "No stories; owner TBD",
+    ]),
+    ("Platform Support", "Monthly  ·  PI-3", [
+        "Dedicated BAU / DevOps team; ~40 hrs of stories per week per member; per-sprint time tracking",
+        "Ongoing capacity, not a finite deliverable",
+        "Team size TBD",
+    ]),
+]
+SUPPORT_NOTE = "These are staffing / capacity decisions, not backlog - flagged so they stay on the radar."
 
 # Timeline milestones: (when, what's due, lands in)
 MILESTONES = [
@@ -150,6 +322,9 @@ GREY   = RGBColor(0x8A, 0x92, 0x9E)
 PALE   = RGBColor(0xEC, 0xEE, 0xF1)   # supporting-lane rows
 PI2C   = RGBColor(0x6E, 0x88, 0xAE)   # PI-2 timeline bar
 PI3C   = GREEN                        # PI-3 timeline bar
+AMBER_FILL = RGBColor(0xFB, 0xEE, 0xDB)
+AMBER_HEAD = RGBColor(0x7A, 0x4F, 0x10)
+AMBER_BODY = RGBColor(0x5A, 0x4A, 0x2A)
 
 EMU_W, EMU_H = Inches(13.333), Inches(7.5)
 FONT = "Segoe UI"
@@ -223,6 +398,15 @@ def cell(t, i, j, lines, size, color, bold=False, align=PP_ALIGN.LEFT, fill=None
         _set(r, size, color, bold)
 
 
+def bullet_lines(title, items, tsize=12, bsize=10, bcolor=TEXT, tcolor=DARK):
+    lines = []
+    if title:
+        lines.append((title, tsize, tcolor, True, False))
+    for it in items:
+        lines.append(("•  " + it, bsize, bcolor, False, False))
+    return lines
+
+
 # ---- Slide 1: Title -------------------------------------------------------
 s = prs.slides.add_slide(BLANK)
 rect(s, 0, 0, EMU_W, EMU_H, DARK)
@@ -239,7 +423,7 @@ textbox(s, Inches(0.82), Inches(4.75), Inches(11.7), Inches(1.5), [
 textbox(s, Inches(0.82), Inches(6.55), Inches(11.7), Inches(0.32),
         [(PLANNING_NOTE, 11, RGBColor(0x7F, 0x8C, 0xA6), False, True)])
 
-# ---- Slide 2: Deliverables & dates ---------------------------------------
+# ---- Slide 2: Deliverables & dates (index) -------------------------------
 s = prs.slides.add_slide(BLANK)
 header(s, "Deliverables & Dates", "Ordered by due date - soonest first")
 rows = len(DELIVERABLES) + 1
@@ -258,27 +442,56 @@ for i, (name, due, pi, focus, sup) in enumerate(DELIVERABLES, start=1):
 textbox(s, Inches(0.55), Inches(6.25), Inches(12.2), Inches(0.6),
         [(DELIVERABLES_FOOT, 10, TEXT, False, False)])
 
-# ---- Slide 3: In-flight now ----------------------------------------------
-s = prs.slides.add_slide(BLANK)
-header(s, "In-Flight Now - Current Work & Stories",
-       "The threads already in motion - what to do next, and the ADO items")
-rows = len(INFLIGHT) + 1
-tshape = s.shapes.add_table(rows, 3, Inches(0.55), Inches(1.4), Inches(12.2), Inches(4.3))
-t = tshape.table
-for j, wdt in enumerate([Inches(3.0), Inches(5.5), Inches(3.7)]):
-    t.columns[j].width = wdt
-for j, h in enumerate(["Focus area", "What to do next", "Current stories"]):
-    cell(t, 0, j, h, 11.5, WHITE, True, PP_ALIGN.LEFT, DARK)
-for i, (area, todo, stories) in enumerate(INFLIGHT, start=1):
-    fill = LIGHT if i % 2 else WHITE
-    cell(t, i, 0, area, 10.5, DARK, True, PP_ALIGN.LEFT, fill)
-    cell(t, i, 1, todo, 9.5, TEXT, False, PP_ALIGN.LEFT, fill)
-    cell(t, i, 2, stories, 9, TEXT, False, PP_ALIGN.LEFT, fill)
-rect(s, Inches(0.55), Inches(5.9), Inches(12.2), Inches(0.85), RGBColor(0xE9, 0xF0, 0xF8), line=ACCENT)
-textbox(s, Inches(0.72), Inches(5.96), Inches(11.9), Inches(0.76),
-        [(INFLIGHT_FOOT, 10, DARK, False, False)], MSO_ANCHOR.MIDDLE)
 
-# ---- Slide 4: Timeline ---------------------------------------------------
+# ---- Slides 3-10: per-deliverable detail ---------------------------------
+def detail_slide(spec):
+    s = prs.slides.add_slide(BLANK)
+    header(s, spec["name"], "Due " + spec["due"] + "   ·   " + spec["pi"])
+    # summary strip
+    rect(s, Inches(0.55), Inches(1.22), Inches(12.2), Inches(0.5), RGBColor(0xE9, 0xF0, 0xF8), line=ACCENT)
+    textbox(s, Inches(0.72), Inches(1.24), Inches(11.9), Inches(0.46),
+            [(spec["summary"], 11, DARK, False, False)], MSO_ANCHOR.MIDDLE)
+    # left column: Done when
+    textbox(s, Inches(0.55), Inches(1.92), Inches(6.0), Inches(2.5),
+            bullet_lines("Done when (acceptance)", spec["done"], bsize=10))
+    # right column: Scope (in / out)
+    scope = [("Scope", 12, DARK, True, False), ("In scope", 10.5, GREEN, True, False)]
+    scope += [("•  " + it, 9.5, TEXT, False, False) for it in spec["in_scope"]]
+    scope.append(("Out of scope", 10.5, RED, True, False))
+    scope += [("•  " + it, 9.5, TEXT, False, False) for it in spec["out_scope"]]
+    textbox(s, Inches(6.75), Inches(1.92), Inches(6.0), Inches(2.5), scope)
+    # stories band
+    rect(s, Inches(0.55), Inches(4.5), Inches(12.2), Inches(1.35), LIGHT)
+    textbox(s, Inches(0.72), Inches(4.55), Inches(11.9), Inches(1.27),
+            bullet_lines("Current stories", spec["stories"], tsize=11.5, bsize=9.5))
+    # watch-outs strip
+    rect(s, Inches(0.55), Inches(5.92), Inches(12.2), Inches(0.98), AMBER_FILL, line=AMBER)
+    textbox(s, Inches(0.72), Inches(5.96), Inches(11.9), Inches(0.9),
+            bullet_lines("Watch-outs / dependencies", spec["watch"],
+                         tsize=11, bsize=9.5, bcolor=AMBER_BODY, tcolor=AMBER_HEAD))
+    return s
+
+
+for spec in DETAILS:
+    detail_slide(spec)
+
+# ---- Slide 11: Supporting lanes ------------------------------------------
+s = prs.slides.add_slide(BLANK)
+header(s, "Supporting Lanes", "PO / BAU capacity - separate from core CMDB delivery")
+for k, (name, sub, items) in enumerate(SUPPORT):
+    x = 0.55 + k * 6.35
+    rect(s, Inches(x), Inches(1.5), Inches(6.0), Inches(0.72), DARK)
+    textbox(s, Inches(x + 0.18), Inches(1.55), Inches(5.6), Inches(0.34), [(name, 15, WHITE, True, False)])
+    textbox(s, Inches(x + 0.18), Inches(1.88), Inches(5.6), Inches(0.28),
+            [(sub, 11, RGBColor(0xC9, 0xD6, 0xE6), False, False)])
+    rect(s, Inches(x), Inches(2.22), Inches(6.0), Inches(3.0), LIGHT)
+    textbox(s, Inches(x + 0.18), Inches(2.35), Inches(5.6), Inches(2.8),
+            bullet_lines("", items, bsize=11))
+rect(s, Inches(0.55), Inches(5.5), Inches(12.2), Inches(0.7), AMBER_FILL, line=AMBER)
+textbox(s, Inches(0.72), Inches(5.54), Inches(11.9), Inches(0.62),
+        [(SUPPORT_NOTE, 11, AMBER_BODY, False, False)], MSO_ANCHOR.MIDDLE)
+
+# ---- Slide 12: Timeline --------------------------------------------------
 s = prs.slides.add_slide(BLANK)
 header(s, "Timeline - Where It Lands",
        "Tail of PI-2 + all of PI-3  ·  staged monthly acceptance")
@@ -325,7 +538,7 @@ for i, (when, what, lands) in enumerate(MILESTONES, start=1):
     cell(t, i, 1, what, 9, TEXT, False, PP_ALIGN.LEFT, fill)
     cell(t, i, 2, lands, 9.5, ACCENT, True, PP_ALIGN.CENTER, fill)
 
-# ---- Slide 5: Where to focus ---------------------------------------------
+# ---- Slide 13: Where to focus --------------------------------------------
 s = prs.slides.add_slide(BLANK)
 header(s, "Where to Focus", "Priorities for Development + supporting roles")
 yy = 1.4
