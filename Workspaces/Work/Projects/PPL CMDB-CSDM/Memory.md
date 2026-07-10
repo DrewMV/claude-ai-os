@@ -4,7 +4,7 @@ workspace: Work
 project: PPL CMDB-CSDM
 status: active
 created: 2026-06-01
-updated: 2026-06-12
+updated: 2026-07-10
 tags: [work, agile, safe, cmdb-csdm, servicenow]
 ---
 
@@ -150,6 +150,8 @@ Data certification is a hot topic and largely developed; feedback incorporation 
 
 ## Key Decisions
 
+**2026-07-10 — Application Service / Service Instance modification via Service Request — story split:** Decomposed the "modify an Application Service" requirement into two sequential SAFe stories. **Story A** ([[Backlog/service-instance-modify-storyA-core]]) — core modify: 5-role ownership integrity (Owned By, CI Owner, Support Group, Technical Owner Group, Approval Group), field validation, baseline approval (pending Joe); near-ready, target end PI-2. **Story B** ([[Backlog/service-instance-modify-storyB-sox]]) — governed handling for SOX-flagged CIs; target early PI-3. Chose **Option a**: Story A *blocks* modification of SOX-flagged CIs and keeps SOX Indicator/Type read-only; Story B is the governed path that enables them — no interim gap. SOX notifications go to a **single team** ("SOX team", Pepa = POC). **Open decisions for Joe/Compliance:** SOX approval vs. informational notification (#2), and governance scope — every change vs. ownership/classification only (#3). **NERC CIP parked.** Adopted **CSDM 5 (Yokohama)** terminology: Application Service → Service Instance ([[csdm5-terminology]]). **Follow-ups:** recover the truncated Pepa email requirement ("…IAM wants to ensure that the CMDB/CI business owner…") — may add an AC to Story A; get Joe's baseline approval design + Decisions #2/#3.
+
 **2026-06-10 — Business App enhancements paused:** Team agreed to pause all new Business Application enhancements until Application Services migration is complete. Tony to execute migration off Business Application table and retire legacy records. OCM communications required before changes.
 
 **2026-06-10 — AI tools approved:** Use of AI tools (e.g., Claude) confirmed approved with appropriate approval flow.
@@ -185,6 +187,10 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - [[Backlog/audit-dashboard-computer-spike]] — DRAFT **NON-SOW** Computer-tab audit spike (Iter 2.4, due 6/30; scope = Active Computer CIs 28,203 + virtual subset 6,530; 11 audits). Watch: Missing Approval Group = 100%, two 0-count audits, phys/virtual split.
 - [[PI-2/weekly-activity-reference-2026-07-08]] — Week of ~Jul 6–8 comms/activity reference (Go Green, Airlift exec focus, Service Mapping, PI-3 kickoff, audit request); source pointer for the Airlift decomposition
 - **Go Green** — weekly **CMDB & Service Mapping status deck to Sonika from the broader team** (deck title *"CMDB and Service Mapping Status Update"*); **distinct from [[Leadership-Status]]** (Manuel's customer-leadership deck). 7/7 edition: **At-Risk**; Airlift flagged **possible postponement**. Content captured in [[PI-2/weekly-activity-reference-2026-07-08]] §1.
+- [[Backlog/airlift-plan-evaluation]] — evaluation of the draft ServiceNow × Airlift CMDB plan (for **CO6**): 4 workstreams, operating model, gaps (no owners/dates, no Data Dictionary linkage, resourcing TBD, BA→App Service collision). Reference only; source xlsx in Downloads, not in vault.
+- [[Backlog/service-instance-modify-storyA-core]] — **Story A (foundation):** Modify SR core — attributes + 5-role ownership integrity; SOX fields read-only, SOX-flagged CIs blocked (Option a). Buildable now, target end PI-2. Pairs with Story B.
+- [[Backlog/service-instance-modify-storyB-sox]] — **Story B:** governed modify path for SOX-flagged CIs (enables what Story A blocks). Blocked on Decision #2 (SOX approval vs notification) & #3 (governance scope); SOX recipient list from Pepa. Target early PI-3.
+- [[csdm5-terminology]] — **CSDM 5 (Yokohama):** Application Service renamed to Service Instance (Application Service now a *type* of Service Instance). Use "Service Instance / Application Service"; verify PPL's version with Stan Tomberg.
 - [[requirements-process]] — end-to-end requirements flow
 - [[Dependencies/servicenow-enhancements]] — cross-team dependency tracker
 - [[nowassist-implementation-plan]] — 5-phase NowAssist AI roadmap (Duplicate CI Elimination → NL Search → Guided CI Creation → Governance Advice → NASK); primary driver for PI-2 Obj 5 and PI-3 objectives
