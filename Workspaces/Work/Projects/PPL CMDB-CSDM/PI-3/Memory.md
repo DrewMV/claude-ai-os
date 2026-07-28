@@ -14,6 +14,19 @@ tags: [work, safe, pi-planning, cmdb-csdm]
 
 _PI Planning occurs during PI2 IP Iteration (Jul 22 – Aug 4, 2026). Fill in after PI Planning._
 
+- **CO6 contract objectives (7):** [[PI-3/pi3-objectives]] — governing scope, does not change
+- **CMDB/CSDM team ADO objectives (4) + features (11):** [[PI-3/pi3-cmdb-csdm-ado-tracking]] — subset of CO6; this team's tracked/reported scope
+
+### Feature story breakdowns (SAFe stories + dependencies)
+
+Per-feature drafts: SAFe user stories (description + acceptance criteria) and dependencies (problem + acceptance criteria). REFERENCE/DRAFT — ADO authoritative.
+
+- **1517029 — Certify Computers** (Obj 3): [[PI-3/pi3-cert-1517029-certify-computers-stories-dependencies]] — 5 stories (CC-1…CC-5) + 6 dependencies
+- **1517032 — Certify Servers** (Obj 3): [[PI-3/pi3-cert-1517032-certify-servers-stories-dependencies]] — 5 stories (SV-1…SV-5) + 7 dependencies (incl. the `environment` Mandatory ruling, DEP-7)
+- **1517037 — Certify Databases** (Obj 3): [[PI-3/pi3-cert-1517037-certify-databases-stories-dependencies]] — 5 stories (DB-1…DB-5) + 6 dependencies (blocking: CP-3 attribute reconciliation DEP-3; Oracle-KY data quality DEP-4); Oct 30 gate
+- **1517040 — Certify Network Devices** (Obj 3): [[PI-3/pi3-cert-1517040-certify-network-devices-stories-dependencies]] — 6 stories (NW-1…NW-6, incl. net-new audit spike) + 5 dependencies; **highest-risk cert feature** — depends on Obj 4 attribute population (1517005, Sep 30), no audit spike or Class Manager yet; Oct 30 gate
+- **1516993 — Network Discovery** (Obj 4): [[PI-3/pi3-nd-1516993-stories-dependencies]] — existing precedent for this artifact type
+
 ## Iterations
 
 | Iteration | Start | End | Status |

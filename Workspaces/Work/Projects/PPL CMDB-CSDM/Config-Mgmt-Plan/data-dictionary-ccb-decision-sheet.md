@@ -9,6 +9,8 @@ tags: [work, cmdb-csdm, governance]
 
 # CMDB Data Dictionary (CMP Stage 1) — CCB Decision Sheet
 
+> **⚠️ SUPERSEDED (2026-07-27).** This is the pre-vote "38-decision" working sheet. The deck actually **delivered to PPL** — *CMDB-Data-Dictionary-CCB-2026 (July 21 2026) - DELIVERED to PPL.pptx* — uses the **CI Class Reference "Managed Attributes"** format (Required / Recommended / Mandatory per attribute), not this decision-list model. The Server class in the delivered deck carries a governance managed-attribute set with **`environment` = Mandatory**, which this sheet does not reflect (it lists `environment` under Service Instance). Authoritative content mirror: [[cmdb-health-completeness-correctness-stories]]. Retained for history / process record only.
+
 **Companion to** [[configuration-management-plan-stage1]] · part of the [[configuration-management-plan]] umbrella. **For:** CMDB CCB vote, **7/21/2026**.
 
 **Purpose.** Every cell marked `[CCB confirm]` in the Data Dictionary is a PPL governance decision left intentionally open. This sheet lists all **38** of them, grouped by class, so the board can rule on them efficiently rather than hunting through the document.

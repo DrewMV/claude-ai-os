@@ -2,133 +2,135 @@
 type: contract-tracker
 workspace: Work
 project: PPL CMDB-CSDM
-contract: CO6 (Change Order #6) — DRAFT / UNSIGNED
-updated: 2026-06-20
-tags: [work, cmdb-csdm, contract, deliverables, traceability, draft]
+contract: CO6 (Change Order #6) — v3 AUTHORITATIVE
+updated: 2026-07-12
+tags: [work, cmdb-csdm, contract, deliverables, traceability]
 ---
 
 # CO6 Deliverable Tracker + CO5 Gap-Closure Map
 
-> 🟠 **STATUS: DRAFT — NOT SIGNED.** Source is the **3/27 working draft** ([[Contract/CO6-DRAFT-3.27-unsigned.docx]]).
-> Effective date (proposed): **July 1, 2026**. Term: **Jul 1 → Oct 30, 2026**.
-> Tracked because it is the **likely re-baselining vehicle** for the CO5 gaps in [[co5-deliverable-tracking]].
-> **Treat nothing here as committed scope until executed.** Draft artifacts noted in *Caveats* below.
+> ✅ **AUTHORITATIVE SOURCE: CO6 v3** — [[Contract/AP00105-6 to ServiceNow Release 2 and 3 Deployment v3]] (confirmed by Manuel 2026-07-12).
+> The earlier **3/27 working draft** ([[Contract/CO6-DRAFT-3.27-unsigned.docx]]) is **SUPERSEDED — do not use for scope.**
+> Term: targeted start **June 30, 2026 → complete by October 30, 2026**. Spans the tail of PI-2 + all of PI-3.
+> ⚠️ **Signature block in the v3 copy is blank — confirm execution status with Christian** (tracked in Actions).
 
-- **Source contract:** [[Contract/CO6-DRAFT-3.27-unsigned.docx]]
-- **Predecessor:** [[co5-deliverable-tracking]] (CO5, signed, term ends 6/30/2026)
-- **Fees (draft):** CO6 prof. fees est. **$1,577,072** (excl. travel); totals/team-size left blank in draft.
+- **Source contract:** [[Contract/AP00105-6 to ServiceNow Release 2 and 3 Deployment v3]] (authoritative)
+- **Superseded draft:** [[Contract/CO6-DRAFT-3.27-unsigned.docx]] (3/27)
+- **Predecessor:** [[co5-deliverable-tracking]] (CO5, term ended 6/30/2026)
+- **Deliverables:** **9** (v3 — clean numbering; the 3/27 draft's duplicate "#3" is resolved)
+- **Fees (v3):** CO6 prof. fees est. **$2,724,109** (excl. travel; expenses not-to-exceed $68,103)
+- **Decks built from v3:** [[Contract/CO6-Deliverables-2026-07-12-A-with-extras]] · [[Contract/CO6-Deliverables-2026-07-12-B-pure-sow]]
+
+---
+
+## What changed: 3/27 draft → v3 (authoritative)
+
+| Area | 3/27 draft (superseded) | v3 (authoritative) |
+|---|---|---|
+| Deliverable count | 10 entries, **two numbered "3"** | **9**, clean 1–9 |
+| **Qualys** | one-way **Qualys → ServiceNow** (vulnerability data ingest); due **Oct 27** | one-way **ServiceNow → Qualys** (owner / support-group / **SOX-flag** sync); due **Sep 30** |
+| **CI Coverage** (Computers, Servers) | **separate deliverables #4/#5** incl. explicit **90% coverage** | **removed as deliverables** — coverage folds into CMDB Governance data-certification + PI-2 carryover |
+| **CMDB Governance** | data dictionary incl. Databases + Data Cert + **ESS-02** + **SOX BA review** | **per-class data certification** (Computers, Servers, Databases, Network Devices); data-dictionary / ESS-02 / SOX-BA-review **not present** |
+| **NERC-CIP Strategy** | not present | **NEW deliverable #9** (dual-instance evaluation + executive package) |
+| **Legacy Platform** | staged per platform (iTeam Aug 31 / DISCO Sep 30 / Cherwell+AIM Oct 30) | **one 4-platform gap analysis Aug 31**, plan Sep 30, October execution Oct 30 |
+| **Platform Support** | team size "XXX" placeholder | **2 BAU/DevOps + 4 major-enhancement developers** |
+| **ATF Strategy** | Oct 31 | **Oct 30** |
+
+> 🔴 **v3 addresses FEWER CO5 gaps than the 3/27 draft did.** Absent anywhere in v3 (paragraphs + tables): **data dictionary / class attributes**, **ESS-02**, **SOX BA review** (SOX appears only as the Qualys SOX-flag sync), explicit **90% coverage for Computers & Servers**, and **enhanced DB Discovery (MS-SQL/Oracle)**. If these remain PPL expectations — especially for **CO5 acceptance / the $533,775 holdback** — they need a contractual home. **Confirm with Christian / Joe.** See *v3 scope gaps* below.
+
+---
 
 ## Timeline relationship
 
 ```
-CO5  ──────────────┤ (ends Jun 30)
-CO6                 ├────────────────────────────► (Jul 1 – Oct 30)
+CO5  ──────────────┤ (ended Jun 30)
+CO6                 ├────────────────────────────► (Jun 30 – Oct 30)
 PI-2  ───────────────────┤ (ends Aug 4)
 PI-3                      ├──────────────────────► (Aug 5 – Oct 27)
 ```
 
-- CO6 spans the **tail of PI-2** (Jul 1 – Aug 4) **+ all of PI-3** (Aug 5 – Oct 27).
-- CO6 deliverables due **Jul 31** land in **PI-2 Iter 2.5 / 2.6 (IP)**.
-- CO6 deliverables due **Aug 31 / Sep 30 / Oct 30** land in **PI-3**.
-
-> ⚠️ **Signature gap risk:** if CO6 is not executed before **July 1**, the CO5 **June 30 deadline + $533,775 holdback stand with no relief**. **Signature status is itself a critical tracking item.**
+- CO6 spans the **tail of PI-2** (to Aug 4) **+ all of PI-3** (Aug 5 – Oct 27).
+- Earliest gates: **Jul 31** — ITSM Product Management + Platform Support monthly lanes begin (PI-2 tail).
+- **Aug 31 / Sep 30** gates land in **PI-3**.
+- **Oct 30** final gates land **~3 days after PI-3 ends (Oct 27)** → the IP iteration / post-PI-3 tail. Plan Oct-30 acceptance into the final sprint.
 
 ---
 
-## CO5 → CO6 Gap-Closure Map (the reason we're tracking this)
+## CO5 → CO6 Gap-Closure Map (v3)
 
-| CO5 gap (from [[co5-deliverable-tracking]]) | CO6 deliverable that resolves it | New due date | Effect |
+> How the authoritative v3 addresses each CO5 gap. **Several CO5 items no longer have an explicit CO6 contractual home** — flagged below.
+
+| CO5 gap (from [[co5-deliverable-tracking]]) | v3 CO6 deliverable that addresses it | Due | Effect |
 |---|---|---|---|
-| **D1.1 Database data dictionary — GAP** | **CMDB Governance** — data dictionary/class attributes incl. **Databases** | **Jul 31** | ✅ Closes the gap (+1 month) |
-| **D1.2 Data Cert pilot = BA only; KB docs unowned** | **CMDB Governance** — pilot release for **ALL CI classes** + KB articles | **Jul 31** | ✅ Expands scope |
-| **D2.1 Computers 90% coverage — no measurement story** | **CI Coverage – Computers** — coverage validation, 90% managed | **Sep 30** | ✅ Re-baselined w/ realistic date |
-| **D2.2 Servers 90% non-NERC-CIP — no measurement story** | **CI Coverage – Servers** — coverage validation, 90% | **Oct 30** | ✅ Re-baselined |
-| **D2.3 DB enhanced Discovery (MS-SQL/Oracle)** | **CI Coverage – Servers** — enhanced Discovery MS-SQL & Oracle (same RISK note) | **Jul 31** | ✅ Carried forward |
-| **D3 Qualys — BLOCKED, "evaluate" only** | **Qualys Integration** — full one-way Qualys→SNOW, deployed to PROD | **Oct 27** | ✅ Escalates evaluate → operationalize, w/ runway |
-| **D1.5 Monthly CCB facilitation + future-PI backlog** | ❌ **Not carried as a CO6 deliverable** (only in CMDB PO role text) | — | 🔴 **Remains a CO5-only obligation** — CCB feature-Removed fix still needed |
+| **D1.1 Database data dictionary — GAP** | CMDB Governance — *data certification for Databases* (no explicit data-dictionary AC in v3) | Oct 30 | ⚠️ **Partial** — certification, not a data-dictionary deliverable |
+| **D1.2 Data Cert (BA only) + KB docs** | CMDB Governance — **per-class data certification** (Computers, Servers, Databases, Network) w/ process, PROD build, dashboards, training | Sep 30 / Oct 30 | ✅ Expands to 4 CI classes (KB articles not an explicit v3 AC) |
+| **D2.1 Computers 90% coverage** | *Not an explicit v3 deliverable* — folds into data cert + PI-2 carryover (G2) | — | 🔴 **No dedicated 90% deliverable in v3** |
+| **D2.2 Servers 90% non-NERC-CIP** | *Not an explicit v3 deliverable* — PI-2 carryover (G3) | — | 🔴 **Same — no v3 home** |
+| **D2.3 DB enhanced Discovery (MS-SQL/Oracle)** | *Not present in v3* (was in the 3/27 draft) | — | 🔴 **Dropped from v3 — confirm** |
+| **D3 Qualys — BLOCKED, "evaluate" only** | **Qualys Integration** — one-way **ServiceNow → Qualys** owner/support-group/SOX-flag sync, live in PROD | Sep 30 | 🔁 Continues, but **scope pivoted** (attribute sync, not vuln ingest) |
+| **D1.5 Monthly CCB + future-PI backlog** | ❌ Not a CO6 deliverable | — | 🔴 **Remains a CO5-only obligation** |
 
-> **Bottom line:** CO6 closes **5 of 6** CO5 gaps by re-dating them to Jul 31 → Oct 30. The **CCB/governance-cadence** item is the exception — do not assume CO6 covers it.
+> **Bottom line:** v3 firmly covers **Data Certification (4 classes)** and **Qualys (re-scoped)**, but the **90% coverage** goals, **enhanced DB discovery**, **data dictionary**, **ESS-02**, **SOX BA review**, and **monthly CCB** do **not** have explicit v3 acceptance criteria. Treat these as **open CO5-acceptance risks**, not "closed by CO6."
 
 ---
 
-## CO5 → CO6 Timeline Shift
+## CO6 v3 Deliverables (all 9)
 
-> How CO6 re-dates each CO5 deliverable. CO5 had a single hard **Jun 30** cliff; CO6 splits it into **two tiers** — foundation work to **Jul 31** (+1 mo) and the hard coverage/integration work to **Sep 30 / Oct 30** (+3–4 mo).
+> Acceptance dates are **staged** for the discovery / mapping / coverage items. Numbering per v3.
 
-| CO5 Deliverable | CO5 date | CO6 date | Shift | Lands in |
+| # | Deliverable | Key acceptance criteria (v3) | Due | PI | Existing work / stories |
+|---|-------------|------------------------------|-----|----|--------------------------|
+| 1 | **Network Gear Discovery** | Device types discovered w/ validated creds (no failed auth) + schedules active (Aug 31); mandatory attrs populated (Sep 30); **90% coverage** business-owner validated (Oct 30) | Aug 31 → **Oct 30** | PI-3 | feat **1356646**, stories 1402572/574/575; creds 1444864/1459721; dep 1383487 |
+| 2 | **Service Mapping** | **15 Silver-tier** app→infra maps + **≥75% business-service inventory** (Aug 31); Gold-tier service→app maps + Silver validation (Sep 30); remaining Silver + service→app (Oct 30) | Aug 31 → **Oct 30** | PI-3 | Wave features **1355866/1355868/1355871**; per-app WATT, Oceana, SolarWinds PoC 1431652. *Assumes business services pre-defined* |
+| 3 | **Qualys Integration** | One-way **ServiceNow → Qualys** (owner, support group, SOX flag) fully configured/tested/**live in PROD**, scheduled sync, no manual handoffs | **Sep 30** | PI-3 | **1428703/1428704** (BLOCKED), spike 1234585, issue 1465952 — ⚠️ confirm stories match the **SN→Qualys** direction |
+| 4 | **CMDB Governance** | **Data certification** (process + PROD build + dashboards + training) for **Computers & Servers** (Sep 30); **Databases & Network Devices** (Oct 30) | Sep 30 → **Oct 30** | PI-3 | Data Cert 1247179/1402727/1402958/1435307; audit spikes 1480112/1480113/1480114 |
+| 5 | **Legacy Platform Rationalization** | **4-platform gap analysis** (iTeam, DISCO, Cherwell, AIM) vs. ServiceNow, PPL docs validated (Aug 31); migration plan + roadmap (Sep 30); October execution (Oct 30) | Aug 31 → **Oct 30** | PI-3 | iTeam import **1452028**; no analysis/plan stories yet |
+| 6 | **ITSM Product Management** | ITSM PO activities each period — stakeholder engagement, backlog prioritization in ceremonies, cross-functional coordination, governance forums | **Monthly** Jul 31 → Oct 30 | PI-2/3 | 🆕 workstream — owner TBD |
+| 7 | **ATF Strategy** | Published ATF implementation plan for all prod capabilities in use as of Jul 31 — coverage criteria, sequenced rollout timeline, reusable approach | **Oct 30** | PI-3 | 🆕 no stories |
+| 8 | **Platform Support** | Time/effort tracking operational; **2 BAU/DevOps + 4 major-enhancement devs**; each member **40 hrs of completed stories/week** (PTO-adjusted); allocation reports | **Monthly** Jul 31 → Oct 30 | PI-2/3 | 🆕 BAU/DevOps workstream |
+| 9 | **NERC-CIP ServiceNow Platform Strategy** | Dual-instance **evaluation** (considerations, pros/cons, risks, deps) (Sep 30); **executive strategy package** (options, tradeoffs, high-level steps) (Oct 30) | Sep 30 → **Oct 30** | PI-3 | 🆕 no stories; leadership deliverable |
+
+---
+
+## Net-new vs. continuing (v3)
+
+| # | v3 Deliverable | Net-new? | Notes |
+|---|-----------------|----------|-------|
+| 1 | Network Gear Discovery | 🆕 NEW as a deliverable | Was PI-2 Obj 1; story scaffolding exists |
+| 2 | Service Mapping | 🆕 NEW as a deliverable | Was PI-2 Obj 3; v3 sets 15 Silver + Gold + 75% targets |
+| 3 | Qualys Integration | 🔁 Continues — **re-scoped** | CO5 D3 → v3 SN→Qualys attribute sync (direction changed) |
+| 4 | CMDB Governance | 🔁 Continues — **re-focused** | CO5 D1 → v3 per-class data certification (drops dictionary/ESS-02/SOX-BA) |
+| 5 | Legacy Platform Rationalization | 🆕 NEW | Only iTeam import 1452028 today |
+| 6 | ITSM Product Management | 🆕 NEW workstream | ITSM PO role — outside CMDB |
+| 7 | ATF Strategy | 🆕 NEW | Greenfield |
+| 8 | Platform Support | 🆕 NEW workstream | 2 BAU + 4 enhancement devs |
+| 9 | NERC-CIP Platform Strategy | 🆕 NEW | Leadership strategy deliverable |
+
+> **7 net-new / re-scoped** deliverables; only **Data Certification** and **Qualys** clearly continue CO5 threads. ITSM PM + Platform Support are **ongoing-capacity** commitments (40 hrs/wk/person), not finite deliverables — they need staffing, not just stories.
+
+---
+
+## v3 scope gaps vs. CO5 (open risks)
+
+> Items PPL may still expect that have **no explicit v3 acceptance criteria**. Each is a potential CO5-acceptance / holdback exposure.
+
+| Expectation | In CO5? | In 3/27 draft? | In v3? | Action |
 |---|---|---|---|---|
-| **D1 Governance** — data dictionary (incl. Databases), Data Cert, ESS-02, SOX | Jun 30 | **Jul 31** | **+1 mo** | PI-2 Iter 2.5/2.6 |
-| **D2.1 Computers** — SCCM precedence, bulk life-cycle | Jun 30 | **Jul 31** | **+1 mo** | PI-2 |
-| **D2.1 Computers** — 90% coverage validation | Jun 30 | **Sep 30** | **+3 mo** | PI-3 |
-| **D2.2 Servers** — SCCM precedence, enhanced DB Discovery | Jun 30 | **Jul 31** | **+1 mo** | PI-2 |
-| **D2.2 Servers** — 90% non-NERC-CIP coverage | Jun 30 | **Oct 30** | **+4 mo** | PI-3 |
-| **D3 Qualys** (was "evaluate" only) | Jun 30 | **Oct 27** | **+4 mo** + scope ⬆️ | PI-3 |
-| **D1.5 Monthly CCB** | Jun 30 | *(none)* | **No relief — stays CO5** | CO5 only |
-
-**Two gates on whether this relief is real:**
-1. 🔴 **Signature before July 1.** Unsigned ⇒ every row above snaps back to the **Jun 30** CO5 deadline.
-2. 🔴 **$533,775 holdback unresolved.** CO5 ties the holdback to *final acceptance of CO5 deliverables*; the CO6 draft re-dates those deliverables but **does not state what happens to the holdback** (fee table blank). Confirm whether signing CO6 **releases** it or leaves it pinned to a 6/30 acceptance that won't occur.
+| Data dictionary / class attributes | ✅ (D1.1) | ✅ | ❌ | Confirm where it lives (data-cert scope? side note?) |
+| ESS-02 alignment | ✅ (D1.3) | ✅ | ❌ | Confirm with Jason Dubreuil / Joe |
+| SOX BA review (governance) | ✅ (D1.4) | ✅ | ❌ (SOX only as Qualys flag) | Confirm SOX governance obligation |
+| Computers/Servers 90% coverage | ✅ (D2) | ✅ | ❌ | Carryover (G2/G3) — no v3 deliverable |
+| Enhanced DB Discovery (MS-SQL/Oracle) | ✅ (D2.3) | ✅ | ❌ | Confirm — dropped from v3 |
+| Monthly CCB facilitation | ✅ (D1.5) | ❌ | ❌ | Remains CO5-only |
 
 ---
 
-## CO6 Deliverables (draft — all 9)
+## Caveats — v3
 
-> Acceptance dates are **staged** (monthly) for the discovery/mapping/coverage items.
-
-| # | Deliverable | Key acceptance criteria | Due | PI | Existing work / stories |
-|---|-------------|-------------------------|-----|----|--------------------------|
-| 1 | **Network Gear Discovery** | Creds configured/validated (excl. OT); schedules active; mandatory attrs populated; **90% coverage** (business-owner validated) | Aug 31 → **Oct 30** | PI-3 | PI-2 Obj 1 features **1356646** (Network Device Coverage), stories 1402572/574/575; dep 1383487 |
-| 2 | **Service Mapping** | Maps for **10 priority business apps** to infra CIs; owner-validated; consumable in SNOW | Aug 31 → **Oct 30** | PI-3 | PI-2 Obj 3 — Wave features **1355866/1355868/1355871**; per-app stories (WATT, Oceana, SolarWinds PoC 1431652, etc.) |
-| 3a | **Qualys Integration** | One-way Qualys→SNOW fully configured/tested/**deployed to PROD**; vuln data ingests on schedule, no loss | **Oct 27** | PI-3 | Stream C — **1428703/1428704** (currently BLOCKED), spike 1234585, issue 1465952 |
-| 3b | **CMDB Governance** *(dup. #3 in draft)* | Data dictionary incl. **Databases**; Data Cert pilot **all CI classes** + KB; **ESS-02**; **SOX** BA review (not NERC/CIP) | **Jul 31** | PI-2 | CO5 D1 work continues — Data Cert (1247179/1402727/1402958…), ESS-02 spike 1420244, SOX 1438967/1455827 |
-| 4 | **CI Coverage – Computers** | SCCM/Discovery precedence; bulk life-cycle (Asset Mgmt-defined); **90% managed** | Jul 31 → **Sep 30** | PI-2/3 | SCCM Computer Class 1348712/16/17/15; Computer Class 1354794 |
-| 5 | **CI Coverage – Servers** | SCCM/Discovery precedence; **enhanced DB Discovery MS-SQL/Oracle**; **90%** computers + non-NERC-CIP servers | Jul 31 → **Oct 30** | PI-2/3 | SCCM Server Class 1356826 (1403759/60/62/63); creds 1444864 |
-| 6 | **Legacy Platform Rationalization** | Analysis + migration plan for **iTeam → DISCO/Cherwell → AIM** (Cherwell/AIM only "if applicable at PI-3 planning") | Aug 31 → **Oct 30** | PI-3 | iTeam import **1452028**; ties to Ray's 450-server app↔server gap (Risk #13) |
-| 7 | **ITSM Product Management** | ITSM PO role — stakeholder mgmt, backlog prioritization, agile ceremonies, governance | Jul 31 → Oct 30 (monthly) | PI-2/3 | 🆕 **New ITSM workstream** — outside CMDB; owner TBD (Joe? new hire?) |
-| 8 | **ATF Strategy** | Plan for Automated Test Framework rollout across in-prod SNOW capabilities (criteria, timeline, approach) | **Oct 31** | PI-3 | 🆕 No existing stories |
-| 9 | **Platform Support** | Dedicated BAU team (size **TBD/"XXX"**); time-tracking per sprint; **40 hrs stories/wk per member**; excl. <40hr enhancements | Aug 31 → Oct 30 (monthly) | PI-3 | 🆕 **New BAU/DevOps workstream** — not project-based |
-
----
-
-## New CO6 Deliverables (net-new scope — no CO5 antecedent)
-
-> Distinguishes **net-new** CO6 deliverables from the ones that merely **re-baseline** CO5 items (those are in the gap-closure map above). Net-new = brand-new contractual obligations to plan, staff, and story-out — mostly at **PI-3 planning**.
-
-| # | CO6 Deliverable | Net-new? | Why | Story status today |
-|---|-----------------|----------|-----|--------------------|
-| 1 | **Network Gear Discovery** | 🆕 **NEW as a deliverable** | Was PI-2 *objective* (Obj 1), never a contracted CO5 deliverable | PI-2 stories exist (1356646, 1402572/574/575) but not contracted/accepted |
-| 2 | **Service Mapping** | 🆕 **NEW as a deliverable** | Was PI-2 *objective* (Obj 3); CO6 sets a hard **10-priority-app** target | Wave features + per-app stories exist; no 10-app acceptance defined |
-| 3a | Qualys Integration | ⬆️ Not new — **escalated** | Continues CO5 D3 (evaluate → full PROD) | 1428703/1428704 (blocked) |
-| 3b | CMDB Governance | 🔁 Not new — **re-baselined** | Continues CO5 D1 | see CO5 acceptance tracking |
-| 4 | CI Coverage – Computers | 🔁 Not new — **re-baselined** | Continues CO5 D2.1 | — |
-| 5 | CI Coverage – Servers | 🔁 Not new — **re-baselined** | Continues CO5 D2.2/2.3 | — |
-| 6 | **Legacy Platform Rationalization** | 🆕 **NEW** | Analysis + migration plan for **iTeam / DISCO / Cherwell / AIM** | Only iTeam import 1452028; ties to Ray's 450-server gap (Risk #13). No analysis/plan stories |
-| 7 | **ITSM Product Management** | 🆕 **NEW workstream** | New **ITSM PO** role (#26) — outside CMDB | No stories; owner TBD (ties to CR6 role segmentation w/ Aaron Simeon) |
-| 8 | **ATF Strategy** | 🆕 **NEW** | Automated Test Framework rollout plan | No stories |
-| 9 | **Platform Support** | 🆕 **NEW workstream** | Dedicated **BAU/DevOps** team, 40 hrs/wk per member | No stories; team size "XXX" placeholder in draft |
-
-> **6 net-new deliverables** (#1, #2, #6, #7, #8, #9). #1/#2 have *story scaffolding* from PI-2 objectives but **no contractual acceptance criteria met**; #6–#9 are **greenfield** — to be planned and staffed at PI-3.
-> **Net-new ≠ free:** ITSM PM + Platform Support are **ongoing-capacity** commitments (40 hrs/wk/person), not finite deliverables — they need staffing decisions, not just stories.
-
----
-
-## Structural changes vs CO5
-
-- 🆕 **ITSM Product Owner** role added (staff #26) + **ITSM Product Management** deliverable (#7) → engagement broadens beyond CMDB into ITSM.
-- 🆕 **Platform Support / BAU** team (#9) → ongoing production support, separate from project delivery.
-- 🆕 **ATF Strategy** (#8) → test-automation planning.
-- 🆕 **Network Gear Discovery**, **Service Mapping**, **Legacy Platform Rationalization** become **formal contractual deliverables** (in CO5 these were PI objectives, not contracted deliverables).
-- Coverage targets move to **staged monthly acceptance** (Aug/Sep/Oct) rather than a single hard date.
-
----
-
-## Caveats — this is a working draft
-
-- **Unsigned**; signature block erroneously says "Change Order #4."
-- **Deliverable numbering duplicated** — two items numbered "3" (Qualys + CMDB Governance).
-- **Fee table incomplete** — CO6 row, monthly Jul–Oct fees, totals, and team size ("XXX") all blank/placeholder; carried totals still reflect CO5.
-- Filename `_3.27` indicates a **March 27 draft** — newer revisions may exist. **Confirm this is the current version.**
-- Effective date July 1, 2026 with an unsigned doc as of today (6/20) ⇒ **~10 days to execute or risk a coverage gap.**
+- **Signature block is blank** in the v3 copy — v3 is the authoritative *scope* but confirm it is **executed**.
+- **Qualys direction changed** vs. the 3/27 draft (now ServiceNow → Qualys attribute sync). The BLOCKED stories 1428703/1428704 were scoped under the older framing — **verify they match v3** or re-scope.
+- **CI Coverage** is no longer a standalone deliverable; the CO5 90%-coverage goals live only as **PI-2 carryover**, not CO6 acceptance.
+- Fees $2,724,109 (excl. travel); invoicing table in v3 (not tracked here).
 
 ---
 
@@ -136,8 +138,9 @@ PI-3                      ├─────────────────
 
 | # | Action | Owner | Priority |
 |---|--------|-------|----------|
-| 1 | Confirm CO6 **signature timeline** — must execute before July 1 to avoid CO5 holdback exposure | Manuel → Christian | 🔴 |
-| 2 | Confirm this 3/27 draft is the **latest revision**; obtain any newer version | Manuel → Christian | 🔴 |
-| 3 | Confirm **CCB/governance cadence** has a contractual home (CO6 doesn't list it as a deliverable) | Manuel → Joe | 🟡 |
-| 4 | Identify **ITSM PO** owner + how the new ITSM/BAU/ATF workstreams staff up (ties to CR6 role segmentation w/ Aaron Simeon) | Manuel → Christian | 🟡 |
-| 5 | Once signed: build a CO6 deliverable→story matrix at PI-3 planning (most CO6 stories not yet created) | Manuel | 🟡 |
+| 1 | Confirm **v3 execution/signature** status (blank signature block in the copy) | Manuel → Christian | 🔴 |
+| 2 | Confirm the **CO5 scope gaps** (data dictionary, ESS-02, SOX BA review, 90% coverage, DB discovery) have a home — CO5 acceptance / holdback exposure | Manuel → Christian / Joe | 🔴 |
+| 3 | Verify Qualys stories **1428703/1428704** match the v3 **SN→Qualys** direction or re-scope | Manuel → Stan | 🟡 |
+| 4 | Confirm **CCB/governance cadence** contractual home (not a v3 deliverable) | Manuel → Joe | 🟡 |
+| 5 | Identify **ITSM PO** owner + staffing for ITSM / Platform Support / ATF / NERC-CIP workstreams | Manuel → Christian | 🟡 |
+| 6 | Build CO6 deliverable→story matrix at PI-3 planning (most CO6 stories not yet created) | Manuel | 🟡 |

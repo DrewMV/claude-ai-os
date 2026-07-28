@@ -377,9 +377,21 @@
     }
   },
   "stats": {
-    "total_sources_ingested": 191,
+    "total_sources_ingested": 192,
     "total_pages": 36,
     "total_projects": 7,
     "last_full_rebuild": null
+  },
+  "documents": {
+    "C:\\Users\\manuel.b.vazquez\\Desktop\\PI3-Objectives-Features-2026-07-22.pptx": {
+      "ingested_at": "2026-07-27T00:00:00Z",
+      "size_bytes": 48178,
+      "modified_at": "2026-07-26T16:45:44Z",
+      "content_hash": "sha256:05bebb9a87bf591e286b3a96303e6f6970b5a6f35ab9a3617eb4e1d747d96e6f",
+      "source_type": "document",
+      "project": "PPL CMDB-CSDM",
+      "pages_created": [],
+      "pages_updated": ["Workspaces/Work/Projects/PPL CMDB-CSDM/PI-3/pi3-cmdb-csdm-ado-tracking.md"]
+    }
   }
 }

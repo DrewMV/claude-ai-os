@@ -4,7 +4,7 @@ workspace: Work
 project: PPL CMDB-CSDM
 pi: PI-3
 contract: CO6 (Change Order #6)
-updated: 2026-07-08
+updated: 2026-07-28
 tags: [work, cmdb-csdm, safe, pi-planning, co6]
 ---
 
@@ -13,7 +13,8 @@ tags: [work, cmdb-csdm, safe, pi-planning, co6]
 **PI-3 Window:** Aug 5 – Oct 27, 2026  
 **Contract:** Change Order #6 — effective Jun 30, 2026 → Oct 30, 2026 | $2,724,109  
 **Source:** AP00105-6 to ServiceNow Release 2 and 3 Deployment v3.docx (authoritative)  
-**Note:** CO6 is the governing scope document. Any prior CO5 framing is superseded for PI-3 planning purposes.
+**Note:** CO6 is the governing scope document. Any prior CO5 framing is superseded for PI-3 planning purposes.  
+**CMDB/CSDM subset:** The CMDB/CSDM team's PI-3 ADO objectives and features (a subset of these CO6 objectives) are tracked in [[PI-3/pi3-cmdb-csdm-ado-tracking]].
 
 ---
 
@@ -62,7 +63,7 @@ tags: [work, cmdb-csdm, safe, pi-planning, co6]
 **Priority:** P1 — re-baselines CO5 D1; all four CI classes must be certified by Oct 30  
 **PI-2 Carryover absorbed here:**
 - Data Dictionary CCB approval (target Jul 21 — pre-PI-3 gate; tracks into PI-3 if slips)
-- 3 audit dashboard spikes (Servers 1480112, Database 1480113, Computer 1480114) — Active, carried from Sprint 2.4; required as evidence for coverage acceptance
+- 3 audit dashboard spikes (Servers 1480112, Database 1480113, Computer 1480114) — carried from Sprint 2.4; required as evidence for coverage acceptance. **Status (ADO PI2.6, 7/28): Computer 1480114 ✅ CLOSED; Servers 1480112 ✅ CLOSED; Database 1480113 status unconfirmed (not on the PI2.6 view) — verify** (2 of 3 confirmed done)
 - 90%-coverage acceptance stories for Computers (G2) and Servers (G3) — no formal story yet; must be created and accepted
 
 **Acceptance Criteria (CO6 §4 + PI-2 carryover):**

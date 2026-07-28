@@ -4,10 +4,13 @@ tags: [cmdb-csdm, servicenow, governance, ccb, data-definitions]
 cmp-stage: 1
 status: draft
 parent: configuration-management-plan
-updated: 2026-06-29
+updated: 2026-07-20
 ---
 
 # Configuration Management Plan — Stage 1: Class & Attribute Data Definitions
+
+> **⚠️ RECONCILIATION (2026-07-27) — delivered dictionary is authoritative for the governance view.** The version delivered to PPL — *CMDB-Data-Dictionary-CCB-2026 (July 21 2026) - DELIVERED to PPL.pptx* — is the **ratified CMP Stage 1** for the **governance managed-attribute view** (per-class Managed Attributes with Required / Recommended / Mandatory designations; mirrored 1:1 in [[cmdb-health-completeness-correctness-stories]]). **This document is the fuller technical-dictionary draft** (base-class custom attributes, child classes, IRE, per-attribute source-of-truth, relationships) and is **retained for that detail** — but where the two differ on governed attributes, the delivered deck governs.
+> **Known divergence (left open, per decision 2026-07-27):** the delivered deck lists `environment` as a **Mandatory** attribute on **Server**, whereas this narrative models `environment` on **Service Instance** (see § Service Instance) and scopes it *out* of Server. That placement and the Mandatory ruling are **under validation** — see [[server-environment-mandatory-spike]]. Not changed here pending the spike.
 
 > **Part of:** [[configuration-management-plan]] — the **CMP umbrella**. This file is the **Stage 1** deliverable; the umbrella holds the full deliverable roadmap, governance, and CO5 linkage.
 > **Sync:** this doc owns Stage 1 *content*; the umbrella owns the *roadmap status*. If this stage's status changes, update **both** this file's `status` frontmatter **and** the Stage 1 row in the umbrella roadmap.
@@ -19,6 +22,26 @@ updated: 2026-06-29
 > **Cells marked `[CCB confirm]`** are PPL-specific governance decisions (mandatory rules, audit inclusion, certification ownership) that require CCB ratification — they are intentionally not assumed. **Certification Owner** is pre-populated from the CCB Class Manager roster where a class mapping exists.
 
 **Data dictionary columns:** Attribute (Display Name) · Technical Name · Data Type · Mandatory · Allowed Values / Reference · Source of Truth · Default Value · Audited · Certification Owner · Last Reviewed · Description & Governance
+
+---
+
+## BASE CLASS: Configuration Item (`cmdb_ci`)
+
+> All CI classes in the instance extend `cmdb_ci` and inherit its attributes. The PPL custom attributes defined here apply **universally** across every CI class.
+
+### PPL Custom Attributes (Inherited by All CI Classes)
+
+| Attribute (Display Name) | Technical Name | Data Type | Mandatory | Allowed Values / Reference | Source of Truth | Default Value | Audited | Certification Owner | Last Reviewed | Description & Governance |
+|---|---|---|---|---|---|---|---|---|---|---|
+| SOX Type | `u_sox_type` | Choice | N | [CCB confirm — choice values TBD] | Manual / Data Certification | — | [CCB confirm] | [CCB confirm] | 2026-07-20 | SOX compliance type classification. Applied across all CI classes. Used alongside SOX Indicator to determine SOX-scoped CIs. Per Story A design, read-only in modification workflows for SOX-flagged CIs. |
+| GASCI | `u_gasci` | True/False | N | true / false | Manual / Data Certification | — | [CCB confirm] | [CCB confirm] | 2026-07-20 | Government and Security Critical Infrastructure flag. Marks CIs subject to GASCI controls. |
+| GASCI Type | `u_gasci_type` | Choice | N | [CCB confirm — choice values TBD] | Manual / Data Certification | — | [CCB confirm] | [CCB confirm] | 2026-07-20 | Type of GASCI classification for the CI. |
+| Special Handling (NERC TCA) | `u_nerctca` | True/False | N | true / false | Manual / Data Certification | — | [CCB confirm] | [CCB confirm] | 2026-07-20 | NERC CIP Transient Cyber Asset flag. Marks CIs requiring NERC CIP special handling. Technical name reflects the regulatory program. |
+| Computer Type | `u_computer_type` | Choice | N | [CCB confirm — choice values TBD] | Manual / Discovery | — | [CCB confirm] | [CCB confirm] | 2026-07-20 | Hardware/computer type classification at the base CI level. |
+| SOX Indicator | `u_sox_indicator` | True/False | N | true / false | Manual / Data Certification | false | [CCB confirm] | [CCB confirm] | 2026-07-20 | Boolean SOX flag. Default: false. Used alongside SOX Type to identify SOX-scoped CIs. Read-only in Story A modification workflow — SOX-flagged CIs are blocked from modification until Story B (governed path) is implemented. |
+| Metal Tier | `u_business_priority` | Choice | N | [CCB confirm — e.g., Gold / Silver / Bronze] | Manual / Data Certification | — | [CCB confirm] | [CCB confirm] | 2026-07-20 | Business priority tier. Technical name (`u_business_priority`) differs from display label ("Metal Tier"). |
+
+> **As configured in CI Class Manager, 2026-07-20.** Total of 7 PPL-added custom attributes at the base class level (all with `Added: true`). Choice list values for SOX Type, GASCI Type, Computer Type, and Metal Tier require CCB confirmation.
 
 ---
 
@@ -41,6 +64,9 @@ updated: 2026-06-29
 | Life Cycle Stage | `life_cycle_stage` | Choice | [CCB confirm] | CSDM lifecycle stages | EA integration (authoritative) | — | Y | Todd Dierksheide (Class Mgr – Business Application) | 2026-06-24 (draft) | Lifecycle metric sourced from Enterprise Architecture. |
 | IT Application Owner | `it_application_owner` | Reference (sys_user) | [CCB confirm] | Active sys_user record | Manual / Data Certification | — | Y | CI Data Manager (Data Certification) | 2026-06-24 (draft) | Strategic IT leader responsible for the platform lifecycle. Manual updates via Data Certification workflow. |
 | Business Owner | `business_owner` | Reference (sys_user) | [CCB confirm] | Active sys_user record | Manual / Data Certification | — | Y | CI Data Manager (Data Certification) | 2026-06-24 (draft) | Business stakeholder funding/sponsoring the application. |
+| Access Control Source System | `u_access_control_source_system` | Choice (PPL custom) | N | [CCB confirm — choice values TBD] | Manual | — | [CCB confirm] | Todd Dierksheide (Class Mgr – Business Application) | 2026-07-20 | PPL-added custom attribute. Source system used for access control data. |
+| Approval Group | `u_approval_group` | Reference (Group) (PPL custom) | N | Active sys_user_group | Manual | — | [CCB confirm] | Todd Dierksheide (Class Mgr – Business Application) | 2026-07-20 | PPL-added custom attribute. Approval group associated with this Business Application. |
+| Recovery Tier | `u_recovery_tier` | String (PPL custom) | N | Free text | Manual | — | [CCB confirm] | Todd Dierksheide (Class Mgr – Business Application) | 2026-07-20 | PPL-added custom attribute. Recovery priority tier classification for the application. |
 
 ### 3. Data Population & Identification
 
@@ -72,7 +98,7 @@ updated: 2026-06-29
 | Attribute (Display Name) | Technical Name | Data Type | Mandatory | Allowed Values / Reference | Source of Truth | Default Value | Audited | Certification Owner | Last Reviewed | Description & Governance |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Name | `name` | String (255) | Y | Free text; must be unique | Service Mapping / Manual | — | Y | [CCB confirm] — no dedicated CCB Class Manager mapped | 2026-06-24 (draft) | Primary CI identifier. |
-| Environment | `environment` | Choice | Y | Prod, QA, Dev, Test | Service Mapping / Manual | — | Y | [CCB confirm] — no dedicated CCB Class Manager mapped | 2026-06-24 (draft) | Deployment environment of the running stack. |
+| Environment | `environment` | Choice | Y | Prod, QA, Dev, Test | Service Mapping / Manual | — | Y | [CCB confirm] — no dedicated CCB Class Manager mapped | 2026-06-24 (draft) | Deployment environment of the running stack. **⚠️ Divergence:** the delivered dictionary (2026-07-21) instead places a **Mandatory** `environment` on **Server**, not here — placement under validation via [[server-environment-mandatory-spike]]. |
 | Service Owner | `owned_by` | Reference (sys_user) | [CCB confirm] | Active sys_user record | Manual / Data Manager | — | Y | CI Data Manager | 2026-06-24 (draft) | Operational manager responsible for uptime. |
 | ITSM Support Group | `support_group` | Reference (sys_user_group) | [CCB confirm] | Active sys_user_group | Manual / Data Manager | — | Y | CI Data Manager | 2026-06-24 (draft) | Team that handles incidents for this environment. |
 | Change Approval Group | `change_control` | Reference (sys_user_group) | [CCB confirm] | Active sys_user_group | Manual / Data Manager | — | Y | CI Data Manager | 2026-06-24 (draft) | CAB for this environment. |
@@ -113,12 +139,14 @@ updated: 2026-06-29
 | Operating System | `os` | String | N | e.g., Windows 11, macOS | SCCM/Intune SGC (authoritative) | — | [CCB confirm] | Monica Green (Physical) / Paul Becker (Virtual) | 2026-06-24 (draft) | OS sourced from endpoint management connector. |
 | MAC Address | `mac_address` | String | N | Valid MAC format | Endpoint connector / Discovery | — | [CCB confirm] | Monica Green (Physical) / Paul Becker (Virtual) | 2026-06-24 (draft) | Network identifier; IRE priority 2. |
 | Serial Number | `serial_number` | String | Y | Hardware serial | Asset Mgmt / SCCM (authoritative) | — | Y | Monica Green (Physical) / Paul Becker (Virtual) | 2026-06-24 (draft) | Hardware serial for asset tracking; IRE priority 1. |
+| Requested Item | `u_request` | Reference (Requested Item) (PPL custom) | N | sc_request record | Service Catalog / Manual | — | N | Monica Green (Physical) / Paul Becker (Virtual) | 2026-07-20 | PPL-added custom attribute. Links the CI to the originating Service Catalog request. Max length: 32. |
+| Off Network | `u_off_network` | True/False (PPL custom) | N | true / false | Manual | — | N | Monica Green (Physical) / Paul Becker (Virtual) | 2026-07-20 | PPL-added custom attribute. Flags whether the device is operating off-network. Max length: 40. |
 
 ### 3. Data Population & Identification
 
 - **Primary Discovery Source(s):** Endpoint Management Connectors (Microsoft SCCM/Intune Service Graph Connector, Jamf), ServiceNow Agent Client Collector.
-- **Identification Rules (IRE):** Priority 1: Serial Number. Priority 2: MAC Address. Priority 3: Name.
-- **Data Precedence / Reconciliation Rules:** SCCM/Intune Service Graph Connector is authoritative for OS, OS Version, and Hardware specifications. Asset Management / Procurement integrations override for Financial fields (Cost Center, PO Number).
+- **Identification Rules (IRE):** Rule name: **PPL Computers** (Independent; description: *Duplicate Workstation*). Single identifier entry: Standard, Active, Priority 100, criteria: **Name + Serial number**. _(As configured in CI Class Manager, 2026-07-20. Note: earlier CMP draft listed MAC Address as a separate priority level — not reflected in current system configuration. See [[ci-class-ire-reconciliation-config]] for full reconciliation rule detail.)_
+- **Data Precedence / Reconciliation Rules:** SCCM/Intune Service Graph Connector is authoritative for OS, OS Version, and Hardware specifications. Asset Management / Procurement integrations override for Financial fields (Cost Center, PO Number). Four created reconciliation rules with source priorities ranging from ServiceNow[80] to ServiceNow[300] — see [[ci-class-ire-reconciliation-config]].
 
 ### 4. Relationship Architecture (CSDM Mapping)
 
@@ -147,12 +175,13 @@ updated: 2026-06-29
 | CPU Count | `cpu_count` | Integer | N | Numeric | vCenter override (else Discovery) | — | [CCB confirm] | Ray Reuter (Class Mgr – Servers & Storage) | 2026-06-24 (draft) | vCenter overrides Discovery for CPU allocation only. |
 | RAM (MB) | `ram` | Integer | N | Numeric (MB) | vCenter override (else Discovery) | — | [CCB confirm] | Ray Reuter (Class Mgr – Servers & Storage) | 2026-06-24 (draft) | vCenter overrides Discovery for RAM allocation only. |
 | Serial Number | `serial_number` | String | Y | Hardware serial | ServiceNow Discovery | — | Y | Ray Reuter (Class Mgr – Servers & Storage) | 2026-06-24 (draft) | IRE component (Serial + Type). |
+| Hardware Type | `u_hardware_type` | String (Full UTF-8) (PPL custom) | N | Free text | Manual | — | N | Ray Reuter (Class Mgr – Servers & Storage) | 2026-07-20 | PPL-added custom attribute. Additional hardware categorization supplementing the standard class hierarchy. Max length: 255. |
 
 ### 3. Data Population & Identification
 
 - **Primary Discovery Source(s):** ServiceNow Discovery, VMware vCenter, Cloud Discovery (AWS/Azure).
-- **Identification Rules (IRE):** 1. Serial Number + Type  |  2. MAC Address + Name  |  3. Name
-- **Data Precedence / Reconciliation Rules:** ServiceNow Discovery is authoritative for Hardware and Network attributes (ip_address, mac_address). VMware vCenter integration overrides Discovery ONLY for CPU and RAM allocation attributes.
+- **Identification Rules (IRE):** Rule name: **PPL Server** (Independent; 3 entries). Entry 1: Standard, Active, Priority 100, criterion: **Serial number**. Entry 2: Lookup, Active, Priority 200, criterion: **Serial number via lookup table**. Entry 3: Standard, Active, Priority 300, criterion: **Name**. _(As configured in CI Class Manager, 2026-07-20. Note: earlier CMP draft listed MAC Address + Name as Priority 2 — actual system uses a Lookup entry at that priority. See [[ci-class-ire-reconciliation-config]] for full reconciliation rule detail.)_
+- **Data Precedence / Reconciliation Rules:** ServiceNow Discovery is authoritative for Hardware and Network attributes (ip_address, mac_address). VMware vCenter integration overrides Discovery ONLY for CPU and RAM allocation attributes. Server has no Created reconciliation rules — all 5 reconciliation rules are Derived from the parent Computer/Hardware class hierarchy; see [[ci-class-ire-reconciliation-config]].
 
 ### 4. Relationship Architecture (CSDM Mapping)
 
@@ -260,7 +289,7 @@ updated: 2026-06-29
 ### 3. Data Population & Identification
 
 - **Primary Discovery Source(s):** ServiceNow Discovery (Application Probes), Database Management integrations.
-- **Identification Rules (IRE):** Engine-dependent; usually Port + running process on the Host.
+- **Identification Rules (IRE):** Rule name: **Database instance rule** (Dependent — identified in context of its host Server). Entry 1: Standard, Active, Priority 100, criterion: **Serial number**. Entry 2: Standard, Active, Priority 200, criteria: **Edition + Name + TCP port(s)**. _(As configured in CI Class Manager, 2026-07-20.)_
 - **Data Precedence / Reconciliation Rules:** ServiceNow Discovery Application Probes are authoritative for active running version and port details.
 
 ### 4. Relationship Architecture (CSDM Mapping)
@@ -336,7 +365,7 @@ updated: 2026-06-29
 
 - **Primary Discovery Source(s):** ServiceNow Discovery (WMI/PowerShell), SCCM Service Graph Connector.
 - **Identification Rules (IRE):** Inherited from Database.
-- **Data Precedence / Reconciliation Rules:** SCCM Service Graph Connector is authoritative for SQL Server Edition and License parameters. ServiceNow Discovery overrides SCCM for active running Port and clustering metrics.
+- **Data Precedence / Reconciliation Rules:** SCCM Service Graph Connector is authoritative for SQL Server Edition and License parameters. ServiceNow Discovery overrides SCCM for active running Port and clustering metrics. Reconciliation Rules (as configured in CI Class Manager, 2026-07-20): 2 Created rules, both covering Attributes: All — one sourced from ServiceWatch[9999], one from ServiceNow[9999]. (Priority 9999 = lowest precedence, allow-all fallback rules for this class.)
 
 ### 4. Relationship Architecture (CSDM Mapping)
 

@@ -4,7 +4,7 @@ workspace: Work
 project: PPL CMDB-CSDM
 status: active
 created: 2026-06-01
-updated: 2026-07-10
+updated: 2026-07-20
 tags: [work, agile, safe, cmdb-csdm, servicenow]
 ---
 
@@ -148,6 +148,45 @@ Change Control Board membership for the CMDB effort (added 2026-06-12). Additive
 
 Data certification is a hot topic and largely developed; feedback incorporation ongoing (Bhushan).
 
+## Audit Readiness — 2026-07-16 Status Meeting
+
+Deck [[CMDB-Audit-Readiness-2026-07-16]] delivered to PPL Audit (Michele Coan, Aaron J Yocum, Shane Wisecarver). 25,966 CIs across Business Applications, Servers, and Computers. Monthly cadence confirmed — third Thursday each month. **Meeting went well — audience engaged; notes + presentation shared. Sonika confirmed the outcome afterward (asked for feedback / any audit concerns; none raised).**
+
+**Outcomes by class:**
+
+| Class | Audit Status | Key Finding |
+|-------|-------------|-------------|
+| Servers | ✅ Audit-ready | All 3 audit attributes ≥ 90%. Location 44%→100%, IP Address 43%→91% remediated this week. |
+| Business Applications | 🔴 1 gap | CI Owner 100%; Classification 36% (gap: 1,371 CIs) — unchanged since June. |
+| Computers | 🟡 2 gaps | Serial Number 100%; Location 66% (gap 6,748), Assigned To 83% (gap 3,412) — both improving. |
+
+**Key clarifications from meeting:**
+
+- **BA Classification remediation:** Business owners are responsible; audit does not need to be involved. Three options discussed in the meeting — default classification, manual review, or leave blank pending certification. **Data Classification Analysis (email thread, 7/15–16) reframes this:** only **45 of ~2,150** BA records actually need manual review; the team recommendation is to **bulk-update the confidently-classified remainder to accurate values** (not a blanket default). That path takes Classification from 36% → ~98% with only 45 exceptions routed to manual review / certification. **Recommended path pending Todd's (Class Owner) confirmation.** Jordan Yung asked whether other attributes could be populated the same way; Manuel flagged Technical Owner Group, Business Owner, Approval Group, Support Group, Value Stream as candidates — but **Jordan cautioned against using Claude for org-specific ownership fields** (those need source-of-truth/certification, not inference).
+- **Computer Location root cause:** HR system limitations — documented as the authoritative explanation.
+- **Intake template:** A temporary intake template is live for new applications to capture required data going forward. Formal catalog intake with approval flows and notifications is the future-state plan.
+- **Audit's role:** Audit uses CMDB data but is not the key stakeholder defining CMDB content. Audit findings highlight gaps; ownership stays with the business.
+- **Certification expansion:** BA certification pilot is ongoing. Computers, Servers, and Network certification planned to start **August 2026** — aligns with CO6 Governance Sep 30 gate.
+- **Workstation inventory gap:** Recent audit report identified gaps in workstation inventory; automated vendor data ingestion processes implemented to address.
+- **Databases:** Not covered in this status report — scope was BA, Servers, Computers only.
+
+**Open actions from this meeting:**
+
+| Owner | Action |
+|-------|--------|
+| Manuel → Todd Dierksheide | Confirm BA Classification remediation path — Todd is Class Owner (CCB). **Recommended: bulk-update the ~2,105 confidently-classified records to accurate values; route the 45 ambiguous ones to manual review / certification** (per Data Classification Analysis). Fallbacks discussed: leave blank, or default to "Business Use." |
+| Manuel | Determine which BA ownership fields (Technical Owner Group, Business Owner, Approval Group, Support Group, Value Stream) can be automated vs. must go through certification — **exclude Claude-based inference for org-specific ownership** per Jordan |
+| Manuel | Add HR system limitation as documented root cause in next Computer status slide |
+| Manuel | Track August certification expansion (Computers, Servers, Network) as PI-3 milestone vs. CO6 Governance Sep 30 gate |
+| Manuel | Confirm intake template formalization owner and timeline |
+| Manuel | Next status report — third Thursday August 2026 |
+
+## Active Risks (RAID)
+
+| Risk | Detail | Status | Owner |
+|------|--------|--------|-------|
+| **Incomplete Discovery Coverage — Organizational Visibility Gaps** (proposed 2026-07-16) | Discovery gaps driven by **missing inventory visibility + credential/access issues — not ServiceNow tooling**. Subnets/assets outside discovery scope; **Oracle DB visibility degraded** because assets can't be accessed/authenticated. Localized (Oracle issues concentrated in **Kentucky**), not systemic — SQL discovery performing strongly. Priority actions: credential management, asset ownership clarification, inventory reconciliation. Stan Tomberg agreed; suggested explicitly calling out **account permission challenges**. | 🔴 Drafting — finalize wording, add to RAID log | Manuel (w/ Stan) |
+
 ## Key Decisions
 
 **2026-07-10 — Application Service / Service Instance modification via Service Request — story split:** Decomposed the "modify an Application Service" requirement into two sequential SAFe stories. **Story A** ([[Backlog/service-instance-modify-storyA-core]]) — core modify: 5-role ownership integrity (Owned By, CI Owner, Support Group, Technical Owner Group, Approval Group), field validation, baseline approval (pending Joe); near-ready, target end PI-2. **Story B** ([[Backlog/service-instance-modify-storyB-sox]]) — governed handling for SOX-flagged CIs; target early PI-3. Chose **Option a**: Story A *blocks* modification of SOX-flagged CIs and keeps SOX Indicator/Type read-only; Story B is the governed path that enables them — no interim gap. SOX notifications go to a **single team** ("SOX team", Pepa = POC). **Open decisions for Joe/Compliance:** SOX approval vs. informational notification (#2), and governance scope — every change vs. ownership/classification only (#3). **NERC CIP parked.** Adopted **CSDM 5 (Yokohama)** terminology: Application Service → Service Instance ([[csdm5-terminology]]). **Follow-ups:** recover the truncated Pepa email requirement ("…IAM wants to ensure that the CMDB/CI business owner…") — may add an AC to Story A; get Joe's baseline approval design + Decisions #2/#3.
@@ -180,6 +219,7 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - [[Backlog/definition-of-done]] — story acceptance criteria
 - [[Backlog/co5-governance-validation-stories]] — DRAFT parent feature *"CO5 Governance Validation & Acceptance"* + 8 SAFe validation stories (1 per CO5 Governance sub-item, 1.1 split per CI class), each grounded in real ADO evidence IDs, with an `ADO ID (fill on creation)` reconciliation column; reference only until created in ADO (then reconcile back to [[co5-deliverable-tracking]] Acceptance Tracking)
 - [[Backlog/cmdb-health-lifecycle-validation-stories]] — DRAFT **NON-SOW** quality-governance validation stories (Health & Lifecycle, 1 per CI class); separate lane, does not gate CO5 holdback
+- [[Backlog/cmdb-health-completeness-correctness-stories]] — DRAFT **NON-SOW** consolidated SAFe set: **7 stories** = 4 Completeness (Computer/Server/Database/Business App) + 3 Correctness (Computer/Server/Database), all sourced from the **CI Class Reference slides (2026-07-20)**. Correctness = Duplicate·Orphan·Stale (BA excluded — not discovered); Completeness = Recommended managed-attribute set. Single shared parent feature *CMDB Health & Data Quality*; **supersedes/replaces the earlier split correctness + completeness files** (deleted). Key open items: (1) confirm intent Correctness-KPI vs value-validation (Joe/Sonika); (2) **blocking CP-3** — Database audit dashboard ≠ slide (dashboard adds Value Stream/SOX Type/Approval Group; slide adds Tech Owner Group/Location) → reconcile with Ray Reuter; (3) BA Recovery Tier joins completeness set? (Todd)
 - [[Backlog/audit-dashboard-accuracy-spike]] — DRAFT **NON-SOW** Spike (target Iter 2.4, **due 6/30**): validate BA audit-dashboard scope + each of 11 quality audits, build compliance-prioritized remediation plan (owner/target date/solution type), apply safe quick fixes (BA-pause-limited). **Simplified, team-shareable format** Manuel finalized 6/23.
 - [[Backlog/audit-dashboard-spike-template]] — reusable TEMPLATE of the audit-dashboard spike, to apply the same approach to the next audit areas (Servers, Database, Computer, Groups)
 - [[Backlog/audit-dashboard-servers-spike]] — DRAFT **NON-SOW** Servers-tab audit spike (Iter 2.4, due 6/30; scope = Active Servers Count 15,218; 11 audits). Watch: Missing Value Stream = 100%, two 0-count audits.

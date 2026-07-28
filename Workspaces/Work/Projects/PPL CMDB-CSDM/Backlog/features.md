@@ -127,7 +127,88 @@ PI-2 scope is an OOB capability assessment, not full deployment:
 
 ## PI-3 Features
 
-_Confirmed at PI3 Planning (Jul 22–Aug 4, 2026 during PI2 IP iteration). Candidates below from [[nowassist-implementation-plan]]._
+_PI-3 scope is governed by the **CO6-authoritative** objectives (see [[PI-3/pi3-objectives]]). Features are created per objective below as each objective's breakdown is completed; confirm/reconcile at PI3 Planning (Jul 22–Aug 4, 2026)._
+
+### PI-3 Obj (deck 1 / master Obj 4 / CO6 Deliverable #1) — Automate Network Device Discovery in the CMDB | Priority: P1
+
+Full breakdown + ADO field detail: [[PI-3/pi3-network-discovery-feature-breakdown]]. Gates: Aug 31 / Sep 30 / Oct 27 (90% gate: deck Oct 27, CO6 contract Oct 30). Existing PI-2 anchor = Feature 1356646 (Network Device Coverage Reconciliation) under PI-2 Obj 1366657.
+
+| Feature | Gate | Iterations | Rolls up (existing) | Status |
+|---------|------|-----------|---------------------|--------|
+| Automated Credentialed Discovery Live — All Device Types (scheduled, auto-updating) | Aug 31 | 3.1–3.2 | 1444864, 1459721, 1402572, 1402574 (re-parent from 1356646) | Proposed — create in ADO |
+| Mandatory Attribute Population via Discovery — Network Devices | Sep 30 | 3.3–3.4 | net-new; dep on Data Cert governance attr set | Proposed — create in ADO |
+| Network Inventory Coverage Reconciliation & Owner Validation (≥90%) | Oct 27 | 3.4–3.5, IP | 1356646 (spine), 1402575, 1402567, 1402559, dep 1383487 | Proposed — create in ADO |
+
+**Pre-work (not a new feature):** prove credential distribution on a pilot subnet (0 failed auth) + define the coverage denominator — existing spikes 1402555 / 1402559 / 1402567, dep 1383487, cred pilot 1459721; Sprint 3.1.
+
+### PI-3 Obj (deck 2 / master Obj 5 / CO6 Deliverable #2) — Build & Validate Service Maps for Priority Business Apps | Priority: P2 (Stretch)
+
+Full breakdown + ADO field detail: [[PI-3/pi3-service-mapping-feature-breakdown]]. Gates: Aug 31 / Sep 30 / Oct 27. Existing PI-2 delivery vehicle = Service Mapping Waves (1355866 / 1355868 / 1355871) under PI-2 Obj 1366660; re-tier their apps into Silver/Gold and re-parent under the features below.
+
+| Feature | Gate | Iterations | Rolls up (existing) | Status |
+|---------|------|-----------|---------------------|--------|
+| Silver-Tier Service Maps (App→Infra) + ≥75% Business-Service Inventory | Aug 31 | 3.1–3.2 | Wave 1355866 apps (Silver tier); per-app Gather→Build→Validate→Publish | Proposed — create in ADO |
+| Gold-Tier Service Maps (Service→App) + Silver Validation Pass | Sep 30 | 3.2–3.4 | Wave 1355866 / 1355868 (Gold tier) | Proposed — create in ADO |
+| Remaining Contractor-Managed Silver-Tier Maps + All-Silver Service→App Layer | Oct 27 | 3.4–3.5, IP | Wave 1355871 | Proposed — create in ADO |
+
+**Pre-work (not a new feature):** secure app-owner list before Aug 5; lock Silver/Gold tier lists + the ≥75% denominator; confirm discovery method — via existing spikes 1326754 / 1431652 / 1420634 and dep 1383493.
+
+### PI-3 Obj (deck 3 / master Obj 3 / CO6 Deliverable #4) — Certify CMDB Data Across the Four Major CI Classes | Priority: P1
+
+Full breakdown + ADO field detail: [[PI-3/pi3-data-certification-feature-breakdown]]. Gates: Computers & Servers Sep 30; Databases & Network Devices Oct 27 (CO6 contract Oct 30). Reusable PI-2 BA pilot pattern = Features 1247179 / 1402958 / 1402979 / 1382404.
+
+| Feature | Gate | Iterations | Rolls up (existing) | Status |
+|---------|------|-----------|---------------------|--------|
+| Certify Computers — CMDB Data Certification | Sep 30 | 3.1–3.4 | audit spike 1480114 + pilot pattern | Proposed — create in ADO |
+| Certify Servers — CMDB Data Certification | Sep 30 | 3.1–3.4 | audit spike 1480112 + pilot pattern | Proposed — create in ADO |
+| Certify Databases — CMDB Data Certification | Oct 27 | 3.3–3.5, IP | audit spike 1480113, Data Dictionary 1480098 + pilot pattern | Proposed — create in ADO |
+| Certify Network Devices — CMDB Data Certification | Oct 27 | 3.4–3.5, IP | pilot pattern (+ new network audit spike); dep Obj 4 attrs | Proposed — create in ADO |
+
+**Pre-work (not a new feature):** close PI-2 carryover — Data Dictionary CCB approval (1480097 / 1480098), audit spikes (1480112 / 1480113 / 1480114); create + accept 90%-coverage stories (Computers G2, Servers G3).
+
+### PI-3 Obj (deck 4 / master Obj 2 / CO6 Deliverable #3) — Activate the ServiceNow → Qualys Attribute Sync in Production | Priority: P1
+
+Full breakdown + ADO field detail: [[PI-3/pi3-qualys-integration-feature-breakdown]]. Gate: Sep 30 (single). Existing PI-2 anchor = "Integration Qualys & ServiceNow (CMDB Data Read Only)" under PI-2 Obj 1366662 — re-scope from the old read-only direction.
+
+| Feature | Gate | Iterations | Rolls up (existing) | Status |
+|---------|------|-----------|---------------------|--------|
+| Activate ServiceNow → Qualys Attribute Sync (PROD) | Sep 30 | 3.1–3.4 (buffer 3.5/IP) | 1428703 (plugin install), 1234585 (import views), 1428704 (re-scoped config) | Proposed — create in ADO |
+
+**Pre-work (not a new feature):** confirm the Qualys plug-in is available/approved (issue 1465952, dep 1383519); re-scope 1428703 / 1428704 to the SN → Qualys direction + rename the parent feature.
+
+### PI-3 Obj (master Obj 1 / CO6 Deliverables #6, #7, #8) — Sustain ServiceNow Platform Operations | Priority: P0
+
+Source: [[pi3-objectives]] (Obj 1). Combines three CO6 workstreams: Platform Support (§8), ITSM Product Management (§6), ATF Strategy (§7). ⚠️ Platform Support + ITSM PM are **ongoing-capacity commitments** (40 completed pts/sprint/person, monthly allocation reports) — staffing lanes, not finite build features; ATF is a document deliverable. No existing ADO stories (net-new workstreams; owners TBD).
+
+| Feature | Gate | Iterations | Rolls up (existing) | Status |
+|---------|------|-----------|---------------------|--------|
+| Platform Support — BAU Capacity & Monthly Allocation Reporting (2 BAU/DevOps + 4 enhancement devs; 40 pts/sprint/person) | Monthly Jul 31 → Oct 30 | 3.1–3.6 (ongoing) | net-new workstream; owner TBD | Proposed — create in ADO |
+| ITSM Product Management — PO activities, backlog prioritization, governance forums | Monthly Jul 31 → Oct 30 | 3.1–3.6 (ongoing) | net-new workstream; owner TBD | Proposed — create in ADO |
+| ATF Strategy — Published Implementation Plan (coverage criteria, sequenced rollout, reusable approach) | Oct 30 | 3.4–3.5, IP | net-new; greenfield | Proposed — create in ADO |
+
+**Note (not story-decomposable):** the two capacity lanes need a **staffing/allocation decision** (who fills the 2 BAU + 4 enhancement + ITSM PO seats), not a story breakdown — flag at planning.
+
+### PI-3 Obj (master Obj 6 / CO6 Deliverable #9) — Deliver NERC-CIP ServiceNow Platform Strategy | Priority: P2
+
+Source: [[pi3-objectives]] (Obj 6). Executive strategy deliverable in two stages. Existing PI-2 anchor = Feature 1370224 (NERC-CIP CI Security Requirements), spike 1402602, dep 1383515 — ⚠️ PI-2 framing was "CI security requirements"; CO6 #9 is a platform *strategy* (dual-instance evaluation + exec package) — may re-frame.
+
+| Feature | Gate | Iterations | Rolls up (existing) | Status |
+|---------|------|-----------|---------------------|--------|
+| NERC-CIP Platform Strategy — Dual-Instance Evaluation + Executive Package | Sep 30 (evaluation) → Oct 30 (exec package) | 3.3–3.5, IP | spike 1402602, dep 1383515 (Feature 1370224) | Proposed — create in ADO |
+
+**Pre-work:** confirm the NERC-CIP strategy stakeholder / audience (PPL IT Leadership) — owner Joe Dames.
+
+### PI-3 Obj (master Obj 7 / CO6 Deliverable #5) — Define and Begin Legacy Platform Migration | Priority: P3
+
+Source: [[pi3-objectives]] (Obj 7). Platforms: iTeam, DISCO, Cherwell, AIM. Analysis → plan → limited October execution (one feature, three staged deliverables; split if the team prefers per-gate tracking).
+
+| Feature | Gate | Iterations | Rolls up (existing) | Status |
+|---------|------|-----------|---------------------|--------|
+| Legacy Platform Rationalization — Gap Analysis → Migration Plan → Oct Execution | Aug 31 (gap analysis) → Sep 30 (plan) → Oct 30 (Oct-scope execution) | 3.1–3.5, IP | iTeam import 1452028 | Proposed — create in ADO |
+
+**Pre-work:** review + validate existing PPL documentation for the 4 platforms before the gap analysis.
+
+### Pre-CO6 candidates (from [[nowassist-implementation-plan]] — predate the CO6 re-scope; reconcile at planning)
 
 | Feature | PI Objective # | Description | Iterations | Status |
 |---------|--------------|-------------|-----------|--------|

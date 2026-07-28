@@ -39,6 +39,9 @@ Auto-maintained index of all wiki pages. Updated by `/wiki-ingest`, `/wiki-updat
 - [pi2-ado-flagged-risks-nolan](../Workspaces/Work/Projects/ServiceNow/pi2-ado-flagged-risks-nolan.md) — ADO-flagged feature-level risks for PI2; shared and tracked by Nolan; validated June 2026
 - [notebooklm-library](../Workspaces/Work/Projects/ServiceNow/notebooklm-library.md) — Registry of connected NotebookLM notebooks with official ServiceNow Australia documentation; topic-to-notebook quick reference
 - [cmdb-csdm-team-operating-model](../Workspaces/Work/Projects/ServiceNow/cmdb-csdm-team-operating-model.md) — Team SAFe ceremony cadence, meeting-to-ceremony mapping, non-SAFe meetings, and structural gaps
+- [pi3-cmdb-csdm-ado-tracking](../Workspaces/Work/Projects/PPL%20CMDB-CSDM/PI-3/pi3-cmdb-csdm-ado-tracking.md) — CMDB/CSDM PI-3 ADO objectives (4) and features (11), sprint assignments, CO6 delivery gate compliance
+- [pi3-objectives](../Workspaces/Work/Projects/PPL%20CMDB-CSDM/PI-3/pi3-objectives.md) — PI-3 CO6-authoritative objectives (7), acceptance criteria, fee schedule, pre-planning open actions
+- [pi3-nd-1516993-stories-dependencies](../Workspaces/Work/Projects/PPL%20CMDB-CSDM/PI-3/pi3-nd-1516993-stories-dependencies.md) — Feature 1516993 stories (ND-1–5) and dependencies (DEP-1–6) with ADO-ready AC; Sprint 3.1, CO6 Aug 31
 
 ### Projects/Python-Automation
 - [python-document-automation](../Workspaces/Work/Projects/Python-Automation/python-document-automation.md) — PDF splitting (PyMuPDF + Ghostscript), PowerPoint generation (python-pptx, MGB brand)
