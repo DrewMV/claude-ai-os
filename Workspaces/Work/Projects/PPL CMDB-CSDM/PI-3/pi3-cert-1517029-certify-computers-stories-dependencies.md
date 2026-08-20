@@ -7,8 +7,8 @@ feature: "1517029 — Certify Computers — CMDB Data Certification"
 objective: CO6 Obj 3 — Expand CI Data Certification Across All Major Classes
 sprint: "3.2 (build start); process-flow doc 3.1"
 co6-due: 2026-09-30
-status: reference-draft
-updated: 2026-07-28
+status: reconciled
+updated: 2026-08-05
 tags: [work, cmdb-csdm, safe, pi-planning, co6, data-certification]
 relationships:
   - target: "[[PI-3/pi3-data-certification-feature-breakdown]]"
@@ -26,7 +26,7 @@ relationships:
 **Certify Computers — CMDB Data Certification**
 Sprint 3.2 (build) · process-flow doc starts 3.1 · CO6 due Sep 30 · Owner: M. Vazquez
 
-> **Status: REFERENCE / DRAFT** — Manuel creates the real items in ADO under Feature 1517029 and reconciles IDs back here (ADO authoritative). Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
+> **Status: RECONCILED (2026-07-31)** — all 5 stories created in ADO under Feature 1517029; IDs below. Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
 > See [[PI-3/pi3-data-certification-feature-breakdown]] for the full feature-level breakdown and the PI-2 BA pilot pattern these stories clone.
 
 ---
@@ -34,6 +34,10 @@ Sprint 3.2 (build) · process-flow doc starts 3.1 · CO6 due Sep 30 · Owner: M.
 ## Sprint reconciliation note (raise at Sprint Planning)
 
 ADO records Feature 1517029's start as **Sprint 3.2 (Aug 19)**; the [[PI-3/pi3-data-certification-feature-breakdown]] shapes the feature as **3.1 → 3.4**. The reconciliation: the **test code freeze runs through Aug 15** (mid-3.1), so no PROD deployment is possible early — the feature's *build* work correctly starts in 3.2. The only 3.1 work is **doc-only process-flow definition (CC-1)** off the 1480114 gap plan, which needs no deployment. Everything requiring a PROD change is sequenced 3.2+.
+
+**Update (2026-07-31 — ADO reconciliation):** as created, all 5 stories (CC-1, CC-2, CC-3, CC-5) landed in **Sprint 3.2** except CC-4, which is **Sprint 3.3**. This differs from the plan above in two ways: CC-1 (doc-only) shifted from 3.1 into 3.2 (no functional impact — still doc-only, still ahead of any PROD dependency), and **CC-5 (training) shifted earlier, from 3.4 to 3.2** — ahead of CC-4 (run the cycle, 3.3), which the story itself lists as a dependency. Flag this sequencing at Sprint Planning: training scheduled before the first certification cycle runs may need re-sequencing or the CC-5 iteration reassigned to 3.4 as originally planned.
+
+**Correction (2026-08-05 — full ADO board export):** CC-1 (1535486) is actually **Iteration 3.1**, not 3.2 as logged above — it was never delayed; the note above appears to have been in error, or the item's iteration was corrected in ADO since 7/31. The CC-5-ahead-of-CC-4 sequencing flag still stands. States now confirmed: CC-1 Ready DoR, CC-2 Ready DoR, CC-3 Ready DoR, CC-4 New, CC-5 Ready DoR. Also noted: CC-1 and the parallel Servers item SV-1 (1535496) both show ADO Work Item Type **Spike**, not User Story as drafted below — naming drift only, no impact on points or acceptance criteria.
 
 ---
 
@@ -81,12 +85,14 @@ Stories CC-1 through CC-5 are **net-new** for the Computer class — created fro
 
 | Field | Value |
 |-------|-------|
-| Type | User Story |
+| ADO ID | **1535486** |
+| Type | User Story (shows as **Spike** in ADO — naming drift only) |
 | Parent feature | 1517029 |
-| Sprint | 3.1 (doc-only — no PROD dependency) |
+| Sprint | 3.1 — confirmed 2026-08-05 (the 7/31 note logging this as 3.2 was superseded/in error) |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones the BA pilot process definition, re-scoped to Computer |
+| Points | 2 |
+| State | Ready DoR (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1535486 — clones the BA pilot process definition, re-scoped to Computer |
 | Depends on | DEP-1 (1480114 gap plan), DEP-5 (Class Manager) |
 | Tags | `Data-Certification` `Computer` `CO6-Obj3` |
 
@@ -110,12 +116,14 @@ Stories CC-1 through CC-5 are **net-new** for the Computer class — created fro
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1535488** |
 | Type | Enabler – Configuration |
 | Parent feature | 1517029 |
 | Sprint | 3.2 |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402976 (execute policies), re-scoped to Computer |
+| Points | 2 |
+| State | Ready DoR (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1535488 — clones pilot 1402976 (execute policies), re-scoped to Computer |
 | Depends on | CC-1, DEP-3 (Data Dictionary CCB), DEP-4 (test freeze lifts) |
 | Tags | `Data-Certification` `Computer` `Configuration` `CO6-Obj3` |
 
@@ -139,12 +147,14 @@ Stories CC-1 through CC-5 are **net-new** for the Computer class — created fro
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1535489** |
 | Type | Enabler – Configuration |
 | Parent feature | 1517029 |
-| Sprint | 3.2 → 3.3 |
+| Sprint | 3.2 (created here, not 3.2→3.3 as planned) |
 | Owner | Kiran (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402727 (dashboard), re-scoped to Computer |
+| Points | 1 (confirmed 2026-08-05) |
+| State | Ready DoR (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1535489 — clones pilot 1402727 (dashboard), re-scoped to Computer |
 | Depends on | CC-2 |
 | Tags | `Data-Certification` `Computer` `Dashboard` `CO6-Obj3` |
 
@@ -168,12 +178,14 @@ Stories CC-1 through CC-5 are **net-new** for the Computer class — created fro
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1535490** |
 | Type | User Story |
 | Parent feature | 1517029 |
 | Sprint | 3.3 |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402980 (monitor completeness), re-scoped to Computer |
+| Points | 1 (confirmed 2026-08-05) |
+| State | New (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1535490 — clones pilot 1402980 (monitor completeness), re-scoped to Computer |
 | Depends on | CC-2, CC-3 |
 | Tags | `Data-Certification` `Computer` `CO6-Obj3` |
 
@@ -197,12 +209,14 @@ Stories CC-1 through CC-5 are **net-new** for the Computer class — created fro
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1535491** |
 | Type | User Story |
 | Parent feature | 1517029 |
-| Sprint | 3.4 |
+| Sprint | 3.2 (created here, not 3.4 as planned — see reconciliation note above; flag re-sequencing vs. CC-4 dependency) |
 | Owner | Joe Dames (PO) / Manuel Vazquez |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402962 (kick-off/training) + 1402984 (office hours), re-scoped to Computer |
+| Points | 3 |
+| State | Ready DoR (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1535491 — clones pilot 1402962 (kick-off/training) + 1402984 (office hours), re-scoped to Computer |
 | Depends on | CC-2, CC-4 |
 | Tags | `Data-Certification` `Computer` `Training` `CO6-Obj3` |
 

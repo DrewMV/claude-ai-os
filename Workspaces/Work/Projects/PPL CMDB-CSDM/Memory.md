@@ -4,7 +4,7 @@ workspace: Work
 project: PPL CMDB-CSDM
 status: active
 created: 2026-06-01
-updated: 2026-07-20
+updated: 2026-08-20
 tags: [work, agile, safe, cmdb-csdm, servicenow]
 ---
 
@@ -180,6 +180,22 @@ Deck [[CMDB-Audit-Readiness-2026-07-16]] delivered to PPL Audit (Michele Coan, A
 | Manuel | Track August certification expansion (Computers, Servers, Network) as PI-3 milestone vs. CO6 Governance Sep 30 gate |
 | Manuel | Confirm intake template formalization owner and timeline |
 | Manuel | Next status report — third Thursday August 2026 |
+
+## Audit Readiness — 2026-08-20 CMDB Audit Sync
+
+Deck [[Audit-Readiness/CMDB-Audit-Update-PI2-PI3-2026-08-20]] built for the August 20 CMDB Audit Sync — 3 slides: title, PI2 accomplishments, PI3 activities building on them. Build script: [[Audit-Readiness/build_pi2_pi3_audit_update_deck.py]].
+
+**PI2 accomplishments presented:**
+- **Approved Data Dictionary (CMP Stage 1)** — CCB-ratified July 21, 2026: 15 attribute-governance decisions across Business Application, Computer, Server, Database (2,148 / 19,901 / 3,917 / 3,113 active CIs respectively).
+- **ESS-02 Alignment** — Closed (story 1480102); Computer and Server dictionaries explicitly scoped to ESS-02.
+- **Automated Discovery — Computer & Server** — SCCM/Discovery precedence live and validated; credentials enabling discovery completed.
+- **Data Certification Pilot — Business Application** — pilot group identified, dashboard UAT signed off and deployed to PROD.
+
+**PI3 activities framed as building on the PI2 foundation:**
+- Certify Computers & Servers (1517029/1517032) — active Sprint 3.2, CO6 gate Sep 30.
+- Certify Databases & Network Devices (1517037/1517040) — planned Sprint 3.4, gate Oct 30, pulling forward into 3.2.
+- Network Device Auto Discovery (1516993) — credentialed discovery live/validated for Routers, Switches, Firewalls; CO6 gate Aug 31.
+- **Database Auto-Discovery (PI2 carryover, Feature 1554951)** — flagged the active Linux Discovery credential issue (1571603, 8 pts, Active) blocking DB host connectivity, tied back to the CO5-documented "no scalable credential distribution" risk from PI2.
 
 ## Active Risks (RAID)
 

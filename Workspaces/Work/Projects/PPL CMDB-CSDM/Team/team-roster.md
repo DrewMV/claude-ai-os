@@ -2,12 +2,12 @@
 workspace: Work
 project: CMDB-CSDM
 tags: [work, cmdb-csdm, team, reference]
-updated: 2026-06-12
+updated: 2026-08-19
 ---
 
 # CMDB-CSDM Direct Team Roster
 
-The delivery team for the PPL CMDB-CSDM program. Scrum Master: **Manuel Vazquez** (co-SM **Alex Phan**); Product Owner: **Joe Dames** (also listed below).
+The delivery team for the PPL CMDB-CSDM program. Product Owner: **Manuel Vazquez**; Scrum Master: **Ruchita Rohini**.
 
 ## Active members
 
@@ -16,16 +16,18 @@ The delivery team for the PPL CMDB-CSDM program. Scrum Master: **Manuel Vazquez*
 | Anuradha Rai | Functional Designer (BPC) | CMDB / CSDM | arai1@pplweb.com | Offshore | Contractor |
 | Bhushan Salsekar | Implementation Specialist (IS) | CMDB / CSDM | BSalsekar@pplweb.com | Offshore | Contractor |
 | Kiran Dhobale | Implementation Specialist (IS) | CMDB | kdhobale@pplweb.com | Offshore | Contractor |
-| Ruchita Rohini | Project Manager | CMDB | RRohini@pplweb.com | Offshore | Contractor |
+| Ruchita Rohini | Scrum Master | CMDB | RRohini@pplweb.com | Offshore | Contractor |
 | Venkateswarlu Manikanta | QA Tester | CMDB | vmanikanta@pplweb.com | Offshore | Contractor |
 | Vinay Geddannavar | Implementation Specialist (IS) | CMDB | vageddannavar@pplweb.com | Offshore | Contractor |
 | Tony De Araujo | Developer | CMDB | adearaujo@pplweb.com | Onshore | Contractor |
 | Stan Tomberg | CMDB Discovery / Senior IS (Architect) | CMDB | stomberg@pplweb.com | Onshore | Contractor |
-| Tanzeel Rehman | Service Mapping Lead | CMDB / SM | TRehman@pplweb.com | Onshore | Contractor |
-| Joe Dames | Solution Architect / Product Owner | CMDB / SM / CSDM | JNDames@pplweb.com | Onshore | Contractor |
+| Adam Griffin | Service Mapping Lead | CMDB / SM | — | Onshore | Contractor |
+| Joe Dames | Supporting Lead Architect | CMDB / ServiceNow Enhancements | JNDames@pplweb.com | Onshore | Contractor |
 | Uloma Adelufosi | Product Analyst | CMDB | auloma@pplweb.com | Onshore | Contractor |
 
 > **Employment note:** All active members are believed to be **contractors** (not PPL employees) — fairly confident but not 100% verified. Low project impact; not worth chasing down unless it matters for a specific reporting need.
+
+> **Joe Dames allocation:** 20% total — ~4 hrs/week on CMDB, ~4 hrs/week on ServiceNow Enhancements. Supporting architect role only, not PO.
 
 ## Designations (definitions)
 
@@ -41,6 +43,7 @@ ADO displays this person as **"de Araujo, Anthony (Contractor)"**. **Tony = Anth
 
 - **Akhil Babu Vemula** (VVemula@pplweb.com) — Implementation Specialist (IS), CMDB back-up, Onshore — **no longer part of the team** (removed 2026-06-12).
 - **Karen** — former NowAssist story owner; rolled off after iteration 2.2. Her 4 NowAssist stories were reassigned to Kiran Dhobale.
+- **Tanzeel Rehman** (TRehman@pplweb.com) — Service Mapping Lead; replaced by Adam Griffin as of 2026-08-05.
 
 ## Cross-team names seen in PI-2 artifacts (NOT on this direct team)
 

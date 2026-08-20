@@ -7,8 +7,8 @@ feature: "1517037 — Certify Databases — CMDB Data Certification"
 objective: CO6 Obj 3 — Expand CI Data Certification Across All Major Classes
 sprint: "3.4 (ADO start); build 3.3–3.5, sign-off 3.6 IP"
 co6-due: 2026-10-30
-status: reference-draft
-updated: 2026-07-28
+status: reconciled
+updated: 2026-08-06
 tags: [work, cmdb-csdm, safe, pi-planning, co6, data-certification]
 relationships:
   - target: "[[PI-3/pi3-data-certification-feature-breakdown]]"
@@ -30,8 +30,12 @@ relationships:
 **Certify Databases — CMDB Data Certification**
 ADO start Sprint 3.4 · build 3.3–3.5 · sign-off 3.6 IP · CO6 due Oct 30 · Owner: M. Vazquez
 
-> **Status: REFERENCE / DRAFT** — Manuel creates the real items in ADO under Feature 1517037 and reconciles IDs back here (ADO authoritative). Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
+> **Status: RECONCILED (2026-08-06)** — all 5 stories created in ADO under Feature 1517037; IDs below. Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
 > Third of four certification features. Same PI-2 BA pilot pattern as [[PI-3/pi3-cert-1517029-certify-computers-stories-dependencies|Computers]] and [[PI-3/pi3-cert-1517032-certify-servers-stories-dependencies|Servers]], but on the **Oct 30** gate (not Sep 30). See [[PI-3/pi3-data-certification-feature-breakdown]] for the full feature-level breakdown.
+
+**Revision 2026-08-06 (ADO board export — reconciled):** All 5 stories confirmed created: DB-1 **1560066**, DB-2 **1560067**, DB-3 **1560068**, DB-4 **1560069**, DB-5 **1560071**. Points match exactly what was submitted (3/3/2/2/3). All show State **New** except DB-1 (unassigned in ADO — no owner shown yet). DB-1 shows ADO Work Item Type **Spike**, not User Story as drafted — naming drift only, same pattern seen on CC-1/SV-1/NW-1, no impact on points or AC. This export's board view does not show an Iteration/Sprint column — sprint values below are per the submitted request, not yet re-confirmed against ADO.
+
+**Revision 2026-08-06 (submitted to Anu):** Sprint for DB-1 moved **3.3 → 3.4** (was 3.3 in this draft). Points proposed for all 5 stories (previously "TBD at refinement"): DB-1=3, DB-2=3, DB-3=2, DB-4=2, DB-5=3. DB-1's acceptance criteria dropped the "host-Server dependency / hostless-DB handling" line from this draft — confirmed intentional, not carried into the ADO request. All other AC wording differences vs. this draft are cosmetic (dropped field-name/DEP-# cross-reference parentheticals, same meaning retained).
 
 ---
 
@@ -93,12 +97,14 @@ Stories DB-1 through DB-5 are **net-new** for the Database Instance class — pi
 
 | Field | Value |
 |-------|-------|
-| Type | User Story |
+| ADO ID | **1560066** |
+| Type | User Story (shows as **Spike** in ADO — naming drift only) |
 | Parent feature | 1517037 |
-| Sprint | 3.3 |
-| Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones the BA pilot process definition, re-scoped to Database |
+| Sprint | 3.4 (not shown in this export — per submitted request, confirm in ADO) |
+| Owner | Bhushan Salsekar (confirm) — unassigned in ADO as of 2026-08-06 |
+| Points | 3 (confirmed 2026-08-06) |
+| State | New |
+| ADO note | Created in ADO as 1560066 — clones the BA pilot process definition, re-scoped to Database |
 | Depends on | DEP-1 (1480113 gap plan), DEP-3 (attribute set), DEP-5 (Class Manager) |
 | Tags | `Data-Certification` `Database` `CO6-Obj3` |
 
@@ -110,7 +116,6 @@ Stories DB-1 through DB-5 are **net-new** for the Database Instance class — pi
 - [ ] Process flow diagram covers the full cycle: campaign trigger → owner attestation → gap identification → remediation → re-attestation → sign-off
 - [ ] Roles defined at each step (CI Owner, Technical Owner Group, Support Group, Process Owner) using the delivered Data Dictionary field mappings (`managed_by`, `managed_by_group`, `support_group`)
 - [ ] Attested attribute set for Database confirmed against the **reconciled** set (DEP-3) and the 1480113 gap plan — no drift between certification, dictionary, and audit dashboard
-- [ ] Process notes the host-Server dependency (Dependent identity) and how a hostless DB is handled
 - [ ] Escalation and non-response handling defined
 - [ ] Process documented in the agreed location and reviewed with the Database CCB Class Manager, Ray Reuter (DEP-5)
 - [ ] Doc-only — no PROD change required
@@ -123,12 +128,14 @@ Stories DB-1 through DB-5 are **net-new** for the Database Instance class — pi
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1560067** |
 | Type | Enabler – Configuration |
 | Parent feature | 1517037 |
-| Sprint | 3.4 |
+| Sprint | 3.4 (not shown in this export — per submitted request, confirm in ADO) |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402976 (execute policies), re-scoped to Database |
+| Points | 3 (confirmed 2026-08-06) |
+| State | New |
+| ADO note | Created in ADO as 1560067 — clones pilot 1402976 (execute policies), re-scoped to Database |
 | Depends on | DB-1, DEP-2 (Data Dictionary CCB), DEP-3 (attribute set), DEP-4 (data quality) |
 | Tags | `Data-Certification` `Database` `Configuration` `CO6-Obj3` |
 
@@ -152,12 +159,14 @@ Stories DB-1 through DB-5 are **net-new** for the Database Instance class — pi
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1560068** |
 | Type | Enabler – Configuration |
 | Parent feature | 1517037 |
-| Sprint | 3.4 |
+| Sprint | 3.4 (not shown in this export — per submitted request, confirm in ADO) |
 | Owner | Kiran (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402727 (dashboard), re-scoped to Database |
+| Points | 2 (confirmed 2026-08-06) |
+| State | New |
+| ADO note | Created in ADO as 1560068 — clones pilot 1402727 (dashboard), re-scoped to Database |
 | Depends on | DB-2 |
 | Tags | `Data-Certification` `Database` `Dashboard` `CO6-Obj3` |
 
@@ -181,12 +190,14 @@ Stories DB-1 through DB-5 are **net-new** for the Database Instance class — pi
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1560069** |
 | Type | User Story |
 | Parent feature | 1517037 |
-| Sprint | 3.5 |
+| Sprint | 3.5 (not shown in this export — per submitted request, confirm in ADO) |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402980 (monitor completeness), re-scoped to Database |
+| Points | 2 (confirmed 2026-08-06) |
+| State | New |
+| ADO note | Created in ADO as 1560069 — clones pilot 1402980 (monitor completeness), re-scoped to Database |
 | Depends on | DB-2, DB-3, DEP-4 |
 | Tags | `Data-Certification` `Database` `CO6-Obj3` |
 
@@ -210,12 +221,14 @@ Stories DB-1 through DB-5 are **net-new** for the Database Instance class — pi
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1560071** |
 | Type | User Story |
 | Parent feature | 1517037 |
-| Sprint | 3.5 → 3.6 IP (sign-off) |
+| Sprint | 3.5 → 3.6 IP (sign-off) (not shown in this export — per submitted request, confirm in ADO) |
 | Owner | Joe Dames (PO) / Manuel Vazquez |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402962 (kick-off/training) + 1402984 (office hours), re-scoped to Database |
+| Points | 3 (confirmed 2026-08-06) |
+| State | New |
+| ADO note | Created in ADO as 1560071 — clones pilot 1402962 (kick-off/training) + 1402984 (office hours), re-scoped to Database |
 | Depends on | DB-2, DB-4 |
 | Tags | `Data-Certification` `Database` `Training` `CO6-Obj3` |
 

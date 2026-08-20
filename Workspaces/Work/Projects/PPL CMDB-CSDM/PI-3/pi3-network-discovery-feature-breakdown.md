@@ -6,7 +6,7 @@ pi: PI-3
 objective: Network Gear Discovery (deck "Objective 1" = CO6 Deliverable #1 = master Obj 4)
 contract: CO6 (Change Order #6)
 status: draft
-updated: 2026-07-20
+updated: 2026-08-05
 tags: [work, cmdb-csdm, safe, pi-planning, co6]
 ---
 
@@ -29,9 +29,9 @@ Feature-and-sprint plan for the **Automate Network Device Discovery in the CMDB*
 | # | Feature | Maps to AC (gate) | Sprint(s) | Existing ADO anchor | Net-new needed |
 |---|---------|-------------------|-----------|---------------------|----------------|
 | **E** | Enabler: Credential proof + coverage denominator ("Lock before planning") | Prereq to AC1 & AC3 | **3.1** | 1383487; spikes 1402555 / 1402559 / 1402567; 1459721 (SNMP/MID pilot) | Pilot-subnet 0-failed-auth proof; denominator sign-off |
-| **1** | Automated Credentialed Discovery Live — all 6 device types, scheduled, auto-updating | AC row 1: validated creds / 0 failed auth **+** schedules on intervals + CMDB auto-updated each cycle (**Aug 31**) | **3.1 → 3.2** | 1444864, 1459721, 1402572, 1402574 (re-parent from 1356646) | Scheduling + auto-update-per-cycle stories |
-| **2** | Mandatory Attribute Population via Discovery — no mandatory field blank | AC row 2: all mandatory attributes populated (**Sep 30**) | **3.3 → 3.4** | — | Attribute mapping + blank-remediation per device type |
-| **3** | Network Inventory Coverage Reconciliation & Owner Validation (≥90%) | AC row 3: ≥90% vs owner-validated inventory (**Oct 27 / Oct 30, stretch**) | **3.4 → 3.5**, validate in **3.6 (IP)** | **1356646** itself, 1402575, 1402567, 1402559 | Gap-closure + business-owner validation sign-off |
+| **1** | Automated Credentialed Discovery Live — all 6 device types, scheduled, auto-updating | AC row 1: validated creds / 0 failed auth **+** schedules on intervals + CMDB auto-updated each cycle (**Aug 31**) | **3.1 → 3.2** | 1444864, 1459721, 1402572, 1402574 (re-parent from 1356646); ADO stories 1526911, 1526947, 1526951 created under 1516993 (reconciled 2026-07-31) + 1557701 (ND-6, surfaced 2026-08-05, Validation state); ~~1526959, 1526973~~ **removed from ADO 2026-08-05** | ⚠️ **Gap reopened** — no story currently covers Load Balancers/WAPs/Network Controllers discovery or the scheduling/auto-update half of the Aug 31 AC. See [[PI-3/pi3-nd-1516993-stories-dependencies]]. |
+| **2** | Mandatory Attribute Population via Discovery — no mandatory field blank | AC row 2: all mandatory attributes populated (**Sep 30**) | **3.3 → 3.4** | ADO stories 1537633, 1537635, 1537636, 1537637, 1537638 created under 1517005 (reconciled 2026-07-31) | — (fully reconciled) |
+| **3** | Network Inventory Coverage Reconciliation & Owner Validation (≥90%) | AC row 3: ≥90% vs owner-validated inventory (**Oct 27 / Oct 30, stretch**) | **3.5**, validate in **3.6 (IP)** | **1356646** itself, 1402575, 1402567, 1402559; 5 stories (CR-1..CR-5, 1559163/1559166/1559175/1559183/1559193) created 2026-08-05 — see [[PI-3/pi3-nd-1356646-stories-dependencies]] | — (fully reconciled) |
 
 **Re-parenting:** move 1356646's credential/config stories (1444864, 1459721, 1402572, 1402574) up to **Feature 1**; leave 1356646 as the spine of **Feature 3** (its literal name is coverage reconciliation). If the team wants fewer work items, Feature 1's two threads (creds/discovery + scheduling) can stay one feature — both are Aug 31 — or split per bullet.
 
@@ -51,9 +51,16 @@ Done = all 6 device types discovering with validated credentials (no failed auth
 
 ### Feature 2 — Mandatory Attribute Population via Discovery · Sprints 3.3 → 3.4 · AC row 2 (Sep 30)
 Done = every mandatory CMDB attribute (per governance) populated via discovery for each device type; no mandatory field blank.
-- **Net-new stories:** confirm the mandatory-attribute set for Network Devices (per governance); map discovery output → attributes per device type; remediate blanks; validate none-blank.
+- **Stories created in ADO (2026-07-31 reconciliation) — 5 of 5; points/state confirmed 2026-08-05:**
+  | ADO ID | Story | Sprint | Points | State |
+  |--------|-------|--------|--------|-------|
+  | 1537633 | Define mandatory attribute set for network device classes | 3.3 | 3 | New |
+  | 1537635 | Baseline mandatory-attribute population and gap analysis (network devices) | 3.3 | 3 | New |
+  | 1537636 | Tune discovery patterns to populate discoverable mandatory attributes | 3.3 | 3 | New |
+  | 1537637 | Populate non-discoverable mandatory attributes via authoritative source | 3.4 | not shown | New |
+  | 1537638 | Validate no blank mandatory fields and reconcile with governance | 3.4 | not shown | New |
 - **Cross-objective dependency:** the mandatory-attribute definition comes from **Obj 3 (CMDB Governance)** / Data Dictionary. Its network-device certification gate is Oct 30 — sequence the *attribute-set definition* early (3.1–3.3) or this Sep 30 gate is blocked.
-- **Gate:** Sep 30 sits on the 3.4/3.5 boundary → target completion by end of **3.4** (Sep 29) for buffer.
+- **Gate:** Sep 30 sits on the 3.4/3.5 boundary → target completion by end of **3.4** (Sep 29) for buffer; ADO placement (3 stories in 3.3, 2 in 3.4) is consistent with this.
 
 ### Feature 3 — Coverage Reconciliation & Owner Validation (≥90%) · Sprints 3.4 → 3.5, validate 3.6 (IP) · AC row 3 (Oct 27 / Oct 30, stretch)
 Done = ≥90% of the expected (authoritative) network inventory represented in CMDB, validated by business owners.

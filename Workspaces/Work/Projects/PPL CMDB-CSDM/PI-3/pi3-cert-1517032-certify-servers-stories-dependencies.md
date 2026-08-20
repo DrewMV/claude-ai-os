@@ -7,8 +7,8 @@ feature: "1517032 — Certify Servers — CMDB Data Certification"
 objective: CO6 Obj 3 — Expand CI Data Certification Across All Major Classes
 sprint: "3.2 (build start); process-flow doc 3.1"
 co6-due: 2026-09-30
-status: reference-draft
-updated: 2026-07-28
+status: reconciled
+updated: 2026-08-05
 tags: [work, cmdb-csdm, safe, pi-planning, co6, data-certification]
 relationships:
   - target: "[[PI-3/pi3-data-certification-feature-breakdown]]"
@@ -30,8 +30,9 @@ relationships:
 **Certify Servers — CMDB Data Certification**
 Sprint 3.2 (build) · process-flow doc starts 3.1 · CO6 due Sep 30 · Owner: M. Vazquez
 
-> **Status: REFERENCE / DRAFT** — Manuel creates the real items in ADO under Feature 1517032 and reconciles IDs back here (ADO authoritative). Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
+> **Status: RECONCILED (2026-07-31)** — all 5 stories created in ADO under Feature 1517032; IDs below, and unlike the Computers feature, all 5 landed in the sprints originally planned. Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
 > Parallel to [[PI-3/pi3-cert-1517029-certify-computers-stories-dependencies]] (Computers). Both certify a CI class off the PI-2 BA pilot pattern to the same Sep 30 gate. See [[PI-3/pi3-data-certification-feature-breakdown]] for the full feature-level breakdown.
+> **Update (2026-08-05 — full ADO board export):** sprint placement unchanged and confirmed; states and remaining points added below. SV-1 (1535496) shows ADO Work Item Type **Spike**, not User Story as drafted — naming drift only.
 
 ---
 
@@ -95,12 +96,14 @@ Stories SV-1 through SV-5 are **net-new** for the Server class — the pilot sha
 
 | Field | Value |
 |-------|-------|
-| Type | User Story |
+| ADO ID | **1535496** |
+| Type | User Story (shows as **Spike** in ADO — naming drift only) |
 | Parent feature | 1517032 |
-| Sprint | 3.1 (doc-only — no PROD dependency) |
+| Sprint | 3.1 (doc-only — no PROD dependency) — as planned |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones the BA pilot process definition, re-scoped to Server |
+| Points | 2 |
+| State | Ready DoR (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1535496 — clones the BA pilot process definition, re-scoped to Server |
 | Depends on | DEP-1 (1480112 gap plan), DEP-5 (Class Manager), DEP-7 (Environment ruling) |
 | Tags | `Data-Certification` `Server` `CO6-Obj3` |
 
@@ -125,12 +128,14 @@ Stories SV-1 through SV-5 are **net-new** for the Server class — the pilot sha
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1535499** |
 | Type | Enabler – Configuration |
 | Parent feature | 1517032 |
-| Sprint | 3.2 |
+| Sprint | 3.2 — as planned |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402976 (execute policies), re-scoped to Server |
+| Points | 2 |
+| State | Ready DoR (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1535499 — clones pilot 1402976 (execute policies), re-scoped to Server |
 | Depends on | SV-1, DEP-3 (Data Dictionary CCB), DEP-4 (test freeze lifts), DEP-7 (Environment ruling) |
 | Tags | `Data-Certification` `Server` `Configuration` `CO6-Obj3` |
 
@@ -155,12 +160,14 @@ Stories SV-1 through SV-5 are **net-new** for the Server class — the pilot sha
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1535500** |
 | Type | Enabler – Configuration |
 | Parent feature | 1517032 |
-| Sprint | 3.2 → 3.3 |
+| Sprint | 3.2 (created here, not 3.2→3.3 as planned) |
 | Owner | Kiran (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402727 (dashboard), re-scoped to Server |
+| Points | 1 (confirmed 2026-08-05) |
+| State | Ready DoR (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1535500 — clones pilot 1402727 (dashboard), re-scoped to Server |
 | Depends on | SV-2 |
 | Tags | `Data-Certification` `Server` `Dashboard` `CO6-Obj3` |
 
@@ -184,12 +191,14 @@ Stories SV-1 through SV-5 are **net-new** for the Server class — the pilot sha
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1535502** |
 | Type | User Story |
 | Parent feature | 1517032 |
-| Sprint | 3.3 |
+| Sprint | 3.3 — as planned |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402980 (monitor completeness), re-scoped to Server |
+| Points | 1 (confirmed 2026-08-05) |
+| State | New (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1535502 — clones pilot 1402980 (monitor completeness), re-scoped to Server |
 | Depends on | SV-2, SV-3 |
 | Tags | `Data-Certification` `Server` `CO6-Obj3` |
 
@@ -213,12 +222,14 @@ Stories SV-1 through SV-5 are **net-new** for the Server class — the pilot sha
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1535504** |
 | Type | User Story |
 | Parent feature | 1517032 |
-| Sprint | 3.4 |
+| Sprint | 3.4 — as planned |
 | Owner | Joe Dames (PO) / Manuel Vazquez |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402962 (kick-off/training) + 1402984 (office hours), re-scoped to Server |
+| Points | 3 |
+| State | New (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1535504 — clones pilot 1402962 (kick-off/training) + 1402984 (office hours), re-scoped to Server |
 | Depends on | SV-2, SV-4 |
 | Tags | `Data-Certification` `Server` `Training` `CO6-Obj3` |
 

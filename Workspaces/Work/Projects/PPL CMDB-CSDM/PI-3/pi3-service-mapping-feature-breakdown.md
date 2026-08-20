@@ -6,7 +6,7 @@ pi: PI-3
 objective: Build & Validate Service Maps for Priority Business Apps (deck "Objective 2" = master Obj 5 = CO6 Deliverable #2)
 contract: CO6 (Change Order #6)
 status: draft
-updated: 2026-07-20
+updated: 2026-08-05
 tags: [work, cmdb-csdm, safe, pi-planning, co6]
 ---
 
@@ -38,6 +38,7 @@ Feature-and-sprint plan for the **Build & Validate Service Maps for Priority Bus
 | # | Feature | Maps to gate | Sprint(s) | Existing ADO anchor | Net-new needed |
 |---|---------|--------------|-----------|---------------------|----------------|
 | **E** | Enabler: Secure app-owner list + tier apps + confirm discovery method ("Lock before planning") | Hard entry criterion (before Aug 5) | pre-PI-3 / **3.1** | 1326754, 1431652, 1420634, dep 1383493 | Silver/Gold tier app lists; app-owner commitments |
+| **DQ** | Migration of Business Apps to Application Services | Data-quality prerequisite to Feature 1 (accurate CI foundation for mapping) | **3.1 → 3.4** | **1537867** (created; State: New) | 9 of ~10 stories (S01/S02/S04–S10) confirmed created in ADO 2026-08-05 — see [[PI-3/pi3-ba-to-service-instance-migration-feature-breakdown]]; S03 unconfirmed |
 | **1** | Silver-Tier Service Maps (app → infra) + ≥75% Business-Service Inventory | **Aug 31** — 15 Silver (commit 8–10) + ≥75% inventory | **3.1 → 3.2** | Wave 1355866 + per-app stories (WATT/Oceana/Einstein/…) | Re-tier to Silver; map + owner-validate committed batch; inventory reconciliation |
 | **2** | Gold-Tier Service Maps (service → app) + Silver Validation Pass | **Sep 30** — Gold service→app + 15 Silver re-validation | **3.2 → 3.4** | Wave 1355868 rollover | Gold tier list; service→app maps; Silver validation pass |
 | **3** | Remaining Contractor-Managed Silver (app → infra) + All-Silver service → app Layer | **Oct 27** — remaining Contractor-managed Silver + Silver service→app | **3.4 → 3.5**, sign-off **3.6 IP** | Wave 1355871 rollover | Remaining Silver maps; service→app layer for all Silver |
@@ -52,6 +53,13 @@ The deck's "Lock before planning," and a **hard entry criterion** — the object
 - **Confirm business services are defined pre-start** (CO6 assumption).
 - **Lock the Silver/Gold tier app lists** — which apps count toward "15 Silver," "Gold-tier," and the ≥75% inventory denominator.
 - **Confirm the discovery method** — close the endpoint-based vs. pattern-based question (1326754, 1431652 SolarWinds PoC) and migrated-apps impact (1420634).
+
+### Feature DQ — Migrate Misclassified Business Application CIs to Service Instances · Sprints 3.1 → 3.2
+Done = customer-created BA CIs that actually represent application instances (misclassified) are replicated as Service Instance CIs in PROD and the originals retired, so downstream service maps are built on a correct CI foundation.
+- **Why here:** the customer built their application portfolio directly in the Business Application class instead of Service Instance — a CSDM class-model misunderstanding. Service maps (Features 1–3) reference Business Application CIs, so uncorrected misclassification would propagate into the maps.
+- **Constraint:** BA CIs cannot be deleted — Incidents, Problems, and Changes are associated to them. Originals must be retired (Operational Status = Retired), not removed, to preserve ITSM history.
+- **Stories:** 9 of ~10 confirmed created in ADO (2026-08-05) — spanning Sprints 3.1–3.4, not just 3.1–3.2 as originally shaped. Full detail in [[pi3-ba-to-service-instance-migration-feature-breakdown]].
+- **Dependency:** feeds Feature 1 — Silver-tier mapping work should draw on the corrected Service Instance CIs, not the retired BA records.
 
 ### Feature 1 — Silver-Tier Service Maps (app → infra) + ≥75% Inventory · Sprints 3.1 → 3.2 · gate Aug 31
 Done = committed Silver batch mapped app→infra, owner-validated, teams enabled; ≥75% of business-service inventory represented and owner-validated.

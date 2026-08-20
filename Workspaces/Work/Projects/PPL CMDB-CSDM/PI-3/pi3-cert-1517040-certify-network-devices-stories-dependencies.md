@@ -7,8 +7,8 @@ feature: "1517040 — Certify Network Devices — CMDB Data Certification"
 objective: CO6 Obj 3 — Expand CI Data Certification Across All Major Classes
 sprint: "3.4 (ADO start); build 3.4–3.5, sign-off 3.6 IP"
 co6-due: 2026-10-30
-status: reference-draft
-updated: 2026-07-27
+status: reconciled
+updated: 2026-08-06
 tags: [work, cmdb-csdm, safe, pi-planning, co6, data-certification]
 relationships:
   - target: "[[PI-3/pi3-data-certification-feature-breakdown]]"
@@ -28,8 +28,12 @@ relationships:
 **Certify Network Devices — CMDB Data Certification**
 ADO start Sprint 3.4 · build 3.4–3.5 · sign-off 3.6 IP · CO6 due Oct 30 · Owner: M. Vazquez
 
-> **Status: REFERENCE / DRAFT** — Manuel creates the real items in ADO under Feature 1517040 and reconciles IDs back here (ADO authoritative). Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
+> **Status: RECONCILED (2026-08-06)** — all 6 stories created in ADO under Feature 1517040; IDs below. Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
 > Fourth and last certification feature. Same PI-2 BA pilot pattern as the other three, but the **most back-loaded and most dependent** — see below. See [[PI-3/pi3-data-certification-feature-breakdown]] for the full feature-level breakdown.
+
+**Revision 2026-08-06 (ADO board export — reconciled):** All 6 stories confirmed created: NW-1 **1560087**, NW-2 **1560089**, NW-3 **1560091**, NW-4 **1560093**, NW-5 **1560094**, NW-6 **1560096**. Points match exactly what was submitted (5/3/3/2/2/3). All show State **New**. NW-1 shows ADO Work Item Type **Spike**, not Enabler – Exploration as drafted — naming drift only, same pattern seen on CC-1/SV-1/DB-1, no impact on points or AC. NW-1 is assigned to Manuel Vazquez in ADO (drafted owner was Stan Tomberg (confirm) — reconcile at refinement). This export's board view does not show an Iteration/Sprint column — sprint values below are per the submitted request, not yet re-confirmed against ADO.
+
+**Revision 2026-08-06 (submitted to Anu):** NW-1 pinned to Sprint **3.4 only** (was 3.3 → 3.4 in this draft); NW-3 pinned to Sprint **3.4 only** (was 3.4 → 3.5 in this draft). Points proposed for all 6 stories (previously "TBD at refinement"): NW-1=5, NW-2=3, NW-3=3, NW-4=2, NW-5=2, NW-6=3. All acceptance-criteria wording differences vs. this draft are cosmetic (dropped DEP-#/story-# cross-reference parentheticals, same meaning retained) — no ACs dropped for this feature.
 
 ---
 
@@ -96,11 +100,13 @@ Cross-objective anchor: Obj 4 Feature **1517005** (mandatory attribute populatio
 
 | Field | Value |
 |-------|-------|
-| Type | Enabler – Exploration (Spike) |
+| ADO ID | **1560087** |
+| Type | Enabler – Exploration (Spike) — shows as **Spike** in ADO, naming drift only |
 | Parent feature | 1517040 |
-| Sprint | 3.3 → 3.4 |
-| Owner | Stan Tomberg (confirm) |
-| Points | TBD (hard timebox) |
+| Sprint | 3.4 (not shown in this export — per submitted request, confirm in ADO) |
+| Owner | Stan Tomberg (confirm) — assigned to Manuel Vazquez in ADO, reconcile at refinement |
+| Points | 5 (confirmed 2026-08-06) |
+| State | New |
 | ADO note | Net-new — the network equivalent of 1480112/113/114, which do not exist yet |
 | Depends on | DEP-2 (discovery live), DEP-3 (attribute set) |
 | Tags | `Data-Certification` `Network` `Spike` `CO6-Obj3` |
@@ -126,10 +132,12 @@ Cross-objective anchor: Obj 4 Feature **1517005** (mandatory attribute populatio
 |-------|-------|
 | Type | User Story |
 | Parent feature | 1517040 |
-| Sprint | 3.4 |
+| ADO ID | **1560089** |
+| Sprint | 3.4 (not shown in this export — per submitted request, confirm in ADO) |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones the BA pilot process definition, re-scoped to Network |
+| Points | 3 (confirmed 2026-08-06) |
+| State | New |
+| ADO note | Created in ADO as 1560089 — clones the BA pilot process definition, re-scoped to Network |
 | Depends on | NW-1, DEP-3 (attribute set), DEP-4 (Class Manager) |
 | Tags | `Data-Certification` `Network` `CO6-Obj3` |
 
@@ -154,12 +162,14 @@ Cross-objective anchor: Obj 4 Feature **1517005** (mandatory attribute populatio
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1560091** |
 | Type | Enabler – Configuration |
 | Parent feature | 1517040 |
-| Sprint | 3.4 → 3.5 |
+| Sprint | 3.4 (not shown in this export — per submitted request, confirm in ADO) |
 | Owner | Stan Tomberg / Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402976 (execute policies), re-scoped to Network |
+| Points | 3 (confirmed 2026-08-06) |
+| State | New |
+| ADO note | Created in ADO as 1560091 — clones pilot 1402976 (execute policies), re-scoped to Network |
 | Depends on | NW-2, DEP-1 (Obj 4 attributes populated), DEP-5 (Data Dictionary CCB) |
 | Tags | `Data-Certification` `Network` `Configuration` `CO6-Obj3` |
 
@@ -186,10 +196,12 @@ Cross-objective anchor: Obj 4 Feature **1517005** (mandatory attribute populatio
 |-------|-------|
 | Type | Enabler – Configuration |
 | Parent feature | 1517040 |
-| Sprint | 3.4 → 3.5 |
+| ADO ID | **1560093** |
+| Sprint | 3.4 → 3.5 (not shown in this export — per submitted request, confirm in ADO) |
 | Owner | Kiran (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402727 (dashboard), re-scoped to Network |
+| Points | 2 (confirmed 2026-08-06) |
+| State | New |
+| ADO note | Created in ADO as 1560093 — clones pilot 1402727 (dashboard), re-scoped to Network |
 | Depends on | NW-3 |
 | Tags | `Data-Certification` `Network` `Dashboard` `CO6-Obj3` |
 
@@ -215,10 +227,12 @@ Cross-objective anchor: Obj 4 Feature **1517005** (mandatory attribute populatio
 |-------|-------|
 | Type | User Story |
 | Parent feature | 1517040 |
-| Sprint | 3.5 |
+| ADO ID | **1560094** |
+| Sprint | 3.5 (not shown in this export — per submitted request, confirm in ADO) |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402980 (monitor completeness), re-scoped to Network |
+| Points | 2 (confirmed 2026-08-06) |
+| State | New |
+| ADO note | Created in ADO as 1560094 — clones pilot 1402980 (monitor completeness), re-scoped to Network |
 | Depends on | NW-3, NW-4, DEP-1 |
 | Tags | `Data-Certification` `Network` `CO6-Obj3` |
 
@@ -244,10 +258,12 @@ Cross-objective anchor: Obj 4 Feature **1517005** (mandatory attribute populatio
 |-------|-------|
 | Type | User Story |
 | Parent feature | 1517040 |
-| Sprint | 3.5 → 3.6 IP (sign-off) |
+| ADO ID | **1560096** |
+| Sprint | 3.5 → 3.6 IP (sign-off) (not shown in this export — per submitted request, confirm in ADO) |
 | Owner | Joe Dames (PO) / Manuel Vazquez |
-| Points | TBD at refinement |
-| ADO note | Net-new — clones pilot 1402962 (kick-off/training) + 1402984 (office hours), re-scoped to Network |
+| Points | 3 (confirmed 2026-08-06) |
+| State | New |
+| ADO note | Created in ADO as 1560096 — clones pilot 1402962 (kick-off/training) + 1402984 (office hours), re-scoped to Network |
 | Depends on | NW-3, NW-5 |
 | Tags | `Data-Certification` `Network` `Training` `CO6-Obj3` |
 

@@ -27,6 +27,10 @@ Per-feature drafts: SAFe user stories (description + acceptance criteria) and de
 - **1517040 — Certify Network Devices** (Obj 3): [[PI-3/pi3-cert-1517040-certify-network-devices-stories-dependencies]] — 6 stories (NW-1…NW-6, incl. net-new audit spike) + 5 dependencies; **highest-risk cert feature** — depends on Obj 4 attribute population (1517005, Sep 30), no audit spike or Class Manager yet; Oct 30 gate
 - **1516993 — Network Discovery** (Obj 4): [[PI-3/pi3-nd-1516993-stories-dependencies]] — existing precedent for this artifact type
 
+### Sprint & story deck
+
+- **PI3-Sprint-Stories-Plan-2026-07-29.pptx** (`build_pi3_sprint_stories_deck.py`) — 8 slides: title, program board (11 features × 6 sprints), then one detail slide per sprint (3.1–3.6 IP) listing every feature active that sprint with its stories/enablers, owner, and CO6 gate status. Stories sourced from the per-feature breakdown files above; REFERENCE/DRAFT — ADO authoritative.
+
 ## Iterations
 
 | Iteration | Start | End | Status |
@@ -68,4 +72,4 @@ _No decisions recorded yet._
 
 ## Open Questions
 
-_No open questions yet._
+- **10 networking stories (Features 1517005 + 1356646) pending validation by Stan Tomberg** — scope, points, and owners not yet confirmed. Reviewing 2026-08-06. See [[PI-3/pi3-networking-stories-stan-validation]].

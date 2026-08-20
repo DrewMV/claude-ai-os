@@ -7,8 +7,8 @@ feature: "1516993 — Automated Credentialed Discovery Live — All Network Devi
 objective: CO6 Obj 4 — Automate Network Device Discovery in the CMDB
 sprint: 3.1
 co6-due: 2026-08-31
-status: reference-draft
-updated: 2026-07-27
+status: reconciled
+updated: 2026-08-05
 tags: [work, cmdb-csdm, safe, pi-planning, co6, network-discovery]
 relationships:
   - target: "[[PI-3/pi3-network-discovery-feature-breakdown]]"
@@ -24,8 +24,10 @@ relationships:
 **Automated Credentialed Discovery Live — All Network Device Types**
 Sprint 3.1 · Aug 5–18 · CO6 due Aug 31 · Owner: M. Vazquez
 
-> **Status: REFERENCE / DRAFT** — Manuel creates the real items in ADO under Feature 1516993 and reconciles IDs back here (ADO authoritative). Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
+> **Status: RECONCILED (2026-07-31)** — all 5 stories created in ADO under Feature 1516993; IDs below. Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
 > See [[PI-3/pi3-network-discovery-feature-breakdown]] for the full feature-level breakdown and existing ADO item references.
+> **Update (2026-08-05 — full ADO board export):** states confirmed for ND-1/ND-2/ND-3 (all Ready DoR). ND-2's points show as **1**, not 2 as logged 7/31 — likely re-pointed at refinement. A **6th story, ND-6 (1557701)**, surfaced under this feature — see below; not part of the original 5-story reconciliation.
+> **Update (2026-08-05, confirmed by Manuel):** **ND-4 (1526959) and ND-5 (1526973) have been removed from ADO.** This feature now has 4 confirmed stories (ND-1, ND-2, ND-3, ND-6) — down from the 5 reconciled 2026-07-31. ⚠️ **CO6 coverage risk:** ND-4 was the only story validating discovery for Load Balancers, WAPs, and Network Controllers (3 of the 6 in-scope device types), and ND-5 was the only story satisfying the "schedules running / auto-updated without manual intervention" half of the Aug 31 acceptance criteria. With both removed and no replacement created yet, this feature as it now stands cannot fully satisfy the CO6 Aug 31 gate — flag at Sprint Planning.
 
 ---
 
@@ -55,7 +57,7 @@ Stories ND-3 (validation), ND-4 (validation), and ND-5 (scheduling automation) a
 
 ---
 
-## Stories (5)
+## Stories (4 live: ND-1, ND-2, ND-3, ND-6 + 2 removed: ND-4, ND-5)
 
 ---
 
@@ -63,12 +65,14 @@ Stories ND-3 (validation), ND-4 (validation), and ND-5 (scheduling automation) a
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1526911** |
 | Type | Enabler – Infrastructure |
 | Parent feature | 1516993 |
 | Sprint | 3.1 |
 | Owner | Stan Tomberg (confirm) |
-| Points | TBD at refinement |
-| ADO note | Extends / replaces 1444864 + 1459721 — confirm re-parent at Sprint Planning |
+| Points | 5 (confirmed 2026-08-05; corrects the 3 logged 7/31) |
+| State | Ready DoR (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1526911 (confirm re-parent of 1444864 + 1459721 at Sprint Planning) |
 | Tags | `Network-Discovery` `Credentials` `CO6-Obj4` |
 
 **As** the CMDB Configuration Manager,
@@ -91,12 +95,14 @@ Stories ND-3 (validation), ND-4 (validation), and ND-5 (scheduling automation) a
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1526947** |
 | Type | Enabler – Infrastructure |
 | Parent feature | 1516993 |
 | Sprint | 3.1 |
 | Owner | Stan Tomberg (confirm) |
-| Points | TBD at refinement |
-| ADO note | Extends / replaces 1402572 + 1402574 — confirm re-parent at Sprint Planning |
+| Points | 1 (confirmed 2026-08-05; ado-tracking's 3.1 snapshot had logged 2 — reconcile if re-pointed again) |
+| State | Ready DoR (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1526947 (confirm re-parent of 1402572 + 1402574 at Sprint Planning) |
 | Tags | `Network-Discovery` `Configuration` `CO6-Obj4` |
 
 **As** the CMDB Configuration Manager,
@@ -119,12 +125,14 @@ Stories ND-3 (validation), ND-4 (validation), and ND-5 (scheduling automation) a
 
 | Field | Value |
 |-------|-------|
+| ADO ID | **1526951** |
 | Type | Enabler – Configuration |
 | Parent feature | 1516993 |
 | Sprint | 3.1 |
 | Owner | Stan Tomberg (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — no existing item covers validation at scale for these three types |
+| Points | 2 |
+| State | Ready DoR (confirmed 2026-08-05) |
+| ADO note | Created in ADO as 1526951 |
 | Depends on | ND-1, ND-2 |
 | Tags | `Network-Discovery` `Validation` `CO6-Obj4` |
 
@@ -142,59 +150,39 @@ Stories ND-3 (validation), ND-4 (validation), and ND-5 (scheduling automation) a
 
 ---
 
-### ND-4 · [Enabler – Configuration] Credentialed discovery live and validated — Load Balancers, WAPs, Network Controllers
+### ~~ND-4 · [Enabler – Configuration] Credentialed discovery live and validated — Load Balancers, WAPs, Network Controllers~~ — REMOVED
 
 | Field | Value |
 |-------|-------|
-| Type | Enabler – Configuration |
-| Parent feature | 1516993 |
-| Sprint | 3.1 |
-| Owner | Stan Tomberg (confirm) |
-| Points | TBD at refinement |
-| ADO note | Net-new — no existing item covers validation at scale for these three types |
-| Depends on | ND-1, ND-2 |
-| Tags | `Network-Discovery` `Validation` `CO6-Obj4` |
+| ADO ID | ~~1526959~~ |
+| Status | **Removed from ADO (confirmed 2026-08-05)** |
 
-**As** the CMDB Configuration Manager,
-**I want** credentialed discovery confirmed live for Load Balancers, Wireless Access Points, and Network Controllers,
-**So that** CMDB records for these device types are being created or updated by discovery with no authentication failures.
-
-**Acceptance criteria:**
-- [ ] Discovery run completed for Load Balancers, Wireless Access Points, and Network Controllers
-- [ ] CMDB contains active CI records for each device type; count plausible against baseline (DEP-5)
-- [ ] Discovery log shows zero authentication failures for targeted devices
-- [ ] CI records carry `discovery_source = ServiceNow Discovery`
-- [ ] No duplicate CIs created — IRE fired correctly
-- [ ] Spot-check: 3–5 CIs per device type reviewed; hostname, IP, and sys_class_name correctly populated
-
-> **Note:** Load Balancers (e.g. F5) and Network Controllers (e.g. Cisco DNA Center, Aruba) may require vendor-specific patterns or IntegrationHub spokes. Confirm via DEP-4 before sprint start — if a spoke is needed, that is a scope change requiring PO sign-off before this story is created.
+Was going to cover discovery validation for Load Balancers, Wireless Access Points, and Network Controllers (3 of the 6 in-scope device types). No replacement story exists yet — this device-type coverage is currently unstaffed. Kept here for traceability only; do not treat as active.
 
 ---
 
-### ND-5 · [User Story] Discovery schedules running — CMDB auto-updates without manual intervention
+### ~~ND-5 · [User Story] Discovery schedules running — CMDB auto-updates without manual intervention~~ — REMOVED
 
 | Field | Value |
 |-------|-------|
-| Type | User Story |
+| ADO ID | ~~1526973~~ |
+| Status | **Removed from ADO (confirmed 2026-08-05)** |
+
+Was going to satisfy the CO6 "schedules running on defined intervals; CMDB records auto-updated without manual intervention" acceptance criterion. No replacement story exists yet. Kept here for traceability only; do not treat as active.
+
+---
+
+### ND-6 · CMDB: Analysis of Network ranges
+
+| Field | Value |
+|-------|-------|
+| ADO ID | **1557701** |
 | Parent feature | 1516993 |
 | Sprint | 3.1 |
-| Owner | Stan Tomberg / Manuel Vazquez |
-| Points | TBD at refinement |
-| ADO note | Net-new — Thread B (scheduling) per feature breakdown |
-| Depends on | ND-3, ND-4 |
-| Tags | `Network-Discovery` `Scheduling` `CO6-Obj4` |
+| Points | 2 |
+| State | **Validation** (confirmed 2026-08-05) — further along than ND-1/2/3 (Ready DoR) |
 
-**As** the CMDB Configuration Manager,
-**I want** discovery schedules running on defined intervals for all six network device types,
-**So that** CMDB records update automatically on each cycle without any manual trigger — satisfying the CO6 "no manual intervention" requirement.
-
-**Acceptance criteria:**
-- [ ] Scheduled discovery jobs created for all six device types; interval defined and documented (DEP-6)
-- [ ] At least one scheduled run completes end-to-end without manual trigger; run log shows success
-- [ ] CMDB CI records show `sys_updated_on` timestamps consistent with the scheduled run — confirming auto-update
-- [ ] Discovery schedule is visible and manageable in ServiceNow (not a one-off manual run)
-- [ ] Schedule interval and next-run time documented and communicated to CMDB Process Owner
-- [ ] CO6 acceptance statement demonstrable at Sprint Review: *"discovery schedules running on defined intervals; CMDB records auto-updated without manual intervention within each scheduled cycle"*
+**Surfaced in the 2026-08-05 full ADO board export** — not part of the 5-story set reconciled 2026-07-31. Title suggests it's the IP-range analysis work implied by DEP-2 (IP subnet list) below; being in Validation state means it may already be substantially complete. **Open:** confirm scope against ND-2/DEP-2 and add full story detail (AC, owner) once confirmed with the team.
 
 ---
 
@@ -265,10 +253,10 @@ Stories ND-3 (validation), ND-4 (validation), and ND-5 (scheduling automation) a
 | Field | Value |
 |-------|-------|
 | Title | [Dependency] Vendor probe confirmation — Load Balancers and Network Controllers — Feature 1516993 |
-| Description | Load Balancers (e.g. F5) and Network Controllers (e.g. Cisco DNA Center, Aruba) may require IntegrationHub spokes rather than standard SNMP probes. If a spoke is needed this is a scope change requiring PO sign-off. Blocks ND-4. |
+| Description | Load Balancers (e.g. F5) and Network Controllers (e.g. Cisco DNA Center, Aruba) may require IntegrationHub spokes rather than standard SNMP probes. If a spoke is needed this is a scope change requiring PO sign-off. Originally blocked ND-4. |
 | Assigned To | Stan Tomberg |
 | Priority | 2 |
-| State | Open |
+| State | Open — **ND-4 (the story this blocked) was removed 2026-08-05; this dependency's underlying question (can these device types be discovered at all) is still open and now has no story to attach to** |
 | Due Date | 2026-08-05 |
 
 **Acceptance criteria:**
@@ -283,7 +271,7 @@ Stories ND-3 (validation), ND-4 (validation), and ND-5 (scheduling automation) a
 | Field | Value |
 |-------|-------|
 | Title | [Dependency] Baseline CI count per network device type — Feature 1516993 |
-| Description | Acceptance of ND-3 and ND-4 requires validating that discovered CI counts are plausible against a known baseline. Network team provides expected device counts per class. Blocks acceptance of ND-3, ND-4. |
+| Description | Acceptance of ND-3 requires validating that discovered CI counts are plausible against a known baseline. Network team provides expected device counts per class. Blocks acceptance of ND-3. (Previously also blocked ND-4 — removed 2026-08-05.) |
 | Assigned To | Manuel Vazquez |
 | Priority | 3 |
 | State | Open |
@@ -301,7 +289,7 @@ Stories ND-3 (validation), ND-4 (validation), and ND-5 (scheduling automation) a
 | Field | Value |
 |-------|-------|
 | Title | [Dependency] Discovery schedule interval decision — Feature 1516993 |
-| Description | ND-5 requires a defined schedule interval before discovery jobs can be configured. Confirm cadence with CMDB Process Owner before configuring. Blocks ND-5. |
+| Description | Was to confirm the schedule interval before ND-5 configured discovery jobs. **ND-5 was removed 2026-08-05** — this dependency has no story to feed until a replacement scheduling story is created. |
 | Assigned To | Manuel Vazquez |
 | Priority | 3 |
 | State | Open |
@@ -310,7 +298,7 @@ Stories ND-3 (validation), ND-4 (validation), and ND-5 (scheduling automation) a
 **Acceptance criteria:**
 - [ ] Schedule interval (frequency) for network device discovery confirmed and approved by CMDB Process Owner (Josh Sterling)
 - [ ] Decision documented in ADO (comment or attachment)
-- [ ] Agreed interval ready to be configured in ServiceNow before ND-5 begins
+- [ ] Agreed interval ready to be configured in ServiceNow once a scheduling story exists
 
 ---
 
@@ -319,13 +307,14 @@ Stories ND-3 (validation), ND-4 (validation), and ND-5 (scheduling automation) a
 ```
 DEP-1 (Aug 5) ─┐
 DEP-2 (Aug 5) ─┼─► ND-1 ─┐
-DEP-3 (Aug 5) ─┘          ├─► ND-3 (Routers/Switches/Firewalls) ─┐
-                           │                                        ├─► ND-5 (Schedules)
-               ND-2 ───────┴─► ND-4 (LBs/WAPs/Controllers) ───────┘
-DEP-4 (Aug 5) ─────────────►  [scope confirm before ND-4 created]
+DEP-3 (Aug 5) ─┘          ├─► ND-3 (Routers/Switches/Firewalls) ─► ND-6 (Analysis of Network ranges)
+               ND-2 ───────┘
 
-DEP-5 (Aug 12) ────────────►  ND-3, ND-4 acceptance
-DEP-6 (Aug 12) ────────────►  ND-5 configuration
+DEP-5 (Aug 12) ────────────►  ND-3 acceptance
+
+[REMOVED 2026-08-05] ND-4 (LBs/WAPs/Controllers) — was blocked by DEP-4
+[REMOVED 2026-08-05] ND-5 (Schedules) — was blocked by DEP-6, depended on ND-3 + ND-4
 ```
 
-**Sprint 3.1 blocker:** DEP-1, DEP-2, DEP-3, and DEP-4 must all be resolved by Aug 5. Raise at PI Planning (IP Iteration, Jul 22–Aug 4).
+**Sprint 3.1 blocker:** DEP-1, DEP-2, and DEP-3 must be resolved by Aug 5. DEP-4 and DEP-6 no longer block a story (their target stories were removed) but their underlying questions — LB/Controller probe method, schedule interval — are still open and should be re-attached once replacement stories exist. Raise at PI Planning (IP Iteration, Jul 22–Aug 4).
+**Open gap (2026-08-05):** with ND-4 and ND-5 gone, this feature currently has no story covering 3 of the 6 in-scope device types or the "auto-updated without manual intervention" acceptance criterion — see the status note at the top of this file.

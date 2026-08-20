@@ -21,13 +21,14 @@ from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
 
 # --------------------------------------------------------------------------- CONTENT
-EDITION   = "2026-07-22"
+EDITION   = "2026-07-31"
 TITLE     = "PI-3 Plan - CMDB / CSDM"
 SUBTITLE  = "Objectives & Features  ·  Objective View + Sprint View"
 AUTHOR    = "Manuel Vazquez  -  Scrum Master, CMDB-CSDM"
-FOOTLABEL = "PPL CMDB-CSDM  |  PI-3 Objectives & Features  |  ADO A-INFOPS\\FY26\\PI3  |  Jul 22, 2026"
-SOURCE_NOTE = ("Source: Azure DevOps (A-INFOPS\\FY26\\PI3), as of Jul 22, 2026.  "
-               "CMDB/CSDM focus area - a subset of CO6 (maps to 4 of the 7 CO6 objectives).")
+FOOTLABEL = "PPL CMDB-CSDM  |  PI-3 Objectives & Features  |  ADO A-INFOPS\\FY26\\PI3  |  Jul 31, 2026"
+SOURCE_NOTE = ("Source: Azure DevOps (A-INFOPS\\FY26\\PI3), as of Jul 31, 2026.  "
+               "CMDB/CSDM focus area - a subset of CO6 (maps to 4 of the 7 CO6 objectives).  "
+               "Stories column: user stories confirmed created in ADO under that feature.")
 
 # Objectives (ADO order).  id, name, workstream key, CO6 map, owner, one-line descriptor
 OBJECTIVES = [
@@ -47,28 +48,31 @@ OBJECTIVES = [
 
 # Features.  id, parent objective, workstream, sprint (ADO iteration), start, CO6 delivery date, owner, name, short label
 # co6 = the CO6 acceptance-criteria completion date this feature delivers against (the delivery commitment).
+# stories = user stories confirmed created in ADO under this feature, as of the Jul 31 reconciliation.
 FEATURES = [
-    dict(id="1516993", obj="1516954", ws="NET",  sprint="3.1", start="Aug 5",  co6="Aug 31, 2026", owner="M. Vazquez",
+    dict(id="1516993", obj="1516954", ws="NET",  sprint="3.1", start="Aug 5",  co6="Aug 31, 2026", owner="M. Vazquez", stories=5,
          name="Automated Credentialed Discovery Live — All Network Device Types", short="Discovery Live — all device types"),
-    dict(id="1517005", obj="1516954", ws="NET",  sprint="3.3", start="Sep 2",  co6="Sep 30, 2026", owner="M. Vazquez",
+    dict(id="1537867", obj="1516955", ws="SM",   sprint="3.1", start="Aug 5",  co6="n/a", owner="M. Vazquez", stories=0,
+         name="Migration of Business Apps to Application Services (data-quality enabler — not a CO6 gate)", short="BA → App Service Migration (enabler)"),
+    dict(id="1517005", obj="1516954", ws="NET",  sprint="3.3", start="Sep 2",  co6="Sep 30, 2026", owner="M. Vazquez", stories=5,
          name="Mandatory Attribute Population via Discovery — Network Devices", short="Mandatory Attribute Population"),
-    dict(id="1356646", obj="1516954", ws="NET",  sprint="3.5", start="Sep 30", co6="Oct 30, 2026", owner="M. Vazquez",
+    dict(id="1356646", obj="1516954", ws="NET",  sprint="3.5", start="Sep 30", co6="Oct 30, 2026", owner="M. Vazquez", stories=0,
          name="Network Inventory Coverage Reconciliation & Owner Validation (≥90%)", short="Coverage Reconciliation ≥90%"),
-    dict(id="1517650", obj="1516955", ws="SM",   sprint="3.1", start="Aug 5",  co6="Aug 31, 2026", owner="A. Griffis",
+    dict(id="1517650", obj="1516955", ws="SM",   sprint="3.1", start="Aug 5",  co6="Aug 31, 2026", owner="A. Griffis", stories=0,
          name="Silver-Tier Service Maps (App → Infrastructure) + ≥75% Business-Service Inventory", short="Silver-Tier Maps + ≥75% Inventory"),
-    dict(id="1517655", obj="1516955", ws="SM",   sprint="3.3", start="Sep 2",  co6="Sep 30, 2026", owner="A. Griffis",
+    dict(id="1517655", obj="1516955", ws="SM",   sprint="3.3", start="Sep 2",  co6="Sep 30, 2026", owner="A. Griffis", stories=0,
          name="Gold-Tier Service Maps (Service → App) + Silver Validation Pass", short="Gold-Tier Maps + Silver Validation"),
-    dict(id="1518000", obj="1516955", ws="SM",   sprint="3.5", start="Sep 30", co6="Oct 30, 2026", owner="A. Griffis",
+    dict(id="1518000", obj="1516955", ws="SM",   sprint="3.5", start="Sep 30", co6="Oct 30, 2026", owner="A. Griffis", stories=0,
          name="Remaining Contractor-Managed Silver-Tier Maps + All-Silver Service → App Layer", short="Remaining Silver + Svc→App"),
-    dict(id="1517029", obj="1516956", ws="CERT", sprint="3.2", start="Aug 19", co6="Sep 30, 2026", owner="M. Vazquez",
+    dict(id="1517029", obj="1516956", ws="CERT", sprint="3.2", start="Aug 19", co6="Sep 30, 2026", owner="M. Vazquez", stories=5,
          name="Certify Computers — CMDB Data Certification", short="Certify Computers"),
-    dict(id="1517032", obj="1516956", ws="CERT", sprint="3.2", start="Aug 19", co6="Sep 30, 2026", owner="M. Vazquez",
+    dict(id="1517032", obj="1516956", ws="CERT", sprint="3.2", start="Aug 19", co6="Sep 30, 2026", owner="M. Vazquez", stories=5,
          name="Certify Servers — CMDB Data Certification", short="Certify Servers"),
-    dict(id="1517037", obj="1516956", ws="CERT", sprint="3.4", start="Sep 16", co6="Oct 30, 2026", owner="M. Vazquez",
+    dict(id="1517037", obj="1516956", ws="CERT", sprint="3.4", start="Sep 16", co6="Oct 30, 2026", owner="M. Vazquez", stories=0,
          name="Certify Databases — CMDB Data Certification", short="Certify Databases"),
-    dict(id="1517040", obj="1516956", ws="CERT", sprint="3.4", start="Sep 16", co6="Oct 30, 2026", owner="M. Vazquez",
+    dict(id="1517040", obj="1516956", ws="CERT", sprint="3.4", start="Sep 16", co6="Oct 30, 2026", owner="M. Vazquez", stories=0,
          name="Certify Network Devices — CMDB Data Certification", short="Certify Network Devices"),
-    dict(id="1517065", obj="1516957", ws="QLY",  sprint="3.1", start="Aug 5",  co6="Sep 30, 2026", owner="S. Tomberg",
+    dict(id="1517065", obj="1516957", ws="QLY",  sprint="3.1", start="Aug 5",  co6="Sep 30, 2026", owner="S. Tomberg", stories=0,
          name="Activate ServiceNow → Qualys Attribute Sync (PROD)", short="Activate SN→Qualys Sync (PROD)"),
 ]
 
@@ -206,7 +210,7 @@ def add_title(prs, blank):
     textbox(s, Inches(0.8), Inches(1.65), Inches(11.7), Inches(1.1), [(TITLE, 40, WHITE, True, False)])
     textbox(s, Inches(0.82), Inches(2.72), Inches(11.7), Inches(0.6), [(SUBTITLE, 19, RGBColor(0xC9, 0xD6, 0xE6), False, False)])
     textbox(s, Inches(0.82), Inches(4.75), Inches(11.7), Inches(1.5), [
-        ("4 objectives  ·  11 features  ·  6 sprints (Aug 5 - Oct 27, 2026)", 16, WHITE, True, False),
+        ("4 objectives  ·  12 features (11 CO6-gated + 1 data-quality enabler)  ·  6 sprints (Aug 5 - Oct 27, 2026)", 16, WHITE, True, False),
         ("CMDB / CSDM team focus area  -  a subset of CO6", 14, RGBColor(0xC9, 0xD6, 0xE6), False, False),
         (AUTHOR, 12, RGBColor(0x9F, 0xB2, 0xCC), False, False),
     ])
@@ -215,7 +219,7 @@ def add_title(prs, blank):
 
 def add_overview(prs, blank):
     s = prs.slides.add_slide(blank)
-    header(s, "PI-3 Objectives - Overview", "4 CMDB/CSDM objectives  ·  11 features  ·  each mapped to CO6")
+    header(s, "PI-3 Objectives - Overview", "4 CMDB/CSDM objectives  ·  12 features (11 mapped to CO6, 1 data-quality enabler)")
     cols = ["#", "Objective", "ADO ID", "Owner", "Feat", "CO6"]
     widths = [Inches(0.45), Inches(6.75), Inches(1.15), Inches(1.7), Inches(0.65), Inches(1.5)]
     t = s.shapes.add_table(len(OBJECTIVES) + 1, len(cols), Inches(0.55), Inches(1.5), Inches(12.2), Inches(2.7)).table
@@ -248,7 +252,7 @@ def add_overview(prs, blank):
 
 def add_objective_view(prs, blank):
     s = prs.slides.add_slide(blank)
-    header(s, "Objective View - Features by Objective", "11 features grouped under their 4 parent objectives  ·  with CO6 delivery commitment")
+    header(s, "Objective View - Features by Objective", "12 features grouped under their 4 parent objectives  ·  with CO6 delivery commitment")
     # build row plan
     rowplan = [("head", None)]
     for o in OBJECTIVES:
@@ -256,15 +260,15 @@ def add_objective_view(prs, blank):
         for f in FEATURES:
             if f["obj"] == o["id"]:
                 rowplan.append(("feat", f))
-    t = s.shapes.add_table(len(rowplan), 5, Inches(0.55), Inches(1.32), Inches(12.2), Inches(5.5)).table
-    for j, wdt in enumerate([Inches(1.05), Inches(7.35), Inches(0.9), Inches(1.05), Inches(1.85)]):
+    t = s.shapes.add_table(len(rowplan), 6, Inches(0.55), Inches(1.32), Inches(12.2), Inches(5.5)).table
+    for j, wdt in enumerate([Inches(1.0), Inches(6.2), Inches(0.85), Inches(0.95), Inches(1.15), Inches(2.05)]):
         t.columns[j].width = wdt
     for r, (kind, data) in enumerate(rowplan):
         if kind == "head":
-            for j, h in enumerate(["ADO ID", "Feature", "Sprint", "Start", "Delivery (CO6)"]):
+            for j, h in enumerate(["ADO ID", "Feature", "Sprint", "Start", "Stories", "Delivery (CO6)"]):
                 cell(t, r, j, h, 10.5, WHITE, True, PP_ALIGN.LEFT if j == 1 else PP_ALIGN.CENTER, DARK)
         elif kind == "group":
-            t.cell(r, 0).merge(t.cell(r, 4))
+            t.cell(r, 0).merge(t.cell(r, 5))
             vivid = WS[data["ws"]][1]
             label = ("%s   ·   ADO %s   ·   %s   ·   Owner: %s"
                      % (data["name"], data["id"], data["co6"], data["owner"]))
@@ -272,11 +276,14 @@ def add_objective_view(prs, blank):
         else:
             f = data
             fill = LIGHT
+            stories_label = "%d in ADO" % f["stories"] if f["stories"] else "—"
+            stories_color = GREEN if f["stories"] else MUTED
             cell(t, r, 0, f["id"], 9.5, ACCENT, True, PP_ALIGN.CENTER, fill, MSO_ANCHOR.MIDDLE)
             cell(t, r, 1, f["name"], 9.5, TEXT, False, PP_ALIGN.LEFT, fill, MSO_ANCHOR.MIDDLE)
             cell(t, r, 2, f["sprint"], 9.5, DARK, True, PP_ALIGN.CENTER, fill, MSO_ANCHOR.MIDDLE)
             cell(t, r, 3, f["start"], 9.5, TEXT, False, PP_ALIGN.CENTER, fill, MSO_ANCHOR.MIDDLE)
-            cell(t, r, 4, f["co6"], 9.5, co6_color(f["co6"]), True, PP_ALIGN.CENTER, fill, MSO_ANCHOR.MIDDLE)
+            cell(t, r, 4, stories_label, 9.5, stories_color, True, PP_ALIGN.CENTER, fill, MSO_ANCHOR.MIDDLE)
+            cell(t, r, 5, f["co6"], 9.5, co6_color(f["co6"]), True, PP_ALIGN.CENTER, fill, MSO_ANCHOR.MIDDLE)
 
 
 def add_sprint_view(prs, blank):
@@ -302,7 +309,7 @@ def add_sprint_view(prs, blank):
         else:
             cell(t, i, 3, "— no features planned —", 9.5, MUTED, False, PP_ALIGN.LEFT, fill, MSO_ANCHOR.MIDDLE, italic=True)
     textbox(s, Inches(0.55), Inches(6.75), Inches(12.2), Inches(0.3),
-            [("Features span Sprints 3.1 - 3.5 (2-3 each); the 3.6 IP iteration holds none. Every feature completes in a sprint ending before its CO6 delivery date.",
+            [("Features span Sprints 3.1 - 3.5 (2-4 each); the 3.6 IP iteration holds none. Every CO6-gated feature completes in a sprint ending before its CO6 delivery date (1537867 is a data-quality enabler with no CO6 gate).",
               9.5, MUTED, False, True)])
 
 
