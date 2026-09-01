@@ -4,7 +4,7 @@ workspace: Work
 project: PPL CMDB-CSDM
 status: active
 created: 2026-06-01
-updated: 2026-08-20
+updated: 2026-09-01
 tags: [work, agile, safe, cmdb-csdm, servicenow]
 ---
 
@@ -197,6 +197,18 @@ Deck [[Audit-Readiness/CMDB-Audit-Update-PI2-PI3-2026-08-20]] built for the Augu
 - Network Device Auto Discovery (1516993) — credentialed discovery live/validated for Routers, Switches, Firewalls; CO6 gate Aug 31.
 - **Database Auto-Discovery (PI2 carryover, Feature 1554951)** — flagged the active Linux Discovery credential issue (1571603, 8 pts, Active) blocking DB host connectivity, tied back to the CO5-documented "no scalable credential distribution" risk from PI2.
 
+**Companion deck — Audit Objectives Alignment:** [[Audit-Readiness/CMDB-Audit-Objectives-Alignment-2026-08-20]] reframes the same Aug 20 update around Corporate Audit Services' own 3 engagement objectives (Data Completeness & Accuracy; Governance Structure; Stakeholder Engagement/OCM) instead of the PI2/PI3 structure — built for Work Review 1 (week of 8/24). Build script: [[Audit-Readiness/build_audit_objectives_alignment_deck.py]].
+
+## Network Gear Data Dictionary — Validation In Progress (2026-08-24)
+
+[[Config-Mgmt-Plan/data-dictionary-network-gear]] (DRAFT) defines the CMP Stage 1 attribute set for the `cmdb_ci_netgear` parent class and its 6 in-scope subclasses (Firewall, Switch, Load Balancer, WAP, Network Controller, Router). Companion [[Config-Mgmt-Plan/data-dictionary-network-gear-validation]] is a 3-way stakeholder sign-off sheet (Network Core, ESS-02, Corporate Audit Services) that must clear before CCB ratification.
+
+Ties directly to: PI-3 Network Device Auto Discovery (1516993, CO6 gate Aug 31) and Certify Databases & Network Devices (1517037/1517040, gate Oct 30) above; and to the 🟠 CO5/CO6 ESS-02 holdback risk noted in Contract Context — ESS-02 sign-off on this sheet is the concrete path to closing that gap. Open items pending confirmation: add Operational Status and Firmware/OS Version fields, confirm the Network Controller table name, and Firewall-specific security attributes for ESS-02.
+
+## NITSR / System Criticality Assessment (SCA) Sequencing (2026-08-19)
+
+[[Meetings/2026-08-19-nitsr-cmdb-system-criticality]] — Cyber Governance (Shannon Redmond / Rohan Dixit) proposed moving CMDB CI creation + System Criticality Assessment earlier in the NITSR process, ahead of Technology Approval Review, to support the upcoming OneTrust → **ServiceNow IRM** migration (~Sept 2026). No decision made yet. Manuel (with Jordan Yung, supporting Joe Dames) owns evaluating feasibility of earlier CI creation + a recommended lifecycle/status approach, and researching OOTB ServiceNow lifecycle stages for "under evaluation" applications — target feedback **Aug 28** (see Open Action Items). Also ties into [[csdm5-terminology]] — unclear which CI class/table an NITSR-driven CI lands in given the CSDM 5 Service Instance shift; needs resolving before scoping the feedback.
+
 ## Active Risks (RAID)
 
 | Risk | Detail | Status | Owner |
@@ -252,6 +264,13 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - [[nowassist-implementation-plan]] — 5-phase NowAssist AI roadmap (Duplicate CI Elimination → NL Search → Guided CI Creation → Governance Advice → NASK); primary driver for PI-2 Obj 5 and PI-3 objectives
 
 ## Open Action Items
+
+### 🔴 NITSR Follow-up — Target Aug 28 (past due as of 2026-09-01 — confirm status)
+
+| Owner | Item | Context |
+|-------|------|---------|
+| Manuel (w/ Jordan Yung, supporting Joe Dames) | Evaluate feasibility of earlier CMDB CI creation in NITSR process + recommend lifecycle/status approach | See [[Meetings/2026-08-19-nitsr-cmdb-system-criticality]] |
+| Manuel | Research ServiceNow OOTB lifecycle stage options for applications "under evaluation" | Same meeting |
 
 ### 🔴 Immediate — Week of June 10
 
