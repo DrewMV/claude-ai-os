@@ -4,7 +4,7 @@ tags: [cmdb-csdm, servicenow, governance, ccb, data-definitions, network-gear]
 cmp-stage: 1
 status: draft
 parent: configuration-management-plan-stage1
-updated: 2026-08-24
+updated: 2026-09-02
 ---
 
 # CMDB Data Dictionary — Network Gear
@@ -13,7 +13,7 @@ updated: 2026-08-24
 
 > **Companion to** [[configuration-management-plan-stage1]]. Network Gear class definitions for CMP Stage 1.  
 > **Scope:** Parent class `cmdb_ci_netgear` and six in-scope subclasses: Firewall, Switch, Load Balancer, WAP (Wireless Access Point), Network Controller, Router.  
-> **Updated:** 2026-08-24.
+> **Updated:** 2026-09-02.
 
 ---
 
@@ -55,6 +55,8 @@ updated: 2026-08-24
 | Environment | `environment` | Choice | Rec-Non-Disc | [Network Core confirm] | Prod, QA, Dev, Test | Manual / Data Certification | — | [Audit confirm] | [Network Core confirm] | 2026-08-24 | Deployment environment. See [[server-environment-mandatory-spike]] for cross-class environment placement discussion. |
 | Location | `location` | Reference (`cmn_location`) | Rec-Non-Disc | [Network Core confirm] | Active location record | Asset Mgmt / Manual | — | [Audit confirm] | [Network Core confirm] | 2026-08-24 | Physical location (data center, building, rack). |
 | Value Stream | `business_unit` | Reference (`business_unit`) | Rec-Non-Disc | [Network Core confirm] | Active business_unit record | Manual / Data Certification | — | [Audit confirm] | [Network Core confirm] | 2026-08-24 | Business unit / value stream this device supports. Populated via Data Certification workflow. |
+| Operational Status | `operational_status` | Choice | Rec-Non-Disc | [Network Core confirm] | Build, Operational, Non-Operational, Retired [CCB confirm] | Manual / Data Certification | — | [Audit confirm] | [Network Core confirm] | 2026-09-02 | Lifecycle state of the device. Added 2026-09-02 to close Open Question 1. Note: diverges from other governed CI classes, where this field is Required with a hybrid Discovery/Manual source — see [[data-dictionary-network-gear-validation]] N2, A5. |
+| Install Status | `install_status` | Choice | Rec-Non-Disc | [Network Core confirm] | Installed, On Order, In Maintenance, Retired [CCB confirm] | Manual / Data Certification | — | [Audit confirm] | [Network Core confirm] | 2026-09-02 | Installation/lifecycle status, distinct from Operational Status. Net-new field, not previously tracked in this dictionary. Added 2026-09-02. |
 
 > **PPL Custom Base-Class Attributes** — all 7 inherited from `cmdb_ci` (SOX Indicator, SOX Type, GASCI, GASCI Type, Special Handling NERC TCA, Computer Type, Metal Tier) apply to Network Gear per the base class definition. No additional class-level PPL custom attributes are proposed at this time. See [[configuration-management-plan-stage1]] § BASE CLASS.
 
@@ -83,16 +85,16 @@ updated: 2026-08-24
 | Switch | `cmdb_ci_ip_switch` | — |
 | Load Balancer | `cmdb_ci_lb` | — |
 | Wireless Access Point | `cmdb_ci_wap` | [Network Core confirm] — may need SSID / Controller reference |
-| Network Controller | *(TBD)* | [Network Core confirm] — confirm ServiceNow table name |
+| Network Controller | `cmdb_ci_network_controller` | **RESOLVED 2026-09-02** — table name confirmed |
 | Router | `cmdb_ci_ip_router` | — |
 
 ---
 
 ## OPEN QUESTIONS
 
-1. **Operational Status** — not included in the proposed field set. All other governed CI classes include `operational_status` as Required and Audited. Recommend adding. [Network Core confirm] [Audit confirm]
+1. **Operational Status & Install Status — RESOLVED 2026-09-02.** Both added to § 2 above as Recommended (Non-Discoverable). Note: this diverges from other governed CI classes, where `operational_status` is Required with a hybrid Discovery/Manual source — Network Core and Audit should confirm whether Network Gear should follow the same pattern, or whether Rec-Non-Disc stands. `install_status` is net-new to this dictionary; no equivalent existed in the prior field set. See [[data-dictionary-network-gear-validation]] N2, N10, A5.
 2. **Firmware / OS Version** — network devices carry a firmware/OS version (e.g., Cisco IOS). Discoverable via SSH probe if enabled. [Network Core confirm — add as Rec-Discoverable?]
 3. **Management IP convention** — `ip_address` captures one IP. For multi-interface devices, is the management IP convention sufficient or is a dedicated management IP field needed? [Network Core confirm]
-4. **Network Controller table name** — confirm ServiceNow table for Network Controller subclass. [Network Core confirm]
+4. **Network Controller table name — RESOLVED 2026-09-02.** Confirmed as `cmdb_ci_network_controller`. See [[data-dictionary-network-gear-validation]] N6.
 5. **Value Stream (business_unit) values** — confirm the active `business_unit` records that should be selectable for network gear. [CCB confirm]
 6. **Firewall security attributes** — ESS-02 may require additional security-relevant fields on the Firewall subclass. [ESS-02 confirm]

@@ -9,8 +9,9 @@ sources:
   - "Azure DevOps (A-INFOPS\\FY26\\PI3)"
   - "C:\\Users\\manuel.b.vazquez\\Desktop\\PI3-Objectives-Features-2026-07-22.pptx"
   - "ADO board export, screenshots (2026-08-05) — full PI-3 query sorted by Iteration Path"
-as-of: 2026-08-19
-updated: 2026-08-19
+  - "ADO board export, screenshots (2026-09-03) — CMDB/CSDM team query sorted by State, labeled 'Sprint 3.1 update'"
+as-of: 2026-09-03
+updated: 2026-09-03
 summary: "CMDB/CSDM team PI-3 ADO objectives (5) and features (15): 4 CO6-gated objectives + 1 non-CO6 PI-2 carryover objective with 3 features."
 base_confidence: 0.9
 lifecycle: draft
@@ -43,6 +44,49 @@ tags: [work, cmdb-csdm, safe, pi-planning, co6]
 | State | Objectives + 3.2–3.5 features: **New**; the four 3.1 features (1516993, 1517650, 1517065, 1537867): **Defining/New** — confirm 1537867's exact state in ADO |
 | PI-3 window | Aug 5 – Oct 27, 2026 |
 | Sprints in use | 3.1 – 3.5 (2–3 features each; 3.6 IP empty) |
+
+**Revision 2026-09-03 (ADO export, screenshots, sorted by State — full CMDB/CSDM team query, Manuel-labeled "Sprint 3.1 update"):** No Iteration column in this export, so sprint assignments below are unconfirmed unless otherwise stated.
+
+*Two new, unmapped Features surfaced — likely the "CMDB Role Matrix" initiative and a new Workspace effort, neither yet CO6-traced:*
+- **1595485 "CMDB - Role-Based Access and Permission Management"** (Feature, New, no parent shown) — 7 children, all New/Active: 1593513 (Spike, "Conduct Gap Analysis between PPL roles and ServiceNow OOB," 2 pts, Active, Alex Lim), 1595488 ("Assess Current Roles and ACL Configuration," Active, Alex Lim), 1595517 ("Define Role and Permission Matrix," Active, Alex Lim), 1595527 ("Design Role-Based Security Architecture," New), 1595528 ("Implement Roles and ACL Controls," New), 1595529 ("Validate Role-Based Access Controls," New), 1595531 ("Conduct Permission Model UAT," New). Matches the "CMDB Role Matrix" work referenced in recent stakeholder threads (Sonika accepted the plan 2026-09-02/03, weekly review cadence expected) — likely the ADO home for that initiative, but not yet linked to any of the 5 tracked PI-3 objectives.
+- **1595440 "CMDB - Workspace Enhancement"** (Feature, New, no parent shown) — 11 children, all New: 1595453 (Define Persona Workspace Requirements), 1595457 (Design Persona-Based Workspace Architecture), 1595460 (Configure Technical Owner Workspace), 1595463 (Configure Support Group Workspace), 1595465 (Configure CI Owner Workspace), 1595474 (Configure Administrator Workspace Dashboard), 1595475 (Configure Class Manager Workspace), 1595477 (Implement Workspace Filters and Drill-Downs), 1595478 (Configure Persona-Based Workspace Security), 1595483 (Validate Workspace Readiness for Production), 1595484 (Deploy Workspace to Production). Entirely new scope with no prior mention anywhere in this file.
+- A third possibly-new feature is visible only as a Parent name, no ID captured: **"Business Application / Business Capability / Services / Service Offerings Updates and Definition"**, parent of **1574799** ("Create Relationships Between Application Services, and Services for Gold-Tier Apps," 3 pts, New, Michael Allison). Could be the ADO title for the existing Gold-Tier feature (1517655) under a different name, or a genuinely separate feature.
+
+*Discovery-credential/firewall blockers — active risk theme, 4 related items, none previously grouped together:*
+- **1520824** (Issue, "Credential Issues impacting Linux\Database(oracle) discovery," Active, Adam Griffis, tag Discovery)
+- **1526877** (Dependency, "SNMP & SSH credentials from network team," Active, Jeff Schwartzkopf, parent Feature 1516993)
+- **1526885** (Dependency, "Firewall rule confirmation — SNMP 161/UDP and SSH 22/TCP," New, Adam Griffis, parent Feature 1516993)
+- **1571603** (User Story, "Linux Discovery Credential Issues," 8 pts, Active, Jeff Schwartzkopf) — **parent conflict:** this export shows parent **Feature 1517650 (Silver-Tier Service Maps)**, not Feature 1554951 (DB Class Clean up) as Manuel confirmed on 2026-08-19. Reconfirm the correct parent in ADO.
+
+Together these suggest credential/firewall access is the live blocker for both network-device and Linux/Oracle discovery, worth surfacing at the next status update given Feature 1516993's Aug 31 CO6 gate has already passed.
+
+*State changes / scope reductions:*
+- **1537636** ("CMDB: Tune discovery patterns to populate discoverable mandatory attributes," parent Feature 1517005) — now **Removed**. Logged New on 2026-08-05 alongside siblings 1537633/1537635/1537637/1537638.
+- **1553648 (S04), 1553649 (S10), 1553651 (S05)** — all three BA→Service Instance migration stories (Feature 1537867) now **Removed**. Previously logged New (3.3/3.4) on 2026-08-05.
+- **1558255 (Paymentus)** Silver-Tier service-map story — now **Resolved**, its 4 template tasks (Data Gathering/Build Mapping/Publish/Validate & Sign-off) all Removed alongside it.
+
+*Progress on certification-cycle stories:*
+- **1535490** "Run the Computer certification cycle and monitor completeness" (Kiran Dhobale) → **Validation**.
+- **1535491** "Deliver Computer certification training to CI owners" (Manuel, tag OCM, 3 pts) → **Ready DoR**.
+- **1535502** "Run the Server certification cycle and monitor completeness" (Kiran Dhobale, 1 pt) → **Ready DoR**.
+- **1504320** "Database Clean up: IP address and Location" (Anthony, 3 pts) confirmed still **Ready DoR** — matches 2026-08-19 log.
+
+*New stories under Feature 1517005 (Mandatory Attribute Population — Network Devices):*
+- **1587192** "Configure Required and Recommended fields for Network Gear & sub classes" (Vinay Geddannavar, 1 pt, Active)
+- **1587208** "Create CMDB inclusion rules" (Vinay Geddannavar, 1 pt, Ready DoR)
+- **1537635** "Baseline mandatory-attribute population and gap analysis (network devices)" (Vinay Geddannavar, 3 pts) → **Ready DoR** (up from New)
+- **1595055** "Network Discovery - Coverage metric dashboard by device class" (Kiran Dhobale, 2 pts, Refinement Ready) — net-new
+- **1595067** "Add a 'discovered in last week / last month' filter to the coverage dashboard" (Kiran Dhobale, 3 pts, Refinement Ready) — net-new
+
+*Silver-Tier Service Maps — spike-to-story progression, 10 more apps now have full User Stories* (each with Build Mapping + Publish tasks, 1 pt, State New unless noted): Portfolio Management Identity Management (1558250), TaskOp (1558260), LWC Micronaut (1558265), ADP ShareFile (1558270), Documentum (1560651), MITS (1560656), Survey 123 (1560661), GeoDigital (1558234), DocuFind (1558239), MaxQueue (1558244). Three of these (GeoDigital, DocuFind, Documentum) now have both the original identify/confirm-inputs Spike **and** the full Gather/Build/Publish User Story. Five more spikes (identify/confirm-inputs stage only, no story yet, 1 pt each, New) surfaced for apps not previously named: Cadency (1547748), MDTDocuments (1547777), MaxQueue (1547780, sibling to its story), Portfolio Management Identity Management (1547781, sibling to its story), Resource Innovations - Trade Ally Connect (1547790).
+
+**Note on Task-level items:** Service Mapping User Stories carry a standard 4-task template (Data Gathering, Build Mapping, Publish, Validate & Sign-off). This file tracks Story/Spike/Feature/Dependency/Issue level only — individual task state isn't itemized here.
+
+*Net-new items needing triage (no clear CO6/feature linkage confirmed):*
+- **1560566** "Dependency with CI owners for Network" (Manuel, New) — parent Feature 1517040 (Certify Network Devices); check against the 5 dependencies already logged in [[PI-3/pi3-cert-1517040-certify-network-devices-stories-dependencies]], may be a 6th or a duplicate.
+- **1560878** "CMDB Validation of CI to Application Relationships" (Sonika Das, New, Dependency) — no parent shown.
+- **1582669** "CMDB: BUG — QA/TEST MID Servers unhealthy (4 of 10 Up)" (Anthony, Active) — no parent shown; MID Server health affects discovery reliability broadly, worth watching against the CO6 discovery gates even though it reads as platform-ops rather than CMDB-CSDM data scope.
+- **1587385** "CMDB: Validate ServiceNow MID Servers Against the CyberArk Cloud Migration" (Anthony, Active) — no parent; follow-on to the now-**Closed** Issue **1536150** "PA CyberArk Moving to Cloud - Potential Impact to Access" (Manuel).
 
 **Revision 2026-07-31:** Story-level reconciliation from the ADO board. **Also corrects an under-count:** Feature **1537867** ("Migration of Business Apps to Application Services," under the Service Mapping objective 1516955, Iteration 3.1, data-quality enabler — not a CO6 gate) was already documented in the Features-by-Objective section below but had been left out of the Snapshot's feature count (11 → 12) and the Features-by-Iteration table (3.1: 3 → 4). Both corrected. Otherwise, objectives/features unchanged from the 7/28 snapshot — all still match. 20 user stories now confirmed created in ADO: 5 under Feature 1516993 (Network Discovery), 5 under Feature 1517005 (Mandatory Attribute Population), 5 under Feature 1517029 (Certify Computers), 5 under Feature 1517032 (Certify Servers). No stories yet visible in ADO for Features 1537867, 1517650, 1517655, 1518000, 1517037, 1517040, 1356646, 1517065. **Sequencing flag:** Certify Computers' stories landed off-plan — CC-1 (doc-only) built in 3.2 instead of 3.1 (no impact), but CC-5 (training) landed in **3.2**, ahead of CC-4 (run the cert cycle, 3.3) which it nominally depends on; Certify Servers' 5 stories landed exactly as planned (3.1/3.2/3.2/3.3/3.4). See [[PI-3/pi3-nd-1516993-stories-dependencies]], [[PI-3/pi3-network-discovery-feature-breakdown]] (Feature 2), [[PI-3/pi3-cert-1517029-certify-computers-stories-dependencies]], and [[PI-3/pi3-cert-1517032-certify-servers-stories-dependencies]] for full detail.
 **Revision 2026-07-28:** State refresh from the ADO board — the three Iteration-3.1 features (1516993 Network Discovery, 1517650 Silver Service Maps, 1517065 Qualys) have moved New → **Defining**; all objectives and the 3.2–3.5 features remain New. Sprint assignments unchanged.
@@ -301,6 +345,11 @@ A fuller ADO export (sorted by Iteration Path, spanning the whole PI rather than
 - **Governance duplicate pair still unresolved as of 2026-08-19** — 1508982 (dup of 1553978) and 1513944 (dup of 1553980) both still exist in ADO, Iteration 3.2, neither shows a parent feature. 1553980 itself now also shows no parent in this export (previously confirmed parented to 1553982) — likely the same view-scope limitation seen elsewhere in this file, not an actual removal. Confirm all four directly in ADO. — **open**
 - **3 net-new stories with no parent shown (2026-08-19)** — 1563085 "Import Capabilities/Services," 1574773 "Import Business Applications," 1575789 "Sync Metal Tier field..." — likely Service Mapping (1516955) scope but unconfirmed. Also 1526856 Spike "Validate Server environment Integration Source Behind the Mandatory Designation" (Validation state, no parent) — likely tied to Server cert DEP-7. — **open, needs triage**
 - **Geostan address-validation process note (2026-08-19)** — spike 1547764 ("DLC") carries the inline comment "We're no longer using Geostan for address validation" — a possible scope/process change for the Service Mapping data-source work, not just a title edit. Confirm with Adam Griffis. — **open**
+- **Two new unmapped Features surfaced 2026-09-03** — 1595485 "CMDB - Role-Based Access and Permission Management" (7 stories) and 1595440 "CMDB - Workspace Enhancement" (11 stories), both New, no parent shown, no CO6/objective mapping confirmed. 1595485 likely maps to the "CMDB Role Matrix" initiative Sonika accepted 2026-09-02/03. — **open**
+- **1574799's parent feature has no ID captured (2026-09-03)** — shown only as "Business Application / Business Capability / Services / Service Offerings Updates and Definition." Confirm whether this is Feature 1517655 (Gold-Tier Service Maps) under a different title or a separate item. — **open**
+- **1571603 parent conflict (2026-09-03)** — shows parent Feature 1517650 (Silver-Tier Service Maps) in this export vs. Feature 1554951 (DB Class Clean up) per Manuel's 2026-08-19 confirmation. — **open**
+- **1560566 and 1560878 (net-new Dependencies, 2026-09-03)** — need parent/feature triage; see revision note above. — **open**
+- **1582669 and 1587385 (infrastructure items, 2026-09-03)** — MID Server health bug and CyberArk MID Server validation; confirm whether these belong in CMDB-CSDM PI-3 tracking or platform-ops. — **open**
 
 ---
 

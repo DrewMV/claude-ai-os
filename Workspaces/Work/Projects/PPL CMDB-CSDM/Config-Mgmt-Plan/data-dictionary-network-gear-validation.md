@@ -2,7 +2,7 @@
 workspace: Work
 tags: [cmdb-csdm, governance, validation, network-gear]
 status: draft
-updated: 2026-08-24
+updated: 2026-09-02
 ---
 
 # Network Gear Data Dictionary — Stakeholder Validation Sheet
@@ -39,6 +39,8 @@ Each stakeholder group reviews their section. For each open item, record one of:
 | Environment | Rec-Non-Disc | TBD | TBD |
 | Location | Rec-Non-Disc | TBD | TBD |
 | Value Stream (`business_unit`) | Rec-Non-Disc | TBD | TBD |
+| Operational Status | Rec-Non-Disc | TBD | TBD |
+| Install Status | Rec-Non-Disc | TBD | TBD |
 
 ---
 
@@ -48,15 +50,16 @@ Each stakeholder group reviews their section. For each open item, record one of:
 
 | # | Item | Proposed | Decision | Notes |
 |---|------|----------|----------|-------|
-| N1 | Field set completeness | 12 fields as listed above | | Are any fields missing for network operations? |
-| N2 | Operational Status | **Not included.** All other governed classes include this. Recommend adding as Required. | | Accept add / Not needed / Defer |
+| N1 | Field set completeness | 14 fields as listed above | | Are any fields missing for network operations? |
+| N2 | Operational Status | **Added 2026-09-02** as Recommended (Non-Discoverable) — diverges from other governed classes, where this is Required with a hybrid Discovery/Manual source. | | Accept as Rec-Non-Disc / Elevate to Required / Defer |
 | N3 | Firmware / OS Version | **Not included.** Discoverable via SSH probe if enabled. | | Add as Rec-Discoverable / Not needed / Defer |
 | N4 | Management IP convention | `ip_address` captures management IP. For multi-interface devices, is this sufficient or is a dedicated management IP field needed? | | Sufficient / Need dedicated field |
 | N5 | Discovery source | SNMP probe (primary), SSH probe (supplemental). Are these the correct sources for PPL's network environment? | | Correct / Amend: |
-| N6 | Network Controller table | Confirm ServiceNow table name for Network Controller subclass. | | Table: |
+| N6 | Network Controller table | Confirm ServiceNow table name for Network Controller subclass. | Accept | Table: `cmdb_ci_network_controller` — confirmed 2026-09-02 |
 | N7 | Subclass-specific fields | Any subclass (Firewall, Switch, LB, WAP, Controller, Router) requiring attributes beyond the parent set? | | Notes per subclass: |
 | N8 | Ownership model | `owned_by` = individual CI Owner. `managed_by_group` = Technical Owner Group. Does this match Network Core's ownership model? | | Correct / Amend: |
 | N9 | Mandatory designations | Of the non-discoverable fields, which should be Mandatory (not just Recommended) for Network Core operations? | | |
+| N10 | Install Status | **Added 2026-09-02.** Net-new field, not previously tracked in the dictionary. Proposed as Recommended (Non-Discoverable). | | Accept add / Not needed / Defer |
 
 **Network Core sign-off:**
 
@@ -96,7 +99,7 @@ Each stakeholder group reviews their section. For each open item, record one of:
 | A2 | Governance field mandatory status | CI Owner, Technical Owner Group, Support Group are Recommended (not Mandatory). Should any be elevated to Mandatory for audit purposes? | | Accept / Elevate: |
 | A3 | Environment field | Environment is Recommended (non-discoverable). Should it be Mandatory and Audited for audit scope? | | Accept / Mandatory |
 | A4 | Certification Owner assignment | No Certification Owner is currently assigned for the Network Gear class. Who should own certification for network gear? | | Owner: |
-| A5 | Operational Status | Not in the proposed field set. Should Operational Status be Required and Audited for network gear lifecycle evidence? | | Add / Not needed |
+| A5 | Operational Status & Install Status | **Added 2026-09-02** as Recommended (Non-Discoverable). Should either be elevated to Required and Audited for network gear lifecycle evidence, consistent with other CI classes? | | Accept as Rec-Non-Disc / Elevate to Required |
 | A6 | Serial Number in audit scope | Serial Number is Recommended-Discoverable. Should it be Audited = Y for asset-to-CI reconciliation? | | Yes / No |
 | A7 | Asset linkage in audit scope | Asset (`alm_asset` reference) is Recommended-Discoverable. Is asset linkage in scope for audit evidence? | | In scope / Out of scope |
 | A8 | Overall field set adequacy | Does the proposed field set provide sufficient evidence for the Governance and Lifecycle Advisory Review? | | Accept / Amend: |
