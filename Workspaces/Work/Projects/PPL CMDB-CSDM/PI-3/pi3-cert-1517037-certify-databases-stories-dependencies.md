@@ -89,7 +89,7 @@ Stories DB-1 through DB-5 are **net-new** for the Database Instance class — pi
 
 ---
 
-## Stories (5)
+## Stories (6)
 
 ---
 
@@ -124,32 +124,73 @@ Stories DB-1 through DB-5 are **net-new** for the Database Instance class — pi
 
 ---
 
-### DB-2 · [Enabler – Configuration] Build Database certification policies/rules to PROD
+### DB-2a · [Enabler – Configuration] Build Oracle Instance certification policy to PROD
 
 | Field | Value |
 |-------|-------|
-| ADO ID | **1560067** |
+| ADO ID | **1560067** (original DB-2 — confirm scope update in ADO or create net-new) |
 | Type | Enabler – Configuration |
 | Parent feature | 1517037 |
-| Sprint | 3.4 (not shown in this export — per submitted request, confirm in ADO) |
+| Sprint | 3.4 (confirm in ADO) |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | 3 (confirmed 2026-08-06) |
+| Points | 3 (confirm — may need repointing with scope split) |
 | State | New |
-| ADO note | Created in ADO as 1560067 — clones pilot 1402976 (execute policies), re-scoped to Database |
 | Depends on | DB-1, DEP-2 (Data Dictionary CCB), DEP-3 (attribute set), DEP-4 (data quality) |
-| Tags | `Data-Certification` `Database` `Configuration` `CO6-Obj3` |
+| Tags | `Data-Certification` `Database` `Oracle` `Configuration` `CO6-Obj3` |
 
 **As** the CMDB Configuration Management Process Owner,
-**I want** the ServiceNow data-certification campaign, filters, and attestation rules for `cmdb_ci_db_instance` configured and deployed to PROD,
-**So that** Database CI owners can be issued attestation tasks against the agreed attribute set on a defined schedule.
+**I want** the ServiceNow data-certification campaign, filters, and certification rules for the Oracle Instance class configured and deployed to PROD,
+**So that** Oracle database CI owners can be issued certification tasks against the configured attribute set on a defined schedule.
 
 **Acceptance criteria:**
-- [ ] Certification definition/filter created scoping the active `cmdb_ci_db_instance` population (≈3,113; Oracle + MS SQL child classes inherit the parent set additively — DEP-5)
-- [ ] Attestation rules configured for the **reconciled** Database managed attribute set per DB-1/DEP-3 (baseline slide set: CI Owner `managed_by`, Technical Owner Group `managed_by_group`, Support Group `support_group`, Environment `environment`, Location `location`)
-- [ ] Certification schedule configured (frequency + first run window) and documented
-- [ ] Configuration migrated to PROD via a governed update set / change
-- [ ] Task routing verified — attestation tasks land with the correct owner group (`managed_by_group` / `support_group`)
-- [ ] Dry-run on a bounded owner group confirms tasks generate and complete without error before full launch
+1. Policy targets 2 Oracle classes: Oracle Instance (`cmdb_ci_db_ora_instance`) and Oracle DB Service (`cmdb_ci_db_ora_service`). Filtered to Install Status = Installed, Operational Status = Operational, and Technical Owner Group is not empty.
+2. Certification fields are: Location (`location`), CI Owner (`managed_by`), Technical Owner Group (`managed_by_group`), Support Group (`support_group`), Environment (`environment`).
+3. Display fields show Name, Host Name, Version, TCP Port, SID, and Oracle Edition as read-only context.
+4. Tasks route to the Technical Owner Group (`managed_by_group`).
+5. Days to complete is set to 21. Instructions below.
+6. Allow field updates is enabled, permitting the assigned group to review and correct values before certifying.
+7. Allow empty field values is disabled, so certification cannot complete until all certification fields have a value entered.
+8. The "CMDB Data Manager task assigned to you" notification reaches the assigned group.
+9. The policy is named CMDB Cert — Oracle Instance — Governance Review, configured with On Demand scheduling, with its scheduled job discoverable by policy name.
+
+**Instructions:**
+Please review the attributes for this Oracle database instance and update any values that are missing or incorrect before the due date. If you are not the right owner for this CI, reassign the task to the correct Technical Owner Group.
+
+**Dependencies:** DB-1, DEP-2 (attribute set locked by CCB), DEP-3 (reconciliation resolved — blocking), DEP-4 (trustworthy data), DEP-5 (active population).
+
+---
+
+### DB-2b · [Enabler – Configuration] Build MS SQL Database certification policy to PROD
+
+| Field | Value |
+|-------|-------|
+| ADO ID | **TBD** (net-new — split from original DB-2 / 1560067; create under Feature 1517037) |
+| Type | Enabler – Configuration |
+| Parent feature | 1517037 |
+| Sprint | 3.4 (confirm in ADO) |
+| Owner | Bhushan Salsekar (confirm) |
+| Points | 3 (confirm) |
+| State | New |
+| Depends on | DB-1, DEP-2 (Data Dictionary CCB), DEP-3 (attribute set), DEP-4 (data quality) |
+| Tags | `Data-Certification` `Database` `MSSQL` `Configuration` `CO6-Obj3` |
+
+**As** the CMDB Configuration Management Process Owner,
+**I want** the ServiceNow data-certification campaign, filters, and certification rules for the MS SQL Database class configured and deployed to PROD,
+**So that** MS SQL database CI owners can be issued certification tasks against the configured attribute set on a defined schedule.
+
+**Acceptance criteria:**
+1. Policy targets the MS SQL Database class (`cmdb_ci_db_mssql_database`). Filtered to Install Status = Installed, Operational Status = Operational, and Technical Owner Group is not empty.
+2. Certification fields are: Location (`location`), CI Owner (`managed_by`), Technical Owner Group (`managed_by_group`), Support Group (`support_group`), Environment (`environment`).
+3. Display fields show Name, Host Name, Version, TCP Port, Instance Name, SQL Edition, and Clustered as read-only context.
+4. Tasks route to the Technical Owner Group (`managed_by_group`).
+5. Days to complete is set to 21. Instructions below.
+6. Allow field updates is enabled, permitting the assigned group to review and correct values before certifying.
+7. Allow empty field values is disabled, so certification cannot complete until all certification fields have a value entered.
+8. The "CMDB Data Manager task assigned to you" notification reaches the assigned group.
+9. The policy is named CMDB Cert — MS SQL Database — Governance Review, configured with On Demand scheduling, with its scheduled job discoverable by policy name.
+
+**Instructions:**
+Please review the attributes for this MS SQL database and update any values that are missing or incorrect before the due date. If you are not the right owner for this CI, reassign the task to the correct Technical Owner Group.
 
 **Dependencies:** DB-1, DEP-2 (attribute set locked by CCB), DEP-3 (reconciliation resolved — blocking), DEP-4 (trustworthy data), DEP-5 (active population).
 
@@ -379,7 +420,8 @@ DEP-1 (1480113 gap plan) ─┐
 DEP-3 (attr reconcile) ───┤
 DEP-5 (Ray — attr + scope)┼─► DB-1 (process flow, 3.3)
 DEP-2 (Data Dictionary) ──┘        │
-                                   ├─► DB-2 (PROD build, 3.4) ◄── DEP-4 (data quality)
+                                   ├─► DB-2a (Oracle Instance PROD build, 3.4) ◄── DEP-4
+                                   ├─► DB-2b (MS SQL PROD build, 3.4) ◄── DEP-4
                                    │        │
                                    │        ├─► DB-3 (dashboard, 3.4) ◄── DEP-6 (CP-3 align)
                                    │        │        │

@@ -4,7 +4,7 @@ workspace: Work
 project: PPL CMDB-CSDM
 status: active
 created: 2026-06-01
-updated: 2026-09-01
+updated: 2026-09-17
 tags: [work, agile, safe, cmdb-csdm, servicenow]
 ---
 
@@ -217,6 +217,8 @@ Ties directly to: PI-3 Network Device Auto Discovery (1516993, CO6 gate Aug 31) 
 
 ## Key Decisions
 
+**2026-09-17 — Business Application record updates: two parallel paths, status sent to Todd Dierksheide:** Manuel emailed Todd Dierksheide (cc Sonika Das, Daniel R Miller, Raymond Bartholomew Reuter Jr, Jordan Yung, Ruchita Rohini) confirming two parallel workstreams for letting users submit updates to Business Application records, plus governance/permissions. **Path 1 — Service Request in the portal** to create/update a Business Application record: under development, had slipped from its original target, now targeted for completion this sprint. **Path 2 — Class Owner direct access:** giving Class Owners (Business Application owners/managers) and appropriate owning groups restricted access to make live updates directly on the platform for their own records; still in design. This answers Todd's earlier outstanding ask for a target date on a CMDB access improvement (see [[project_open_stakeholder_action_items|open stakeholder action items]] memory). Awaiting replies from the cc'd group.
+
 **2026-07-10 — Application Service / Service Instance modification via Service Request — story split:** Decomposed the "modify an Application Service" requirement into two sequential SAFe stories. **Story A** ([[Backlog/service-instance-modify-storyA-core]]) — core modify: 5-role ownership integrity (Owned By, CI Owner, Support Group, Technical Owner Group, Approval Group), field validation, baseline approval (pending Joe); near-ready, target end PI-2. **Story B** ([[Backlog/service-instance-modify-storyB-sox]]) — governed handling for SOX-flagged CIs; target early PI-3. Chose **Option a**: Story A *blocks* modification of SOX-flagged CIs and keeps SOX Indicator/Type read-only; Story B is the governed path that enables them — no interim gap. SOX notifications go to a **single team** ("SOX team", Pepa = POC). **Open decisions for Joe/Compliance:** SOX approval vs. informational notification (#2), and governance scope — every change vs. ownership/classification only (#3). **NERC CIP parked.** Adopted **CSDM 5 (Yokohama)** terminology: Application Service → Service Instance ([[csdm5-terminology]]). **Follow-ups:** recover the truncated Pepa email requirement ("…IAM wants to ensure that the CMDB/CI business owner…") — may add an AC to Story A; get Joe's baseline approval design + Decisions #2/#3.
 
 **2026-06-10 — Business App enhancements paused:** Team agreed to pause all new Business Application enhancements until Application Services migration is complete. Tony to execute migration off Business Application table and retire legacy records. OCM communications required before changes.
@@ -240,6 +242,9 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - [[Team/working-agreements]] — full team roster, emails, onshore/offshore split
 - [[Team/capacity]] — iteration velocity tracker
 - [[Team/impediments-log]] — active and resolved blockers
+- [[Team/onboarding-new-team-members]] — ART-level onboarding standard (12 steps: PAN, HCM training, ADO access + Basic license, Teams sites, SAFe training, ceremonies). Source: A-INFOPS ADO wiki page by Nolan LeBlanc, last edited Sep 30. Accenture members route SAFe training through Jacob Oberman.
+- [[Team/onboarding-checklist-template]] — copy-per-person checklist derived from the ART standard
+- [[Team/offboarding-team-members]] — ART offboarding standard (5 steps: roster, ADO access + license, Teams, training tracker, notify POs). Narrower than onboarding — no removal step for IT Reinvention site, SRS-granted apps, or ceremony invites.
 - [[Leadership-Status]] — weekly customer-leadership status deck (PowerPoint + Marp markdown), regenerated from `build_status_deck.py`; shows progress PI/Iteration/Week over week. **Baseline template (DRAFT):** slide 4 (PI-2 Objectives Scorecard) uses the executive-tiles layout (Variation C — 3×2 grid, explicit per-objective RAG); the 2026-06-11 edition is the in-draft baseline pending finalization. _Note: the `.md` mirror still renders the scorecard as a table (tiles don't translate to markdown)._
 - [[PI-2/pi2-objectives-features-stories]] — full PI-2 traceability: objectives → features → stories with status
 - [[Backlog/features]] — features mapped to PI objectives
@@ -259,6 +264,8 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - [[Backlog/service-instance-modify-storyA-core]] — **Story A (foundation):** Modify SR core — attributes + 5-role ownership integrity; SOX fields read-only, SOX-flagged CIs blocked (Option a). Buildable now, target end PI-2. Pairs with Story B.
 - [[Backlog/service-instance-modify-storyB-sox]] — **Story B:** governed modify path for SOX-flagged CIs (enables what Story A blocks). Blocked on Decision #2 (SOX approval vs notification) & #3 (governance scope); SOX recipient list from Pepa. Target early PI-3.
 - [[csdm5-terminology]] — **CSDM 5 (Yokohama):** Application Service renamed to Service Instance (Application Service now a *type* of Service Instance). Use "Service Instance / Application Service"; verify PPL's version with Stan Tomberg.
+- [[Config-Mgmt-Plan/cmdb-ownership-scoping-matrix]] — **AUTHORITATIVE (v2.0):** Scoped attribute mapping across Business Applications, Application Services, and Hardware Classes; includes CSDM governance axioms. Source: `cmdb_ownership_attributes_scoping_matrix-v2.xlsx`. Ingested 2026-09-16.
+- [[Config-Mgmt-Plan/cmdb-csdm-attribute-schema]] — **AUTHORITATIVE (v2.0):** Per-attribute narrative (field type, class scope, governance role, key question, platform functionality) for all 9 CMDB ownership/management attributes. Source: `servicenow_cmdb_csdm_attribute_schema-v2.docx`. Ingested 2026-09-16.
 - [[requirements-process]] — end-to-end requirements flow
 - [[Dependencies/servicenow-enhancements]] — cross-team dependency tracker
 - [[nowassist-implementation-plan]] — 5-phase NowAssist AI roadmap (Duplicate CI Elimination → NL Search → Guided CI Creation → Governance Advice → NASK); primary driver for PI-2 Obj 5 and PI-3 objectives

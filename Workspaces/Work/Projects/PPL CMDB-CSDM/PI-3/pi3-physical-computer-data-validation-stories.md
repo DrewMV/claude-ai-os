@@ -8,7 +8,7 @@ objective: CO6 Obj 3 — Expand CI Data Certification Across All Major Classes
 sprint: "3.3 (spike + build); 3.4 (pilot)"
 co6-due: 2026-09-30
 status: draft
-updated: 2026-09-02
+updated: 2026-09-09
 tags: [work, cmdb-csdm, safe, pi-planning, co6, data-certification]
 relationships:
   - target: "[[PI-3/pi3-cert-1517029-certify-computers-stories-dependencies]]"
@@ -41,11 +41,19 @@ Every PPL employee with a physical computer assigned to them receives a task ask
 | Location | `location` | **Editable** — dropdown of approved locations, pre-filled where populated |
 | Asset Tag | `asset_tag` | **Editable** — pre-filled where populated |
 
-Everything else is shown as read-only context so the employee can identify the device: Name, Serial Number, Model ID, Operating System, Assigned To, CI Owner, Technical Owner Group, Support Group.
+Everything else is shown as read-only context so the employee can identify the device: Name, Manufacturer, Model ID, Operating System, Serial Number, **Assigned To**. CI Owner, Technical Owner Group, and Support Group are **not** shown at all (2026-09-09) — those are internal-IT routing fields the end user has no visibility into and can't use to recognize their own device. They're also **determined automatically from computer characteristics** rather than manually maintained (confirmed 2026-09-09) — there's no per-CI value here for anyone, employee or IT, to manually attest to. If these three ever need validation, it's validation of the *assignment rule*, not certification of each CI's current value — a different kind of activity entirely, out of scope for a per-employee task.
+
+**Assigned To is a Display field only (reverted 2026-09-09).** It was briefly scoped as a third editable/certifiable attribute, with a last-logged-in-user fallback for CIs where it was empty. **Both are reversed** — Assigned To is shown for identification context alongside Name/Manufacturer/Model/OS/Serial Number, but the employee neither edits it nor is asked to confirm it as a certification action. Neither "last logged-in user" nor "most frequently logged-in user" is used as a fallback assignee anywhere in this flow. See **DEP-9** and **DEP-10** (now superseded) for the design history.
 
 **Why the end user.** The recorded root cause for Computer Location being 66% complete is HR system limitations (2026-07-16 audit status meeting). If HR data cannot establish where a laptop physically sits, the person holding it is the remaining authoritative source. This is a targeted answer to a documented audit gap, not a new lane of work.
 
-**Gap being closed** (from spike 1480114): Location empty **17,513** · Missing Asset Tag **8,275**.
+**Core objective, per PO framing (2026-09-09):** each field has a different primary failure mode, and the ask should match it rather than treat both the same. **Location is the most common issue this validation addresses** — it drifts out of date on its own, even where already populated, simply because people move. Asset Tag issues are comparatively less frequent.
+- **Location** — **prone to change** (people move desks, sites, remote status), so it needs ongoing updating/validating, not a one-time fix. An empty-field audit alone won't catch a stale-but-non-blank value. This is the primary driver of the whole validation effort.
+- **Asset Tag** — needs **verification generally, plus recording where empty**. Not purely a "fill in the blank" field — a populated value can also be wrong, so the ask is check-and-correct, with empty being the most common case for this field specifically.
+
+**Gap being closed** (from spike 1480114): Location empty **17,513** · Missing Asset Tag **8,275**. (Assigned To empty **8,166** — separately reported as 83% coverage / gap **3,412** in the 2026-07-16 audit status meeting — is tracked here for context only; it's a Display field, not something this campaign closes. That gap stays entirely with **PV-6**.)
+
+**Additional scope snapshot (Updated ≥ 7/26/2026, Class = Computer, n = 14,265):** Assigned To empty **2,287** · Asset Tag empty **5,798** · CI Owner empty **96** · Technical Owner Group empty **68** · Support Group empty **56**. This population (14,265) doesn't reconcile with the spike's 28,203 / 19,901 / 6,530 figures either — another instance of the open scope-reconciliation question at DEP-2; treat all these counts as directional, not a settled denominator, until DEP-2 closes. **No Location-empty count in this cut** — worth chasing down, though per the objective above an emptiness count wouldn't answer the actual question (how much of the *populated* Location data is stale). CI Owner / Technical Owner Group / Support Group gaps shown here are **out of scope for PV-3** (not shown at all, not certified fields in this flow) — they belong to CC-1/CC-2's owner-side attestation track, not this end-user flow.
 
 ---
 
@@ -168,13 +176,13 @@ Feature 1517029 already has five stories. These new stories are **additive and n
 | Parent feature | 1517029 |
 | Sprint | 3.3 → 3.4 |
 | Owner | Bhushan Salsekar (confirm) |
-| Points | 5 |
+| Points | 5 (confirm at refinement) |
 | State | Draft |
 | Tags | `Data-Certification` `Computer` `Configuration` `CO6-Obj3` |
 
 **As** the CMDB Configuration Management Process Owner,
 **I want** a CMDB Data Manager certification policy that targets physical `cmdb_ci_computer` CIs, assigns tasks to the user in `assigned_to`, and permits that user to correct Location and Asset Tag,
-**So that** the two largest Computer attribute gaps are closed by the only population that reliably knows the answers.
+**So that** the two highest-priority Computer attribute gaps are closed by the only population that reliably knows the answers.
 
 **Acceptance criteria:**
 
@@ -182,7 +190,7 @@ Feature 1517029 already has five stories. These new stories are **additive and n
 - [ ] Policy targets the **Computer class** with a filter isolating **physical** devices only — virtual excluded
 - [ ] Filter explicitly resolves whether scope is `cmdb_ci_computer` **exact class only** or **class and descendants** (e.g. `cmdb_ci_pc_hardware`); PPL's physical PCs may sit in a child class, in which case exact-class-only silently scopes to zero. Mirror the exact-class treatment used in [[PI-3/pi3-nd-1356646-stories-dependencies|CR-4]]
 - [ ] Physical/virtual determination method agreed and documented (DEP-2) — reconciles to the audit dashboard's 28,203 total / 6,530 virtual split, and the divergence from the dictionary's 19,901 figure is explained, not ignored
-- [ ] CIs with `assigned_to` **empty are excluded** from this policy and counted — they route to PV-6, not to a task with no recipient
+- [ ] CIs with `assigned_to` **empty are excluded** from this policy and counted — they route to PV-6, not to a task with no recipient. No fallback assignee is used (last logged-in user and most-frequently-logged-in user were both considered and rejected, 2026-09-09 — see DEP-10, superseded)
 - [ ] **Recency filter — include only CIs seen by an endpoint source within the last 45 days.** Rationale: 45 days absorbs vacation and short-term leave, while excluding devices no longer in use. Devices outside the window are excluded **and counted**, not silently dropped
 - [ ] **Authoritative last-seen field confirmed (DEP-8)** — PPL Computers are sourced from SCCM/Intune Service Graph Connector, Jamf, and Agent Client Collector, **not** ServiceNow Discovery, so `last_discovered` may not be the field those connectors stamp. Confirm before building the filter. Same open question [[PI-3/pi3-nd-1356646-stories-dependencies|CR-6]] carries for network gear — resolve both consistently
 - [ ] **`u_off_network` interaction assessed** — the PPL custom flag marks devices operating off-network. An off-network device will not report to SCCM and will fail a 45-day recency test while remaining a live, assigned asset. Decide whether `u_off_network = true` is an exception to the recency filter or is excluded with the rest
@@ -192,17 +200,17 @@ Feature 1517029 already has five stories. These new stories are **additive and n
 
 *Field configuration*
 - [ ] **Certification fields:** `location`, `asset_tag`
-- [ ] **Display fields:** `name`, `serial_number`, `model_id`, `os`, `assigned_to`, CI Owner, `managed_by_group`, `support_group` — no overlap with Certification fields
-- [ ] CI Owner field binding resolved — `owned_by` or `managed_by` (see Open Items); the dictionary and CC-1 must agree with what is configured
+- [ ] **Display fields:** `name`, `manufacturer`, `model_id`, `os`, `serial_number`, `assigned_to` — chosen for what the assigned employee can actually recognize/verify against the physical device in front of them, plus `assigned_to` for identification context ("this is your device because it's assigned to you"). CI Owner, Technical Owner Group (`managed_by_group`), and Support Group excluded entirely (2026-09-09) — internal-IT routing fields, no identification value to an end user and not something they have visibility into. `assigned_to` reverted from Certification back to Display (2026-09-09) — see the design-history note above
+- [ ] `name` (CI name is typically the device hostname, e.g. `LAPTOP-XJ29FK3`) confirmed as actually useful to the employee, or treated as harmless context even if unrecognized — check in the PV-5 pilot whether employees use it at all to confirm identity, versus relying on Manufacturer/Model/OS
 - [ ] **Allow field updates = enabled** — this is the setting that makes correction possible
 - [ ] **Allow empty field values** decision made and recorded: disabled forces a value before certification (drives remediation, risks abandonment); enabled permits certify-with-blank (protects completion rate, weakens the outcome). Recommend **disabled**, since a blank Location is the gap being closed
-- [ ] Pre-filled current values confirmed visible to the reviewer — an employee confirming an already-correct Location must be able to see it and certify without retyping
+- [ ] Pre-filled current values confirmed visible to the reviewer — an employee confirming an already-correct Location or Asset Tag must be able to see it and certify without retyping
 
 *Assignment, schedule, delivery*
-- [ ] Assignment configured as **User Field → Assigned to**
+- [ ] Assignment configured as **User Field → Assigned to** — no fallback assignee. A CI with `assigned_to` empty is excluded from this policy (routes to PV-6), not assigned to a substitute person
 - [ ] Confirmed behavior for a user with **multiple assigned devices** — expected to be one task listing all their CIs, not one task per device; verify before comms go out, as it changes email volume
-- [ ] `Days to complete` set, with the resulting 50/70/90% reminder milestones documented and acceptable
-- [ ] Schedule set (initial run window + recurrence); recurrence establishes the re-validation cadence that makes this a standing control rather than a one-off
+- [ ] `Days to complete` set to **21 days (recommended)** — enough to absorb a week of PTO plus time to act, short enough to keep the cycle moving; resulting 50/70/90% reminders land at ~day 11/15/19. Confirm with Monica Green; consider 30 days for the first-ever cycle given employee unfamiliarity, tightening in later cycles
+- [ ] Schedule set — initial run window + recurrence at **once or twice yearly (annual or semi-annual, per PO direction 2026-09-09)**; recurrence establishes the re-validation cadence that makes this a standing control rather than a one-off
 - [ ] 10,000-CI-per-task cap and 90-day stale-task auto-close both confirmed as non-issues for the chosen assignment model, or handled
 
 *Write-back integrity*
@@ -211,7 +219,7 @@ Feature 1517029 already has five stories. These new stories are **additive and n
 - [ ] A `last validated` timestamp is stamped per CI on successful certification (custom attribute if not OOB) so re-validation cadence and staleness are measurable
 - [ ] Deployed to PROD via governed update set / change
 
-**Dependencies:** PV-1 (go/no-go — hard gate), PV-2 (location list), DEP-2 (physical/virtual split), DEP-4 (Class Manager sign-off), DEP-5 (asset sync direction), DEP-8 (last-seen field).
+**Dependencies:** PV-1 (go/no-go — hard gate), PV-2 (location list), DEP-2 (physical/virtual split), DEP-4 (Class Manager sign-off), DEP-5 (asset sync), DEP-8 (last-seen field).
 
 ---
 
@@ -237,8 +245,10 @@ Feature 1517029 already has five stories. These new stories are **additive and n
 **Acceptance criteria:**
 - [ ] OOB assignment notification confirmed **firing in-instance** (explicitly tested against KB2701247 before relying on it)
 - [ ] Notification body rewritten for a non-technical employee audience — what's being asked, why, how long it takes, who to contact; no CMDB jargon
+- [ ] Copy sets differentiated expectations per field, not one generic "review your data" ask: Asset Tag — record it if blank; Location — fix it if wrong. Assigned To is shown for reference only (identifying which device is theirs) and isn't part of the ask
 - [ ] Task link verified to land the employee **on the task they can actually act on**, given the PV-1 role outcome
 - [ ] Reminder cadence (50/70/90% + past-due) reviewed and confirmed appropriate; past-due notification copies the employee's **manager** — confirm this escalation is acceptable to HR/OCM **before** launch, as it is on by default
+- [ ] **No-response handling defined beyond the OOB defaults:** task auto-closes at 90 days with no action — that closure is tracked as **"certification incomplete"** on the CC-3 dashboard, not silently dropped from reporting. Non-responders roll into the **next scheduled cycle** rather than triggering an ad hoc chase. Service Desk is **not** looped in for individual non-response at this scale — reserved for employees who proactively reach out. Recommend deciding with Monica Green whether repeat (2+ cycle) non-response gets a different escalation path
 - [ ] Global notification changes assessed for impact on **other** Data Manager policies (Server, Database, Network certification) — this is shared configuration, not campaign-scoped
 - [ ] Communications plan reviewed and approved by **OCM (Nora Lizenberg)** — a mass email to every PPL employee with a device is a company-wide communication, not a team artifact
 - [ ] Service Desk pre-briefed with a response script; expected contact volume estimated
@@ -296,7 +306,7 @@ Feature 1517029 already has five stories. These new stories are **additive and n
 **I want** a defined path for physical computers with no `assigned_to` value,
 **So that** the ~29% of the population this campaign cannot reach is deliberately handled rather than silently excluded from the coverage denominator.
 
-**Context:** 8,166 active Computer CIs have Assigned To empty (spike 1480114). No end-user validation is possible for these — there is no user to send to. Reporting campaign coverage without accounting for them overstates completeness.
+**Context:** 8,166 active Computer CIs have Assigned To empty (spike 1480114). No end-user validation is possible for these — there is no user to send to. A last-logged-in-user (or most-frequently-logged-in-user) fallback was considered and **rejected** (2026-09-09, see DEP-10, superseded) — this population is handled entirely by this story, not partially absorbed into PV-3. Reporting campaign coverage without accounting for them overstates completeness.
 
 **Second excluded population (added 2026-09-02):** PV-3's 45-day recency filter excludes physical computers not seen by an endpoint source inside the window. Both exclusions funnel here, and both are the same underlying question — *does this device still exist and is it still in use?* A device unseen for 45+ days **and** unassigned is a near-certain retirement candidate. Handle them as one population with one disposition path, not two.
 
@@ -313,7 +323,7 @@ Feature 1517029 already has five stories. These new stories are **additive and n
 
 ---
 
-## Dependencies (8)
+## Dependencies (8 active, 2 superseded)
 
 **Work item type:** Dependency · **Linked to:** Feature 1517029 (Blocked By) · **Area path:** A-INFOPS\FY26\PI3
 
@@ -387,7 +397,7 @@ Feature 1517029 already has five stories. These new stories are **additive and n
 
 **Acceptance criteria:**
 - [ ] Physical-computer population definition confirmed
-- [ ] Location + Asset Tag confirmed as the end-user-certified attributes; confirmation that no additional attribute is expected of employees
+- [ ] Location and Asset Tag confirmed as the end-user-certified attributes; confirmation that no additional attribute is expected of employees
 - [ ] Approved location list ratified
 - [ ] Her sign-off role on campaign results defined — employee submissions are evidence, Class Manager sign-off is the validation
 
@@ -468,6 +478,32 @@ Feature 1517029 already has five stories. These new stories are **additive and n
 
 ---
 
+### DEP-9 · Security/CCB sign-off on self-service Assigned To reassignment *(SUPERSEDED 2026-09-09)*
+
+| Field | Value |
+|-------|-------|
+| Assigned To | Manuel Vazquez → Jason Dubreuil (CCB Cybersecurity) |
+| Priority | — |
+| State | **Superseded — 2026-09-09.** Assigned To was reverted to a Display (read-only) field. There is no write path, so no reassignment risk exists and no security sign-off is needed. |
+| Due Date | — |
+
+**Original problem (kept for history):** Assigned To had briefly been added as a third Certification field with immediate write and no approval step — this dependency existed to get security sign-off on that write path before PV-3 could build against it. The design was reversed before any build started; see the "Assigned To is a Display field only" note under **What this delivers**.
+
+---
+
+### DEP-10 · "Last logged-in user" field availability for Assigned-To-empty remediation *(SUPERSEDED 2026-09-09)*
+
+| Field | Value |
+|-------|-------|
+| Assigned To | Stan Tomberg / Bhushan Salsekar |
+| Priority | — |
+| State | **Superseded — 2026-09-09.** The last-logged-in-user fallback (and "most-frequently-logged-in-user" as an alternative) is not being pursued. PV-6 absorbs the entire no-`assigned_to` population as originally scoped. |
+| Due Date | — |
+
+**Original problem (kept for history):** This dependency existed to confirm whether a "last logged-in user" field existed on `cmdb_ci_computer`, to use as a fallback task recipient when `assigned_to` was empty. Decision made not to pursue either a last-logged-in-user or most-frequently-logged-in-user approach — no fallback signal is used anywhere in this flow.
+
+---
+
 ## Sequence summary
 
 ```
@@ -477,7 +513,7 @@ DEP-1 (licensing answer) ─────────┼─► PV-1 (SPIKE: go/no
 DEP-2 (phys/virtual split) ────────┘            ├─► PV-2 (location list, 3.3) ──┐
 DEP-3 (cmn_location granularity) ───────────────┘                                │
 DEP-4 (Class Mgr sign-off) ──────────────────────────────────────────────────────┼─► PV-3 (policy build, 3.3→3.4)
-DEP-5 (asset sync) ──────────────────────────────────────────────────────────────┤        │
+DEP-5 (asset sync) ───────────────────────────────────────────────────────────────┤        │
 DEP-8 (last-seen field, 45-day filter) ─────────────────────────────────────────┘        │
                                                                                            ├─► PV-4 (notifications + OCM, 3.4) ◄── DEP-7
                                                                                            │        │
@@ -504,10 +540,12 @@ DEP-8 (last-seen field, 45-day filter) ─────────────�
 
 ## Open items
 
-1. **CI Owner field binding** — this file follows the user's stated `managed_by`, but [[Config-Mgmt-Plan/ownership-terminology-mapping]] maps PPL "CI Owner" to **`owned_by`** (row O3) and treats `managed_by` as a separate person-level field (O5). CC-1's acceptance criteria currently says `managed_by`. Worksheet questions Q1/Q7 are unresolved. **A display field must bind to one field — resolve before PV-3.**
+1. **CI Owner field binding** — ~~this file follows the user's stated `managed_by`, but~~ [[Config-Mgmt-Plan/ownership-terminology-mapping]] maps PPL "CI Owner" to **`owned_by`** (row O3) and treats `managed_by` as a separate person-level field (O5). CC-1's acceptance criteria currently says `managed_by`. Worksheet questions Q1/Q7 are unresolved. **No longer blocks PV-3** (2026-09-09) — CI Owner was dropped from PV-3's Display fields entirely (internal-IT field, no end-user identification value). Still open for CC-1's owner-side attestation flow, which is a different audience and unaffected by this change.
 2. **OS and Serial Number categorization** — both were described as non-discoverable, but the ratified dictionary makes SCCM/Intune authoritative for `os` and Asset Mgmt/SCCM authoritative for `serial_number`. Read-only treatment is unaffected; the dictionary categorization should not be changed to match the form design.
 3. **`Allow empty field values`** — recommended disabled (forces a value). Confirm with Monica Green; it trades completion rate against outcome quality.
 4. **45-day recency threshold** — chosen to absorb vacation and short-term leave. It does **not** absorb extended leave (FMLA, sabbatical, military), long-term secondment, or seasonal staff, whose devices will fall out of the window while remaining legitimately assigned. Those records must land in the PV-6 review bucket rather than being retired on the strength of the filter alone. Confirm the threshold with Monica Green; 60 days is the obvious alternative if extended-leave exclusion proves material.
-5. **Re-validation cadence** — the policy schedule sets it. An annual or semi-annual cycle is what converts this from remediation into a standing control, which is what the CMP should record.
+5. **Re-validation cadence — decided (2026-09-09): once or twice a year** (annual or semi-annual). This converts the campaign from one-time remediation into a standing control — the CMP should record this cadence once ratified.
 5. **CMP update** — if end-user validation becomes the defined validation method for Location and Asset Tag on physical Computer, [[Config-Mgmt-Plan/configuration-management-plan-stage1]] should say so and the CCB should ratify it. Without that step this is a campaign, not a control.
 6. **Audit acceptance** — whether Corporate Audit Services accepts end-user attestation as a validation control for a governed CI attribute is unconfirmed. Cheap to ask at the monthly CMDB Audit Sync; expensive to discover at sign-off.
+7. **Assigned To added as a third certified attribute, then reverted (2026-09-09)** — briefly extended per PO decision to a fully editable Certification field with immediate write and no approval step (see the now-superseded **DEP-9**), plus a last-logged-in-user fallback for empty records (see the now-superseded **DEP-10**). **Both reversed same day.** Assigned To is back to a Display-only field, shown for identification context; no fallback assignee (last-logged-in-user or most-frequently-logged-in-user) is used anywhere in this flow. PV-3, PV-4, PV-5, PV-6, DEP-4, and DEP-5 have all been reverted accordingly.
+9. **CI Owner / Technical Owner Group / Support Group are auto-derived, not manually attested (confirmed 2026-09-09)** — these three are computed automatically from computer characteristics. That's why they carry no validation value in this file's end-user flow. **Possible implication not yet actioned:** [[PI-3/pi3-cert-1517029-certify-computers-stories-dependencies]] (CC-1, CC-2) currently lists all three inside the "9 managed attributes" attestation set for the owner-side certification flow — CC-2's AC literally reads "Attestation rules configured for... CI Owner, Technical Owner Group, Support Group..." If they're rule-derived rather than person-maintained, attesting them per-CI may not be the right control there either (rule validation vs. per-record certification is a different activity). **This file has not been changed — flag for a decision on whether to revise CC-1/CC-2 accordingly.**

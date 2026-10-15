@@ -23,6 +23,8 @@ relationships:
     type: related_to
   - target: "[[server-environment-mandatory-spike]]"
     type: related_to
+  - target: "[[PI-3/pi3-physical-computer-data-validation-stories]]"
+    type: related_to
 ---
 
 # Feature 1517032 — Stories & Dependencies
@@ -33,6 +35,8 @@ Sprint 3.2 (build) · process-flow doc starts 3.1 · CO6 due Sep 30 · Owner: M.
 > **Status: RECONCILED (2026-07-31)** — all 5 stories created in ADO under Feature 1517032; IDs below, and unlike the Computers feature, all 5 landed in the sprints originally planned. Per [[definition-of-ready]], create stories from the Feature "+" link, never standalone.
 > Parallel to [[PI-3/pi3-cert-1517029-certify-computers-stories-dependencies]] (Computers). Both certify a CI class off the PI-2 BA pilot pattern to the same Sep 30 gate. See [[PI-3/pi3-data-certification-feature-breakdown]] for the full feature-level breakdown.
 > **Update (2026-08-05 — full ADO board export):** sprint placement unchanged and confirmed; states and remaining points added below. SV-1 (1535496) shows ADO Work Item Type **Spike**, not User Story as drafted — naming drift only.
+> **Update (2026-09-11):** SV-6, SV-7, SV-8 added below as **draft, targeted remediation stories** for Server CIs missing Location and/or IP Address — not yet in ADO. SV-6 targets both fields empty together; SV-7 and SV-8 split out Location-only and IP Address-only.
+> **Update (2026-09-28):** SV-9 added below as a **draft KB-article story** for the Technical Owner Group — how to find, review, and complete/correct a Server certification task — using **ADO 1603551** (*"CMDB: Certify Windows Servers with missing Location OR IP Address"*) as its worked example; not yet in ADO. 1603551 is a real, already-created ADO story that overlaps with SV-6 (Windows-only scope, OR trigger vs. SV-6's AND) — see the reconciliation flag on SV-6 below.
 
 ---
 
@@ -88,7 +92,7 @@ Stories SV-1 through SV-5 are **net-new** for the Server class — the pilot sha
 
 ---
 
-## Stories (5)
+## Stories (5 + 3 draft)
 
 ---
 
@@ -249,7 +253,148 @@ Stories SV-1 through SV-5 are **net-new** for the Server class — the pilot sha
 
 ---
 
-## Dependencies (7)
+### SV-6 · [User Story] Certify Servers with missing Location and IP Address *(draft)*
+
+> **⚠️ Reconciliation flag (2026-09-28):** ADO **1603551** — *"CMDB: Certify Windows Servers with missing Location OR IP Address"* — already exists and covers overlapping ground: Windows-only scope, Technical Owner Group routing, both fields as certification fields, both required to complete. It differs from this draft in two ways: (1) **scope is Windows-only** (`cmdb_ci_win_server`), no Linux; (2) the **trigger is OR, not AND** — a server missing *either* field qualifies, not only servers missing both. Before building SV-6/7/8 as drafted, confirm with the PO whether 1603551 already supersedes this three-way split (at least for Windows) or whether a Linux equivalent and/or the narrower single-field policies (SV-7/SV-8) are still wanted alongside it. See SV-9 below, which documents 1603551 directly.
+
+| Field | Value |
+|-------|-------|
+| ADO ID | _(not yet created)_ |
+| Type | User Story |
+| Parent feature | 1517032 |
+| Sprint | TBD |
+| Owner | TBD |
+| Points | TBD |
+| State | Draft |
+| Tags | `Data-Certification` `Server` `CO6-Obj3` |
+
+**As** a Configuration Manager,
+**I want** a certification policy that asks the Technical Owner Group to confirm Location and IP Address on their active servers missing both,
+**so that** those attributes stay accurate without manual audit.
+
+**Acceptance criteria:**
+1. Policy targets `cmdb_ci_win_server` and `cmdb_ci_linux_server` only — no other `cmdb_ci_server` child classes are in scope. Filtered to Install Status = Installed, Operational Status = Operational, Technical Owner Group is not empty, and Location and IP Address are both empty.
+2. Certification fields are Location and IP Address only.
+3. Display fields show Name, Serial Number, Operating System, Asset Tag, SOX Type, Data Classification, and Environment as read-only context.
+4. Tasks route to the Technical Owner Group (`managed_by_group`).
+5. Days to complete is set to 21. Instructions below.
+6. Allow field updates is enabled, permitting the assigned group to correct values before certifying.
+7. Allow empty field values is disabled, so certification cannot complete until Location and IP Address are entered.
+8. The "CMDB Data Manager task assigned to you" notification reaches the assigned group.
+9. The policy is named CMDB Cert — Servers — Location and IP Address, configured with On Demand scheduling, with its scheduled job discoverable by policy name.
+
+**Instructions:**
+> This server is missing its Location and IP Address in the CMDB. Please confirm and enter both values before the due date. If you are not the right owner for this CI, reassign the task to the correct Technical Owner Group.
+
+---
+
+### SV-7 · [User Story] Certify Servers with missing Location *(draft)*
+
+| Field | Value |
+|-------|-------|
+| ADO ID | _(not yet created)_ |
+| Type | User Story |
+| Parent feature | 1517032 |
+| Sprint | TBD |
+| Owner | TBD |
+| Points | TBD |
+| State | Draft |
+| Tags | `Data-Certification` `Server` `CO6-Obj3` |
+
+**As** a Configuration Manager,
+**I want** a certification policy that asks the Technical Owner Group to confirm Location on their active servers where it is missing,
+**so that** Location stays accurate without manual audit.
+
+**Acceptance criteria:**
+1. Policy targets `cmdb_ci_win_server` and `cmdb_ci_linux_server` only — no other `cmdb_ci_server` child classes are in scope. Filtered to Install Status = Installed, Operational Status = Operational, Technical Owner Group is not empty, and Location is empty.
+2. Certification field is Location only.
+3. Display fields show Name, Serial Number, Operating System, Asset Tag, SOX Type, Data Classification, and Environment as read-only context.
+4. Tasks route to the Technical Owner Group (`managed_by_group`).
+5. Days to complete is set to 21. Instructions below.
+6. Allow field updates is enabled, permitting the assigned group to correct values before certifying.
+7. Allow empty field values is disabled, so certification cannot complete until Location is entered.
+8. The "CMDB Data Manager task assigned to you" notification reaches the assigned group.
+9. The policy is named CMDB Cert — Servers — Location, configured with On Demand scheduling, with its scheduled job discoverable by policy name.
+
+**Instructions:**
+> This server is missing its Location in the CMDB. Please confirm and enter the value before the due date. If you are not the right owner for this CI, reassign the task to the correct Technical Owner Group.
+
+---
+
+### SV-8 · [User Story] Certify Servers with missing IP Address *(draft)*
+
+| Field | Value |
+|-------|-------|
+| ADO ID | _(not yet created)_ |
+| Type | User Story |
+| Parent feature | 1517032 |
+| Sprint | TBD |
+| Owner | TBD |
+| Points | TBD |
+| State | Draft |
+| Tags | `Data-Certification` `Server` `CO6-Obj3` |
+
+**As** a Configuration Manager,
+**I want** a certification policy that asks the Technical Owner Group to confirm IP Address on their active servers where it is missing,
+**so that** IP Address stays accurate without manual audit.
+
+**Acceptance criteria:**
+1. Policy targets `cmdb_ci_win_server` and `cmdb_ci_linux_server` only — no other `cmdb_ci_server` child classes are in scope. Filtered to Install Status = Installed, Operational Status = Operational, Technical Owner Group is not empty, and IP Address is empty.
+2. Certification field is IP Address only.
+3. Display fields show Name, Serial Number, Operating System, Asset Tag, SOX Type, Data Classification, and Environment as read-only context.
+4. Tasks route to the Technical Owner Group (`managed_by_group`).
+5. Days to complete is set to 21. Instructions below.
+6. Allow field updates is enabled, permitting the assigned group to correct values before certifying.
+7. Allow empty field values is disabled, so certification cannot complete until IP Address is entered.
+8. The "CMDB Data Manager task assigned to you" notification reaches the assigned group.
+9. The policy is named CMDB Cert — Servers — IP Address, configured with On Demand scheduling, with its scheduled job discoverable by policy name.
+
+**Instructions:**
+> This server is missing its IP Address in the CMDB. Please confirm and enter the value before the due date. If you are not the right owner for this CI, reassign the task to the correct Technical Owner Group.
+
+---
+
+### SV-9 · [User Story] Publish a Technical Owner Group KB article for completing Server certification tasks *(draft)*
+
+| Field | Value |
+|-------|-------|
+| ADO ID | _(not yet created)_ |
+| Type | User Story |
+| Parent feature | 1517032 |
+| Sprint | TBD |
+| Owner | TBD |
+| Points | TBD |
+| State | Draft |
+| Tags | `Data-Certification` `Server` `KB` `CO6-Obj3` |
+
+**As** a Technical Owner Group member assigned a Server certification task,
+**I want** a step-by-step knowledge article that shows me how to find my assigned task, review the server it's asking about, and enter or correct the requested values,
+**so that** I can complete certification correctly on my own, without opening a ticket to ask how the process works.
+
+**Acceptance criteria:**
+1. KB article published in PPL's ServiceNow Knowledge Base (confirm space/category) and targeted at the Technical Owner Group audience — the group that receives Server certification tasks.
+2. The worked example used throughout the article is **ADO 1603551** — *"CMDB: Certify Windows Servers with missing Location OR IP Address"* (policy name `CMDB Cert — Windows Servers — Location or IP Address`) — **Windows servers only** (`cmdb_ci_win_server`), where the task fires on Location **or** IP Address missing (either field alone qualifies), and both fields must be populated to complete certification.
+3. Article explicitly explains the OR/AND distinction so owners aren't confused when a task shows a field that was already populated: **a server qualifies for the task if either Location or IP Address is missing**, but **both fields must show a value before the task can be certified** — the one already correct just needs confirming, the missing one needs to be entered.
+4. Article covers, in order:
+   - Where the task notification arrives ("CMDB Data Manager task assigned to you") and what it links to.
+   - How to find assigned tasks without the notification — the group's task list in CMDB Workspace / Service Graph Workspace — for members who missed or deleted the email.
+   - How to open a task and identify the correct server using the read-only display fields (Name, Serial Number, Operating System, Asset Tag, SOX Type, Data Classification, Environment).
+   - How to tell which fields need action — Location and IP Address are editable and required; everything else is read-only context.
+   - How to enter or correct Location and/or IP Address, and what happens if either is left blank (certification is blocked — "Allow empty field values" is disabled per 1603551 AC #7).
+   - How to submit/certify the task once both fields are populated.
+   - What to do if you're not the right owner for a CI — reassign the task to the correct Technical Owner Group, per 1603551's instruction text (confirm full wording — text supplied to date is truncated after "Please confirm and e...").
+   - The 21-day completion window and what happens if it's missed (task auto-closes; OOB reminder behavior at 50/70/90% of days-to-complete, per the platform capability baseline already verified for Data Manager certification — confirm reminders fire the same way for Server policies).
+5. All screenshots (task list view, task form, field layout, instructions text) are captured directly from the **live 1603551 policy** — confirm it's built and deployed before shooting screenshots, not a mockup.
+6. Filter logic shown in the screenshots is verified against what 1603551 actually enforces, since its AC #1 doesn't explicitly state the Location/IP-Address-empty condition.
+7. KB wording (roles, escalation, reassignment) matches SV-1's documented process flow.
+8. Article is linked from the task assignment notification, same pattern as the Computer campaign's job aid ([[PI-3/pi3-physical-computer-data-validation-stories|PV-4]]).
+9. Confirmed with SV-5's owner whether this article fulfills SV-5's "quick-reference job aid" criterion, so the two stories don't duplicate the same deliverable.
+
+**Dependencies:** SV-1 (process flow this KB must match), ADO 1603551 (the example policy — confirm current state and that AC #6's filter gap is resolved before final screenshots), DEP-8 (if `managed_by_group` turns out not to be the correct assignment field, "Technical Owner Group" language throughout the article needs to change).
+
+---
+
+## Dependencies (8)
 
 **Work item type:** Dependency · **Linked to:** Feature 1517032 (Blocked By) · **Area path:** A-INFOPS\FY26\PI3
 
@@ -392,6 +537,26 @@ Each dependency is stated as **Problem** (why it blocks) + **Acceptance criteria
 - [ ] "Mandatory" interpretation confirmed with Ray / CCB — scoring designation vs enforced field constraint
 - [ ] Enforcement mode decided (scored-only, Recommended, or Mandatory-on-manual-create-only) so SV-2 can configure without breaking inserts
 - [ ] Decision fed into DEP-3 (dictionary) and SV-1/SV-2/SV-4; [[cmdb-health-completeness-correctness-stories|CP-2]] updated to match
+
+---
+
+### DEP-8 · Confirm `managed_by_group` vs `support_group` for certification task assignment
+
+| Field | Value |
+|-------|-------|
+| Title | [Dependency] Confirm assignment group field (`managed_by_group` vs `support_group`) — Feature 1517032 |
+| Assigned To | Manuel Vazquez |
+| Priority | 3 |
+| State | Open — **working assumption in use: `managed_by_group`, not yet confirmed** |
+| Due Date | TBD |
+
+**Problem:** SV-2's certification tasks need a group-field assignment to spread attestation load beyond a single named CI Owner (e.g., Ray individually owns 2,510 Windows servers). `managed_by_group` (Technical Owner Group) and `support_group` (ITSM Support Group) are confirmed to be **"mostly the same group, although not always"** (2026-09-10, per Q5 on [[Config-Mgmt-Plan/ownership-terminology-mapping]]). For the servers where they diverge, `support_group` is the field that drives real operational routing (incidents, etc.); `managed_by_group` is documented elsewhere as a lower-impact governance/reporting field. Assigning on the wrong one in the divergent slice risks routing certification to a group not actually engaged with the CI. Proceeding on `managed_by_group` as a working assumption for now — not yet verified as correct, and the divergent population has not been quantified.
+
+**Acceptance criteria:**
+- [ ] Quantify the Server population where `managed_by_group` and `support_group` diverge
+- [ ] Confirm with Ray Reuter / class managers which field should drive certification task assignment
+- [ ] Confirm how CMDB Data Manager technically handles assignment to a group field (shared task any member can complete vs. fan-out) before relying on it to "share the burden"
+- [ ] SV-2 updated if the working assumption (`managed_by_group`) turns out to be wrong
 
 ---
 

@@ -4,7 +4,7 @@ workspace: Work
 project: CMDB-CSDM
 dependency-team: SailPoint / IAM
 status: draft
-updated: 2026-09-02
+updated: 2026-09-10
 tags: [work, cmdb-csdm, dependencies, sailpoint, iam, sox, governance]
 relationships:
   - target: "[[Backlog/service-instance-modify-storyA-core]]"
@@ -27,6 +27,11 @@ PPL is migrating identity governance onto **SailPoint IdentityIQ** (on-prem; con
 
 > **Status: DRAFT — analysis only.** Built 2026-09-02 from *SailPoint Apps Needing CMDB Priority.xlsx* (source in `Downloads`, **not in vault** — same handling as [[Backlog/airlift-plan-evaluation]]). No ADO items created. The CMDB ask has **not** been confirmed with Jordan; see SP-5.
 
+> **⚠️ Update 2026-09-10 — escalation from Pepa's side, and a date conflict.** Communications from 2026-09-02 through 09-09 (Pepa Dipisa, via Sonika Das; Adam Griffis after discussion with Kyle Zolnierz) show this is no longer a background dependency:
+> - Pepa/Sonika raised concern that **CMDB readiness could put a SailPoint/SuccessFactors go-live on December 21 at risk**, and asked for a **dedicated CMDB resource** and a consistent point of contact.
+> - **December 21 does not match any date in the Release waves table below** (next wave is 2027-02-01). Either Dec 21 is a separate/nearer milestone not captured in the source workbook, or the wave dates here are stale. **Unresolved — confirm with Sonika/Jordan before treating either date as planning input.** See SP-8.
+> - Adam Griffis independently reconfirmed the SP-5 inference: the real ask is accurate ownership, support-group, and approver data on Business Application records — Service Mapping remains "nice to have," not required.
+
 ---
 
 ## Contacts
@@ -34,7 +39,7 @@ PPL is migrating identity governance onto **SailPoint IdentityIQ** (on-prem; con
 | Role | Name | Note |
 |------|------|------|
 | Coordination / escalation | Jordan Yung | Owns SailPoint alignment; key CO6+ scope resource |
-| IAM POC | Pepper | Recorded POC for SOX-flagged CI ownership notification content/recipients |
+| IAM POC | Pepa Dipisa (recorded elsewhere as "Pepper" — same person, confirmed 2026-09-10) | POC for SOX-flagged CI ownership notification content/recipients; now also raising SailPoint go-live risk directly — see SP-8 |
 | Cybersecurity (CCB) | Jason Dubreuil | CCB Consulting Member — Cybersecurity & Compliance |
 | SOX distribution | ISDITCYBERCompliance@pplweb.com | Recipient list per story 1455827 acceptance criteria |
 | ServiceNow Enhancements PO | JP Nair | Owns SailPoint→ServiceNow ticket fulfilment integration |
@@ -231,6 +236,25 @@ Given how the CO5 holdback played out ($533,775 gated on final acceptance), an u
 
 ---
 
+### SP-8 · Reconcile the December 21 go-live claim; resource/POC ask
+
+| Field | Value |
+|---|---|
+| Assigned To | Manuel Vazquez → Sonika Das / Jordan Yung |
+| Priority | **1** |
+| State | Open — **raised directly by Pepa/Sonika, 2026-09-02/09** |
+| Due Date | TBD — set once Dec 21 is confirmed or ruled out |
+
+**Problem:** Pepa Dipisa, via Sonika Das, told the team a SailPoint/SuccessFactors go-live on **December 21** could be at risk due to CMDB pace, and asked for a dedicated CMDB resource and a consistent point of contact. This is the first time a date has been raised that doesn't appear in the Release waves table (next wave 2027-02-01) — either it is a real, nearer milestone this tracker has missed, or it is a miscommunication that will cause the team to plan against the wrong deadline. Separately, this is the same conversation Chad Hayden's [[ppl-responsiveness-escalation]] concern is about — a resourcing/engagement ask, not just a data ask.
+
+**Acceptance criteria:**
+- [ ] Confirm with Sonika Das and/or Jordan Yung whether December 21 is a real milestone, and if so what it covers (all 70 apps? a subset? SuccessFactors only?)
+- [ ] If real, reconcile against the 2027-02-01/02-22/03-15 wave dates — determine whether this tracker's source workbook is outdated
+- [ ] Decide on and communicate a consistent CMDB point of contact for the SailPoint/IAM thread (currently split across Manuel, Jordan, Stan)
+- [ ] Resource ask (dedicated CMDB support) either accepted, scoped, or explicitly declined with reasoning back to Pepa/Sonika
+
+---
+
 ## Sequence
 
 ```
@@ -243,10 +267,11 @@ SP-5 (what does SailPoint need? — Jordan) ── BLOCKS ALL PLANNING
    └─► SP-2 (Story A SOX block / Story B date)
 
 SP-3 (1455827 sequencing) ── INDEPENDENT, act this week
+SP-8 (Dec 21 claim / resource ask) ── INDEPENDENT, act now — raised directly by the customer
 ```
 
 **Critical path:** SP-5 → SP-4/SP-1 → SP-6 → SP-7, with PI-4 planning as the hard deadline.
-**Act now regardless:** SP-3 — the timing advantage exists only until 1455827 deploys.
+**Act now regardless:** SP-3 — the timing advantage exists only until 1455827 deploys. **SP-8 — until Dec 21 is confirmed or ruled out, don't reassure anyone using the 2027 wave dates.**
 
 ---
 
