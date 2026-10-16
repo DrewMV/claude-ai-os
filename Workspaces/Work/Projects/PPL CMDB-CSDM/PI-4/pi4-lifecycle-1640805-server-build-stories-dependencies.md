@@ -37,6 +37,8 @@ Objective 4 (**1639075**) · AP00288 **D10** · Requirements Sprint 4.2 (Nov 11)
 
 > **Status: DRAFT (2026-10-16)** — no stories exist in ADO yet. Per [[Backlog/definition-of-ready]], create every item from the Feature "+" link, never standalone.
 
+> **Use [[PI-4/pi4-lifecycle-1640805-ado-ready-items]] as the creation list.** That file merges this draft with the team's own decomposition into 11 ADO-ready items (S1–S11) and supersedes the SB-numbered items below for the purpose of raising work in ADO. **This file remains the reasoning record** — the contract reconciliation, the dependency table (DEP-1…DEP-11) and the risk register are here and are referenced from there by number.
+
 > **Objective ID note:** the parent objective was given as "16390" — the full ADO ID per the Oct 8 official list is **1639075** (*Implement CMDB Lifecycle Management Process Flows*, AP00288 §3.4). Confirm before creating items, since the "+" link has to come off the right parent.
 
 Applies **Template B — Lifecycle process flow** from [[Backlog/feature-story-templates]] (3 requirements items · 5 build · 3 promote), adapted to what this feature actually runs into.
