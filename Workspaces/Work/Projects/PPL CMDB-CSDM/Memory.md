@@ -4,7 +4,7 @@ workspace: Work
 project: PPL CMDB-CSDM
 status: active
 created: 2026-06-01
-updated: 2026-09-17
+updated: 2026-10-15
 tags: [work, agile, safe, cmdb-csdm, servicenow]
 ---
 
@@ -266,6 +266,7 @@ _See [[PI-2/Memory]] for PI-level decisions._
 - [[csdm5-terminology]] — **CSDM 5 (Yokohama):** Application Service renamed to Service Instance (Application Service now a *type* of Service Instance). Use "Service Instance / Application Service"; verify PPL's version with Stan Tomberg.
 - [[Config-Mgmt-Plan/cmdb-ownership-scoping-matrix]] — **AUTHORITATIVE (v2.0):** Scoped attribute mapping across Business Applications, Application Services, and Hardware Classes; includes CSDM governance axioms. Source: `cmdb_ownership_attributes_scoping_matrix-v2.xlsx`. Ingested 2026-09-16.
 - [[Config-Mgmt-Plan/cmdb-csdm-attribute-schema]] — **AUTHORITATIVE (v2.0):** Per-attribute narrative (field type, class scope, governance role, key question, platform functionality) for all 9 CMDB ownership/management attributes. Source: `servicenow_cmdb_csdm_attribute_schema-v2.docx`. Ingested 2026-09-16.
+- [[Config-Mgmt-Plan/application-ownership-framework]] — **DRAFT (v2, not ratified):** EA's Application Ownership Framework — one Business Owner (A) + one IT Owner (R) per app, 12 app types, Mode 1 (business-owned) vs Mode 2 (IT-owned tool). Review found it names roles but never maps them to ServiceNow fields (collides with the open `managed_by` / "CI Owner" CCB item), omits the decision tree it references, and leaves "home every app" unsized. 7 open questions (AOF-1–7). Source deck ingested 2026-10-15.
 - [[requirements-process]] — end-to-end requirements flow
 - [[Dependencies/servicenow-enhancements]] — cross-team dependency tracker
 - [[nowassist-implementation-plan]] — 5-phase NowAssist AI roadmap (Duplicate CI Elimination → NL Search → Guided CI Creation → Governance Advice → NASK); primary driver for PI-2 Obj 5 and PI-3 objectives

@@ -175,11 +175,13 @@ for x, title, colour, body in CARDS:
     tf.margin_top = Inches(0.14)
     tf.vertical_anchor = MSO_ANCHOR.TOP
     p = tf.paragraphs[0]
+    p.alignment = PP_ALIGN.LEFT
     r = p.add_run()
     r.text = title
     r.font.name, r.font.size, r.font.bold = "Calibri", Pt(11.5), True
     r.font.color.rgb = colour
     p2 = tf.add_paragraph()
+    p2.alignment = PP_ALIGN.LEFT
     r2 = p2.add_run()
     r2.text = body
     r2.font.name, r2.font.size = "Calibri", Pt(10)
@@ -192,11 +194,13 @@ tf = w.text_frame
 tf.margin_left = tf.margin_right = Inches(0.20)
 tf.margin_top = Inches(0.12)
 p = tf.paragraphs[0]
+p.alignment = PP_ALIGN.LEFT
 r = p.add_run()
 r.text = "Watch"
 r.font.name, r.font.size, r.font.bold = "Calibri", Pt(11.5), True
 r.font.color.rgb = GOLD
 p2 = tf.add_paragraph()
+p2.alignment = PP_ALIGN.LEFT
 for text, bold in [
     ("D11 finishes on its gate date with no validation margin, and its "
      "validate-and-release window falls in the IP iteration where capacity goes to "

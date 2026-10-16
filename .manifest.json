@@ -392,6 +392,16 @@
       "project": "PPL CMDB-CSDM",
       "pages_created": [],
       "pages_updated": ["Workspaces/Work/Projects/PPL CMDB-CSDM/PI-3/pi3-cmdb-csdm-ado-tracking.md"]
+    },
+    "C:\\Users\\manuel.b.vazquez\\Documents\\Application_Ownership_Framework_v2.pptx": {
+      "ingested_at": "2026-10-15T00:00:00Z",
+      "size_bytes": 74921,
+      "modified_at": "2026-10-15T21:06:03Z",
+      "content_hash": "sha256:149789ed5c61ec3c9069422a92a36ca635ed95e15262c68c01f0a634d89c89bb",
+      "source_type": "document",
+      "project": "PPL CMDB-CSDM",
+      "pages_created": ["Workspaces/Work/Projects/PPL CMDB-CSDM/Config-Mgmt-Plan/application-ownership-framework.md"],
+      "pages_updated": []
     }
   }
 }

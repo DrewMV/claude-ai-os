@@ -44,6 +44,7 @@ Auto-maintained index of all wiki pages. Updated by `/wiki-ingest`, `/wiki-updat
 - [pi3-nd-1516993-stories-dependencies](../Workspaces/Work/Projects/PPL%20CMDB-CSDM/PI-3/pi3-nd-1516993-stories-dependencies.md) — Feature 1516993 stories (ND-1–5) and dependencies (DEP-1–6) with ADO-ready AC; Sprint 3.1, CO6 Aug 31
 - [cyber-risk-register-submission](../Workspaces/Work/Projects/PPL%20CMDB-CSDM/cyber-risk-register-submission.md) — How to submit a risk to the PPL Cyber Risk Register via OneTrust; process owned by Cyber Risk team
 - [CMDB Audit Update - PI2/PI3 (2026-08-20)](../Workspaces/Work/Projects/PPL%20CMDB-CSDM/Audit-Readiness/CMDB-Audit-Update-PI2-PI3-2026-08-20.pptx) — 3-slide CMDB Audit Sync deck: PI2 governance foundation (Data Dictionary CCB-ratified, ESS-02 closed, BA cert pilot) + PI3 certification/discovery execution
+- [application-ownership-framework](../Workspaces/Work/Projects/PPL%20CMDB-CSDM/Config-Mgmt-Plan/application-ownership-framework.md) — EA's v2 Application Ownership Framework (12 app types, Mode 1/Mode 2, decision matrix, role cards) + review findings; field mapping to ServiceNow still open
 
 ### Projects/Python-Automation
 - [python-document-automation](../Workspaces/Work/Projects/Python-Automation/python-document-automation.md) — PDF splitting (PyMuPDF + Ghostscript), PowerPoint generation (python-pptx, MGB brand)

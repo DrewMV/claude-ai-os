@@ -6,7 +6,7 @@ pi: PI-4
 status: future
 start: 2026-10-28
 end: 2027-02-02
-updated: 2026-10-12
+updated: 2026-10-16
 tags: [work, safe, pi-planning, cmdb-csdm]
 ---
 
@@ -65,6 +65,7 @@ From the **official ADO objectives and features list as of 2026-10-08** (A-INFOP
 - **New Nov 30, 2026 gate is unevidenced in ADO** — AP00288 D3 requires 15 service maps by Nov 30. Nov 30 falls inside Sprint 4.3 (Nov 25 – Dec 8). ADO 1642237 is a single 30-map item in Sprint 4.1; if it lands on time the gate is met early, but there is no separate deliverable to evidence. **This gate carries the November invoice of $478,197 — the largest single milestone in the contract.**
 - **ADO 1639239 (Qualys POC) is outside contract scope** — AP00288 requires two of three integrations; this is a third. Decide whether to keep it as uncontracted value-add, defer it, or seek a change order.
 - **Three-business-day deemed acceptance** — if PPL does not respond in writing within three business days, a deliverable is automatically accepted. Tighter than the ESA default; make sure delivery notifications are tracked.
+- **ADO acceptance criteria are stricter than the AP00288 contract text on the lifecycle deliverables.** Verified against the SOW for **D10** (1640805, Server Build Lifecycle Process Flow): the contract asks only that *"a CMDB process flow is configured … enabling new servers to be accurately reflected in the CMDB upon provisioning"*, **Format: XML**. The ADO feature adds three obligations the contract does not carry — a documented-and-approved process flow, mandatory attributes populated at build time, and "live and in use" by Feb 2. Each sits on the critical path, and the attribute one implies a CCB data-dictionary change. **D11** (1640819, Server Decommission) is worded in parallel — *"configured … accurately reflected in the CMDB upon decommissioning"*, Format XML — so its ADO acceptance criteria should be checked the same way; not yet verified. Keeping the higher bar is defensible, but it should be an explicit PO decision. Detail and the reconciliation are in [[PI-4/pi4-lifecycle-1640805-server-build-stories-dependencies]].
 
 ## Sources
 
