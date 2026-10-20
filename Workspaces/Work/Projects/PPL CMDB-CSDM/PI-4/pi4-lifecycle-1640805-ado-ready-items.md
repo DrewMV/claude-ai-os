@@ -99,6 +99,8 @@ Production deployment is planned for **Sprint 4.4, before Dec 22**, rather than 
 
 **Sprint 4.3, weeks 1–2** · **Timeboxed — hard stop at the end of 4.3**
 
+> **Superseded.** A1 exists in ADO as **Spike 1656313**, with A2 folded into it as an exit gate. The current version — workshop-led, with the Thanksgiving calendar as an explicit constraint — is [[PI-4/pi4-lifecycle-1656313-server-build-spike-workshop]]. The criteria below are the pre-ADO draft; read them for the reasoning, not as the current acceptance criteria.
+
 Establish how servers are provisioned today, and design the target flow, state model and Discovery coexistence well enough for build to start.
 
 **Acceptance criteria**
